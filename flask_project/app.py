@@ -4,8 +4,6 @@ application = Flask(__name__)
 @application.route("/")
 def hello():
     return render_template("index.html")
-if __name__ == "__main__":
-    application.run(host='0.0.0.0')
 
 @application.route("/list")
 def view_list():
@@ -19,3 +17,5 @@ def reg_item():
 @application.route("/reg_reviews")
 def reg_review():
     return render_template("reg_reviews.html")
+if __name__ == "__main__":
+    application.run(host='0.0.0.0')
