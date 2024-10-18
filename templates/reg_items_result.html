@@ -1,3 +1,8 @@
+
+{%extends "index.html" %}
+
+{%block section%}
+화면 입니다.
 <p>
     Seller {{data.seller}} sells {{data.name}} and its category is {{data.category}}.
     The item is
@@ -8,7 +13,7 @@
     {% if data['status'] == "used" %} used!
     {% endif %}
 </p>
-
+<img src="{{img_path}}" />
 <p>
     Contact via {{data.email}} or {{data.phone}} if you are interested!
     The address is {{data.addr}}
@@ -19,12 +24,5 @@
     {% endif %}
 </p>
 
-<p>
-    Seller {{data.seller}} sells {{data.name}} and its category is {{data.category}}.
-    The item is
-    {% if data['status'] == "lnew" %}
-    ...used!
-    {% endif %} </p>
-<img src="{{img_path}}" />
-<p>Contact via {{data.email}} or {{data.phone}} if you are interested! ....
-    {% endif %} </p>
+{%endblock section%}
+

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request  
+from flask import Flask, render_template, request   # type: ignore
 
 application = Flask(__name__)  
 
@@ -22,7 +22,7 @@ def reg_item():
 def reg_review():  
     return render_template("reg_reviews.html")  
 
-@application.route("/submit_item", methods=["GET", "POST"])  
+@application.route("/submit_item", methods=["GET"])  
 def reg_item_submit():  
     name = request.args.get("name")   
     seller = request.args.get("seller")  
@@ -34,4 +34,15 @@ def reg_item_submit():
     phone = request.args.get("phone")  
     
     print(name, seller, addr, email, category, card, status, phone)   
-    return render_template("reg_item.html")  # Adjust the template as needed  
+    #return render_template("reg_item.html") 
+    
+@application.route("/submit_item_post", methods=["POST"])
+def reg_item_submit_post():
+    image_file=request.files["file"] 
+    image_file.save("static/images/{}".format(image_file.filename)) 
+    data=request.form
+    return render_template("reg_items_result.html", data=data, 
+                           img_path="static/images/{}".format(image_file.filename))
+    
+if __name__ == "__main__":
+    application.run(host='0.0.0.0', debug=True)
