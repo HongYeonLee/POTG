@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POTG</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
     <script src="https://kit.fontawesome.com/2f343c6dc2.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='main.js') }}" defer></script>
     {% block custom_css %}
-    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
     {% endblock %}
 </head>
 
 <body>
-    <div>
+    <div class = "index_div">
         <div class = "top">
             <div class = "signUpAndLogIn">
                 <a href="/signUp.html" class = "signUpBtn">회원가입</a>
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <nav id ="header" class = "tapBox">
+        <div id ="header" class = "tapBox">
             <div class="tap">
                 <div class="leftSection">
                     <div class="cartegoryBox">
@@ -72,12 +72,11 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
     </div>
     <section>
         {% block section %}
         {% endblock section %}
     </section>
 </body>
-
 </html>
