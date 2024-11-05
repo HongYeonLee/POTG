@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POTG</title>
+    <link rel="stylesheet" href="review_Vieweach.css">
+</head>
+<body>
+
+
+
+<div class="content">
+    <h2>이번 주 인기 리뷰</h2>
+    <hr class="divider">
+
+    <div class="review-section">
+        <div class="review-img-box">
+            <img src="../POTG/static/image/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img">
+        </div>
+        
+        <div class="review-details">
+            <h3 class="review-title">제목: 최고의 고구마</h3>
+            <div class="user-info">
+                <p class="author">👤 <span class="author-background">ilovedog</span></p>
+                <span class="emoji">👍 👎</span>
+                <div class="rating">
+                    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    <span>(5점)</span>
+                </div>
+            </div>
+            
+            <div class="review-content-box">
+                <p>고구마가 너무 달콤하고 맛있어요. 해남 고구마는 처음 먹어보는데 완전 부드러워요. 강아지랑 나눠먹었더니 강아지가 통통해졌어요.</p>
+            </div>
+
+            <div class="product-box">
+                <img src="고구마.jpg" alt="Sweet potato" class="product-img">
+                <div class="product-details">
+                    <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p>
+                    <p><s class="original-price">20900원</s> <span class="discount-price">16900원</span></p>
+
+                    <div class="product-icons">
+                        <span class="icon">❤️</span>
+                        <span class="icon">🛒</span>
+                    </div>
+                    <button>공동구매 열기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    // URL에서 쿼리 파라미터 추출
+    function getReviewIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id');
+    }
+    
+    // 리뷰 ID에 따라 다양한 데이터를 정의
+    const reviewsData = {
+        "1": {
+            title: "최고의 고구마",
+            content: "고구마가 너무 달콤하고 맛있어요. 해남 고구마는 처음 먹어보는데 완전 부드러워요. 강아지랑 나눠먹었더니 강아지가 통통해졌어요.",
+            reviewImage: "../POTG/static/image/고구마_리뷰사진.jpg",
+            author: "ilovedog",
+            productName: "해남 밤고구마 1kg",
+            productImage: "../POTG/static/image/고구마.jpg",
+            originalPrice: "20900원",
+            discountPrice: "16900원"
+        },
+        "2": {
+            title: "저희 집 토끼도 좋아해요",
+            content: "토순이가 배고파하길래 같이 나눠 먹었어요. 너무 신선해서 토순이가 씹을 때마다 아삭아삭 소리가 나네요 ㅎㅎ!",
+            reviewImage: "../POTG/static/image/상추_리뷰사진.jpg",
+            author: "1일1채소",
+            productName: "유기농 청상추 500g",
+            productImage: "../POTG/static/image/상추.jpg",
+            originalPrice: "5900원",
+            discountPrice: "4900원"
+        },
+        "3": {
+            title: "오이팩도 가능해요 ㅎㅎ",
+            content: "오이무침을 하고 남은 오이로 오이팩을 해봤어요. 저희 집 고양이도 하고 싶어하는 듯 해서 함께 했어요!",
+            reviewImage: "../POTG/static/image/오이_리뷰사진.jpg",
+            author: "고양이사랑",
+            productName: "아삭오이 2묶음",
+            productImage: "../POTG/static/image/오이.jpg",
+            originalPrice: "8900원",
+            discountPrice: "6800원"
+        },
+
+        "4": {
+            title: "오이팩도 가능해요 ㅎㅎ",
+            content: "럭키 계란이에요! 계란 노른자가 웃고 있었어요 ㅎㅎ 덕분에 기분이 좋아졌답니다!",
+            reviewImage: "../POTG/static/image/계란_리뷰사진.jpg",
+            author: "egglover",
+            productName: "유정란 백색 계란 30구",
+            productImage: "../POTG/static/image/계란.jpg",
+            originalPrice: "10900원",
+            discountPrice: "8900원"
+        }
+    };
+    
+    
+    function displayReviewContent() {
+    const reviewId = getReviewIdFromUrl();
+    const review = reviewsData[reviewId];
+
+    if (review) {
+        // 각 HTML 요소에 맞게 데이터를 삽입
+        document.querySelector('.review-title').innerText = `제목: ${review.title}`;
+        document.querySelector('.review-content-box p').innerText = review.content;
+        document.querySelector('.review-img').src = review.reviewImage;
+        document.querySelector('.author-background').innerText = review.author;
+        document.querySelector('.product-title').innerText = review.productName;
+        document.querySelector('.product-img').src = review.productImage;
+        document.querySelector('.original-price').innerText = review.originalPrice;  // 기존 가격
+        document.querySelector('.discount-price').innerText = review.discountPrice;  // 할인된 가격
+    } else {
+        document.querySelector('.review-content-box p').innerText = "리뷰 정보를 찾을 수 없습니다.";
+    }
+}
+
+    
+   
+    window.onload = displayReviewContent;
+    </script>
+
+
+</html>

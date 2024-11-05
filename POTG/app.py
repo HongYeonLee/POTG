@@ -14,9 +14,9 @@ def view_list():
     return render_template("fullproduct.html")
 
 
-@application.route("/review")
+@application.route("/review_ViewAll")
 def view_review():
-    return render_template("review.html")
+    return render_template("review_ViewAll.html")
 
 
 @application.route("/registerItem.html")
@@ -27,7 +27,6 @@ def reg_item():
 @application.route("/reg_reviews")
 def reg_review():
     return render_template("reg_reviews.html")
-
 
 @application.route("/submit_item")
 def reg_item_submit():

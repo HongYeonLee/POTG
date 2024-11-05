@@ -1,0 +1,228 @@
+/* 전체 초기 설정 */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '이화체.ttf', sans-serif;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('../fonts/이화체.ttf') format('ttf');
+        
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'MyFont', Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    overflow-y: scroll;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #00462A;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header input[type="text"] {
+    flex: 1;
+    margin: 0 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.icons span {
+    margin-left: 15px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ddd;
+}
+
+.popular-reviews {
+    text-align: center;
+    padding: 60px 40px;
+    background-color: #ffffff;
+}
+
+.popular-reviews h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00462A;
+}
+
+.review-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-item {
+    width: 23%; 
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+/* 이미지와 아이콘 열 */
+.review-image-container {
+    position: relative;
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column; 
+    cursor: pointer; 
+}
+
+.review-image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: opacity 0.3s; 
+}
+
+.review-image-container:hover img {
+    opacity: 0.6; 
+}
+
+.review-image-container:hover .overlay {
+    display: flex; /* 마우스 올리면 텍스트 보이기 */
+}
+
+.title {
+    font-weight: bold;
+    color: #00462A;
+    font-size: 20px; 
+    text-align: center; 
+    margin: 10px 0; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100%; 
+}
+
+.overlay {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px; 
+}
+
+
+.icon-column {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; 
+}
+
+.icon-box {
+    width: 30px;
+    height: 30px;
+    background-color: white; 
+    color: #00462A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    
+}
+
+/* 구분선 */
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+/* 작성자 스타일 */
+.author {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.author-background {
+    background-color: #e0f7e0; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+}
+
+.product {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold; 
+}
+
+.product-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.pagination a {
+    color: #00462A;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #00462A;
+    color: white;
+}
+
