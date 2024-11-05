@@ -118,6 +118,10 @@ nav a:hover {
     opacity: 0.6; 
 }
 
+.review-image-container:hover .overlay {
+    display: flex; /* 마우스 올리면 텍스트 보이기 */
+}
+
 .title {
     font-weight: bold;
     color: #00462A;

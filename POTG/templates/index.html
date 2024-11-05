@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POTG</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
-    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../static/indexStyle.css"> -->
     <script src="https://kit.fontawesome.com/2f343c6dc2.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+    {% block custom_css %}
+    {% endblock %}
 </head>
 
 <body>
@@ -62,7 +64,7 @@
                             <span class="eachNavTextBox"><a href="">리뷰 작성</a></span>
                         </li>
                         <li class="eachNavBox">
-                            <span class="eachNavTextBox"><a href="">리뷰 조회</a></span>
+                            <span class="eachNavTextBox"><a href="/review_ViewAll">리뷰 조회</a></span>
                         </li>
                         <li class="eachNavBox">
                             <span class="eachNavTextBox"><a href="">공동 구매</a></span>
