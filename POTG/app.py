@@ -8,23 +8,24 @@ application = Flask(__name__)
 def hello():
     return render_template("index.html")
 
+@application.route("/signUp.html")
+def view_signUp():
+    return render_template("signUp.html")
 
 @application.route("/fullproduct.html")
 def view_list():
     return render_template("fullproduct.html")
 
 
-@application.route("/review_ViewAll")
+@application.route("/review_ViewAll.html")
 def view_review():
     return render_template("review_ViewAll.html")
-
 
 @application.route("/registerItem.html")
 def reg_item():
     return render_template("registerItem.html")
-
-
-@application.route("/reg_reviews")
+d
+@application.route("/review_write1.html")
 def reg_review():
     return render_template("reg_reviews.html")
 

@@ -63,7 +63,7 @@ a {
     letter-spacing: -0.3px;
 }
 
-.signInAndLogIn{
+.signUpAndLogIn{
     position: absolute;
     right: 0px;
     top: 10px;
@@ -74,7 +74,7 @@ a {
     font-size: 15px;
 }
 
-.signInBtn{
+.signUpBtn{
     display: block;
     color: rgb(0, 70, 42);
     cursor: pointer;
