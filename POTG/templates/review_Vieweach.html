@@ -1,13 +1,13 @@
 {% extends "index.html" %}
 
-{% block title %}이번 주 인기 리뷰{% endblock %}
 
-{% block stylesheet %}
-<link rel="stylesheet" href="review_Vieweach.css">
+{% block custom_css %}
+    <link rel="stylesheet" href="review_Vieweach.css">
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
 {% endblock %}
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="../static/review_Vieweach.css">
 
 </head>
-
+-->
 
 <body>
-    {% block content %}
+{% block content %}
 <div class="content">
     <h2>이번 주 인기 리뷰</h2>
     <hr class="divider">
@@ -60,7 +60,7 @@
         </div>
     </div>
 </div>
-
+{% endblock content%}
 </body>
 
 
@@ -139,8 +139,8 @@
 
     
    
-    window.onload = displayReviewContent;
-    </script>
+window.onload = displayReviewContent;
+</script>
 </body>
 
 </html>
