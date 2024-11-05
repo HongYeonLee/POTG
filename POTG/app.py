@@ -16,9 +16,10 @@ def view_signUp():
 def view_list():
     return render_template("fullproduct.html")
 
-@application.route("/review")
+
+@application.route("/review_ViewAll")
 def view_review():
-    return render_template("review.html")
+    return render_template("review_ViewAll.html")
 
 @application.route("/registerItem.html")
 def reg_item():
@@ -26,7 +27,7 @@ def reg_item():
 
 @application.route("/review_write1.html")
 def reg_review():
-    return render_template("review_write1.html")
+    return render_template("reg_reviews.html")
 
 @application.route("/submit_item")
 def reg_item_submit():
