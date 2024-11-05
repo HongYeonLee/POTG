@@ -8,26 +8,25 @@ application = Flask(__name__)
 def hello():
     return render_template("index.html")
 
+@application.route("/signUp.html")
+def view_signUp():
+    return render_template("signUp.html")
 
 @application.route("/fullproduct.html")
 def view_list():
     return render_template("fullproduct.html")
 
-
 @application.route("/review")
 def view_review():
     return render_template("review.html")
-
 
 @application.route("/registerItem.html")
 def reg_item():
     return render_template("registerItem.html")
 
-
-@application.route("/reg_reviews")
+@application.route("/review_write1.html")
 def reg_review():
-    return render_template("reg_reviews.html")
-
+    return render_template("review_write1.html")
 
 @application.route("/submit_item")
 def reg_item_submit():
