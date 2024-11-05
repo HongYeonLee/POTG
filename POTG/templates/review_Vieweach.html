@@ -1,15 +1,21 @@
-<!DOCTYPE html>
+{% extends "index.html" %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="review_Vieweach.css">
+{% endblock %}
+
+<!--<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POTG</title>
-    <link rel="stylesheet" href="review_Vieweach.css">
+    
 </head>
-<body>
 
+-->
 
-
+{% block div %}
 <div class="content">
     <h2>이번 주 인기 리뷰</h2>
     <hr class="divider">
@@ -51,8 +57,10 @@
     </div>
 </div>
 
+{% endblock div %}
 </body>
 
+{% block script %}
 <script>
     // URL에서 쿼리 파라미터 추출
     function getReviewIdFromUrl() {
@@ -130,5 +138,5 @@
     window.onload = displayReviewContent;
     </script>
 
-
+{% endblock script %}
 </html>
