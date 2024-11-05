@@ -9,9 +9,9 @@ def hello():
     return render_template("index.html")
 
 
-@application.route("/list")
+@application.route("/fullproduct.html")
 def view_list():
-    return render_template("list.html")
+    return render_template("fullproduct.html")
 
 
 @application.route("/review")
@@ -19,9 +19,9 @@ def view_review():
     return render_template("review.html")
 
 
-@application.route("/reg_items")
+@application.route("/registerItem.html")
 def reg_item():
-    return render_template("reg_items.html")
+    return render_template("registerItem.html")
 
 
 @application.route("/reg_reviews")

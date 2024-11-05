@@ -5,30 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POTG</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+    <script src="https://kit.fontawesome.com/2f343c6dc2.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar__logo">
-                <a href="/">POTG</a>
+    <div>
+        <div class = "top">
+            <div class = "signInAndLogIn">
+                <a class = "signInBtn">회원가입</a>
+                <div class = "bar"></div>
+                <a class = "logIn">로그인</a>
+            </div>
+            <div class = "top2">
+                <div class = "top3">
+                    <a href="/"><img src = "../static/images/POTG로고.png" alt = "POTG로고" class = "logo" width="110px"></a>
+                    <img src = "../static/images/ProjectOfTheGenius로고.PNG" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px">
+                </div>
+                <div class = "top4">
+                    <div class = "searchBox">
+                        <input id = "search_input" placeholder= "검색어를 입력해주세요" required class = "searchBoxInner" value>
+                        <button id = "search_button" aria-label="search_button" class = "searchBoxBtn">
+                            <i class="fas fa-thin fa-magnifying-glass" style="color: #00462a;"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class = "top5">
+                    <div class = "userConvenienceIcon">
+                        <div class = "location"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
+                        <button class = "wishlistIcon" aria-label="찜하기" type = "button"><img src = "../static/images/찜.png"></button>
+                        <div class = "cartIconBox">
+                            <button class = "cartIcon"><img src = "../static/images/카트.png"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul class="navbar__menu">
-            <li><a href="/list">List</a></li>
-            <li><a href="/review">Review</a></li>
-            <li><a href="/reg_items">Register Items</a></li>
-            <li><a href="/reg_reviews">Register Reviews</a></li>
-        </ul>
-        <a href="#" class="navbar__toogleBtn">
-            <i class="fas fa-bars"></i>
-        </a>
-    </nav>
-    <!--js연결 확인용 버튼 추가-->
-    <input type="button" id="testBtn" value="js연결 테스트용 버튼"/>
+        <nav id ="header" class = "tapBox">
+            <div class="tap">
+                <div class="leftSection">
+                    <div class="cartegoryBox">
+                        <div class="cartegory">
+                            <button id = "cartegoryBtn"><img src="../static/images/카테고리바.png" class="ctg_bar"></button>
+                        </div>
+                    </div>
+                    <ul class="navigationBox">
+                        <li class="eachNavBox">
+                            <span class="eachNavTextBox"><a href="/registerItem.html">상품 등록</a> </span>
+                        </li>
+                        <li class="eachNavBox">
+                            <span class="eachNavTextBox"><a href="/fullproduct.html">상품 조회</a></span>
+                        </li>
+                        <li class="eachNavBox">
+                            <span class="eachNavTextBox"><a href="">리뷰 작성</a></span>
+                        </li>
+                        <li class="eachNavBox">
+                            <span class="eachNavTextBox"><a href="">리뷰 조회</a></span>
+                        </li>
+                        <li class="eachNavBox">
+                            <span class="eachNavTextBox"><a href="">공동 구매</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
     <section>
         {% block section %}
-
         {% endblock section %}
     </section>
 </body>
