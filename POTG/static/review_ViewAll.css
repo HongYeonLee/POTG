@@ -1,26 +1,5 @@
 /* 전체 초기 설정 */ 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: '이화체.ttf', sans-serif;
-}
 
-@font-face {
-    font-family: 'MyFont';
-    src: url('../fonts/이화체.ttf') format('ttf');
-        
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-body {
-    font-family: 'MyFont', Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    overflow-y: scroll;
-}
 
 header {
     display: flex;
