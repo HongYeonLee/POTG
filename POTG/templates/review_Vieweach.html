@@ -1,21 +1,25 @@
 {% extends "index.html" %}
 
-{% block custom_css %}
+{% block title %}이번 주 인기 리뷰{% endblock %}
+
+{% block stylesheet %}
 <link rel="stylesheet" href="review_Vieweach.css">
 {% endblock %}
 
-<!--<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POTG</title>
-    
+    <link rel="stylesheet" href="../static/review_Vieweach.css">
+
 </head>
 
--->
 
-{% block div %}
+<body>
+    {% block content %}
 <div class="content">
     <h2>이번 주 인기 리뷰</h2>
     <hr class="divider">
@@ -57,12 +61,12 @@
     </div>
 </div>
 
-{% endblock div %}
 </body>
 
-{% block script %}
+
 <script>
     // URL에서 쿼리 파라미터 추출
+    
     function getReviewIdFromUrl() {
         const params = new URLSearchParams(window.location.search);
         return params.get('id');
@@ -73,30 +77,30 @@
         "1": {
             title: "최고의 고구마",
             content: "고구마가 너무 달콤하고 맛있어요. 해남 고구마는 처음 먹어보는데 완전 부드러워요. 강아지랑 나눠먹었더니 강아지가 통통해졌어요.",
-            reviewImage: "../POTG/static/image/고구마_리뷰사진.jpg",
+            reviewImage: "../static/images/고구마_리뷰사진.jpg",
             author: "ilovedog",
             productName: "해남 밤고구마 1kg",
-            productImage: "../POTG/static/image/고구마.jpg",
+            productImage: "../static/images/고구마.jpg",
             originalPrice: "20900원",
             discountPrice: "16900원"
         },
         "2": {
             title: "저희 집 토끼도 좋아해요",
             content: "토순이가 배고파하길래 같이 나눠 먹었어요. 너무 신선해서 토순이가 씹을 때마다 아삭아삭 소리가 나네요 ㅎㅎ!",
-            reviewImage: "../POTG/static/image/상추_리뷰사진.jpg",
+            reviewImage: "../static/images/상추_리뷰사진.jpg",
             author: "1일1채소",
             productName: "유기농 청상추 500g",
-            productImage: "../POTG/static/image/상추.jpg",
+            productImage: "../static/images/상추.jpg",
             originalPrice: "5900원",
             discountPrice: "4900원"
         },
         "3": {
             title: "오이팩도 가능해요 ㅎㅎ",
             content: "오이무침을 하고 남은 오이로 오이팩을 해봤어요. 저희 집 고양이도 하고 싶어하는 듯 해서 함께 했어요!",
-            reviewImage: "../POTG/static/image/오이_리뷰사진.jpg",
+            reviewImage: "../static/images/오이_리뷰사진.jpg",
             author: "고양이사랑",
             productName: "아삭오이 2묶음",
-            productImage: "../POTG/static/image/오이.jpg",
+            productImage: "../static/images/오이.jpg",
             originalPrice: "8900원",
             discountPrice: "6800원"
         },
@@ -104,10 +108,10 @@
         "4": {
             title: "오이팩도 가능해요 ㅎㅎ",
             content: "럭키 계란이에요! 계란 노른자가 웃고 있었어요 ㅎㅎ 덕분에 기분이 좋아졌답니다!",
-            reviewImage: "../POTG/static/image/계란_리뷰사진.jpg",
+            reviewImage: "../static/images/계란_리뷰사진.jpg",
             author: "egglover",
             productName: "유정란 백색 계란 30구",
-            productImage: "../POTG/static/image/계란.jpg",
+            productImage: "../static/images/계란.jpg",
             originalPrice: "10900원",
             discountPrice: "8900원"
         }
@@ -137,6 +141,6 @@
    
     window.onload = displayReviewContent;
     </script>
+</body>
 
-{% endblock script %}
 </html>
