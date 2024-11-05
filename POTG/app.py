@@ -3,31 +3,40 @@ import sys
 
 application = Flask(__name__)
 
-
+# 홈
 @application.route("/")
 def hello():
     return render_template("index.html")
 
+# 회원가입
 @application.route("/signUp.html")
 def view_signUp():
     return render_template("signUp.html")
 
+# 상품 조회
 @application.route("/fullproduct.html")
 def view_list():
     return render_template("fullproduct.html")
 
-
+# 리뷰 조회
 @application.route("/review_ViewAll.html")
 def view_review():
     return render_template("review_ViewAll.html")
 
+# 상품 등록
 @application.route("/registerItem.html")
 def reg_item():
     return render_template("registerItem.html")
-d
+
+# 리뷰 작성1
 @application.route("/review_write1.html")
-def reg_review():
-    return render_template("reg_reviews.html")
+def reg_review1():
+    return render_template("review_write1.html")
+
+# 리뷰 작성2
+@application.route("/review_write2.html")
+def reg_review1():
+    return render_template("review_write2.html")
 
 @application.route("/submit_item")
 def reg_item_submit():

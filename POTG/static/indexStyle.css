@@ -45,12 +45,12 @@ li a:hover {
     color: rgb(0, 70, 42);
 } */
 
-.div {
+.index_div{
     display: block;
     unicode-bidi: isolate;
 }
 
-a {
+.index_div a{
     background-color: transparent;
     text-decoration: none;
 }
@@ -104,7 +104,7 @@ a {
     height: 63px;
 }
 
-img{
+.index_div img{
     border-style: none;
     border: 0;
     vertical-align: top;
@@ -112,7 +112,7 @@ img{
     overflow: clip;
 }
 
-.logo{
+.index_div .logo{
     flex: 0 0 82px;
 }
 
@@ -170,22 +170,22 @@ img{
     background-color: #ffffff;
 }
 
-button, select{
+.index_div button, select{
     text-transform: none;
 }
 
-button, input{
+.index_div button, input{
     overflow:visible;
 }
 
-button, input, optgroup, select, textarea{
+.index_div button, input, optgroup, select, textarea{
     font-family: inherit;
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
 }
 
-button{
+.index_div button{
     appearance: auto;
     text-rendering: auto;
     letter-spacing: normal;
@@ -208,7 +208,7 @@ button{
 
 }
 
-button, input, select, textarea{
+.index_div button, input, select, textarea{
     font-size: 14px;
     color: #333;
     cursor: pointer;
@@ -270,7 +270,7 @@ button, input, select, textarea{
     z-index: 300;
 }
 
-.tap {
+.tap{
     display: flex;
     justify-content: center;
     width: 1050px;
