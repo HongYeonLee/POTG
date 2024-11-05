@@ -17,14 +17,14 @@ def view_list():
     return render_template("fullproduct.html")
 
 
-@application.route("/review_ViewAll")
+@application.route("/review_ViewAll.html")
 def view_review():
     return render_template("review_ViewAll.html")
 
 @application.route("/registerItem.html")
 def reg_item():
     return render_template("registerItem.html")
-
+d
 @application.route("/review_write1.html")
 def reg_review():
     return render_template("reg_reviews.html")
