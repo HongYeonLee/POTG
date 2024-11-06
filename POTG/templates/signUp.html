@@ -135,8 +135,28 @@
                     </label>
                 </div>
                 <div class = "inputBox">
-                    <div class = "inputBox2">
-                        <div class = "inputBox3"></div>
+                    <div class = "inputBoxForGender">
+                        <label class = "selectGenderBox" for = "gender-woman">
+                            <input id = "gender-woman" name = "gender" type = "radio" class = "radioGenderBtn" value = "FEMALE">
+                            <span class = "radioOutCircleAfterClick">
+                                <div class = "radioInnderCircleAfterClick"></div>
+                            </span>
+                            <span aria-labelledby="gender-woman" class = "genderText">여자</span>
+                        </label>
+                        <label class = "selectGenderBox" for = "gender-man">
+                            <input id = "gender-man" name = "gender" type = "radio" class = "radioGenderBtn" value = "MALE">
+                            <span class = "radioOutCircleBeforeClick">
+                                <div class = "radioInnderCircleBeforeClick"></div>
+                            </span>
+                            <span aria-labelledby="gender-man" class = "genderText">남자</span>
+                        </label>
+                        <label class = "selectGenderBox" for = "gender-none">
+                            <input id = "gender-none" name = "gender" type = "radio" class = "radioGenderBtn" value = "none" checked>
+                            <span class = "radioOutCircleBeforeClick">
+                                <div class = "radioInnderCircleBeforeClick"></div>
+                            </span>
+                            <span aria-labelledby="gender-none" class = "genderText">선택안함</span>
+                        </label>
                     </div>
                 </div>
                 <div class = "rightMargin"></div>
@@ -148,8 +168,24 @@
                     </label>
                 </div>
                 <div class = "inputBox">
-                    <div class = "inputBox2">
-                        <div class = "inputBox3"></div>
+                    <div class = "entireBirthDayBox">
+                        <div class = "detailBirthDayBox">
+                            <div class = "detailInnerBirthDayBox">
+                                <input name = "birthYear" placeholder="YYYY" type = "text" height="40" class = "birthDayInput" value>
+                            </div>
+                        </div>
+                        <span class = "birthDayLine"></span>
+                        <div class = "detailBirthDayBox">
+                            <div class = "detailInnerBirthDayBox">
+                                <input name = "birthMonth" placeholder="MM" type = "text" height="40" class = "birthDayInput" value>
+                            </div>
+                        </div>
+                        <span class = "birthDayLine"></span>
+                        <div class = "detailBirthDayBox">
+                            <div class = "detailInnerBirthDayBox">
+                                <input name = "birthDay" placeholder="DD" type = "text" height="40" class = "birthDayInput" value>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class = "rightMargin"></div>

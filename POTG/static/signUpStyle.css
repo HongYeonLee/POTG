@@ -1,3 +1,12 @@
+*, :after, :before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*, :after, :before, legend, td, th {
+    padding: 0;
+}
+
 body{
     margin:0;
     user-select: one;
@@ -60,6 +69,15 @@ body, button, input, select, textarea {
 
 button, input[type=button], input[type=reset], input[type=submit] {
     cursor: pointer;
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+label {
+    cursor: default;
 }
 
 .d1{
@@ -237,5 +255,130 @@ button, input[type=button], input[type=reset], input[type=submit] {
     letter-spacing: -0.5px;
     color: rgb(128, 128, 128);
     height: 18px;
+}
+
+.inputBoxForGender{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.selectGenderBox{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 0px 9px;
+}
+
+.radioGenderBtn{
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0px, 0px, 0px, 0px);
+    cursor: pointer; 
+}
+
+.radioOutCircleBeforeClick{
+    font-size: 14px;
+    min-width: 24px;
+    min-height: 24px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.radioOutCircleAfterClick{
+    font-size: 14px;
+    min-width: 24px;
+    min-height: 24px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgb(0, 70, 42);
+}
+
+.radioInnderCircleBeforeClick{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.radioInnderCircleAfterClick{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: white;
+}
+
+.genderText{
+    font-size: 14px;
+    position: relative;
+    margin-left: 12px;
+}
+
+.entireBirthDayBox{
+    height: 44px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    padding: 0px 15px;
+}
+
+.detailBirthDayBox{
+    padding-bottom: 0px;
+}
+
+.birthDayLine{
+    height: 100%;
+}
+
+.detailInnerBirthDayBox{
+    position: relative;
+    height: 40px;
+}
+
+.detailBirthDayBox input{
+    text-align: center;
+    font-size: 14px;
+    border: none
+}
+
+.birthDayInput{
+    width: 100%;
+    height: 40px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(221, 221, 221);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 38px;
+    color: rgb(51, 51, 51);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.birthDayLine::after{
+    content: "/";
+    font-size: 14px;
+    color: rgb(204, 204, 204);
+    text-align: center;
+    line-height: 40px
 }
 
