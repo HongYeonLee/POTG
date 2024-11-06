@@ -38,6 +38,10 @@ def reg_review1():
 def reg_review2():
     return render_template("review_write2.html")
 
+@application.route("/grpurchase_ViewAll.html")
+def grpPurchase():
+    return render_template("grpurchase_ViewAll.html")
+
 @application.route("/submit_item")
 def reg_item_submit():
     name = request.args.get("name")
