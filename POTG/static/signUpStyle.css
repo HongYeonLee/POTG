@@ -190,6 +190,7 @@ label {
     outline: none;
     box-sizing: border-box;
     border: 0px;
+    border-radius: 4px;
 }
 
 .emialAt{
@@ -270,7 +271,7 @@ label {
     cursor: pointer; 
 }
 
-.radioOutCircleBeforeClick{
+.radioOutCircleClick{
     font-size: 14px;
     min-width: 24px;
     min-height: 24px;
@@ -281,27 +282,7 @@ label {
     border: 1px solid rgb(221, 221, 221);
 }
 
-.radioOutCircleAfterClick{
-    font-size: 14px;
-    min-width: 24px;
-    min-height: 24px;
-    display: inline-block;
-    position: relative;
-    border-radius: 50%;
-    background-color: rgb(0, 70, 42);
-}
-
-.radioInnderCircleBeforeClick{
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-
-.radioInnderCircleAfterClick{
+.radioInnderCircleClick{
     width: 10px;
     height: 10px;
     position: absolute;

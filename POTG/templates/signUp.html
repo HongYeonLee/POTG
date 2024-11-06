@@ -139,22 +139,22 @@
                         <label class = "selectGenderBox" for = "gender-woman">
                             <input id = "gender-woman" name = "gender" type = "radio" class = "radioGenderBtn" value = "FEMALE">
                             <!-- 클릭에 따라 span과 div의 class가 바뀌어야 함 또는 색깔 -->
-                            <span class = "radioOutCircleAfterClick">
-                                <div class = "radioInnderCircleAfterClick"></div>
+                            <span class = "radioOutCircleClick">
+                                <div class = "radioInnderCircleClick"></div>
                             </span>
                             <span aria-labelledby="gender-woman" class = "genderText">여자</span>
                         </label>
                         <label class = "selectGenderBox" for = "gender-man">
                             <input id = "gender-man" name = "gender" type = "radio" class = "radioGenderBtn" value = "MALE">
-                            <span class = "radioOutCircleBeforeClick">
-                                <div class = "radioInnderCircleBeforeClick"></div>
+                            <span class = "radioOutCircleClick">
+                                <div class = "radioInnderCircleClick"></div>
                             </span>
                             <span aria-labelledby="gender-man" class = "genderText">남자</span>
                         </label>
                         <label class = "selectGenderBox" for = "gender-none">
                             <input id = "gender-none" name = "gender" type = "radio" class = "radioGenderBtn" value = "none" checked>
-                            <span class = "radioOutCircleBeforeClick">
-                                <div class = "radioInnderCircleBeforeClick"></div>
+                            <span class = "radioOutCircleClick">
+                                <div class = "radioInnderCircleClick"></div>
                             </span>
                             <span aria-labelledby="gender-none" class = "genderText">선택안함</span>
                         </label>
@@ -207,7 +207,7 @@
                             <!-- js작성 필요 -->
                             <input id = "TermsAgreeAll" type = "checkbox" class = "inputForAgree">
                             <div class = "divForCheckBox">
-                                <img src = "../static/images/체크박스.png" style="width: 25px;">
+                                <img id = "TermsAgreeAllImg" src = "../static/images/체크박스1.png" style="width: 25px;">
                             </div>
                             <span style="margin-bottom: 5px; color: rgb(51, 51, 51);">전체 동의합니다</span>
                         </label>
@@ -217,7 +217,7 @@
                             <label class = "labelForTermsAgree" for = "RequiredTermsCondition">
                                 <input id = "RequiredTermsCondition" type = "checkbox" class = "inputForAgree">
                                 <div class = "divForCheckBox">
-                                    <img src = "../static/images/체크박스.png" style="width: 25px;">
+                                    <img id = "RequiredTermsConditionImg" src = "../static/images/체크박스1.png" style="width: 25px;">
                                 </div>
                                 <span style="margin-bottom: 5px;color: rgb(51, 51, 51);">이용약관동의</span>
                             </label>
@@ -229,7 +229,7 @@
                             <label class = "labelForTermsAgree" for = "RequiredTermsOfPrivacy">
                                 <input id = "RequiredTermsOfPrivacy" type = "checkbox" class = "inputForAgree">
                                 <div class = "divForCheckBox">
-                                    <img src = "../static/images/체크박스.png" style="width: 25px;">
+                                    <img id = "RequiredTermsOfPrivacyImg" src = "../static/images/체크박스1.png" style="width: 25px;">
                                 </div>
                                 <span style="margin-bottom: 8px;color: rgb(51, 51, 51);">개인정보 수집∙이용 동의</span>
                             </label>
@@ -247,3 +247,4 @@
     </div>
 </div>
 {% endblock section %}
+<script src = "../static/signUp.js"></script>
