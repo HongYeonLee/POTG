@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'ewha';
+    src: url(../static/fonts/ewha.ttf);
+}
+
+/*카테고리 관련*/
+
+/*1.전체 카테고리 스타일*/
+.category-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* 항목 간의 간격 */
+    align-items: center;
+    position: absolute;
+    padding: 20px 15px 20px 200px;
+    width: 1594px;
+    height: 180px;
+    left: 139px;
+    top: 351px;
+    border: 1px solid rgb(0, 70, 42);
+    background: rgb(255, 254, 254);
+
+}
+/*2. 카테고리 제목*/
+
+#category-header{
+    position: absolute;
+    position: absolute;
+    width: 150px;
+    height: 67px;
+    left: 44.58%;
+    right: 47.6%;
+    top: 28.43%;
+    bottom: 65.37%;
+    color: rgb(0, 0, 0);
+    font-family: 'ewha';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+
+}
+/*3.각 카테고리 스타일*/
+.category-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column;
+    cursor: pointer;
+
+    font-family:'ewha';
+    color: rgb(42, 42, 42);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.more-link {
+    font-family:'ewha';
+    font-size: 18px;
+    color: #888;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+{% extends "../static/templates/index.html" %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="../static/grpurchase_ViewAll.css">
+   
+{% endblock %}
+
+{% block section %}
+<section class="group_purchase_start">
+    <h2 id="category-header">카테고리</h2>
+    <div class="category-container">
+        
+        <div class="category-item">스킨케어 및 메이크업</div>
+        <div class="category-item">헤어 바디 구강</div>
+        <div class="category-item">육류 및 해산물</div>
+        <div class="category-item">가공식품</div>
+        <div class="category-item">생활용품 및 리빙</div>
+        <div class="category-item">과일 채소</div>
+        <div class="category-item">냉동식품</div>
+        <a href="#" class="more-link">> 카테고리 더보기</a>
+    </div>
+
+    <div class="pagination">
+        <a href="#">&laquo; 이전</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">다음 &raquo;</a>
+    </div>
+</section>
+
+
+{% endblock section %}
