@@ -138,6 +138,7 @@
                     <div class = "inputBoxForGender">
                         <label class = "selectGenderBox" for = "gender-woman">
                             <input id = "gender-woman" name = "gender" type = "radio" class = "radioGenderBtn" value = "FEMALE">
+                            <!-- 클릭에 따라 span과 div의 class가 바뀌어야 함 또는 색깔 -->
                             <span class = "radioOutCircleAfterClick">
                                 <div class = "radioInnderCircleAfterClick"></div>
                             </span>
@@ -192,8 +193,57 @@
             </div>
         </div>
         <div class = "lineBtwInfoAndTerms"></div>
-        <div class = "termsBox"></div>
-        <div class = "signUpBtnBox"></div>
+        <div class = "termsBox">
+            <div class = "termsInnerBox">
+                <div class = termsLeftBox>
+                    <label class = "agreeText">
+                        이용약관동의
+                        <span class ="starSign">*</span>
+                    </label>
+                </div>
+                <div class = termsRightBox>
+                    <div class = "termsCheckBox">
+                        <label class = "labelFroAgreeAll" for = "TermsAgreeAll">
+                            <!-- js작성 필요 -->
+                            <input id = "TermsAgreeAll" type = "checkbox" class = "inputForAgree">
+                            <div class = "divForCheckBox">
+                                <img src = "../static/images/체크박스.png" style="width: 25px;">
+                            </div>
+                            <span style="margin-bottom: 5px; color: rgb(51, 51, 51);">전체 동의합니다</span>
+                        </label>
+                    </div>
+                    <div class = "termsCheckBox">
+                        <div class = "termsInnerCheckBox">
+                            <label class = "labelForTermsAgree" for = "RequiredTermsCondition">
+                                <input id = "RequiredTermsCondition" type = "checkbox" class = "inputForAgree">
+                                <div class = "divForCheckBox">
+                                    <img src = "../static/images/체크박스.png" style="width: 25px;">
+                                </div>
+                                <span style="margin-bottom: 5px;color: rgb(51, 51, 51);">이용약관동의</span>
+                            </label>
+                            <span class = "termTextForRequired">(필수)</span>
+                        </div>
+                    </div>
+                    <div class = "termsCheckBox">
+                        <div class = "termsInnerCheckBox">
+                            <label class = "labelForTermsAgree" for = "RequiredTermsOfPrivacy">
+                                <input id = "RequiredTermsOfPrivacy" type = "checkbox" class = "inputForAgree">
+                                <div class = "divForCheckBox">
+                                    <img src = "../static/images/체크박스.png" style="width: 25px;">
+                                </div>
+                                <span style="margin-bottom: 8px;color: rgb(51, 51, 51);">개인정보 수집∙이용 동의</span>
+                            </label>
+                            <span class = "termTextForRequired">(필수)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "signUpBtnBox">
+            <button class = "signUpBtn" type = "submit" width ="240" hegith = "56" radius = "3">
+                <span class = "signUpBtnText" style="color: white;">가입하기</span>
+            </button>
+        </div>
     </div>
 </div>
 {% endblock section %}
