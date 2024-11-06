@@ -178,7 +178,7 @@ nav a:hover {
 
 .product-image {
     width: 100%;
-    height: 100px;
+    height: 200px;
     object-fit: cover;
     margin-top: 10px;
     border-radius: 5px;
