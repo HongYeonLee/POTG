@@ -6,10 +6,11 @@
 {% endblock %}
 
 {% block section %}
-<main class="main-layout">
+<body>
+<main>
     <!-- 카테고리 -->
     <section class="category-section"> 
-        <h2 id="category-header">카테고리</h2>
+        <h2 >카테고리</h2>
         <div class="category-container">
             <div class="category-item">스킨케어 및 메이크업</div>
             <div class="category-item">헤어 바디 구강</div>
@@ -21,63 +22,114 @@
             <a href="#" class="more-link">> 카테고리 더보기</a>
         </div>
     </section>
+    <div class="content-container">
 
-    <!-- 좌측 필터 -->
-    <aside class="filter-section">
-        <h3>필터</h3>
-        <form>
-            <div class="filter-group">
-                <h3>남은기간</h3>
-                <div class="filter-item">
-                    <input type="checkbox" id="1w">
-                    <label for="1w">1주일 이내</label>
+        <!-- 좌측 필터 -->
+        <aside class="filter-section">
+            <h3>필터</h3>
+            <hr>
+            <form>
+                <div class="filter-group">
+                    <h3>남은기간</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="1w">
+                        <label for="1w">1주일 이내</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="3d">
+                        <label for="3d">3일 이내</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="1d">
+                        <label for="1d">24시간 이내</label>
+                    </div>
                 </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="3d">
-                    <label for="3d">3일 이내</label>
+                <hr>
+                <div class="filter-group">
+                    <h3>진행사항</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="9">
+                        <label for="9">90%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="8">
+                        <label for="8">80%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="7">
+                        <label for="7">70%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="6">
+                        <label for="6">60%~</label>
+                    </div>
+
                 </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="1d">
-                    <label for="1d">24시간 이내</label>
+                <hr>
+                <div class="filter-group">
+                    <h3>혜택</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="sale">
+                        <label for="sale">할인상품</label>
+                    </div>
+                </div>
+
+
+            </form>
+        </aside>
+
+        <!-- 상품 리스트 섹션 -->
+        <section class="product-list">
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_햇반솥반.png" alt="햇반솥반">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day">D-3</p>
+                    <p class="product-name">[햇반] 솥반 12개</p>
+                    <p class="prog">구매확정 / 총량 : 9개 / 12개</p>
+                    <p class="product-price">
+                        <p class="original-price">20,000원</p>
+                        <span class="discount-rate">10%</span>
+                        <span class="discounted-price">18,000원 ~ / 1,500원(개당)</span>
+                    </p>
+                    
                 </div>
             </div>
-            <div class="filter-group">
-                <h3>진행사항</h3>
-                <div class="filter-item">
-                    <input type="checkbox" id="9">
-                    <label for="9">90%~</label>
-                </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="8">
-                    <label for="8">80%~</label>
-                </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="7">
-                    <label for="7">70%~</label>
-                </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="6">
-                    <label for="6">60%~</label>
-                </div>
 
-            </div>
-            <div class="filter-group">
-                <h3>혜택</h3>
-                <div class="filter-item">
-                    <input type="checkbox" id="sale">
-                    <label for="sale">할인상품</label>
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_사과.png" alt="Product 2">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day">D-3</p>
+                    <p class="product-name">[햇반] 솥반 12개</p>
+                    <p class="prog">구매확정 / 총량 : 9개 / 12개</p>
+                    <p class="product-price">
+                        <p class="original-price">20,000원</p>
+                        <span class="discount-rate">10%</span>
+                        <span class="discounted-price">18,000원 ~ / 1,500원(개당)</span>
+                    </p>
+                    
                 </div>
             </div>
-
-
-        </form>
-    </aside>
-
-    <!-- 상품 리스트 섹션 -->
-    <section class="product-list">
-        <!-- 상품 항목들 여기에 추가 -->
-    </section>
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_갈비.png" alt="Product 3">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day">D-3</p>
+                    <p class="product-name">[햇반] 솥반 12개</p>
+                    <p class="prog">구매확정 / 총량 : 9개 / 12개</p>
+                    <p class="product-price">
+                        <p class="original-price">20,000원</p>
+                        <span class="discount-rate">10%</span>
+                        <span class="discounted-price">18,000원 ~ / 1,500원(개당)</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
     
 </main>
+</body>
          
 {% endblock section %}
