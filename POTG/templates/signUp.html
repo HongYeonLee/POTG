@@ -1,5 +1,163 @@
 {% extends "index.html" %}
-
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/signUpStyle.css">
+{% endblock %}
 {% block section %}
-<p>회원가입 페이지</p>
+<div class = "d1">
+    <div class = "signUpText">회원가입</div>
+    <div class = "contentBox">
+        <div class = "requiredBox">
+            <span class = "starSign">*</span> 필수입력사항
+        </div>
+        <!-- 필수 입력 사항들 입력안했을 때 인풋 박스 바로 밑에 xx을 입력해주세요 빨간 글씨로 나와야 함 -->
+        <div class = "infoInputBox">
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        아이디
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "memberId" name = "memberId" placeholder="아이디를 입력해주세요" type = "text" required class = "inputInner" value>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        비밀번호
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "password" name = "password" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        비밀번호확인
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "passwordConfirm" name = "passwordConfirm" placeholder="비밀번호를 한번 더 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        이름
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "name" name = "name" placeholder="이름을 입력해주세요" type = "text" required class = "inputInner" value>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        이메일
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id ="email" type = "hidden" name = "email" value>
+                            <input id = "emailId" name = "emailId" placeholder="예: potg" type = "text" required class = "inputEmail" value>
+                            <div class = "emialAt">@</div>
+                            <div class = "emailBack">
+                                <button type = "button" class = "btnTextEmpty">선택하기</button>
+                                <button type = "button" class = "btnSelect">
+                                    <img style="width: 10px;margin-right: 10px;" src = "../static/images/이메일드롭다운버튼.png" alt = "arrowDown">
+                                </button>
+                                <!--이부분은 display:none 되어있음-->
+                                <div class = "emailAdrSelect">
+                                    <button type = "button" class = "dropdown__item">naver.com</button>
+                                    <button type = "button" class = "dropdown__item">gmail.com</button>
+                                    <button type = "button" class = "dropdown__item">hanmail.net</button>
+                                    <button type = "button" class = "dropdown__item">kakao.com</button>
+                                    <button type = "button" class = "dropdown__item">daum.net</button>
+                                    <button type = "button" class = "dropdown__item">hotmail.com</button>
+                                    <button type = "button" class = "dropdown__item">yahoo.co.kr</button>
+                                    <button type = "button" class = "dropdown__item">직접입력</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        휴대폰
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "mobileNumber" name = "mobileNumber" placeholder="숫자만 입력해주세요" type = "tel" required 
+                            oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+                            class = "inputInner" value>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        성별
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3"></div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
+                        생년월일
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3"></div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+        </div>
+        <div class = "lineBtwInfoAndTerms"></div>
+        <div class = "termsBox"></div>
+        <div class = "signUpBtnBox"></div>
+    </div>
+</div>
 {% endblock section %}
