@@ -35,7 +35,7 @@ def reg_review1():
 
 # 리뷰 작성2
 @application.route("/review_write2.html")
-def reg_review1():
+def reg_review2():
     return render_template("review_write2.html")
 
 @application.route("/submit_item")
