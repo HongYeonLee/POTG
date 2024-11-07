@@ -1,0 +1,169 @@
+{% extends "index.html" %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/homeStyle.css">
+{% endblock %}
+{% block section %}
+<div class = "contentBox1">
+    <div class = "contentBox1">
+        <div class = "marginBox1"></div>
+        <main>
+            <div class ="mainPicBox1">
+                <div class = "mainPicBox2">
+                    <div class = "swiper-wrapper">
+                        <div class = "mainPicImgBox">
+                            <span style="box-sizing: border-box; display: block;overflow: hidden; width: initial; height:initial; background:none; opacity: 1;border: 0px;margin: 0px; padding:0px; position: absolute; inset:0px">
+                                <img class = "mainPicImg" sizes ="100vw" src = "../static/images/메인음식사진.png" alt = "메인배너">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button type = "button" direction = "left" class = "leftMainPicBtn">
+                    <img class = "mainPicBtnImg" src = "../static/images/오른쪽.png" width="50px">
+                </button>
+                <button type = "button" direction = "right" class = "rightMainPicBtn">
+                    <img class = "mainPicBtnImg" src = "../static/images/오른쪽.png" width="50px">
+                </button>
+            </div>
+            <div class = "subPicBox">
+                <div class = "subPicTextBox">
+                    <a class = "subPicTextForA">
+                        <span class = "subText">이번주 인기 상품🛒</span>
+                        <span class = "arrowForSubText">
+                            <!-- 이미지 넣으려면 넣으삼 -->
+                        </span>
+                    </a>
+                </div>
+                <div class = "subPicContainer">
+                    <!-- js 연결 필요 -->
+                    <div class = "subPicContainer2 swiper swiper-initialized swiper-horizontal swiper-pointer-events">
+                        <div class = "swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);transition-duration: 0ms;">
+                            <div class = "swiper-slide swiper-slide-active" style = "width: 249px;margin-right: 18px;">
+                                <a href="" class = "subItemBoxForA">
+                                    <div class = "subPicBox1">
+                                        <div class = "subPicBox2">
+                                            <div class = "subPicBox3" style="padding-bottom: 128.514%;">
+                                                <div class ="subPicBox4">
+                                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                        <img class = "" src = "../static/images/소세지.png">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "bottom-wrapper">
+                                        <button type = "button" class = "product-function cartInBtn">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.53516 2.70001H3.93316L5.76816 10.609H13.6482L15.2992 4.35901H4.86916M12.8582 14.933C13.0098 14.9375 13.1609 14.9115 13.3024 14.8566C13.4438 14.8017 13.5728 14.7189 13.6817 14.6132C13.7906 14.5075 13.8771 14.381 13.9363 14.2412C13.9954 14.1015 14.0258 13.9513 14.0258 13.7995C14.0258 13.6478 13.9954 13.4975 13.9363 13.3578C13.8771 13.218 13.7906 13.0915 13.6817 12.9858C13.5728 12.8801 13.4438 12.7974 13.3024 12.7424C13.1609 12.6875 13.0098 12.6615 12.8582 12.666C12.5634 12.6748 12.2836 12.798 12.0782 13.0096C11.8727 13.2213 11.7578 13.5046 11.7578 13.7995C11.7578 14.0944 11.8727 14.3778 12.0782 14.5894C12.2836 14.801 12.5634 14.9243 12.8582 14.933ZM6.49316 14.933C6.64484 14.9375 6.79589 14.9115 6.93735 14.8566C7.07881 14.8017 7.20781 14.7189 7.31669 14.6132C7.42558 14.5075 7.51214 14.381 7.57126 14.2412C7.63037 14.1015 7.66083 13.9513 7.66083 13.7995C7.66083 13.6478 7.63037 13.4975 7.57126 13.3578C7.51214 13.218 7.42558 13.0915 7.31669 12.9858C7.20781 12.8801 7.07881 12.7974 6.93735 12.7424C6.79589 12.6875 6.64484 12.6615 6.49316 12.666C6.19836 12.6748 5.91858 12.798 5.71315 13.0096C5.50773 13.2213 5.39283 13.5046 5.39283 13.7995C5.39283 14.0944 5.50773 14.3778 5.71315 14.5894C5.91858 14.801 6.19836 14.9243 6.49316 14.933Z" stroke="#333333" stroke-linecap="square" stroke-linejoin="round"></path>
+                                            </svg>
+                                            담기
+                                        </button>
+                                    </div>
+                                    <div class = "product-info itemInfoBox">
+                                        <h3 class = "product-name itemInfoTextForH3">독일산 소세지</h3>
+                                        <div class = "content-row itemPriceBox"></div>
+                                        <div class = "review-count itemReviewBox"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class = "swiper-slide swiper-slide-next" style = "width: 249px;margin-right: 18px;">
+                                <a href="" class = "subItemBoxForA">
+                                    <div class = "subPicBox1">
+                                        <div class = "subPicBox2">
+                                            <div class = "subPicBox3" style="padding-bottom: 128.514%;">
+                                                <div class ="subPicBox4">
+                                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                        <img class = "" src = "../static/images/당근요리.png">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "bottom-wrapper">
+                                        <button type = "button" class = "product-function cartInBtn">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.53516 2.70001H3.93316L5.76816 10.609H13.6482L15.2992 4.35901H4.86916M12.8582 14.933C13.0098 14.9375 13.1609 14.9115 13.3024 14.8566C13.4438 14.8017 13.5728 14.7189 13.6817 14.6132C13.7906 14.5075 13.8771 14.381 13.9363 14.2412C13.9954 14.1015 14.0258 13.9513 14.0258 13.7995C14.0258 13.6478 13.9954 13.4975 13.9363 13.3578C13.8771 13.218 13.7906 13.0915 13.6817 12.9858C13.5728 12.8801 13.4438 12.7974 13.3024 12.7424C13.1609 12.6875 13.0098 12.6615 12.8582 12.666C12.5634 12.6748 12.2836 12.798 12.0782 13.0096C11.8727 13.2213 11.7578 13.5046 11.7578 13.7995C11.7578 14.0944 11.8727 14.3778 12.0782 14.5894C12.2836 14.801 12.5634 14.9243 12.8582 14.933ZM6.49316 14.933C6.64484 14.9375 6.79589 14.9115 6.93735 14.8566C7.07881 14.8017 7.20781 14.7189 7.31669 14.6132C7.42558 14.5075 7.51214 14.381 7.57126 14.2412C7.63037 14.1015 7.66083 13.9513 7.66083 13.7995C7.66083 13.6478 7.63037 13.4975 7.57126 13.3578C7.51214 13.218 7.42558 13.0915 7.31669 12.9858C7.20781 12.8801 7.07881 12.7974 6.93735 12.7424C6.79589 12.6875 6.64484 12.6615 6.49316 12.666C6.19836 12.6748 5.91858 12.798 5.71315 13.0096C5.50773 13.2213 5.39283 13.5046 5.39283 13.7995C5.39283 14.0944 5.50773 14.3778 5.71315 14.5894C5.91858 14.801 6.19836 14.9243 6.49316 14.933Z" stroke="#333333" stroke-linecap="square" stroke-linejoin="round"></path>
+                                            </svg>
+                                            담기
+                                        </button>
+                                    </div>
+                                    <div class = "product-info itemInfoBox">
+                                        <h3 class = "product-name itemInfoTextForH3">달짝지근 당근 볶음</h3>
+                                        <div class = "content-row itemPriceBox"></div>
+                                        <div class = "review-count itemReviewBox"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class = "swiper-slide" style = "width: 249px;margin-right: 18px;">
+                                <a href="" class = "subItemBoxForA">
+                                    <div class = "subPicBox1">
+                                        <div class = "subPicBox2">
+                                            <div class = "subPicBox3" style="padding-bottom: 128.514%;">
+                                                <div class ="subPicBox4">
+                                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                        <img class = "" src = "../static/images/고기.png">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "bottom-wrapper">
+                                        <button type = "button" class = "product-function cartInBtn">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.53516 2.70001H3.93316L5.76816 10.609H13.6482L15.2992 4.35901H4.86916M12.8582 14.933C13.0098 14.9375 13.1609 14.9115 13.3024 14.8566C13.4438 14.8017 13.5728 14.7189 13.6817 14.6132C13.7906 14.5075 13.8771 14.381 13.9363 14.2412C13.9954 14.1015 14.0258 13.9513 14.0258 13.7995C14.0258 13.6478 13.9954 13.4975 13.9363 13.3578C13.8771 13.218 13.7906 13.0915 13.6817 12.9858C13.5728 12.8801 13.4438 12.7974 13.3024 12.7424C13.1609 12.6875 13.0098 12.6615 12.8582 12.666C12.5634 12.6748 12.2836 12.798 12.0782 13.0096C11.8727 13.2213 11.7578 13.5046 11.7578 13.7995C11.7578 14.0944 11.8727 14.3778 12.0782 14.5894C12.2836 14.801 12.5634 14.9243 12.8582 14.933ZM6.49316 14.933C6.64484 14.9375 6.79589 14.9115 6.93735 14.8566C7.07881 14.8017 7.20781 14.7189 7.31669 14.6132C7.42558 14.5075 7.51214 14.381 7.57126 14.2412C7.63037 14.1015 7.66083 13.9513 7.66083 13.7995C7.66083 13.6478 7.63037 13.4975 7.57126 13.3578C7.51214 13.218 7.42558 13.0915 7.31669 12.9858C7.20781 12.8801 7.07881 12.7974 6.93735 12.7424C6.79589 12.6875 6.64484 12.6615 6.49316 12.666C6.19836 12.6748 5.91858 12.798 5.71315 13.0096C5.50773 13.2213 5.39283 13.5046 5.39283 13.7995C5.39283 14.0944 5.50773 14.3778 5.71315 14.5894C5.91858 14.801 6.19836 14.9243 6.49316 14.933Z" stroke="#333333" stroke-linecap="square" stroke-linejoin="round"></path>
+                                            </svg>
+                                            담기
+                                        </button>
+                                    </div>
+                                    <div class = "product-info itemInfoBox">
+                                        <h3 class = "product-name itemInfoTextForH3">최고급 한우 1A급</h3>
+                                        <div class = "content-row itemPriceBox"></div>
+                                        <div class = "review-count itemReviewBox"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class = "swiper-slide" style = "width: 249px;margin-right: 18px;">
+                                <a href="" class = "subItemBoxForA">
+                                    <div class = "subPicBox1">
+                                        <div class = "subPicBox2">
+                                            <div class = "subPicBox3" style="padding-bottom: 128.514%;">
+                                                <div class ="subPicBox4">
+                                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                        <img class = "" src = "../static/images/감자요리.png">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "bottom-wrapper">
+                                        <button type = "button" class = "product-function cartInBtn">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.53516 2.70001H3.93316L5.76816 10.609H13.6482L15.2992 4.35901H4.86916M12.8582 14.933C13.0098 14.9375 13.1609 14.9115 13.3024 14.8566C13.4438 14.8017 13.5728 14.7189 13.6817 14.6132C13.7906 14.5075 13.8771 14.381 13.9363 14.2412C13.9954 14.1015 14.0258 13.9513 14.0258 13.7995C14.0258 13.6478 13.9954 13.4975 13.9363 13.3578C13.8771 13.218 13.7906 13.0915 13.6817 12.9858C13.5728 12.8801 13.4438 12.7974 13.3024 12.7424C13.1609 12.6875 13.0098 12.6615 12.8582 12.666C12.5634 12.6748 12.2836 12.798 12.0782 13.0096C11.8727 13.2213 11.7578 13.5046 11.7578 13.7995C11.7578 14.0944 11.8727 14.3778 12.0782 14.5894C12.2836 14.801 12.5634 14.9243 12.8582 14.933ZM6.49316 14.933C6.64484 14.9375 6.79589 14.9115 6.93735 14.8566C7.07881 14.8017 7.20781 14.7189 7.31669 14.6132C7.42558 14.5075 7.51214 14.381 7.57126 14.2412C7.63037 14.1015 7.66083 13.9513 7.66083 13.7995C7.66083 13.6478 7.63037 13.4975 7.57126 13.3578C7.51214 13.218 7.42558 13.0915 7.31669 12.9858C7.20781 12.8801 7.07881 12.7974 6.93735 12.7424C6.79589 12.6875 6.64484 12.6615 6.49316 12.666C6.19836 12.6748 5.91858 12.798 5.71315 13.0096C5.50773 13.2213 5.39283 13.5046 5.39283 13.7995C5.39283 14.0944 5.50773 14.3778 5.71315 14.5894C5.91858 14.801 6.19836 14.9243 6.49316 14.933Z" stroke="#333333" stroke-linecap="square" stroke-linejoin="round"></path>
+                                            </svg>
+                                            담기
+                                        </button>
+                                    </div>
+                                    <div class = "product-info itemInfoBox">
+                                        <h3 class = "product-name itemInfoTextForH3">포슬포슬 감자 버터 구이</h3>
+                                        <div class = "content-row itemPriceBox"></div>
+                                        <div class = "review-count itemReviewBox"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class = "marginBox2"></div>
+    </div>
+</div>
+<div class = "footerBox">
+    <div id = "footer" class = "footerBox2">
+        <span class = "footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
+{% endblock section %}
