@@ -1,7 +1,48 @@
+/*제품 목록*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*5개씩 배치*/
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 /*할인율 표시*/
 .discount {
-    color
+    color: #ff4d4f;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right:8px; /*간격여백*/
 }
+
+.product-item .price {
+    display: flex;
+    align-items: center;
+    justify-content: line-through;
+    margin-left: 5px;
+}
+
+.product-item .price span {
+    color: red;
+    font-size: 12px;
+    text-decoration: line-throught;
+    margin-left: 5px;
+}
+
 
 /*페이지네이션*/
 .pagination {

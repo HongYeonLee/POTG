@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang = "ko">
-    <head>
-        <meta charset = "utf=8">
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0, viewport-fit = cover">
-        <title>
-            
-        </title>
-    </head>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 조회</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-logo">
+            <h1>POTG</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button>검색</button>
+        </div>
+        <div class="user-menu">
+            <a href="#">마이페이지</a> | <a href="#">로그아웃</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">상품 등록</a>
+        <a href="#">상품 조회</a>
+        <a href="#">리뷰 작성</a>
+        <a href="#">리뷰 조회</a>
+        <a href="#">공동 구매</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="product-list">
+            <h2>상품 조회</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="static/images/product1.jpg" alt="Product 1">
+                    <p>[매일바이오] 제로 요구르트 24팩</p>
+                    <span class="price">24,000원</span> <span class="discount">42% 13,900원</span>
+                </div>
+                <div class="product">
+                    <img src="static/images/product2.jpg" alt="Product 2">
+                    <p>친환경 무농약 유러피안 샐러드</p>
+                    <span class="price">30,000원</span> <span class="discount">50% 14,900원</span>
+                </div>
+                <!-- 추가 상품들 -->
+                <div class="product">
+                    <img src="static/images/product3.jpg" alt="Product 3">
+                    <p>노르웨이 연어 연어회 200g</p>
+                    <span class="price">23,800원</span> <span class="discount">57% 9,900원</span>
+                </div>
+                <!-- 다른 상품들 추가 -->
+            </div>
+        </section>
+    </main>
+</body>
 </html>
