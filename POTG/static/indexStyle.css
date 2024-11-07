@@ -1,0 +1,343 @@
+@font-face {
+    font-family: 'ewha';
+    src: url(../static/fonts/ewha.ttf);
+}
+
+*{
+    box-sizing: border-box;
+    font-family:'ewha';
+    margin:0;
+    padding:0;
+    color:rgb(0, 70, 42);
+}
+
+body {
+    padding: 10px;
+    background: #ffffff;
+}
+
+/* nav {
+    overflow: hidden;
+    background-color: rgb(0, 70, 42);
+    font-size: 130%;
+} */
+
+/* .navbar__logo a{
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 200%;
+} */
+
+/* li a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+    color: rgb(0, 70, 42);
+} */
+
+.index_div{
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.index_div a{
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.top{
+    position: relative;
+    width: 1050px;
+    height: 100px;
+    margin: 0px auto;
+    letter-spacing: -0.3px;
+}
+
+.signUpAndLogIn{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    z-index: 320;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.signUpBtn{
+    display: block;
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
+
+.bar{
+    width: 1px;
+    height: 13px;
+    margin: 0px 12px;
+    background-color: rgb(217, 217, 217);
+}
+
+.logIn{
+    display: block;
+    cursor: pointer;
+}
+
+.top2{
+    height: 100px;
+    padding-top: 36px;
+}
+
+.top3{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 63px;
+}
+
+.index_div img{
+    border-style: none;
+    border: 0;
+    vertical-align: top;
+    max-width: 100%;
+    overflow: clip;
+}
+
+.index_div .logo{
+    flex: 0 0 82px;
+}
+
+.logoFullname{
+    flex-shrink: 0;
+    margin-left: 20px;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: rgb(181, 181, 181);
+}
+
+.top4{
+    position: relative;
+    width: 1050px;
+    margin: 0px auto;
+}
+
+.searchBox{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: absolute;
+    left: 325px;
+    top: -55px;
+    width: 400px;
+    height: 48px;
+    padding-left: 14px;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(247, 247, 247) 0px 0px 0px 1px inset;
+}
+
+.searchBoxInner{
+    width: 300px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    letter-spacing: -0.33px;
+}
+
+.searchBoxInner::placeholder{
+    color: #A2A1A1;
+}
+
+.searchBoxBtn{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    font-size:20px;
+    background-color: #ffffff;
+}
+
+.index_div button, select{
+    text-transform: none;
+}
+
+.index_div button, input{
+    overflow:visible;
+}
+
+.index_div button, input, optgroup, select, textarea{
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.index_div button{
+    appearance: auto;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 0px;
+    border-style: outset;
+    border-image: initial;
+
+}
+
+.index_div button, input, select, textarea{
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.top5{
+    position: relative;
+    width: 1050px;
+    margin: 0px auto;
+}
+
+.userConvenienceIcon{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    right: -6px;
+    top: -49px;
+}
+
+.location{
+    width: 36px;
+    height: 36px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.wishlistIcon{
+    width: 40px;
+    height: 40px;
+    background-color:#ffffff;
+}
+
+.cartIconBox{
+    position: relative;
+    margin-left: 20px;
+}
+
+.cartIcon{
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color:#ffffff;
+    
+}
+
+.tapBox{
+    min-width: 1050px;
+    letter-spacing: -0.3px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
+    width: 100%;
+    z-index: 300;
+}
+
+.tap{
+    display: flex;
+    justify-content: center;
+    width: 1050px;
+    height: 56px;
+    margin: 0 auto;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.cartegoryBox {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#cartegoryBtn {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cartegory{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.ctg_bar{
+    width: 16px;
+    height: 14px;
+    margin-right: 14px;
+}
+
+.ctg_text{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: rgb(51, 51, 51);
+}
+
+.navigationBox{
+    display: flex;
+    /* margin-left: 30px; */
+}
+
+.eachNavBox{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 150px;
+    height: 55px;
+    padding-top: 18px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.eachNavTextBox{
+    height: fit-content;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
