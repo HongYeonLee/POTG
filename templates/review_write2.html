@@ -1,0 +1,36 @@
+{% extends "../static/templates/index.html" %}
+
+{% block section %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="review_write2.css">
+</head>
+<body>
+<form action="/submit_item_post" method="post" enctype="multipart/form-data">
+<p>리뷰 작성 화면입니다</p>
+<h2>리뷰작성</h2>
+      <div class="fakeimg" style="height:50px;">해남 밤고구마 1kg • 16900원 / 1개 &emsp;
+      <label for="number-to-show">주문한 상품에 얼마나 만족하시나요?</label>
+<input type="number" id="mumber-to-show" min="1" max="5"></div>
+<div>
+    <input type="text" value="제목을 입력해주세요"  id="title"  required><br><br></div>
+    
+<div>
+ <input type="text" value="리뷰내용을 입력해주세요" style="width:500px;height:200px" required>
+</div><br>
+
+<div>
+    <label for="reviewimg">사진 첨부 : </label>
+    <input type="file" name="file" /><br><br>
+</div>
+<div>
+ <input type="submit" value="등록하기"> <input type = "reset" value="취소하기"> 
+</div>
+
+</form>
+{% endblock section %}
+
+
+
+

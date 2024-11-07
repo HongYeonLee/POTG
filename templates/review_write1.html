@@ -1,0 +1,56 @@
+{% extends "../static/templates/index.html" %}
+ {% block custom_css %}
+ <link rel="stylesheet" href="../static/review_write1.css">
+ <link rel="stylesheet" href="../static/indexStyle.css">
+{% endblock %}///
+
+<section class="popular-reviews">
+    <h2>리뷰작성</h2><br>
+<body>
+<div class="review-container">
+        <div class="review-header">
+            <input type="search" value="주문한 상품을 검색할 수 있어요!" class="search-input">
+        </div>
+        
+        <div class="filter-buttons">
+            <input type="button" value="최근 3개월" class="filter-button">
+            <input type="button" value="최근 6개월" class="filter-button">
+            <input type="button" value="2023" class="filter-button">
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <p>2024.10.9 주문</p>
+                <div class="item-content">
+                    <a target="_blank" href="POTG/static/images/고구마.jpg">
+                        <img src="POTG/static/images/고구마.jpg" alt="Item Image">
+                    </a>
+                    <div class="description">
+                        <p>해 남 밤 고 구 마 1 k g</p>
+                        <p>1 6 9 0 0 원 / 1 개</p>  
+                        <p>공 동 구 매 • 이 화 연 ( w h a y e o n 1 8 8 6 )</p>
+                    </div>
+                    <input type="button" value="리뷰 작성하기" class="review-button">
+                </div>
+            </div>
+            <div class="gallery-item">
+              <p>2024.10.3 주문</p>
+              <div class="item-content">
+                  <a target="_blank" href="POTG/static/images/상추.jpg">
+                      <img src="POTG/static/images/상추.jpg" alt="Item Image">
+                  </a>
+                  <div class="description">
+                      <p>유 기 농 청 상 추 5 0 0 g</p>
+                      <p>3 4 0 0 원 / 1 개</p>  
+                      <p>공 동 구 매 • 김 이 화 ( e w h a k i m m ) %nbsp;</p>
+                  </div>
+                  <input type="button" value="리뷰 작성하기" class="review-button">
+              </div>
+          </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+</section>
