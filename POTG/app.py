@@ -13,6 +13,11 @@ def hello():
 def view_signUp():
     return render_template("signUp.html")
 
+# 로그인
+@application.route("/logIn.html")
+def view_logIn():
+    return render_template("logIn.html")
+
 # 상품 조회
 @application.route("/fullproduct.html")
 def view_list():
