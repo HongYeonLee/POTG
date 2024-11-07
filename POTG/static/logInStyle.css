@@ -1,0 +1,159 @@
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contentBox{
+    min-width: 1050px;
+    margin-top: 90px;
+    margin-bottom: 300px;
+    background-color: rgb(255, 255, 255);
+}
+
+.logInText{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.contentBox2{
+    width: 340px;
+    margin: 0px auto;
+    letter-spacing: -0.6px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    unicode-bidi: isolate;
+}
+
+.idAndPasswordBox{
+    margin-top: 30px;
+}
+
+.findIdAndPasswordBox{
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.logInAndSignUpBox{
+    margin-top: 28px;
+}
+
+.idAndPassWordBox2{
+    padding-bottom: 12px;
+}
+
+.idAndPassWordBox2:first-of-type{
+    margin-bottom: 5px;
+}
+
+.idAndPassWordBox2 input{
+    height: 54px;
+    font-size: 14px;
+}
+
+.idAndPassWordBox3{
+    position: relative;
+    height: 48px;
+}
+
+.idAndPassWordInput{
+    width: 100%;
+    height: 46px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(0, 70, 42);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(51, 51, 51);
+    outline: none;
+    box-sizing: border-box;
+    cursor:text;
+}
+
+.findIdAndPasswordForA{
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
+
+.findIdAndPassWordLine{
+    width: 1px;
+    height: 12px;
+    margin: 1px 6px 0px;
+    background-color: rgb(0, 70, 42);
+}
+
+.logInBtn{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 54px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 70, 42);
+    border: 0px none;
+    cursor: pointer;
+}
+
+.signUpBtn{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 54px;
+    border-radius: 3px;
+    color: rgb(0, 70, 42);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 70, 42);
+}
+
+.logInAndSignUpBox button:last-of-type{
+    margin-top: 10px;
+}
+
+.logInAndSignUpBtnText{
+    color: inherit;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+::placeholder {
+    color: rgb(161, 161, 161);
+    opacity: 1;
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
+}
