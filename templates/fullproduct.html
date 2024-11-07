@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang = "em">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title> POTG </title>
+        <link rel = "stylesheet" href = "{{ url_for('static', filename = 'fullproductStyle.css') }}">
+    </head>
+
+    <body>
+        <header>
+            <h1>POTG</h1>
+            <div class = "search-bar">
+                <input type = "text" placeholder = "검색어를 입력하세요">
+                <button>검색</button>
+            </div>
+            <div class = "user-menu">
+                <a href = "#"> 마이페이지 </a>
+                <a href = "#"> 로그아웃 </a>
+            </div>
+        </header>
+
+        <nav>
+            <a href = "#"> 상품 등록 </a>
+            <a href = "#"> 상품 조회 </a>
+            <a href = "#"> 일반 조회 </a>
+            <a href = "#"> 목록 조회 </a>
+            <a href = "#"> 상품 구매 </a>
+        </nav>
+
+        <main>
+            <section class = "product-list">
+                <h2> 상품 조회 </h2>
+                <h3> 이번주 인기 상품 </h3> <!--그 이번주 인기 상품 중간에 뜨는 부분-->
+                <div class = "popular-products">
+                    <img src = "static/images/popular1.png" alt = "Product 1">
+                    <img src = "static/images/popular2.png" alt = "Product 2">
+                    <img src = "static/images/popular3.png" alt = "Product 3">
+                    <img src = "static/images/popular4.png" alt = "Product 4">
+                    <img src = "static/images/popular5.png" alt = "Product 5">
+                </div>
+                <div class = "all-products">
+                    <div class = "css-crqql1">총 117건</div>
+                    <ul class = "css-1vmfy7j">
+                        <li class = "css-5uzvtq">
+                            <a class = "css-126imjl">추천순</a>
+                        </li>
+                    </ul>
+                    <img src = "" alt = "Products 6"> <!--수정-->-->
+                    <img src = "" alt = "Products 6">
+                    <img src = "" alt = "Products 6">
+                    <img src = "" alt = "Products 6"> 
+                </div>
+            </section>
+
+            <div class = "css-1i60c0e extobual">
+                <h3 class = "css-i804ml extobua0">채소</h3>
+                <ul class = "css-raoddi erzdokb2"></ul> <!--grid-->
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1b2to1r erzdokb0">전체보기</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">고구마.감자.당근</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">시금치.쌈채소.나물</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">브로콜리.양배추.파프리카</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">양파.대파.마늘.배추</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">오이.호박.고추</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">콩나물.버섯</a>
+                </li>
+                <li class = "css-1h52dri erzdokb1">
+                    <a class = "css-1916h53 erzdokb0">냉동.간편채소</a>
+                </li>
+            </div>
+
+            </div>
+        </main>
+    </body>
+</html>

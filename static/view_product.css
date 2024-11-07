@@ -1,0 +1,25 @@
+/*할인율 표시*/
+.discount {
+    color
+}
+
+/*페이지네이션*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.pagination a {
+    color: #00462A;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #00462A;
+    color: white;
+}
