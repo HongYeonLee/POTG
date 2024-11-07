@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'ewha';
+    src: url(../static/fonts/ewha.ttf);
+}
+*{
+    font-family: 'ewha';
+}
+/* General Styling */
+.chat-container {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Sidebar - User List */
+.user-list {
+    width: 30%;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.star {
+    color: gold;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.user-info p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.user-info span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Chat Window */
+.chat-window {
+    width: 70%;
+    background-color: #fff;
+    padding: 15px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 채팅창 */
+ /* Container for each chat message */
+ .chat-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .message-left {
+    flex-direction: row;
+  }
+
+  .message-right {
+    flex-direction: row-reverse;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .message-right .profile-pic {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .message-content {
+    max-width: 200px;
+  }
+
+  .username {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .text {
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+
+/* 메세지 입력창*/
+.message-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: auto;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+.message-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.message-input button:hover {
+    background-color: #45a049;
+}
