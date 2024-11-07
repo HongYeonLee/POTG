@@ -1,0 +1,517 @@
+*, :after, :before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*, :after, :before, legend, td, th {
+    padding: 0;
+}
+
+body{
+    margin:0;
+    user-select: one;
+    background-color: #fff;
+    height:100%;
+}
+
+div{
+    display: block;
+    unicode-bidi: isolate;
+}
+
+a{
+    background-color: transparent;
+    text-decoration: none;
+}
+
+img{
+    border-style: none;
+    border: 0;
+    vertical-align: top;
+    max-width: 100%;
+    overflow: clip;
+    overflow-clip-margin: content-box;
+}
+
+button, select{
+    text-transform: none;
+}
+
+button, input{
+    overflow:visible;
+    border:none;
+}
+
+button, input, optgroup, select, textarea{
+    font-family: inherit;
+    font:inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button{
+    border-radius: 0;
+    background-color: transparent;
+    border:none;
+}
+
+button, input, select, textarea{
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+body, button, input, select, textarea {
+    font-size: 14px;
+    color: #333;
+}
+
+button, input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+label {
+    cursor: default;
+}
+
+.d1{
+    min-width: 1050px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    background-color: rgb(255, 255, 255);
+}
+
+.signUpText{
+    margin-bottom: 50px;
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -1px;
+    color: rgb(0, 70, 42);
+}
+
+.contentBox{
+    width: 640px;
+    margin: 0px auto;
+}
+
+.requiredBox{
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(0, 70, 42);
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+    line-height: 17px;
+    text-align: right;
+}
+
+.infoInputBox{
+    padding: 0px;
+}
+
+.starSign{
+    color: rgb(238, 106, 123);
+}
+
+.infoInput{
+    display: inline-flex;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.infoName{
+    width: 139px;
+    padding-top: 12px;
+}
+
+.inputBox{
+    flex: 1 1 0%;
+}
+
+.rightMargin{
+    width: 120px;
+    margin-left: 8px;
+}
+
+::placeholder {
+    color: rgb(161, 161, 161); /* 원하는 색상 값 */
+    opacity: 1; /* 투명도 */
+}
+
+.infoNameDetail{
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+}
+
+.inputBox2{
+    padding-bottom: 0px;
+}
+
+.inputBox3{
+    position: relative;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid rgb(0, 70, 42);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.inputInner{
+    width: 100%;
+    height: 46px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    /* border: 1px solid rgb(221, 221, 221); */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(32, 33, 36);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.inputEmail{
+    width: 100%;
+    flex: 1 1 0%;
+    height: 46px;
+    padding: 0px 0px 1px 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(51, 51, 51);
+    outline: none;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.emialAt{
+    padding: 0px 4px;
+    margin-right: 5px;
+}
+
+.emailBack{
+    width: 143px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.btnTextEmpty{
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(153, 153, 153);
+    flex: 1 1 auto;
+}
+
+.btnSelect{
+    width: 48px;
+    height: 48px;
+}
+
+.emailAdrSelect{
+    position: absolute;
+    right: 0px;
+    width: 165px;
+    top: 47px;
+    background-color: rgb(255, 255, 255);
+    z-index: 100;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    display: none;
+}
+
+.emailAdrSelect .dropdown__item{
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: rgb(128, 128, 128);
+    height: 18px;
+}
+
+.inputBoxForGender{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.selectGenderBox{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 0px 9px;
+}
+
+.radioGenderBtn{
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0px, 0px, 0px, 0px);
+    cursor: pointer; 
+}
+
+.radioOutCircleClick{
+    font-size: 14px;
+    min-width: 24px;
+    min-height: 24px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.radioInnderCircleClick{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: white;
+}
+
+.genderText{
+    font-size: 14px;
+    position: relative;
+    margin-left: 12px;
+}
+
+.entireBirthDayBox{
+    height: 44px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 3px;
+    padding: 0px 15px;
+}
+
+.detailBirthDayBox{
+    padding-bottom: 0px;
+}
+
+.birthDayLine{
+    height: 100%;
+}
+
+.detailInnerBirthDayBox{
+    position: relative;
+    height: 40px;
+}
+
+.detailBirthDayBox input{
+    text-align: center;
+    font-size: 14px;
+    border: none
+}
+
+.birthDayInput{
+    width: 100%;
+    height: 40px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(221, 221, 221);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 38px;
+    color: rgb(51, 51, 51);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.birthDayLine::after{
+    content: "/";
+    font-size: 14px;
+    color: rgb(204, 204, 204);
+    text-align: center;
+    line-height: 40px
+}
+
+.lineBtwInfoAndTerms{
+    padding: 10px 0px;
+    border-bottom: 1px solid rgb(0, 70, 42);
+}
+
+.termsBox{
+    padding: 0px;
+}
+
+.termsInnerBox{
+    display: inline-flex;
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+}
+
+.termsLeftBox{
+    width: 139px;
+    padding-top: 12px;
+}
+
+.agreeText{
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+}
+
+.termsRightBox{
+    flex: 1 1 0%;
+}
+
+.termsCheckBox{
+    display: flex;
+    padding: 8px 0px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.termsCheckBox:first-of-type{
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 12px;
+}
+
+.labelFroAgreeAll{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    vertical-align: top;
+    line-height: normal;
+    color: rgb(51, 51, 51);
+    padding: 0px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.inputForAgree{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    /* overflow: hidden;
+    position: absolute;
+    /* clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%); */
+    /* width: 1px;
+    height: 1px; */
+}
+
+.divForCheckBox{
+    position: relative;
+    margin-right: 12px;
+    width: 30px;
+    height: 30px;
+    /* margin-right: 12px; */
+}
+
+.termsInnerCheckBox{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.labelForTermsAgree{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    vertical-align: top;
+    line-height: normal;
+    color: rgb(51, 51, 51);
+    padding: 0px;
+    font-size: 14px;
+}
+
+.RequiredTermsCondition{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    vertical-align: top;
+    line-height: normal;
+    color: rgb(51, 51, 51);
+    padding: 0px;
+    font-size: 14px;
+}
+
+.termTextForRequired{
+    padding-left: 5px;
+    color: rgb(153, 153, 153);
+    word-break: keep-all;
+    margin-bottom: 5px;
+}
+
+.signUpBtnBox{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-top: 1px solid rgb(247, 247, 247);
+    padding: 40px 0px;
+}
+
+.signUpBtn{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 240px;
+    height: 56px;
+    border-radius: 3px;
+    background-color: rgb(0, 70, 42);
+    border: 0px none;
+}
+
+.signUpBtnText{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
+}
+
