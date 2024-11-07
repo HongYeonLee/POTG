@@ -74,7 +74,7 @@ li a:hover {
     font-size: 15px;
 }
 
-.index_div .signUpForA{
+.signUpBtn{
     display: block;
     color: rgb(0, 70, 42);
     cursor: pointer;
@@ -87,7 +87,7 @@ li a:hover {
     background-color: rgb(217, 217, 217);
 }
 
-.logInForA{
+.logIn{
     display: block;
     cursor: pointer;
 }
@@ -170,15 +170,15 @@ li a:hover {
     background-color: #ffffff;
 }
 
-.index_div button, .index_div select{
+.index_div button, select{
     text-transform: none;
 }
 
-.index_div button, .index_div input{
+.index_div button, input{
     overflow:visible;
 }
 
-.index_div button, .index_div input, .index_div optgroup, .index_div select, .index_div textarea{
+.index_div button, input, optgroup, select, textarea{
     font-family: inherit;
     font-size: 100%;
     line-height: 1.15;
@@ -208,7 +208,7 @@ li a:hover {
 
 }
 
-.index_div button, .index_div input, .index_div select, .index_div textarea{
+.index_div button, input, select, textarea{
     font-size: 14px;
     color: #333;
     cursor: pointer;
