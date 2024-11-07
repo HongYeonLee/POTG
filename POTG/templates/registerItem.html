@@ -1,91 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "index.html" %}
+{% block section %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/registerItemStyle.css">
+{% endblock %}
 
-<head>
-    <meta charset="utf-8" />
-    <title>상품 등록</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/registerItemStyle.css">
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            color: rgb(0, 90, 52);
-        }
-
-        .form-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        .left-column,
-        .right-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .upload-container {
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .input-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: right;
-            align-items: right;
-            margin-top: 20px;
-            gap: 10px;
-        }
-
-        .address-container {
-            display: flex;
-            align-items: right;
-            gap: 10px;
-        }
-
-        .address-container input[type="text"] {
-            flex: 1;
-            padding: 0.5em;
-            border: 1px solid rgb(0, 70, 42);
-            border-radius: 4px;
-        }
-
-        .address-button {
-            background-color: rgb(0, 70, 42);
-            color: rgb(255, 255, 255);
-            border: 1px solid rgb(0, 70, 42);
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .address-button:hover {
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 70, 42);
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
+<div class="registerItemBody">
     <form action="/submit_item_post" method="post" enctype="multipart/form-data" class="form-container">
         <div class="left-column">
             <div class="upload-container">
@@ -98,22 +18,20 @@
                 </div>
                 <label for="fileUpload" class="file-upload-button">상품 사진 업로드</label>
                 <input type="file" name="fileUpload" id="fileUpload" accept=".png, .jpeg" style="display: none;"
-                    onchange="previewImage(event)"> <br>
+                    onchange="previewImage(event)">
+                <br>
                 <div style="font-size: 14px;">.png .jpeg 파일만 첨부 가능</div>
             </div>
         </div>
-
         <div class="right-column">
-            <div
-                style="text-align: center; font-size: 36px; color: rgb(0, 90, 52); font-weight: 600; margin-bottom: 40px; margin-top: 80px;">
+            <div style="text-align: center; font-size: 36px; color: rgb(0, 90, 52); margin-bottom: 40px;">
                 상품 등록
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <label>판매자 아이디</label>
-                    <span>POTG (Project of the Genius)</span>
+                    <span>potg</span>
                 </div>
-
                 <div class="input-group">
                     <label for="dropdown">상품 카테고리</label>
                     <select id="dropdown" name="category" required>
@@ -135,13 +53,15 @@
                 </div>
 
                 <div class="input-group-radio">
-                    <label>거래 방식</label>
-                    <input type="radio" name="method" id="option1" value="sell">
-                    <label for="option1">판매</label>
-                    <input type="radio" name="method" id="option2" value="co-buy">
-                    <label for="option2">공동 구매</label>
-                    <input type="radio" name="method" id="option3" value="exchange">
-                    <label for="option3">교환</label>
+                    <label><span style="position: relative;left:-5px;">거래 방식</span></label>
+                    <div class = "radioBtnBox">
+                        <input type="radio" name="method" id="option1" value="sell" checked>
+                        <label for="option1"><span class = "radioText">판매</span></label>
+                        <input type="radio" name="method" id="option2" value="co-buy">
+                        <label for="option2"><span class = "radioText">공동 구매</span></label>
+                        <input type="radio" name="method" id="option3" value="exchange">
+                        <label for="option3"><span class = "radioText">교환</span></label>
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -192,7 +112,6 @@
                     <label for="description">설명</label>
                     <textarea name="details" id="description" rows="5" required></textarea>
                 </div>
-
             </div>
             <br>
             <div class="button-container">
@@ -200,6 +119,13 @@
                 <input type="submit" value="다음" class="button button-new">
             </div>
         </div>
+    </div>
+</div>
+<div class = "footerBox">
+    <div id = "footer" class = "footerBox2">
+        <span class = "footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
     </form>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -224,6 +150,4 @@
             }).open();
         }
     </script>
-</body>
-
-</html>
+{% endblock section %}
