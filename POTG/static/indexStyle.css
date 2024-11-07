@@ -74,7 +74,7 @@ li a:hover {
     font-size: 15px;
 }
 
-.signUpBtn{
+.index_div .signUpForA{
     display: block;
     color: rgb(0, 70, 42);
     cursor: pointer;
@@ -87,7 +87,7 @@ li a:hover {
     background-color: rgb(217, 217, 217);
 }
 
-.logIn{
+.logInForA{
     display: block;
     cursor: pointer;
 }
