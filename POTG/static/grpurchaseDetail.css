@@ -92,10 +92,14 @@ div.info-section{
     font-size: 14px;
     margin-left: auto;
 }
-.order{
-    float: right;
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
-
+.order p{
+    margin :0;
+}
   
 .add-to-cart{
     background-color: rgb(0, 70, 42);
@@ -107,4 +111,11 @@ div.info-section{
     font-size: 14px;
     margin-left: auto;
 
+}
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; 
+    margin-top: 10px;
 }
