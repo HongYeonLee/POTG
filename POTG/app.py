@@ -6,7 +6,7 @@ application = Flask(__name__)
 # 홈
 @application.route("/")
 def hello():
-    return render_template("index.html")
+    return render_template("home.html")
 
 # 회원가입
 @application.route("/signUp.html")
