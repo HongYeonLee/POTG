@@ -2,6 +2,11 @@
     text-align: left;
     padding: 60px 40px;
     background-color: #ffffff;
+    color: #333;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .ktMLQz {
@@ -58,14 +63,14 @@
     right: -400px;
 }
 
-body {
+/* body {
     background-color: #f9f9f9;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+} */
 
 .item-content {
     display: flex;
@@ -141,7 +146,7 @@ body {
 }
 
 .gallery-item {
-    width: 100%;
+    width: 1000px;
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
