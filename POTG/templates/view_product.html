@@ -1,15 +1,16 @@
-{% extends "../static/templates/index.html" %}
+{% extends "index.html" %}
 
 {% block custom_css %}
     <link rel = "stylesheet" href = "../static/view_product.css">
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
 
 {% endblock %}
 
 {% block section %}
 <!--상품 조회 부분-->
 <header class = "header">
-    <h1>상품 조회</h1>
-    <hr>
+    <h1 style="font-weight: lighter;">상품 조회</h1>
+    <hr style="position: relative; top:40px">
 </header>
 
 <section class = "popular-list">
@@ -100,9 +101,9 @@
             </div>
         
             <div class = "product-item"><!--여기-->
-                <a herf = "../templates/product_detail.html">
-                   <img src = "../static/images/habf.png" alt = "아몬드" class = "product-image">
-                   <p class = "product-name">[HBAF] 구운아몬드 1kg</p></a>
+                <a style="cursor: pointer;" href = "product_detail.html"><img src = "../static/images/habf.png" alt = "아몬드" class = "product-image"></a>
+                <p class = "product-name">[HBAF] 구운아몬드 1kg</p>
+                
                 <p class = "price">42,000원</p>
                 <span class = "discount">62% <span class = "discount-price">25,900원</span></span>
                 <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
