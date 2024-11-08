@@ -42,7 +42,7 @@
 }
 
 .hEHzLT {
-    display: inline-flex;
+    display: flex;
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: right;
@@ -54,8 +54,8 @@
     -webkit-tap-highlight-color: rgba(52, 106, 255, 0.1);
     width: 120px;
     height: 120px;
-    position: absolute;
-    right: 250px;
+    position: relative;
+    right: -400px;
 }
 
 body {
@@ -71,12 +71,8 @@ body {
     display: flex;
     flex-direction: row;
     -webkit-box-pack: justify;
-    width: 500px;
     height: 180px;
     padding: 0px 5px 0px 8px;
-
-
-
 }
 
 .review-container {
