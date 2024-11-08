@@ -224,3 +224,14 @@
     background-color: #00462A;
     color: white;
 }
+
+.product-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-item a:hover .product-image {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+}
