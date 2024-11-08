@@ -1,0 +1,46 @@
+{% extends "../static/templates/index.html" %}
+{% block custom_css %}
+<link rel="stylesheet" href="../static/review_write2.css">
+<link rel="stylesheet" href="../static/indexStyle.css">
+{% endblock %}
+
+
+   
+    <div class="review-container"> <h2>리뷰작성</h2><br>
+        <div class="section">
+            <label for="review-title"></label>
+            <input type="text" id="review-title" placeholder="리뷰의 제목을 입력해주세요"><br>
+            <div class="rating">
+                <span>주문한 상품에 얼마나 만족하시나요?</span>
+                <input type="radio" name="stars" id="star5" value="5"><label for="star5">&#9733;</label>
+                <input type="radio" name="stars" id="star4" value="4"><label for="star4">&#9733;</label>
+                <input type="radio" name="stars" id="star3" value="3"><label for="star3">&#9733;</label>
+                <input type="radio" name="stars" id="star2" value="2"><label for="star2">&#9733;</label>
+                <input type="radio" name="stars" id="star1" value="1"><label for="star1">&#9733;</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <label for="review-content"></label>
+            <textarea id="review-content" placeholder="다른 벗들에게 도움이 되도록 상품에 대한 솔직한 평가를 남겨주세요." style="height: 50%;"></textarea>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <label for="review-photo">사진 첨부하기</label>
+            <input type="file" id="review-photo" accept="image/*">
+        </div>
+
+        <hr>
+
+        <div class="buttons">
+            <button class="save-draft">임시 저장</button>
+            <button class="submit-review">작성 완료</button>
+            <button class="cancel-review">작성 취소</button>
+        </div>
+    </div>
+
+</html>
