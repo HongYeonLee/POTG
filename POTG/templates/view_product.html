@@ -1,0 +1,143 @@
+{% extends "../static/templates/index.html" %}
+
+{% block custom_css %}
+    <link rel = "stylesheet" href = "../static/view_product.css">
+
+{% endblock %}
+
+{% block section %}
+<!--상품 조회 부분-->
+<header class = "header">
+    <h1>상품 조회</h1>
+    <hr>
+</header>
+
+<section class = "popular-list">
+    <h2 class = "section-title">이번주 인기 상품</h2>
+
+    <div class = "popular-grid">
+        <div class = "popular-item">
+            <img src = "../static/images/popular1.png" alt = "소세지" class = "product-image">
+        </div>
+        <div class = "popular-item">
+            <img src = "../static/images/popular2.png" alt = "당근" class = "product-image">
+        </div>
+        <div class = "popular-item">
+            <img src = "../static/images/popular3.png" alt = "고기" class = "product-image">
+        </div>
+        <div class = "popular-item">
+            <img src = "../static/images/popular4.png" alt = "감자" class = "product-image">
+        </div>
+        <div class = "popular-item">
+            <div class = "overlay"><!--국내산 스테비아 대추 토마토 자리-->
+                <br>
+                <p class = "popular-name"> 국내산 스테비아 대추 토마토 500g </p>
+                <p class = "price">24,000원</p> 
+                <span class = "discount">42% <span class = "discount-price">11,000원</span></span>
+                <p class = "rating"> ★ 평균 별점 5.0  💬 9,999+</p>
+            </div>
+            <img src = "../static/images/popular5.png" alt = "방울토마토" class = "product-image">
+        </div>
+    </div>
+
+</section>
+
+<section class = "scroll-section">
+    <div class = "product-header">
+        <p class = "total-count">총 117건</p>
+        <div class = "sort-options">
+            <span class = "sort-button active">추천순</span>
+            <span class = "sort-button">인기순</span>
+            <span class = "sort-button">리뷰순</span>
+        </div>
+    </div>
+
+    <div class = "product-grid">
+            <div class = "product-item">
+                <img src = "../static/images/zero.jpg" alt = "제로요구르트" class = "product-image">
+                <p class = "product-name">[매일바이오] 제로 요구르트 24팩</p>
+                <p class = "price">24,000원</p>
+                <span class = "discount">42% <span class = "discount-price">13,900원</span> </span> 
+                <p class = "rating">★ 평균 별점 4.9  💬 7,479</p>
+            </div>
+
+            <div class = "product-item">
+                <img src = "../static/images/salad.jpg" alt = "샐러드" class = "product-image">
+                <p class = "product-name">친환경 무농약 유러피안 샐러드</p>
+                <p class = "price">30,000원</p>
+                <span class = "discount">50% <span class = "discount-price">14,900원</span></span>
+                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
+            </div>
+        
+            <div class = "product-item">
+                <img src = "../static/images/salmon.jpg" alt = "연어" class = "product-image">
+                <p class = "product-name">노르웨이 연어 연어회 200g</p>
+                <p class = "price">23,200원</p>
+                <span class = "discount">57% <span class = "discount-price">9,900원</span></span>
+                <p class = "rating">★ 평균 별점 4.9  💬 8,263</p>
+            </div>
+
+            <div class = "product-item">
+                <img src = "../static/images/salt.jpg" alt = "소금빵" class = "product-image">
+                <p class = "product-name">[안성 배꽃길] 소금빵</p>
+                <p class = "price-not">990원</p>
+                <p class = "rating">★ 평균 별점 4.9  💬 9,999+</p>
+            </div>
+        
+            <div class = "product-item">
+                <img src = "../static/images/health.jpg" alt = "닭가슴살" class = "product-image">
+                <p class = "product-name">[한끼통살] 닭가슴살 60종 택1</p>
+                <p class = "price-not">2,500원</p>
+                <p class = "rating">★ 평균 별점 4.9  💬 9,999+</p>
+            </div>
+        
+            <div class = "product-item">
+                <img src = "../static/images/strawberry.jpg" alt = "딸기" class = "product-image">
+                <p class = "product-name">[반반 딸기청] 수제 과일청 500g</p>
+                <p class = "price">40,000원</p>
+                <span class = "discount">60% <span class = "discount-price">16,000원</span></span>
+                <p class = "rating">★ 평균 별점 4.9  💬 8,522</p>
+            </div>
+        
+            <div class = "product-item">
+                <img src = "../static/images/habf.png" alt = "아몬드" class = "product-image">
+                <p class = "product-name">[HBAF] 구운아몬드 1kg</p>
+                <p class = "price">42,000원</p>
+                <span class = "discount">62% <span class = "discount-price">25,900원</span></span>
+                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
+            </div>
+
+            <div class = "product-item">
+                <img src = "../static/images/lukt.png" alt = "그릭요거트" class = "product-image">
+                <p class = "product-name">[룩트] 그릭요거트 100g x 6개입</p>
+                <p class = "price-not">23,400원</p>
+                <p class = "rating">★ 평균 별점 4.9  💬 2,470</p>
+            </div>
+        
+            <div class = "product-item">
+                <img src = "../static/images/potato.jpg" alt = "만두" class = "product-image">
+                <p class = "product-name">감자만두 고기1.4kg + 김치1.4kg</p>
+                <p class = "price">32,880원 </p>
+                <span class = "discount">09% <span class = "discount-price">29,880원</span></span>
+                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
+            </div>
+
+            <div class = "product-item">
+                <img src = "../static/images/fruit.png" alt = "동결건조" class = "product-image">
+                <p class = "product-name">동결건조 과일칩 13g 택1</p>
+                <p class = "price-not">4,000원</p>
+                <p class = "rating">★ 평균 별점 4.8  💬 5,299</p>
+            </div>
+        
+    </div>
+    
+
+    <div class = "pagination">
+        <a href = "#">&laquo; 이전</a>
+        <a href = "#">1</a>
+        <a href = "#">2</a>
+        <a href = "#">3</a>
+        <a href = "#">다음 &raquo;</a>
+    </div>
+</section>
+{% endblock section %}
