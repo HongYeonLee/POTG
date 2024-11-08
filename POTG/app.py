@@ -19,9 +19,9 @@ def view_logIn():
     return render_template("logIn.html")
 
 # 상품 조회
-@application.route("/fullproduct.html")
+@application.route("/view_product.html")
 def view_list():
-    return render_template("fullproduct.html")
+    return render_template("view_product.html")
 
 # 리뷰 조회
 @application.route("/review_ViewAll.html")
