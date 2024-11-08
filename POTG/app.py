@@ -61,31 +61,31 @@ def user_duplicate_check(self, id_string):
         return True
 
 # 상품 조회
-@application.route("/view_product.html")
+@application.route("/view_product")
 def view_list():
     return render_template("view_product.html")
 
 # 리뷰 조회
-@application.route("/review_ViewAll.html")
+@application.route("/review_ViewAll")
 def view_review():
     return render_template("review_ViewAll.html")
 
 # 상품 등록
-@application.route("/registerItem.html")
+@application.route("/registerItem")
 def reg_item():
     return render_template("registerItem.html")
 
-# 리뷰 작성1
-@application.route("/review_write1.html")
+
+@application.route("/review_write1")
 def reg_review1():
     return render_template("review_write1.html")
 
 # 리뷰 작성2
-@application.route("/review_write2.html")
+@application.route("/review_write2")
 def reg_review2():
     return render_template("review_write2.html")
 
-@application.route("/grpurchase_ViewAll.html")
+@application.route("/grpurchase_ViewAll")
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
