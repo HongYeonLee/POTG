@@ -121,6 +121,7 @@ form {
     color: rgb(0, 70, 42);
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(0, 70, 42);
+    cursor: pointer;
 }
 
 .logInAndSignUpBox button:last-of-type{
