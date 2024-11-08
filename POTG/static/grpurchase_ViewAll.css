@@ -87,10 +87,7 @@
 
 /*2. 상품 헤더 */
 .product-sort{
-    display: flex;
-    justify-content: space-between;
-    width: 800%;
-    padding: 10px 20px; 
+    margin-bottom: 20px;
 }
 .product-header{
     display: flex;
@@ -101,7 +98,11 @@
 /*총건수*/
 .total-count {
     color: #A2A1A1;
-    margin-left: 100px;
+    
+}
+.sort-options{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 .sort-button {
     color: #333;
@@ -124,11 +125,11 @@
 
 /*3.상품*/
 .product-container{
-    float: left;
-}
-.product-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.product-list {
+    
     gap: 20px;
     width: 80%;
     padding-left: 20px;
