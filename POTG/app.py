@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
-from POTG.database import DBhandler
+from database import DBhandler
 import hashlib
 import sys
 
