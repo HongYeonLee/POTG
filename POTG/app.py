@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
+from database import DBhandler
 import sys
 
 application = Flask(__name__)
+
+DB = DBhandler()
 
 # 홈
 @application.route("/")
@@ -67,7 +70,9 @@ def reg_item_submit_post():
     image_file.save("static/images/{}".format(image_file.filename))
     data = request.form
     print(data['name'], data['seller'], data['addr'], data['email'], data['category'], data['card'], data['status'], data['phone'])
-    return render_template("submit_item_result.html", data=data,  img_path="static/images/{}".format(image_file.filename))
+    # return render_template("submit_item_result.html", data=data,  img_path="static/images/{}".format(image_file.filename))
+    DB.insert_item(data['name'], data, image_file.filename)
+    return render_template("submit_item_result.html", data=data, img_path="static/images/{}".format(image_file.filename))
 
 
 if __name__ == "__main__":
