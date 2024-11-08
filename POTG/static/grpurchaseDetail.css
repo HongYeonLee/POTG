@@ -7,6 +7,11 @@
     
 }
 
+/*전체 섹션*/
+.detail{
+    display: flex;
+}
+
 /*사진 섹션*/
 div.pic-section{
     width:30%;
