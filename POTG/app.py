@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
-from database import DBhandler
+from flask import Flask, render_template, request, flash, redirect, url_for, session
+from POTG.database import DBhandler
+import hashlib
 import sys
 
 application = Flask(__name__)
+application.config["SECRET_KEY"] = "helloosp"
 
 DB = DBhandler()
 
@@ -11,15 +13,52 @@ DB = DBhandler()
 def hello():
     return render_template("home.html")
 
-# 회원가입
-@application.route("/signUp.html")
-def view_signUp():
-    return render_template("signUp.html")
-
 # 로그인
-@application.route("/logIn.html")
+@application.route("/login")
 def view_logIn():
-    return render_template("logIn.html")
+    return render_template("login.html")
+
+# 회원가입
+@application.route("/signup")
+def view_signUp():
+    return render_template("signup.html")
+
+@application.route("/signup_post", methods=["POST"])
+def register_user():
+    data=request.form
+    pw=request.form['pw'] #비밀번호만 데이터에서 가져와 해쉬코드로 변경 후 저장
+    pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+    if DB.insert_user(data, pw_hash):
+        return render_template("login.html")
+    else:
+        flash("user id already exist!")
+        return render_template("signup.html")
+
+def insert_user(self, data, pw):
+    user_info ={
+        "id": data['id'],
+        "pw": pw,
+        "name": data['name']
+    }
+    if self.user_duplicate_check(str(data['id'])):
+        self.db.child("user").push(user_info)
+        print(data)
+        return True
+    else:
+        return False
+    
+def user_duplicate_check(self, id_string):
+    users = self.db.child("user").get()
+
+    print("users###",users.val())
+    if str(users.val()) == "None": # first registration
+        return True
+    else:
+        for res in users.each():
+            value = res.val()
+            if value['id'] == id_string:
+                return False
+        return True
 
 # 상품 조회
 @application.route("/view_product.html")
