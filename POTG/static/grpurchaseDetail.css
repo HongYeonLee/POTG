@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'ewha';
+    src: url(../static/fonts/ewha.ttf);
+}
+*{
+    font-family: 'ewha';
+    
+}
+
+/*사진 섹션*/
+div.pic-section{
+    width:30%;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 60px;
+
+}
+.product-image{
+    padding-top: 50px;
+    width: 221px;
+    height: 282px;
+    
+    
+}
+/*설명 섹션*/
+div.info-section{
+    width:70%;
+    float: right;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 20px;
+
+}
+
+
+.product-info {
+    margin-bottom: 20px;
+}
+
+.product-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.discounted-price {
+    color: black;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.discounted-price span {
+    color: #e74c3c;
+    font-weight: bold;
+
+}
+.additional-info {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.additional-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.additional-info p strong {
+    color: #888;
+    min-width: 100px; /* 제목 부분 고정 너비 */
+    text-align: left;
+}
+
+.additional-info p .value {
+    flex: 2; /* 가변 너비 */
+    text-align: left;
+}
+.chat-btn {
+    background-color: rgb(0, 70, 42);
+    color: white;
+    border: none;
+    height: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+}
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.order p{
+    margin :0;
+}
+  
+.add-to-cart{
+    background-color: rgb(0, 70, 42);
+    color: white;
+    border: none;
+    height: 25px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+
+}
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; 
+    margin-top: 10px;
+}

@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/grpurchase_Chat.css">
+
+{% endblock %}
+{% block section %}
+<body>
+   <div class="chat-container">
+    <!-- 1.채팅방 멤버 리스트 -->
+    <div class="user-list">
+        <div class="user">
+            <div class="user-avatar"><span class="star">★</span></div>
+            <div class="user-info">
+                <p>hwaYeonLee</p>
+                <span>info.</span>
+            </div>
+        </div>
+        <div class="user">
+            <div class="user-avatar"></div>
+            <div class="user-info">
+                <p>JJL</p>
+                <span>info.</span>
+            </div>
+        </div>
+        <div class="user">
+            <div class="user-avatar"></div>
+            <div class="user-info">
+                <p>JKL</p>
+                <span>info.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2.채팅창 -->
+    <div class="chat-window">
+        <!--왼쪽 메세지-->
+        <div class="message message-left">
+            <div class="profile-pic"></div>
+            <div class="message-content">
+              <div class="username">JKL</div>
+              <div class="text">주문 넣으셨나요?</div>
+            </div>
+          </div>
+        <!-- 오른쪽 메세지 -->
+        <div class="message message-right">
+            <div class="profile-pic"></div>
+            <div class="message-content">
+            <div class="username">hwaYeonLee</div>
+            <div class="text">아니요.</div>
+            </div>
+        </div>
+        <!--왼쪽 메세지-->
+        <div class="message message-left">
+            <div class="profile-pic"></div>
+            <div class="message-content">
+              <div class="username">JJL</div>
+              <div class="text">앗 그렇군요</div>
+            </div>
+        </div>
+        <!-- Input Box -->
+        <div class="message-input">
+            <input type="text" placeholder="메세지를 입력하시오.">
+            <button>전송</button>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+{% endblock section %}

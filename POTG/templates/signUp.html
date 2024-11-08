@@ -1,9 +1,15 @@
 {% extends "index.html" %}
 {% block custom_css %}
 <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
-<link rel="stylesheet" type="text/css" href="../static/signUpStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/signupStyle.css">
 {% endblock %}
 {% block section %}
+{% with mesg = get_flashed_messages() %}
+{% if mesg !=[] %}
+    <script>alert("{{ mesg[0] }}")</script>
+{% endif %}
+{% endwith %}
+<form method="post" action = "/signup_post">
 <div class = "d1">
     <div class = "signUpText">회원가입</div>
     <div class = "contentBox">
@@ -22,7 +28,7 @@
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "memberId" name = "memberId" placeholder="아이디를 입력해주세요" type = "text" required class = "inputInner" value>
+                            <input id = "memberId" name = "id" placeholder="아이디를 입력해주세요" type = "text" required class = "inputInner" value>
                         </div>
                     </div>
                 </div>
@@ -38,7 +44,7 @@
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "password" name = "password" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                            <input id = "password" name = "pw" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
                         </div>
                     </div>
                 </div>
@@ -240,11 +246,17 @@
             </div>
         </div>
         <div class = "signUpBtnBox">
-            <button class = "signUpBtn" type = "submit" width ="240" hegith = "56" radius = "3">
+            <button class = "signUpBtn" type = "submit" width ="240" hegith = "56" radius = "3" value = "생성">
                 <span class = "signUpBtnText" style="color: white;">가입하기</span>
             </button>
         </div>
     </div>
 </div>
+</form>
+<div class = "footerBox">
+    <div id = "footer" class = "footerBox2">
+        <span class = "footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
 {% endblock section %}
-<script src = "../static/signUp.js"></script>
+<script src = "../static/signup.js"></script>

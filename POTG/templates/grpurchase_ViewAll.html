@@ -1,0 +1,154 @@
+{% extends "../static/templates/index.html" %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="../static/grpurchase_ViewAll.css">
+   
+{% endblock %}
+
+{% block section %}
+<body>
+<main>
+    <!-- 카테고리 -->
+    <section class="category-section"> 
+        <h2 >카테고리</h2>
+        <div class="category-container">
+            <div class="category-item">스킨케어 및 메이크업</div>
+            <div class="category-item">헤어 바디 구강</div>
+            <div class="category-item">육류 및 해산물</div>
+            <div class="category-item">가공식품</div>
+            <div class="category-item">생활용품 및 리빙</div>
+            <div class="category-item">과일 채소</div>
+            <div class="category-item">냉동식품</div>
+            <a href="#" class="more-link">> 카테고리 더보기</a>
+        </div>
+    </section>
+    <div class="content-container">
+
+        <!-- 좌측 필터 -->
+        <aside class="filter-section">
+            <h3>필터</h3>
+            <hr>
+            <form>
+                <div class="filter-group">
+                    <h3>남은기간</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="1w">
+                        <label for="1w">1주일 이내</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="3d">
+                        <label for="3d">3일 이내</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="1d">
+                        <label for="1d">24시간 이내</label>
+                    </div>
+                    <div class="filter-item">
+        
+                        <label for="dt"><img src="../static/images/icon_cal.png"> 기간설정<br><br>
+                            <input type="date" value="2024-12-15">
+                        </label>
+                        
+                    </div>
+
+                </div>
+                <hr>
+                <div class="filter-group">
+                    <h3>진행사항</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="9">
+                        <label for="9">90%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="8">
+                        <label for="8">80%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="7">
+                        <label for="7">70%~</label>
+                    </div>
+                    <div class="filter-item">
+                        <input type="checkbox" id="6">
+                        <label for="6">60%~</label>
+                    </div>
+                    <div class="filter-item">
+                
+                        <label for="6"> <img src="../static/images/icon_star.png"> 인원<br>
+                            <input type="number" id="6" min="0" value="0">
+                        </label>
+            
+                    </div>
+                    
+
+                </div>
+                <hr>
+                <div class="filter-group">
+                    <h3>혜택</h3>
+                    <div class="filter-item">
+                        <input type="checkbox" id="sale">
+                        <label for="sale">할인상품</label>
+                    </div>
+                </div>
+
+
+            </form>
+        </aside>
+
+        <!-- 상품 리스트 섹션 -->
+       <!--위에 추천수 어캄-->
+        
+        <section class="product-list">
+            
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_햇반솥반.png" alt="햇반솥반">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day">D-3</p>
+                    <p class="product-name">[햇반] 솥반 12개</p>
+                    <p class="prog">구매확정 / 총량 : 9개 / 12개</p>
+                    <p class="product-price">
+                        <p class="original-price">20,000원</p>
+                        <span class="discount-rate">10%</span>
+                        <span class="discounted-price">18,000원 ~ / 1,500원(개당)</span>
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_사과.png" alt="Product 2">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day">D-2</p>
+                    <p class="product-name">강원도 고랭지 사과 15개</p>
+                    <p class="prog">구매확정 / 총량 : 11개 / 15개</p>
+                    <p class="product-price">
+                        <p class="original-price">18,000원</p>
+                        <span class="discount-rate">10%</span>
+                        <span class="discounted-price">16,200원 ~ / 3,240원(개당)</span>
+                    </p>
+                    
+                </div>
+            </div>
+            <div class="product-item">
+                <img class="product-image" src="../static/images/공구_갈비.png" alt="Product 3">
+                <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                <div class="product-info">
+                    <p class="d-day" style="color: rgb(206, 24, 24);">D-Day 03:04:16</p>
+                    <p class="product-name">[능원가든]양념 LA 갈비 9팩</p>
+                    <p class="prog">구매확정 / 총량 : 8팩 / 9팩</p>
+                    <p class="product-price">
+                        <p class="original-price">45,000원</p>
+                        <span class="discount-rate"></span>
+                        <span class="discounted-price">45,000원 ~ / 5,000원(개당)</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+    
+</main>
+</body>
+         
+{% endblock section %}
