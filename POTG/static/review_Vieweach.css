@@ -39,11 +39,11 @@
 
 .content {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 20px auto 100px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 4px;;
 }
 
 h2 {
@@ -177,5 +177,24 @@ button {
 
 button:hover {
     background-color: #00462A;
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
 }
 

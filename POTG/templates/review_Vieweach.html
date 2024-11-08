@@ -1,24 +1,9 @@
 {% extends "index.html" %}
-
-
 {% block custom_css %}
-    <link rel="stylesheet" href="review_Vieweach.css">
-    
+    <link rel="stylesheet" href="../static/review_Vieweach.css">
+    <link rel="stylesheet" href="../static/indexStyle.css">
 {% endblock %}
 
-
-<!--<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POTG</title>
-    <link rel="stylesheet" href="../static/review_Vieweach.css">
-
-</head>
--->
-
-<body>
 {% block content %}
 <div class="content">
     <h2>이번 주 인기 리뷰</h2>
@@ -26,7 +11,7 @@
 
     <div class="review-section">
         <div class="review-img-box">
-            <img src="../POTG/static/image/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img">
+            <img src="../static/images/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img">
         </div>
         
         <div class="review-details">
@@ -45,7 +30,7 @@
             </div>
 
             <div class="product-box">
-                <img src="고구마.jpg" alt="Sweet potato" class="product-img">
+                <img src="../static/images/고구마.jpg" alt="Sweet potato" class="product-img">
                 <div class="product-details">
                     <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p>
                     <p><s class="original-price">20900원</s> <span class="discount-price">16900원</span></p>
@@ -60,9 +45,12 @@
         </div>
     </div>
 </div>
+<div class = "footerBox">
+    <div id = "footer" class = "footerBox2">
+        <span class = "footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
 {% endblock content%}
-</body>
-
 
 <script>
     // URL에서 쿼리 파라미터 추출
