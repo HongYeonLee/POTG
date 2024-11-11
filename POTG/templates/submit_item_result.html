@@ -2,32 +2,32 @@
 
 {% block section %}
 <p>
-    Seller {{data.seller}} sells {{data.name}} and its c
-    ategory is {{data.category}}.
-    The item is
-    {% if data['status'] == "lnew" %}
-    likely new!
-    {% endif %}
+    판매자 {{ data['seller'] }}가 {{ data['name'] }}(을)를 판매합니다.
+    카테고리는 {{ data['category'] }}입니다.
+    상품의 상태는
     {% if data['status'] == "new" %}
-    new!
-    {% endif %}
-    {% if data['status'] == "used" %}
-    used!
+    '최상'입니다
+    {% elif data['status'] == "good" %}
+    '상'입니다
+    {% elif data['status'] == "used" %}
+    '중'입니다
+    {% elif data['status'] == "old" %}
+    '하'입니다
     {% endif %}
 </p>
-<img src="{{img_path}}" class="input_image"/>
+<img src="{{ img_path }}" class="input_image"/>
 <p>
-    Contact via {{data.email}} or {{data.phone}}
-    if you are interested!
-    The address is {{data.addr}}
+    {{ data['phone'] }}로 연락주세요.
+    주소는 {{ data['address'] }} 입니다.
 </p>
 <p>
-    For payment, the credit card is
-    {% if data['card'] == "Y" %}
-    accepted!
-    {% endif %}
-    {% if data['card'] == "N" %}
-    NOT accepted!
+    거래 방식은
+    {% if data['method'] == "sell" %}
+    판매 입니다.
+    {% elif data['method'] == "co-buy" %}
+    공동 구매 입니다.
+    {% elif data['method'] == "exchange" %}
+    교환 입니다.
     {% endif %}
 </p>
 {% endblock section %}

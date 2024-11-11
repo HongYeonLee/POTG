@@ -3,6 +3,7 @@
 {% block custom_css %}
 <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
 <link rel="stylesheet" type="text/css" href="../static/registerItemStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='registerItemStyle.css') }}"> 
 {% endblock %}
 
 <div class="registerItemBody">
@@ -17,10 +18,10 @@
                     </div>
                 </div>
                 <label for="fileUpload" class="file-upload-button">상품 사진 업로드</label>
-                <input type="file" name="fileUpload" id="fileUpload" accept=".png, .jpeg" style="display: none;"
+                <input type="file" name="fileUpload" id="fileUpload" accept=".png, .jpeg .jpg" style="display: none;"
                     onchange="previewImage(event)">
                 <br>
-                <div style="font-size: 14px;">.png .jpeg 파일만 첨부 가능</div>
+                <div style="font-size: 14px;">.png .jpeg .jpg파일만 첨부 가능</div>
             </div>
         </div>
         <div class="right-column">
@@ -29,9 +30,16 @@
             </div>
             <div class="input-container">
                 <div class="input-group">
-                    <label>판매자 아이디</label>
-                    <span>potg</span>
+                    <label for="name">상품명</label>
+                    <input type="text" name="name" id="name" placeholder ="상품을 입력해주세요." required>
                 </div>
+
+                <div class="input-group">
+                    <label>판매자 아이디</label>
+                    <!-- <span>potg</span> -->
+                    <input type = "text" name = "seller" id = "seller" placeholder ="아이디를 입력해주세요." required> 
+                </div>
+
                 <div class="input-group">
                     <label for="dropdown">상품 카테고리</label>
                     <select id="dropdown" name="category" required>
@@ -42,14 +50,9 @@
                         <option value="home">가정용품</option>
                         <option value="hobby">취미</option>
                         <option value="food">식품</option>
-                        <option value="gift card">기프티</option>
-                        <option value="gift card">기타</option>
+                        <option value="gift card">기프티콘</option>
+                        <option value="etc">기타</option>
                     </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="name">상품 이름</label>
-                    <input type="text" name="name" id="name" required>
                 </div>
 
                 <div class="input-group-radio">
@@ -70,7 +73,7 @@
                         <option value="" disabled selected>상품 상태 선택하세요</option>
                         <option value="new">최상</option>
                         <option value="good">상</option>
-                        <option value="used">상</option>
+                        <option value="used">중</option>
                         <option value="old">하</option>
                     </select>
                 </div>
@@ -93,7 +96,8 @@
                 <div class="input-group address-input">
                     <label for="address">주소</label>
                     <div class="address-container">
-                        <input type="text" id="address" placeholder="주소 찾기 버튼을 누르세요." readonly>
+                        <input type="text" name = "address" id="address" placeholder="주소를 입력해주세요.">
+                        <!-- <input type="text" id="address" placeholder="주소 찾기 버튼을 누르세요." readonly> -->
                         <button type="button" class="address-button" onclick="fetchAddress()">주소 찾기</button>
                     </div>
                 </div>
@@ -116,18 +120,18 @@
             <br>
             <div class="button-container">
                 <input type="button" value="이전 페이지" class="button button-old">
-                <input type="submit" value="다음" class="button button-new">
+                <input type="submit" value="제출" class="button button-new">
             </div>
         </div>
     </div>
+    </form>
 </div>
 <div class = "footerBox">
     <div id = "footer" class = "footerBox2">
         <span class = "footerText">© POTG - Project Of The Genius</span>
     </div>
-</div>
-    </form>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</div>    
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function previewImage(event) {
             const reader = new FileReader();
