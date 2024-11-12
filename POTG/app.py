@@ -34,32 +34,6 @@ def register_user():
         flash("user id already exist!")
         return render_template("signup.html")
 
-def insert_user(self, data, pw):
-    user_info ={
-        "id": data['id'],
-        "pw": pw,
-        "name": data['name']
-    }
-    if self.user_duplicate_check(str(data['id'])):
-        self.db.child("user").push(user_info)
-        print(data)
-        return True
-    else:
-        return False
-    
-def user_duplicate_check(self, id_string):
-    users = self.db.child("user").get()
-
-    print("users###",users.val())
-    if str(users.val()) == "None": # first registration
-        return True
-    else:
-        for res in users.each():
-            value = res.val()
-            if value['id'] == id_string:
-                return False
-        return True
-
 # 상품 조회
 @application.route("/view_product")
 def view_list():
@@ -109,13 +83,12 @@ def reg_item_submit():
 
 @application.route("/submit_item_post", methods=["POST"])
 def reg_item_submit_post():
-    image_file = request.files["file"]
-    image_file.save("static/images/{}".format(image_file.filename))
+    image_file = request.files["fileUpload"]
+    image_file.save("static/images/inputImages/{}".format(image_file.filename))
     data = request.form
-    print(data['name'], data['seller'], data['addr'], data['email'], data['category'], data['card'], data['status'], data['phone'])
-    # return render_template("submit_item_result.html", data=data,  img_path="static/images/{}".format(image_file.filename))
+    print(data['name'], data['seller'], data['address'], data['category'], data['method'], data['status'], data['phone'])
     DB.insert_item(data['name'], data, image_file.filename)
-    return render_template("submit_item_result.html", data=data, img_path="static/images/{}".format(image_file.filename))
+    return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
 
 if __name__ == "__main__":
