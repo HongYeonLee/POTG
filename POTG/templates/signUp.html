@@ -2,11 +2,13 @@
 {% block custom_css %}
 <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
 <link rel="stylesheet" type="text/css" href="../static/signupStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='signupStyle.css') }}">  
 {% endblock %}
 {% block section %}
 {% with mesg = get_flashed_messages() %}
 {% if mesg !=[] %}
-    <script>alert("{{ mesg[0] }}")</script>
+    <script src="../static/signup.js"></script>
+    <script>alert("{{ mesg[0] }}");</script>
 {% endif %}
 {% endwith %}
 <form method="post" action = "/signup_post">
@@ -60,7 +62,7 @@
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "passwordConfirm" name = "passwordConfirm" placeholder="비밀번호를 한번 더 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                            <input id = "passwordConfirm" name = "pwConfirm" placeholder="비밀번호를 한번 더 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
                         </div>
                     </div>
                 </div>
@@ -259,4 +261,3 @@
     </div>
 </div>
 {% endblock section %}
-<script src = "../static/signup.js"></script>

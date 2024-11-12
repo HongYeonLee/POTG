@@ -28,11 +28,18 @@ class DBhandler:
         print(data,img_path)
         return True
     
-    def insert_user(self, data, pw):
+    def insert_user(self, data, pw, pwConfirm):
         user_info ={
             "id": data['id'],
             "pw": pw,
-            "nickname": data['nickname']
+            "pwConfirm": pwConfirm,
+            "name" : data['name'],
+            "emailId" : data['emailId'],
+            "mobileNumber" : data['mobileNumber'],
+            "gender" : data['gender'],
+            "birthYear" : data['birthYear'],
+            "birthMonth" : data['birthMonth'],
+            "birthDay" : data['birthDay']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
