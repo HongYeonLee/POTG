@@ -27,8 +27,11 @@ def view_signUp():
 def register_user():
     data=request.form
     pw=request.form['pw'] #비밀번호만 데이터에서 가져와 해쉬코드로 변경 후 저장
+    pwConfirm = request.form['pwConfirm']
     pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
-    if DB.insert_user(data, pw_hash):
+    pwConfirm_hash = hashlib.sha256(pwConfirm.encode('utf-8')).hexdigest()
+
+    if DB.insert_user(data, pw_hash, pwConfirm_hash): #아이디 중복체크
         return render_template("login.html")
     else:
         flash("user id already exist!")
