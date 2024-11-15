@@ -17,9 +17,15 @@
     <div class = "index_div">
         <div class = "top">
             <div class = "signUpAndLogIn">
+                {% if session['id'] %}
+                {{session['name']}} 님
+                <div class = "bar"></div>
+                <a href="/logout" class = "logInForA">로그아웃</a>
+                {% else %}
                 <a href="/signup" class = "signUpForA">회원가입</a>
                 <div class = "bar"></div>
                 <a href="/login" class = "logInForA">로그인</a>
+                {% endif %}
             </div>
             <div class = "top2">
                 <div class = "top3">

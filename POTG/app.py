@@ -13,10 +13,30 @@ DB = DBhandler()
 def hello():
     return render_template("home.html")
 
-# 로그인
+# 로그인 화면
 @application.route("/login")
 def view_logIn():
     return render_template("login.html")
+
+@application.route("/login_confirm", methods=['POST'])
+def login_user():
+    id_=request.form['id']
+    pw=request.form['pw']
+    pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+    if DB.find_user(id_,pw_hash):
+        session['id']=id_
+        user_info = DB.get_user_info(id_, pw_hash)
+        session['name'] = user_info['name']
+        return redirect(url_for('hello'))
+    else:
+        flash("Wrong ID or PW!")
+        return render_template("login.html")
+
+# 로그아웃
+@application.route("/logout")
+def logout_user():
+    session.clear()
+    return redirect(url_for('hello'))
 
 # 회원가입
 @application.route("/signup")
