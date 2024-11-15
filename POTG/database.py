@@ -79,3 +79,21 @@ class DBhandler:
         print(data,img_path)
         return True
     
+    def view_review(self,name,data,img_path):
+       review_info ={
+            "title": data['title'],
+            "author": data['author'],
+            "content": data['content'],
+            "originalPrice": data['originalPrice'],
+            "discountPrice": data['discountPrice'],
+            "productName": data['productName'],
+            "img_path": img_path,
+            "productImage": data['productImage'],
+            "reviewImage": data['reviewImage']
+        }
+       self.db.child("review").child(name).set(review_info)
+       print(data,img_path)
+       return True
+
+        
+        
