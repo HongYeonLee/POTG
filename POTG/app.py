@@ -65,6 +65,10 @@ def view_list():
 # 리뷰 조회
 @application.route("/review_ViewAll")
 def view_review():
+    per_page=12
+    per_row=4
+    row_count=int(per_page/per_row)
+    
     return render_template("review_ViewAll.html")
 
 # 상품 등록
@@ -86,7 +90,7 @@ def reg_review2():
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-@application.route("/review_Vieweach.html?")
+@application.route("/review_Vieweach.html")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
 
