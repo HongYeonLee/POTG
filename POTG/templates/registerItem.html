@@ -3,7 +3,7 @@
 {% block custom_css %}
 <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
 <link rel="stylesheet" type="text/css" href="../static/registerItemStyle.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='registerItemStyle.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='registerItemStyle.css') }}">
 {% endblock %}
 
 <div class="registerItemBody">
@@ -17,7 +17,7 @@
                         </a>
                     </div>
                 </div>
-                <label for="fileUpload" class="file-upload-button">상품 사진 업로드</label>
+                <label for="fileUpload" class="button-base file-upload-button">상품 사진 업로드</label>
                 <input type="file" name="fileUpload" id="fileUpload" accept=".png, .jpeg .jpg" style="display: none;"
                     onchange="previewImage(event)">
                 <br>
@@ -28,130 +28,124 @@
             <div style="text-align: center; font-size: 36px; color: rgb(0, 90, 52); margin-bottom: 40px;">
                 상품 등록
             </div>
-            <div class="input-container">
-                <div class="input-group">
-                    <label for="name">상품명</label>
-                    <input type="text" name="name" id="name" placeholder ="상품을 입력해주세요." required>
-                </div>
 
-                <div class="input-group">
-                    <label>판매자 아이디</label>
-                    <!-- <span>potg</span> -->
-                    <input type = "text" name = "seller" id = "seller" placeholder ="아이디를 입력해주세요." required> 
-                </div>
+            <div class="scrollable-content"> <!-- Start of scrollable area -->
+                <!-- All form fields here -->
+                <div class="input-container">
+                    <div class="input-group">
+                        <label for="name">상품명</label>
+                        <input type="text" name="name" id="name" placeholder="상품을 입력해주세요." required>
+                    </div>
 
-                <div class="input-group">
-                    <label for="dropdown">상품 카테고리</label>
-                    <select id="dropdown" name="category" required>
-                        <option value="" disabled selected>상품 카테고리 선택하세요</option>
-                        <option value="electronics">전자제품</option>
-                        <option value="clothes">의류 및 악세사리</option>
-                        <option value="beauty">뷰티 및 건강</option>
-                        <option value="home">가정용품</option>
-                        <option value="hobby">취미</option>
-                        <option value="food">식품</option>
-                        <option value="gift card">기프티콘</option>
-                        <option value="etc">기타</option>
-                    </select>
-                </div>
+                    <div class="input-group">
+                        <label>판매자 아이디</label>
+                        <input type="text" name="seller" id="seller" placeholder="아이디를 입력해주세요." required>
+                    </div>
 
-                <div class="input-group-radio">
-                    <label><span style="position: relative;left:-5px;">거래 방식</span></label>
-                    <div class = "radioBtnBox">
-                        <input type="radio" name="method" id="option1" value="sell" checked>
-                        <label for="option1"><span class = "radioText">판매</span></label>
-                        <input type="radio" name="method" id="option2" value="co-buy">
-                        <label for="option2"><span class = "radioText">공동 구매</span></label>
-                        <input type="radio" name="method" id="option3" value="exchange">
-                        <label for="option3"><span class = "radioText">교환</span></label>
+                    <div class="input-group">
+                        <label for="dropdown">상품 카테고리</label>
+                        <select id="dropdown" name="category" required>
+                            <option value="" disabled selected>상품 카테고리 선택하세요</option>
+                            <option value="skincaremakeup">스킨케어 및 메이크업</option>
+                            <option value="clothes">헤어 바디 구강</option>
+                            <option value="seafood">육류 및 해산물</option>
+                            <option value="home">가공식품</option>
+                            <option value="fruit">과일 채소</option>
+                            <option value="food">냉동식품</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-radio">
+                        <label><span style="position: relative;left: 0px;">거래 방식</span></label>
+                        <div class="radioBtnBox">
+                            <input type="radio" name="method" id="option1" value="sell" checked>
+                            <label for="option1"><span class="radioText">판매</span></label>
+                            <input type="radio" name="method" id="option2" value="co-buy">
+                            <label for="option2"><span class="radioText">공동 구매</span></label>
+                            <input type="radio" name="method" id="option3" value="exchange">
+                            <label for="option3"><span class="radioText">교환</span></label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="status">상품 상태</label>
+                        <select id="status" name="status" required>
+                            <option value="" disabled selected>상품 상태 선택하세요</option>
+                            <option value="new">최상</option>
+                            <option value="good">상</option>
+                            <option value="used">중</option>
+                            <option value="old">하</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="price">가격</label>
+                        <div class="input-with-currency">
+                            <input type="text" placeholder="가격을 입력해 주세요." name="price" id="price" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                            class="inputInner" value>
+                            <span class="currency">원</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="info">기타 정보</label>
+                        <input type="text" placeholder="브랜드, 버전 등 기타 정보를 입력해 주세요." name="info" id="info" required>
+                    </div>
+
+                    <div class="input-group address-input">
+                        <label for="address">주소</label>
+                        <div class="address-container">
+                            <input type="text" name="address" id="address" placeholder="주소를 입력해주세요.">
+                            <button type="button" class="address-button" onclick="fetchAddress()">주소 찾기</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="phone">전화번호</label>
+                        <input type="text" placeholder="010XXXXXXXX" name="phone" id="phone" required
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                            class="inputInner" value>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="description">설명</label>
+                        <textarea name="details" id="description" rows="5" required></textarea>
                     </div>
                 </div>
+            </div> 
 
-                <div class="input-group">
-                    <label for="status">상품 상태</label>
-                    <select id="status" name="status" required>
-                        <option value="" disabled selected>상품 상태 선택하세요</option>
-                        <option value="new">최상</option>
-                        <option value="good">상</option>
-                        <option value="used">중</option>
-                        <option value="old">하</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="price">가격</label>
-                    <input type="text" placeholder="가격을 입력해 주세요." name="price" id="price" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="date">유통기한</label>
-                    <input type="date" name="date" id="date">
-                </div>
-
-                <div class="input-group">
-                    <label for="info">기타 정보</label>
-                    <input type="text" placeholder="브랜드, 버전 등 기타 정보를 입력해 주세요." name="info" id="info" required>
-                </div>
-
-                <div class="input-group address-input">
-                    <label for="address">주소</label>
-                    <div class="address-container">
-                        <input type="text" name = "address" id="address" placeholder="주소를 입력해주세요.">
-                        <!-- <input type="text" id="address" placeholder="주소 찾기 버튼을 누르세요." readonly> -->
-                        <button type="button" class="address-button" onclick="fetchAddress()">주소 찾기</button>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="phone">전화번호</label>
-                    <input type="text" placeholder="010XXXXXXXX" name="phone" id="phone" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="purchase">구매처</label>
-                    <input type="text" placeholder="사이트 이름, 스토어 이름 등" name="purchase" id="purchase" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="description">설명</label>
-                    <textarea name="details" id="description" rows="5" required></textarea>
-                </div>
-            </div>
-            <br>
             <div class="button-container">
-                <input type="button" value="이전 페이지" class="button button-old">
-                <input type="submit" value="제출" class="button button-new">
+                <input type="submit" value="제출" class="button-base button-new">
             </div>
         </div>
-    </div>
     </form>
 </div>
-<div class = "footerBox">
-    <div id = "footer" class = "footerBox2">
-        <span class = "footerText">© POTG - Project Of The Genius</span>
+<div class="footerBox">
+    <div id="footer" class="footerBox2">
+        <span class="footerText">© POTG - Project Of The Genius</span>
     </div>
-</div>    
+</div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-        function previewImage(event) {
-            const reader = new FileReader();
-            const image = document.getElementById('uploadedImage');
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        const image = document.getElementById('uploadedImage');
 
-            reader.onload = function () {
-                image.src = reader.result;
-                image.style.display = 'block';
-                image.style.maxWidth = '100%';
-                image.style.maxHeight = '100%';
+        reader.onload = function () {
+            image.src = reader.result;
+            image.style.display = 'block';
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function fetchAddress() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                document.getElementById('address').value = data.roadAddress || data.jibunAddress;
             }
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-        function fetchAddress() {
-            new daum.Postcode({
-                oncomplete: function (data) {
-                    document.getElementById('address').value = data.roadAddress || data.jibunAddress;
-                }
-            }).open();
-        }
-    </script>
+        }).open();
+    }
+</script>
 {% endblock section %}
