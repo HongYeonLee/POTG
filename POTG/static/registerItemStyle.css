@@ -12,18 +12,18 @@
 
 .form-container {  
     display: flex;  
-    flex-wrap: wrap; /* Allow wrapping for responsiveness */  
+    flex-wrap: wrap; 
     width: 100%;  
     max-width: 1200px;  
     border-radius: 20px;  
     overflow: hidden;  
-    margin: 0 auto; /* Center-align the container */  
+    margin: 0 auto;   
 }  
 
 .input-container {  
-    flex: 1 1 45%; /* Grow to fill space, base width 45% */  
-    min-width: 300px; /* Avoid collapsing too narrow on smaller screens */  
-    box-sizing: border-box; /* Includes padding in width */  
+    flex: 1 1 45%;  
+    min-width: 300px;  
+    box-sizing: border-box;
     padding: 20px;   
     overflow-y: auto;  
 }  
@@ -36,7 +36,7 @@
 }  
 
 .input-group label {  
-    min-width: 150px; /* Ensure labels are consistent size */  
+    min-width: 150px; 
     margin-right: 10px;  
     text-align: left;  
 }  
@@ -46,8 +46,8 @@ input[type="date"],
 select,  
 textarea {  
     flex: 1;  
-    width: 100%; /* Full width within container constraints */  
-    max-width: 600px; /* Preserved for design intention */  
+    width: 100%; 
+    max-width: 600px;   
     height: 45px;  
     border: 1px solid rgb(0, 70, 42);  
     border-radius: 4px;  
@@ -72,7 +72,7 @@ textarea {
 input[type="submit"],  
 .file-upload-button {  
     margin-top: 20px;  
-    padding: 10px 10px; /* Ensure the same padding for both buttons */  
+    padding: 10px 10px;  
     background-color: rgb(0, 70, 42);  
     color: white;  
     border: none;  
@@ -80,11 +80,10 @@ input[type="submit"],
     cursor: pointer;  
     text-align: center;  
     display: inline-block;  
-    width: 150px; /* Set this width to match visuals for both buttons */  
-    white-space: nowrap; /* Prevent text wrapping */  
+    width: 150px;
+    white-space: nowrap; 
 }  
-
-/* Unified hover effect for both buttons */  
+ 
 input[type="submit"]:hover,  
 .file-upload-button:hover {  
     background-color: rgb(255, 255, 255);  
@@ -190,29 +189,29 @@ textarea {
 .right-column {  
     flex: 1;  
     margin-left: 20px;  
-    height: 100vh; /* Viewport height to fill the screen */  
+    height: 100vh; 
     position: relative;  
     padding: 20px;  
     box-sizing: border-box;  
     display: flex;  
     flex-direction: column;  
-    justify-content: space-between; /* Ensure space distribution */  
+    justify-content: space-between; 
 }  
 
 .scrollable-content {  
-    max-height: calc(100vh - 150px); /* Adjust the subtraction amount to allow for more space */  
+    max-height: calc(100vh - 150px);   
     overflow-y: auto;  
-    padding-right: 10px; /* Optional: padding for scrollbar space */  
-    margin-bottom: 20px; /* Optional: space between content and submit button */  
+    padding-right: 10px; 
+    margin-bottom: 20px; 
 }
 .left-column {  
     flex: 1;  
     display: flex;  
     flex-direction: column;  
-    justify-content: center; /* Center vertically */  
-    align-items: center; /* Center horizontally */  
+    justify-content: center;  
+    align-items: center;  
     padding: 20px;  
-    height: 100%; /* Ensure it fills the available space */  
+    height: 100%;  
     margin-top: 50px;
 }
 
@@ -314,10 +313,10 @@ textarea {
     pointer-events: none;  
 }  
 
-/* Responsive Media Queries for Flexibility */  
+
 @media only screen and (max-width: 700px) {  
     .input-container {  
-        flex: 1 1 100%; /* Stacks to full width on smaller screens */  
+        flex: 1 1 100%; 
     }  
 }  
 
@@ -330,9 +329,9 @@ textarea {
 
 
 .button-base {  
-    padding: 10px 10px; /* Consistent padding */  
-    width: 150px; /* Consistent width */  
-    height: 45px; /* Consistent height for uniformity */  
+    padding: 10px 10px; 
+    width: 150px; 
+    height: 45px;  
     background-color: rgb(0, 70, 42);  
     color: white;  
     border: none;  
@@ -340,7 +339,7 @@ textarea {
     cursor: pointer;  
     text-align: center;  
     display: inline-block;  
-    white-space: nowrap; /* Prevent text wrapping */  
+    white-space: nowrap;  
     font-size: 16px;
 }  
 
