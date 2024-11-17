@@ -1,351 +1,382 @@
-  .registerItemBody {  
-    font-size: 16px;  
-    font-weight: 500;  
-    margin: 0;  
-    line-height: 1.6;  
-    display: flex;  
-    justify-content: center;  
-    align-items: flex-start;  
-    padding: 10px;  
-    color: rgb(0, 90, 52);  
-}  
-
-.form-container {  
-    display: flex;  
-    flex-wrap: wrap; /* Allow wrapping for responsiveness */  
-    width: 100%;  
-    max-width: 1200px;  
-    border-radius: 20px;  
-    overflow: hidden;  
-    margin: 0 auto; /* Center-align the container */  
-}  
-
-.input-container {  
-    flex: 1 1 45%; /* Grow to fill space, base width 45% */  
-    min-width: 300px; /* Avoid collapsing too narrow on smaller screens */  
-    box-sizing: border-box; /* Includes padding in width */  
-    padding: 20px;   
-    overflow-y: auto;  
-}  
-
-.input-group {  
-    display: flex;  
-    flex-direction: row;  
-    align-items: center;  
-    margin-bottom: 30px;  
-}  
-
-.input-group label {  
-    min-width: 150px; /* Ensure labels are consistent size */  
-    margin-right: 10px;  
-    text-align: left;  
-}  
-
-input[type="text"],  
-input[type="date"],  
-select,  
-textarea {  
-    flex: 1;  
-    width: 100%; /* Full width within container constraints */  
-    max-width: 600px; /* Preserved for design intention */  
-    height: 45px;  
-    border: 1px solid rgb(0, 70, 42);  
-    border-radius: 4px;  
-    padding: .5em;  
-    box-sizing: border-box;  
-}  
-
-.button-container {  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    margin-top: 20px;  
-    gap: 10px;
-}  
-
-.button {  
-    flex: 1;  
-    max-width: 200px;  
-    max-height: 500px;
-}  
-
-input[type="submit"],  
-.file-upload-button {  
-    margin-top: 20px;  
-    padding: 10px 10px; /* Ensure the same padding for both buttons */  
-    background-color: rgb(0, 70, 42);  
-    color: white;  
-    border: none;  
-    border-radius: 5px;  
-    cursor: pointer;  
-    text-align: center;  
-    display: inline-block;  
-    width: 150px; /* Set this width to match visuals for both buttons */  
-    white-space: nowrap; /* Prevent text wrapping */  
-}  
-
-/* Unified hover effect for both buttons */  
-input[type="submit"]:hover,  
-.file-upload-button:hover {  
-    background-color: rgb(255, 255, 255);  
-    color: rgb(0, 70, 42);  
-    border: 1px solid rgb(0, 70, 42);  
-}
-
-.input-group label::after {  
-    content: "*";  
-    color: red;  
-    margin-left: 5px;  
-    font-size: 1.2em;  
-}  
-
-.input-group-radio {  
-    display: block;  
-    margin-bottom: 20px;  
-    gap: 10px;  
-}  
-
-.input-group-radio input[type="radio"] {  
-    appearance: none;  
-    width: 20px;  
-    height: 20px;  
-    border: 2px solid #00462A;  
-    border-radius: 50%;  
-    outline: none;  
-    cursor: pointer;  
-    position: relative;  
-}  
-
-.input-group-radio input[type="radio"]:checked {  
-    background-color: #00462A;  
-}  
-
-.input-group-radio input[type="radio"]:checked::before {  
-    content: "";  
-    display: block;  
-    width: 10px;  
-    height: 10px;  
-    background-color: white;  
-    border-radius: 50%;  
-    position: absolute;  
-    top: 50%;  
-    left: 50%;  
-    transform: translate(-50%, -50%);  
-}  
-
-.input-group-radio label {  
-    color: #00462A;  
-    cursor: pointer;  
-    margin-right: 30px;  
-}  
-
-.green-box {  
-    height: 20px;  
-    background-color: rgb(0, 90, 52);  
-    width: 100%;  
-    margin-bottom: 20px;  
-}  
-
-div.gallery {  
-    border: 1px solid #ccc;  
-}  
-
-div.gallery:hover {  
-    border: 1px solid #777;  
-}  
-
-div.gallery img {  
-    display: block;  
-    width: 100%;  
-    height: 100%;  
-    object-fit: cover;  
-    object-position: center;  
-    border-radius: 8px;  
-}  
-
-.gallery {  
-    border: 2px dashed rgb(0, 70, 42);  
-    padding: 10px;  
-    text-align: center;  
-    width: 414px;  
-    height: 414px;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    background-color: #f9f9f9;  
-    margin: 20px 0;  
-    border-radius: 8px;  
-}  
-
-textarea {  
-    flex: 1;  
-    max-width: 600px;  
-    height: 300px;  
-    border: 1px solid rgb(0, 70, 42);  
-    border-radius: 4px;  
-    padding: 0.5em;  
-    box-sizing: border-box;  
-    resize: vertical;  
-}  
-.right-column {  
-    flex: 1;  
-    margin-left: 20px;  
-    height: 100vh; /* Viewport height to fill the screen */  
-    position: relative;  
-    padding: 20px;  
-    box-sizing: border-box;  
-    display: flex;  
-    flex-direction: column;  
-    justify-content: space-between; /* Ensure space distribution */  
-}  
-
-.scrollable-content {  
-    max-height: calc(100vh - 150px); /* Adjust the subtraction amount to allow for more space */  
-    overflow-y: auto;  
-    padding-right: 10px; /* Optional: padding for scrollbar space */  
-    margin-bottom: 20px; /* Optional: space between content and submit button */  
-}
-.left-column {  
-    flex: 1;  
-    display: flex;  
-    flex-direction: column;  
-    justify-content: center; /* Center vertically */  
-    align-items: center; /* Center horizontally */  
-    padding: 20px;  
-    height: 100%; /* Ensure it fills the available space */  
-    margin-top: 50px;
-}
-
-.upload-container {  
-    padding: 20px;  
-    text-align: center;  
-    display: flex;  
-    flex-direction: column;  
-    justify-content: center;  
-    align-items: center;  
-}  
-
-.address-input {  
-    display: flex;  
-    flex-direction: row;  
-    align-items: center;  
-}  
-
-.address-container {  
-    display: flex;  
-    align-items: center;  
-    flex: 1;  
-    gap: 10px;  
-}  
-
-.address-container input[type="text"] {  
-    flex: 1;  
-    padding: 0.5em;  
-    border: 1px solid rgb(0, 70, 42);  
-    border-radius: 4px;  
-    box-sizing: border-box;  
-}  
-
-.address-button {  
-    background-color: rgb(0, 70, 42);  
-    color: rgb(255, 255, 255);  
-    border: 1px solid rgb(0, 70, 42);  
-    border-radius: 4px;  
-    cursor: pointer;  
-    padding: 15px 10px;  
-    white-space: nowrap;  
-}  
-
-.address-button:hover {  
-    background-color: rgb(255, 255, 255);  
-    color: rgb(0, 70, 42);  
-}  
-
-.radioBtnBox {  
-    float: right;  
-    padding-right: 40px;  
-    display: block;  
-    margin: 1px;  
-}  
-
-.radioText {  
-    position: relative;  
-    top: -5px;  
-}  
-
-.footerBox {  
-    padding-top: 30px;  
-    border-top: 1px solid #f7f7f7;  
-    background-color: rgb(0, 70, 42);  
-}  
-
-.footerBox2 {  
-    width: 100%;  
-    max-width: 1200px;  
-    height: 50px;  
-    margin: 0 auto;  
-    text-align: center;  
-}  
-
-.footerText {  
-    color: white;  
-    opacity: 0.77;  
-}  
-
-.input-with-currency {  
-    position: relative;  
-    flex: 1;  
-}  
-
-.input-with-currency input {  
-    width: 100%;  
-    padding-right: 30px;  
-    height: 45px;  
-    border: 1px solid rgb(0, 70, 42);  
-    border-radius: 4px;  
-    box-sizing: border-box;  
-}  
-
-.currency {  
-    position: absolute;  
-    right: 10px;  
-    top: 50%;  
-    transform: translateY(-50%);  
-    pointer-events: none;  
-}  
-
-/* Responsive Media Queries for Flexibility */  
-@media only screen and (max-width: 700px) {  
-    .input-container {  
-        flex: 1 1 100%; /* Stacks to full width on smaller screens */  
-    }  
-}  
-
-@media only screen and (max-width: 500px) {  
-    .input-container, .gallery {  
-        width: 100%;  
-    }  
-}
-
-
-
-.button-base {  
-    padding: 10px 10px; /* Consistent padding */  
-    width: 150px; /* Consistent width */  
-    height: 45px; /* Consistent height for uniformity */  
-    background-color: rgb(0, 70, 42);  
-    color: white;  
-    border: none;  
-    border-radius: 5px;  
-    cursor: pointer;  
-    text-align: center;  
-    display: inline-block;  
-    white-space: nowrap; /* Prevent text wrapping */  
+.registerItemBody {
     font-size: 16px;
-}  
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    color: rgb(0, 90, 52);
+}
 
-.button-base:hover {  
-    background-color: rgb(255, 255, 255);  
-    color: rgb(0, 70, 42);  
-    border: 1px solid rgb(0, 70, 42);  
+.form-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.input-container {
+    flex: 1;
+    padding: 20px;
+    height: 80vh;
+    overflow-y: auto;
+
+    /* border-left: 1px; */
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+    /* Updated to increase gap between input boxes */
+}
+
+.input-group label {
+    width: 150px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    flex: 1;
+    max-width: 600px;
+    height: 45px;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.button {
+    flex: 1;
+    max-width: 200px;
+}
+
+input[type="submit"],
+.file-upload-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: rgb(0, 70, 42);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+input[type="submit"]:hover,
+.file-upload-button:hover {
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 70, 42);
+    border: 1px solid rgb(0, 70, 42);
+}
+
+.file-upload-button {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.input-group label::after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+
+.input-group-radio {
+    display: block;
+    /* flex-direction: row; */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-group-radio input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00462A;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.input-group-radio input[type="radio"]:checked {
+    background-color: #00462A;
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
+
+.input-group-radio input[type="radio"]:checked::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input-group-radio label {
+    color: #00462A;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    margin-left: 0px;
+    margin-right: 30px;
+}
+
+.input-group-radio input[type="radio"]:not(:checked)+label {
+    color: rgb(0, 70, 42);
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.green-box {
+    height: 20px;
+    background-color: rgb(0, 90, 52);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+/* div.gallery img {
+    width: 100%;
+    height: auto;
+} */
+
+div.gallery img {
+    display: block;
+    width: 100%;
+    /* Ensures the image fills the container's width */
+    height: 100%;
+    /* Ensures the image fills the container's height */
+    object-fit: cover;
+    /* Scales the image to cover the entire container */
+    object-position: center;
+    /* Center the part of the image that displays */
+    border-radius: 8px;
+    /* Rounds the corners to match the gallery box */
+}
+
+.gallery {
+    border: 2px dashed rgb(0, 70, 42);
+    padding: 10px;
+    text-align: center;
+    width: 414px;
+    height: 414px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: rgb(0, 70, 42);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+
+}
+
+
+.button:hover {
+    background-color: rgb(0, 70, 42);
+    /* Example hover color */
+}
+
+textarea {
+    flex: 1;
+    max-width: 600px;
+    height: 300px;
+    /* Adjust height as needed */
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    padding: 0.5em;
+    box-sizing: border-box;
+    resize: vertical;
+    /* Allow vertical resizing if desired */
+}
+
+.right-column {
+    flex: 1;
+    margin-left: 20px;
+}
+
+
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+    /* Fill the height of the parent container */
+    padding: 20px;
+}
+
+.upload-container {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    color: rgb(0, 90, 52);
+}*/
+
+.form-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.upload-container {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.address-container {
+    display: flex;
+    align-items: right;
+    gap: 10px;
+}
+
+.address-container input[type="text"] {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+}
+
+.address-button {
+    background-color: rgb(0, 70, 42);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.address-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
+
+.radioBtnBox{
+    float :right;
+    padding-right: 35px;
+    display: block;
+    margin: 1px;
+}
+
+.radioText{
+    position: relative;
+    top: -5px; /* 원하는 위치에 맞게 값을 조정 */
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
 }
