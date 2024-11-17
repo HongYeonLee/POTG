@@ -120,3 +120,4 @@ def reg_item_submit_post():
 
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
+
