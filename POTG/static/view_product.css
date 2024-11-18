@@ -26,11 +26,11 @@
 }
 
 .popular-table {
-    width: 100%;
+    width: auto;
     table-layout: fixed;
     border-collapse: seperate;
     border-spacing: 15px;
-    margin-top:50px;
+    margin:50px auto;
 }
 
 .popular-item {
@@ -128,7 +128,7 @@
 
 /*일반 상품 목록*/
 .product-table {
-    width: 100%;
+    width: auto;
     border-collapse: seperate;
     border-spacing: 15px;
 }
