@@ -59,7 +59,7 @@ def register_user():
 
 # 상품 조회
 @application.route("/view_product")
-def view_list():
+def view_product():
     return render_template("view_product.html")
 
 #상품 리스트 수정한 부분
