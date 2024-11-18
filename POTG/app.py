@@ -63,23 +63,28 @@ def view_product():
     return render_template("view_product.html")
 
 #상품 리스트 수정한 부분
-#등록순
-@application.route("/view_registration")
-def view_registration():
-    return render_template("view_registration.html")
+# #등록순
+# @application.route("/view_registration")
+# def view_registration():
+#     return render_template("view_registration.html")
 
-@application.route("/")
-def list():
-    return redirect(url_for('view_list'))
+# @application.route("/")
+# def list():
+#     return redirect(url_for('view_list'))
 
 @application.route("/list")
 def view_list():
-
+    page = request.args.get("page", 0, type = int)
     per_page = 10
     per_row = 5
     row_count = int(per_page/per_row)
-    
+
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
+
     data = DB.get_items()
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
 
     for i in range(row_count):
@@ -93,7 +98,10 @@ def view_list():
         datas = data.items(),
         row1 = locals()['data_0'].items(),
         row2 = locals()['data_1'].items(),
-        total = tot_count)
+        limit = per_page,
+        page = page,
+        page_count = int((item_counts/per_page)+1),
+        total = item_counts)
 
 #동적라우팅
 @application.route("/view_detail/<name>/")
@@ -104,7 +112,6 @@ def view_item_detail(name):
     return render_template("view_detail.html", name=name, data=data)
 
 #여기까지 수정
-
 
 
 # 리뷰 조회

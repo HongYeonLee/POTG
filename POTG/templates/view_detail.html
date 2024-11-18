@@ -2,47 +2,48 @@
 
 {% block custom_css %}
     <link rel = "stylesheet" href = "../static/product_detail.css">
-    <link rel = "stylesheet" href = "../static/indexStyle.css">
-
+    <link rel = "stylesheet" type="text/css" href = "../static/indexStyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='product_detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
 {% endblock %}
 
 {% block section %}
         <section class = "section-first">
-            <img src = "../static/images/{{data.img_path}}" alt = "{{name}}" class = "image">
+            <img src="{{ url_for('static', filename='images/inputImages/' + data.img_path) }}" alt="{{name}}" class="image">
             <div class = "content">
                 <h2 class = "name">{{name}}</h2>
-                <p class = "discount">{{method}}<span class = "price">{{price}}</span></p>
+                <p class = "discount">거래 방식 : {{data.method}}<span class = "price">{{data.price}}</span></p>
                 <div class="divider"></div>
 
                 <div class = "content">
                     <div class = "info-row">
                         <span class = "information_title">판매자</span>
-                        <span class = "information">{{seller}}<br> <span class = "detail">{{phone}}</span></span>
+                        <span class = "information">{{data.seller}}<br> <span class = "detail">{{data.phone}}</span></span>
                         
                 </div>
                 <div class="divider"></div>
                 <div class = "info-row">
                     <span class = "information_title">주소</span>
-                    <span class = "detail">{{address}}</span></span>
+                    <span class = "detail">{{data.address}}</span></span>
                 </div>
                 <div class="divider"></div>
                 <div class = "info-row">
                     <span class = "information_title">카테고리</span>
-                    <span class = "information">{{category}}</span>
+                    <span class = "information">{{data.category}}</span>
                 </div>
                 <div class="divider"></div>
                 <div class = "info-row">
                     <span class = "information_title">디테일</span>
-                    <span class = "information">{{details}}</span>
+                    <span class = "information">{{data.details}}</span>
                 </div>
                 <div class="divider"></div>
                 <div class = "info-row">
-                    <span class = "information_title">구매처</span>
-                    <p class = "information">{{purchase}}</span>
+                    <span class = "information_title">기타 정보</span>
+                    <span class = "information">{{data.info}}</span>
                 </div>
                 <div class="divider"></div>
 
-                <span class = "imformation-title_1">총 상품금액:<span class="price">{{price}}원</span></span>
+                <span class = "imformation-title_1">총 상품금액:<span class="price">{{data.price}}원</span></span>
                 </div>
                 <div class="button-container">
                     <button class="icon-button">❤️</button>

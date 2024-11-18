@@ -88,32 +88,41 @@
     </div>
 
     <table class = "product-table">
+        <div class = "product-item">
         <tr>
-            <td class = "product-item">
-                {% for key, value in row1 %}
-                <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
-                    <img src = "../static/images/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
-                </td>
-                <p class = "product-name">{{key}}</p>
-                <span class = "discount">{{value['method']}} 
-                    <span class = "discount-price">{{value['price']}}원</span>
-                </span> 
-                {% endfor %}
+            {% for key, value in row1 %}
+            <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
+                <img src = "../static/images/inputImages/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
             </td>
+            {% endfor %}
         </tr>
         <tr>
-            <td class = "product-item">
-                {% for key, value in row2 %}
-                <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
-                <img src = "../static/images/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
-                </td>
-                <p class = "product-name">{{key}}</p>
-                <span class = "discount">{{value['method']}} 
-                    <span class = "discount-price">{{value['price']}}원</span>
-                </span> 
-                {% endfor %}
+            {% for key, value in row1 %}
+            <td>
+                <span class = "product-name">{{key}}</span>
+                <span class = "discount">{{value['method']}}
+                <span class = "discount-price">{{value['price']}}원</span>
             </td>
+            {% endfor %}
         </tr>
+        <tr>
+            {% for key, value in row2 %}
+            <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
+                <img src = "../static/images/inputImages/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
+            </td>
+            {% endfor %}
+
+        </tr>
+        <tr>
+            {% for key, value in row2 %}
+            <td>
+                <span class = "product-name">{{key}}</span>
+                <span class = "discount">{{value['method']}}
+                <span class = "discount-price">{{value['price']}}원</span>
+            </td>
+            {% endfor %}
+        </tr>
+        </div>
     </table>
 
     <!--페이지네이션-->
