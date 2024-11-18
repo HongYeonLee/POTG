@@ -92,7 +92,7 @@ class DBhandler:
 
         for key, value in items.items():
             items[key] = {
-                "info": key,
+                "name": key,
                 "price": value['price'],
                 "method": value['method'],
                 "img_path": value['img_path']
