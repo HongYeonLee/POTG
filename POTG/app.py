@@ -59,7 +59,7 @@ def register_user():
 
 # 상품 조회
 @application.route("/view_product")
-def view_list():
+def view_product():
     return render_template("view_product.html")
 
 #상품 리스트 수정한 부분
@@ -162,9 +162,6 @@ def reg_item_submit_post():
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
-<<<<<<< Updated upstream
-
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
-=======
->>>>>>> Stashed changes
+
