@@ -75,13 +75,96 @@
     </table>
 </section>
 
+<!--여기 상품 등록 추가-->
+{% if total > 0 %}
 <section class = "scroll-section">
+    <div class = "product-header">
+        <p class = "total-count">총 {{total}}개</p>
+        <!-- <div class = "sort-options">
+            <span class = "sort-button">추천순</span>
+            <span class = "sort-button active">등록순</span>
+            <span class = "sort-button">인기순</span>
+        </div> -->
+    </div>
+
+    <table class = "product-table">
+        <div class = "product-item">
+        <tr>
+            {% for key, value in row1 %}
+            <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
+                <img src = "../static/images/inputImages/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
+            </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for key, value in row1 %}
+            <td>
+                <span class = "product-name">{{key}}</span>
+                <span class = "discount">{{value['method']}}
+                <span class = "discount-price">{{value['price']}}원</span>
+            </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for key, value in row2 %}
+            <td onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
+                <img src = "../static/images/inputImages/{{value['img_path']}}" alt = "{{key}}" class = "product-image">
+            </td>
+            {% endfor %}
+
+        </tr>
+        <tr>
+            {% for key, value in row2 %}
+            <td>
+                <span class = "product-name">{{key}}</span>
+                <span class = "discount">{{value['method']}}
+                <span class = "discount-price">{{value['price']}}원</span>
+            </td>
+            {% endfor %}
+        </tr>
+        </div>
+    </table>
+
+    <!--페이지네이션-->
+    <div class = "page-wrap">
+        <div class = "pagination">
+            <a href = "#">&laquo; 이전</a>
+            {% for i in range(page_count) %}
+            <a href = "{{url_for('view_product', page = i)}}" color = "black">{{i+1}}</a>
+            {% endfor %}
+            <a href = "#">다음 &raquo;</a>
+        </div>
+    </div>
+</section>
+
+{% else %}
+<section class = "scroll-section">
+    <div class = "product-header">
+        <p class = "total-count">총 0개</p>
+        <!-- <div class = "sort-options">
+            <span class = "sort-button">추천순</span>
+            <span class = "sort-button active">등록순</span>
+            <span class = "sort-button">인기순</span>
+        </div> -->
+    </div>
+
+    <p class = "product-name">등록된 상품이 없습니다.</p>
+
+    <div class = "footerBox">
+        <div id = "footer" class = "footerBox2">
+            <span class = "footerText">© POTG - Project Of The Genius</span>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- <section class = "scroll-section">
     <div class = "product-header">
         <p class = "total-count">총 117건</p>
         <div class = "sort-options">
             <span class = "sort-button active">추천순</span>
             <span class = "sort-button">
-                <a href = "{{url_for('view_registration')}}" style = "text-decoration: none; color: inherit">등록순</a>
+                <a href = "/list" style = "text-decoration: none; color: inherit">등록순</a>
             </span>
             <span class = "sort-button">인기순</span>
         </div>
@@ -137,7 +220,7 @@
                 <p class = "rating">★ 평균 별점 4.9  💬 8,522</p>
             </td>
         
-            <td class = "product-item"><!--여기-->
+            <td class = "product-item">
                 <a style="cursor: pointer;" href = "product_detail.html"><img src = "../static/images/habf.png" alt = "아몬드" class = "product-image"></a>
                 <p class = "product-name">[HBAF] 구운아몬드 1kg</p>
                 
@@ -177,11 +260,6 @@
         <a href = "#">2</a>
         <a href = "#">3</a>
         <a href = "#">다음 &raquo;</a>
-    </div>
+    </div> -->
 </section>
-<div class = "footerBox">
-    <div id = "footer" class = "footerBox2">
-        <span class = "footerText">© POTG - Project Of The Genius</span>
-    </div>
-</div>
 {% endblock section %}
