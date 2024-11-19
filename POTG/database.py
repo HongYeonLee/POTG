@@ -58,8 +58,7 @@ class DBhandler:
             value = res.val()
             if value['id'] == id_ and value['pw'] == pw_:
                 return value
-
-    
+            
     def insert_item(self, name, data, img_path):
         item_info ={
         "seller": data['seller'],
@@ -67,11 +66,9 @@ class DBhandler:
         "method": data['method'],
         "status": data['status'],
         "price": data['price'],
-        "date": data['date'],
         "info": data['info'],
         "address": data['address'],
         "phone": data['phone'],
-        "purchase": data['purchase'],
         "details": data['details'],
         "img_path": img_path
         }
@@ -79,30 +76,11 @@ class DBhandler:
         print(data,img_path)
         return True
     
-
 #상품 리스트 화면
 #여기부터 수정#
     def get_items(self):
         items = self.db.child("item").get().val()
-
-        if items is None:
-            return{}
-        
-        items = {}
-
-        for key, value in items.items():
-            items[key] = {
-                "name": key,
-                "price": value['price'],
-                "method": value['method'],
-                "img_path": value['img_path']
-            }
         return items #item 노드 값 가져오기
-    
-    # "info": data['info'],
-    #"price": data['price'],
-    #"method": data['method'],
-    #"img_path": img_path
 
     def get_item_byname(self, name):
         items = self.db.child("item").get()
@@ -115,20 +93,5 @@ class DBhandler:
 
             if key_value == name:
                 target_value = res.val()
-
-                item_info = {
-                    "name": key_value,
-                    "price": target_value['price'],
-                    "method": target_value['method'],
-                    "img_path": target_value['img_path'],
-                    "seller": target_value['seller'],
-                    "category": target_value['category'],
-                    "status": target_value['status'],
-                    "address": target_value['address'],
-                    "phone": target_value['phone'],
-                    "purchase": target_value['purchase'],
-                    "details": target_value['details'],
-                }
-                return item_info
             
         return target_value

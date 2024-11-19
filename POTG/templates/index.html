@@ -12,7 +12,7 @@
     {% block custom_css %}
     {% endblock %}
 </head>
-
+ 
 <body>
     <div class = "index_div">
         <div class = "top">
@@ -29,8 +29,8 @@
             </div>
             <div class = "top2">
                 <div class = "top3">
-                    <a href="/"><img src = "../static/images/POTG로고.png" alt = "POTG로고" class = "logo" width="110px"></a>
-                    <img src = "../static/images/ProjectOfTheGenius로고.PNG" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px">
+                    <a href="/"><img src = "{{ url_for('static', filename='images/POTG로고.png') }}" alt = "POTG로고" class = "logo" width="110px"></a>
+                    <img src = "{{ url_for('static', filename='images/ProjectOfTheGenius로고.PNG') }}" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px">
                 </div>
                 <div class = "top4">
                     <div class = "searchBox">
@@ -43,9 +43,9 @@
                 <div class = "top5">
                     <div class = "userConvenienceIcon">
                         <div class = "location"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
-                        <button class = "wishlistIcon" aria-label="찜하기" type = "button"><img src = "../static/images/찜.png"></button>
+                        <button class = "wishlistIcon" aria-label="찜하기" type = "button"><img src = "{{ url_for('static', filename='images/찜.png') }}"></button>
                         <div class = "cartIconBox">
-                            <button class = "cartIcon"><img src = "../static/images/카트.png"></button>
+                            <button class = "cartIcon"><img src = "{{ url_for('static', filename='images/카트.png') }}"></button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="leftSection">
                     <div class="cartegoryBox">
                         <div class="cartegory">
-                            <button id = "cartegoryBtn"><img src="../static/images/카테고리바.png" class="ctg_bar"></button>
+                            <button id = "cartegoryBtn"><img src="{{ url_for('static', filename='images/카테고리바.png') }}" class="ctg_bar"></button>
                         </div>
                     </div>
                     <ul class="navigationBox">

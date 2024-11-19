@@ -60,6 +60,7 @@ def register_user():
 # 상품 조회
 @application.route("/view_product")
 def view_product():
+
     return render_template("view_product.html")
 
 #상품 리스트 수정한 부분
@@ -71,13 +72,24 @@ def view_registration():
 @application.route("/list")
 def view_list():
 
+
+    page = request.args.get("page", 0, type = int)
+
     per_page = 10
     per_row = 5
     row_count = int(per_page/per_row)
-    
+
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
+
     data = DB.get_items()
+
     if not data:
         data = {}
+
+
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
 
     tot_count = len(data)
 
@@ -90,11 +102,14 @@ def view_list():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
 
     return render_template(
-        "view_registration.html",
+        "view_product.html",
         datas = data.items(),
         row1 = locals()['data_0'].items(),
         row2 = locals()['data_1'].items(),
-        total = tot_count)
+        limit = per_page,
+        page = page,
+        page_count = int((item_counts/per_page)+1),
+        total = item_counts)
 
 #동적라우팅
 @application.route("/view_detail/<name>/")
@@ -103,10 +118,6 @@ def view_item_detail(name):
     data = DB.get_item_byname(str(name))
     print("####data:",data)
     return render_template("view_detail.html", name=name, data=data)
-
-#여기까지 수정
-
-
 
 # 리뷰 조회
 @application.route("/review_ViewAll")
