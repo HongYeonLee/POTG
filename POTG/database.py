@@ -58,8 +58,7 @@ class DBhandler:
             value = res.val()
             if value['id'] == id_ and value['pw'] == pw_:
                 return value
-
-    
+            
     def insert_item(self, name, data, img_path):
         item_info ={
         "seller": data['seller'],
@@ -67,11 +66,9 @@ class DBhandler:
         "method": data['method'],
         "status": data['status'],
         "price": data['price'],
-        "date": data['date'],
         "info": data['info'],
         "address": data['address'],
         "phone": data['phone'],
-        "purchase": data['purchase'],
         "details": data['details'],
         "img_path": img_path
         }
@@ -79,3 +76,22 @@ class DBhandler:
         print(data,img_path)
         return True
     
+#상품 리스트 화면
+#여기부터 수정#
+    def get_items(self):
+        items = self.db.child("item").get().val()
+        return items #item 노드 값 가져오기
+
+    def get_item_byname(self, name):
+        items = self.db.child("item").get()
+        target_value=""
+
+        print("###########",name)
+
+        for res in items.each():
+            key_value = res.key()
+
+            if key_value == name:
+                target_value = res.val()
+            
+        return target_value

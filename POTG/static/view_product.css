@@ -1,3 +1,4 @@
+/*헤더*/
 .header {
     position: fixed;
     top: 0;
@@ -24,15 +25,16 @@
     padding: 20px;
 }
 
-.popular-grid {
-    display: grid;
-    grid-template-columns: repeat(5,1fr); /*5열*/
-    gap: 1px;
+.popular-table {
+    width: auto;
+    table-layout: fixed;
+    border-collapse: seperate;
+    border-spacing: 15px;
+    margin:50px auto;
 }
 
 .popular-item {
     overflow: hidden;
-    border-radius: 5px;
     position: relative;
 }
 
@@ -47,31 +49,31 @@
 
 .popular-image {
     width: 100%;
-    height: 240px;
+    height: 100%;
     border-radius: 8px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .overlay {
     display: flex;
     flex-direction: column;
-    display: none; 
-    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: none; /*원래는 숨김처리*/
+    position: absolute; /*부모 요소를 기준으로 위치 설정*/
+
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    margin-left: 25px;
-    margin-top: 3px;
     background-color: rgba(255, 255, 255, 0.8); 
     color: #333;
     font-size: 16px;
-    border-radius: 5px; 
     padding: 10px;
 }
 
 .popular-item:hover .overlay {
-    display:flex;
+    display:flex; /*마우스 올릴 때만 보이게*/
 }
 
 .scroll-section {
@@ -88,22 +90,20 @@
     padding: 10px 20px; 
 }
 
-.total-count {
-    color: #A2A1A1;
-    margin-left: 100px;
-}
-
 
 /*추천순 인기순 리뷰순*/
+.total-count {
+    color: #A2A1A1;
+}
+
 .sort-options {
     display: flex;
     gap: 15px;
-    margin-right: 100px;
 }
 
 .sort-button {
-    color: #333;
-    font-size: 14px;
+    color: #33333385;
+    font-size: 16px;
     cursor: pointer;
     padding: 5px;
     transition: color 0.3s, font-weight 0.3s;
@@ -113,10 +113,10 @@
 .sort-button.active {
     color: #00462A;
     font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: #00462A;
+    /*text-decoration: underline;
+    text-decoration-color: #a5a5a54f;
     text-underline-offset: 8px;
-    text-decoration-thickness: 1.5px;
+    text-decoration-thickness: 1.5px;*/
 }
 
 .sort-button:hover { 
@@ -126,26 +126,27 @@
 
 
 
-/*제품 목록*/
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(5,1fr); /*5열*/
-    grid-template-rows: 370px; /*5행씩 배치*/
-    gap: 15px;
+/*일반 상품 목록*/
+.product-table {
+    width: auto;
+    border-collapse: seperate;
+    border-spacing: 15px;
 }
 
 .product-item {
-    border: 1px solid #f9f9f9;
-    padding: 10px;
     text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    height: 320px;
+    border: 1px solid #f2f2f280;
+    padding: 3px; /*컨텐츠와 테두리 사이 공간*/
+    border-radius: 5px;
+    background-color: #f2f2f280;
+    height: auto;
+    max-width: 200px;
+    overflow: hidden; 
 }
 
 .product-image {
-    width: 100%;
-    height: 200px;
+    width: 85%;
+    height: 85%;
     border-radius: 8px;
     object-fit: contain;
 }
@@ -153,12 +154,16 @@
 /*상품 설명*/
 .product-name, .price, .discount, .discount-price, .rating, .price-not {
     text-align: left;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal; /*너비에 맞게 줄바꿈*/
 }
 
 .product-name {
     color: #00462A;
     font-size: 15px;
     margin: 10px 0;
+    margin-left: 19px;
     font-weight: bold;
     line-height: 1.5;
 }
@@ -167,14 +172,14 @@
     color: #A2A1A1;
     font-size: 11px;
     text-decoration: line-through;
-    margin-left: 1px;
+    margin-left: 19px;
     line-height: 0;
 }
 
 .price-not { /*할인하지 않는 상품*/
     color:#333;
     font-size: 14px;
-    margin-left: 1px;
+    margin-left: 19px;
     line-height: 0.;
     font-weight: bold;
     text-align: left;
@@ -186,7 +191,8 @@
     color: #ff4d4f;
     font-size: 13px;
     font-weight: bold;
-    margin-right: 4px;
+    margin: 3px 0;
+    margin-left: 19px;
     line-height: 1.5;
     display: block;
 }
@@ -201,6 +207,7 @@
     color: #777; /* 회색 */
     font-size: 12px;
     margin-top: 5px;
+    margin-left: 19px;
 }
 
 
@@ -252,4 +259,37 @@
     color:white;
     opacity: 0.77;
     
+}
+
+
+/*등록순 페이지네이션*/
+.page-nation li{
+    list-style: none;
+}
+
+.page-wrap{
+    text-align: center;
+}
+
+.page_nation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.page-nation a{
+    display: block;
+    margin: 0 3px;
+    float: left;
+    border: 1px solid #e6e6e6;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
