@@ -68,10 +68,6 @@ def view_product():
 def view_registration():
     return render_template("view_registration.html")
 
-@application.route("/")
-def list():
-    return redirect(url_for('view_list'))
-
 @application.route("/list")
 def view_list():
 
@@ -80,8 +76,13 @@ def view_list():
     row_count = int(per_page/per_row)
     
     data = DB.get_items()
+    if not data:
+        data = {}
+
     tot_count = len(data)
 
+    rows = []
+    items = list(data.items())
     for i in range(row_count):
         if(i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
