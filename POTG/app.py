@@ -98,13 +98,19 @@ def view_item_detail(name):
     return render_template("view_detail.html", name=name, data=data)
 
 # 리뷰 조회
-@application.route("/review_ViewAll")
-def view_review():
-    per_page=12
-    per_row=4
-    row_count=int(per_page/per_row)
-    
-    return render_template("review_ViewAll.html")
+
+@application.route("/reg_review_init/<name>/")
+def reg_review_init(name):
+    return render_template("reg_reviews.html", name=name)
+
+@application.route("/reg_review", methods=['POST'])
+def reg_review():
+    data=request.form
+    image_file=request.files["file"]
+    image_file.save("static/images/{}".format(image_file.filename))
+    DB.reg_review(data, image_file.filename)
+    return redirect(url_for('view_review'))
+
 
 # 상품 등록
 @application.route("/registerItem")
@@ -125,9 +131,13 @@ def reg_review2():
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-@application.route("/review_Vieweach.html")
+@application.route("/review_Vieweach")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
+
+@application.route("/review_ViewAll")
+def view_review():
+    return render_template("review_ViewAll.html")
 
 @application.route("/submit_item")
 def reg_item_submit():
