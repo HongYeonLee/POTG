@@ -118,6 +118,13 @@ div.info-section{
     margin :0;
 }
   
+input{
+    width: 60px; 
+    text-align: center; 
+    margin-right: 10px; 
+    font-size: 18px;
+     padding: 5px;
+}
 .add-to-cart{
     background-color: rgb(0, 70, 42);
     color: white;
