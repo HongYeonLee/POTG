@@ -185,6 +185,10 @@ nav a:hover {
 }
 
 /* 페이지네이션 스타일 */
+.page-wrap{
+    text-align: center;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
