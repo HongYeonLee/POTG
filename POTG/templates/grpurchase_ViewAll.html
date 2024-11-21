@@ -2,15 +2,16 @@
 
 {% block custom_css %}
     <link rel="stylesheet" href="../static/grpurchase_ViewAll.css">
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
    
 {% endblock %}
 
 {% block section %}
 
-<main>
+<body>
     <!-- 카테고리 -->
     <section class="category-section"> 
-        <h2 >카테고리</h2>
+        <h2 class="category-name">카테고리</h2>
         <div class="category-container">
             <div class="category-item">스킨케어 및 메이크업</div>
             <div class="category-item">헤어 바디 구강</div>
@@ -22,7 +23,7 @@
             <a href="#" class="more-link">> 카테고리 더보기</a>
         </div>
     </section>
-    <div class="content-container">
+    <section class="content-container">
 
         <!-- 좌측 필터 -->
         <aside class="filter-section">
@@ -97,15 +98,17 @@
         <!-- 상품 리스트 섹션 -->
        <!--위에 추천수 어캄-->
         
-        <section class="product-list">
+        <main class="product-list">
             <div class="product-sort">
                 <div class = "product-header">
                     <p class = "total-count">총 34건</p>
+                    <!--
                     <div class = "sort-options">
                         <span class = "sort-button active">추천순</span>
                         <span class = "sort-button">인기순</span>
                         <span class = "sort-button">리뷰순</span>
                     </div>
+                    -->
                 </div>
             </div>
         
@@ -157,11 +160,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
         
     </div>
     
-</main>
+</body>
 
          
 {% endblock section %}

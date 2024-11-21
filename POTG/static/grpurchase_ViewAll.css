@@ -15,17 +15,23 @@
     padding: 20px;
 }
 
+.category-name{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .category-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%;
+    width: auto;
     height: 150px;
     left: 139px;
     top: 351px;
-    border: 1px solid rgb(0, 70, 42);
+    border: 1px solid #ddd;
+    border-radius: 5px;
     background: rgb(255, 254, 254);
     padding: 40px 20px 10px 100px;
 }
@@ -61,13 +67,17 @@
 .content-container {
     display: flex;
     padding: 20px;
+    align-items: center;
 }
 /*1.필터*/
 .filter-section {
     width: 20%;
     padding-right: 20px;
 }
-
+h3{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .filter-group {
     margin-bottom: 20px;
 }
