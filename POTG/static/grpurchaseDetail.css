@@ -10,31 +10,34 @@
 /*전체 섹션*/
 .detail{
     display: flex;
+    unicode-bidi: isolate;
 }
 
 /*사진 섹션*/
 div.pic-section{
-    width:30%;
-    float: left;
-    position: relative;
-    box-sizing: border-box;
-    padding-left: 60px;
-
+    flex: 1; /* 1:2 비율에서 1 비율 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 .product-image{
-    padding-top: 50px;
-    width: 221px;
-    height: 282px;
-    
-    
+    width: 100%;
+    height: auto;
+    max-width: 300px;
 }
+
 /*설명 섹션*/
 div.info-section{
-    width:70%;
+    flex: 2; /* 1:2 비율에서 2 비율 */
+    padding-left: 20px;
+    /*
+    width:65%;
     float: right;
     position: relative;
     box-sizing: border-box;
     padding-left: 20px;
+    */
 
 }
 
@@ -65,29 +68,38 @@ div.info-section{
     font-weight: bold;
 
 }
+
+/*상세정보*/
+.a-info-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.title{
+    font-size: 20px;
+    color: #6C6C6C;
+    text-align: left;
+
+}
+.value{
+    font-size: 20px;
+    
+}
+
 .additional-info {
     border-top: 1px solid #ddd;
     padding-top: 10px;
 }
-.additional-info p {
-    display: flex;
-    justify-content: space-between;
-    align-items: left;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
+
+.divider {
+    border-top: 1px solid #C1C1C1;
+    margin: 15px 0;
+    opacity: 0.7;
 }
 
-.additional-info p strong {
-    color: #888;
-    min-width: 100px; /* 제목 부분 고정 너비 */
-    text-align: left;
-}
-
-.additional-info p .value {
-    flex: 2; /* 가변 너비 */
-    text-align: left;
-}
+/*하단버튼*/
 .chat-btn {
     background-color: rgb(0, 70, 42);
     color: white;
