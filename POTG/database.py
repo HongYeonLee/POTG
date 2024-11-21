@@ -98,19 +98,20 @@ class DBhandler:
     
 #리뷰
 
-def reg_review(self, data, img_path):
+def reg_review(self, name, data):
+
     review_info ={
     "title": data['title'],
     "content": data['content'],
     "author": data['author'],
     "productName": data['productName'],
-    "product_img": data['productimg'],
-    "review_img": data['reviewimg'],
-    "origin_price": data['originprice'],
-    "discount_price": data['discount_price'],
+    "productImage": data['productImage'],
+    "reviewImage": data['reviewImage'],
+    "originalPrice": data['originPrice'],
+    "discountPrice": data['discountPrice'],
     "rate": data['reviewStar']
     }
-    self.db.child("review").child(data['name']).set(review_info)
+    self.db.child("review").child(name).set(review_info)
     return True
 
 def get_reviews(self):

@@ -74,13 +74,32 @@
             </div>
         </div>
     </div>
+    <!-- 페이지네이션을 위한 코드 시작 -->
+    <div class="page-wrap">
+    <div class="page-nation">
+    <ul>
+    <li>
+    {% for i in range(page_count)%}
+    <a href="{{url_for('review_ViewAll', page=i)}}" color="black">{{i}}</a>
+    {% endfor %}
+    </li>
+    </ul>
+    </div>
+    </div>
+    {% else %}
+    <p>
+    등록된 리뷰가 없습니다.
+    </p>
+    {% endif %}
+
+    <!--
     <div class="pagination">
         <a href="#">&laquo; 이전</a>
         <a href="#">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">다음 &raquo;</a>
-    </div>
+    </div>-->
 </section>
 <div class = "footerBox">
     <div id = "footer" class = "footerBox2">
