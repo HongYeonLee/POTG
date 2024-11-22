@@ -54,13 +54,6 @@ textarea {
     padding: .5em;  
     box-sizing: border-box;  
 }  
-.input-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 30px;
-
-}
 
 .button-container {  
     display: flex;  
@@ -105,12 +98,12 @@ input[type="submit"]:hover,
     font-size: 1.2em;  
 }  
 
-.input-group-radio {  
+/* .input-group-radio {  
     display: block;  
     margin-bottom: 20px;  
     gap: 10px;  
-}  
-
+}   */
+/* 
 .input-group-radio input[type="radio"] {  
     appearance: none;  
     width: 20px;  
@@ -120,9 +113,9 @@ input[type="submit"]:hover,
     outline: none;  
     cursor: pointer;  
     position: relative;  
-}  
+}   */
 
-.input-group-radio input[type="radio"]:checked {  
+/* .input-group-radio input[type="radio"]:checked {  
     background-color: #00462A;  
 }  
 
@@ -137,13 +130,13 @@ input[type="submit"]:hover,
     top: 50%;  
     left: 50%;  
     transform: translate(-50%, -50%);  
-}  
+}   */
 
-.input-group-radio label {  
+/* .input-group-radio label {  
     color: #00462A;  
     cursor: pointer;  
     margin-right: 30px;  
-}  
+}   */
 
 .green-box {  
     height: 20px;  
@@ -274,10 +267,10 @@ textarea {
     margin: 1px;  
 }  
 
-.radioText {  
+/* .radioText {  
     position: relative;  
     top: -5px;  
-}  
+}   */
 
 .footerBox {  
     padding-top: 30px;  
@@ -355,147 +348,59 @@ textarea {
     color: rgb(0, 70, 42);  
     border: 1px solid rgb(0, 70, 42);  
 }
-textarea {
-    flex: 1;
-    max-width: 600px;
-    height: 300px;
-    /* Adjust height as needed */
-    border: 1px solid rgb(0, 70, 42);
-    border-radius: 4px;
-    padding: 0.5em;
-    box-sizing: border-box;
-    resize: vertical;
-    
-}
-
-.right-column {
-    flex: 1;
-    margin-left: 20px;
-}
 
 
-.left-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
 
-.upload-container {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+.input-group-radio {  
+    display: flex;  
+    flex-direction: row;  
+    align-items: center; /* Align label and radio options vertically */  
+    margin-bottom: 30px;  
+}  
 
-/*body {
-    font-family: 'Noto Sans KR', sans-serif;
-    margin: 0;
-    color: rgb(0, 90, 52);
-}*/
+.input-group-radio label {  
+    min-width: 150px; /* Match label width with other input fields */  
+    margin-right: 10px; /* Spacing between label and radios */  
+    text-align: left; /* Align text to the left */  
+}  
 
-.form-container {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    border-radius: 20px;
-    overflow: hidden;
-    height: 100vh;
-}
+.radio-options {  
+    display: flex;  
+    flex-direction: row; /* Keep radios and labels inline */  
+    flex: 1; /* Stretch like other fields */  
+    gap: 20px; /* Spacing between radio options */  
+}  
 
-.left-column,
-.right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-}
+.input-group-radio input[type="radio"] {  
+    appearance: none; /* Remove default styling */  
+    width: 20px;  
+    height: 20px;  
+    border: 2px solid #00462A;  
+    border-radius: 50%;  
+    outline: none;  
+    cursor: pointer;  
+    margin-right: 5px; /* Space between radio and its label */  
+    position: relative;  
+}  
 
-.upload-container {
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+.input-group-radio input[type="radio"]:checked {  
+    background-color: #00462A;  
+}  
 
-.input-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
+.input-group-radio input[type="radio"]:checked::before {  
+    content: "";  
+    display: block;  
+    width: 10px;  
+    height: 10px;  
+    background-color: white;  
+    border-radius: 50%;  
+    position: absolute;  
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+}  
 
-.button-container {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.address-container {
-    display: flex;
-    align-items: right;
-    gap: 10px;
-}
-
-.address-container input[type="text"] {
-    flex: 1;
-    padding: 0.5em;
-    border: 1px solid rgb(0, 70, 42);
-    border-radius: 4px;
-}
-
-.address-button {
-    background-color: rgb(0, 70, 42);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 70, 42);
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.address-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 70, 42);
-    cursor: pointer;
-}
-
-.radioBtnBox{
-    float :right;
-    padding-right: 35px;
-    display: block;
-    margin: 1px;
-}
-
-.radioText{
-    position: relative;
-    top: -5px; /* 원하는 위치에 맞게 값을 조정 */
-}
-
-.footerBox{
-    padding-top: 30px;
-    border-top: 1px solid #f7f7f7;
-    background-color: rgb(0, 70, 42);
-}
-
-.footerBox2{
-    width: 1050px;
-    height: 50px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footerText{
-    color:white;
-    opacity: 0.77;
-    
+.radioText {  
+    position: relative;  
+    top: -2px; /* Adjust vertical position of text near radio */  
 }
