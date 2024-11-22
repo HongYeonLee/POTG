@@ -137,6 +137,8 @@ h2 {
 }
 
 .product-img {
+    width: 100%;
+    height: 100%; 
     width: 360px; 
     height: 180px; 
     object-fit: cover;
