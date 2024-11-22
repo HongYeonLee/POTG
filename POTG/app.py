@@ -112,7 +112,7 @@ def reg_review():
     image_file=request.files["file"]
     image_file.save("static/images/{}".format(image_file.filename))
     DB.reg_review(data, image_file.filename, session, itemImgPath)
-    return redirect(url_for('hello'))
+    return redirect(url_for('view_review'))
 
 # 상품 등록
 @application.route("/registerItem")
