@@ -97,20 +97,27 @@ def view_item_detail(name):
     print("####data:",data)
     return render_template("view_detail.html", name=name, data=data)
 
-# 리뷰 조회
-@application.route("/review_ViewAll")
-def view_review():
-    per_page=12
-    per_row=4
-    row_count=int(per_page/per_row)
-    
-    return render_template("review_ViewAll.html")
+# 리뷰 등록 화면
+@application.route("/reg_review_init/<name>/")
+def reg_review_init(name):
+    data = DB.get_item_byname(str(name))
+    return render_template("review_write2.html", name=name, id=session['id'], data=data)
+
+# 리뷰 db에 등록
+@application.route("/reg_review", methods=['POST'])
+def reg_review():
+    data=request.form
+    item = DB.get_item_byname(data['name'])
+    itemImgPath = item['img_path']
+    image_file=request.files["file"]
+    image_file.save("static/images/{}".format(image_file.filename))
+    DB.reg_review(data, image_file.filename, session, itemImgPath)
+    return redirect(url_for('view_review'))
 
 # 상품 등록
 @application.route("/registerItem")
 def reg_item():
     return render_template("registerItem.html")
-
 
 @application.route("/review_write1")
 def reg_review1():
@@ -125,9 +132,47 @@ def reg_review2():
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-@application.route("/review_Vieweach.html")
+@application.route("/review_Vieweach")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
+
+# 리뷰 불러오기
+@application.route("/review_ViewAll")
+def view_review():
+    page = request.args.get("page", 0, type=int)
+    per_page=8 # item count to display per page
+    per_row=4# item count to display per row
+    row_count=int(per_page/per_row)
+    start_idx=per_page*page
+    end_idx=per_page*(page+1)
+    data = DB.get_reviews() #read the table
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(data)
+    for i in range(row_count):#last row
+        if (i == row_count -1) and (tot_count%per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        else:
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
+    
+    return render_template(
+        "review_ViewAll.html",
+        datas=data.items(),
+        row1=locals()['data_0'].items(),
+        row2=locals()['data_1'].items(),
+        
+        limit=per_page,
+        page=page,
+        page_count=int((item_counts/per_page)+1),
+        total=item_counts)
+
+#동적라우팅
+@application.route("/review_Vieweach/<name>/")
+def review_detail(name):
+    print("###name:",name)
+    data = DB.get_review_byname(str(name))
+    print("####data:",data)
+    return render_template("review_Vieweach.html", name=name, data=data)
 
 @application.route("/submit_item")
 def reg_item_submit():

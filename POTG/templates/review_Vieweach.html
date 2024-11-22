@@ -2,22 +2,27 @@
 {% block custom_css %}
     <link rel="stylesheet" href="../static/review_Vieweach.css">
     <link rel="stylesheet" href="../static/indexStyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='review_Vieweach.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
 {% endblock %}
-
-{% block content %}
+{% block section %}
 <div class="content">
     <h2>이번 주 인기 리뷰</h2>
     <hr class="divider">
 
     <div class="review-section">
         <div class="review-img-box">
-            <img src="../static/images/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img">
+            <!-- <img src="../static/images/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img"> -->
+            <img src= "{{ url_for('static', filename='images/' + data.review_img) }}" alt={{name}} class="review-img">
+            
         </div>
         
         <div class="review-details">
-            <h3 class="review-title">제목: 최고의 고구마</h3>
+            <!-- <h3 class="review-title">제목: 최고의 고구마</h3> -->
+            <h3 class="review-title">제목: {{data.title}}</h3>
             <div class="user-info">
-                <p class="author">👤 <span class="author-background">ilovedog</span></p>
+                <!-- <p class="author">👤 <span class="author-background">ilovedog</span></p> -->
+                <p class="author">👤 <span class="author-background">{{data.author}}</span></p>
                 <span class="emoji">👍 👎</span>
                 <div class="rating">
                     <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
@@ -26,14 +31,18 @@
             </div>
             
             <div class="review-content-box">
-                <p>고구마가 너무 달콤하고 맛있어요. 해남 고구마는 처음 먹어보는데 완전 부드러워요. 강아지랑 나눠먹었더니 강아지가 통통해졌어요.</p>
+                <!-- <p>고구마가 너무 달콤하고 맛있어요. 해남 고구마는 처음 먹어보는데 완전 부드러워요. 강아지랑 나눠먹었더니 강아지가 통통해졌어요.</p> -->
+                <p>{{data.content}}</p>
             </div>
 
             <div class="product-box">
-                <img src="../static/images/고구마.jpg" alt="Sweet potato" class="product-img">
+                <!-- <img src="../static/images/고구마.jpg" alt="Sweet potato" class="product-img"> -->
+                <img src= "{{ url_for('static', filename='images/' + data.product_img) }}" alt={{name}} class="product-img">
                 <div class="product-details">
-                    <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p>
-                    <p><s class="original-price">20900원</s> <span class="discount-price">16900원</span></p>
+                    <!-- <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p> -->
+                    <p class="product-title"{{name}}><span class="icon">🔍</span></p>
+                    <!-- <p><s class="original-price">20900원</s> <span class="discount-price">16900원</span></p> -->
+                    <p><s class="original-price">{{data.original_price}}</s> 
 
                     <div class="product-icons">
                         <span class="icon">❤️</span>
@@ -50,9 +59,9 @@
         <span class = "footerText">© POTG - Project Of The Genius</span>
     </div>
 </div>
-{% endblock content%}
+{% endblock section %}
 
-<script>
+<!-- <script>
     // URL에서 쿼리 파라미터 추출
     
     function getReviewIdFromUrl() {
@@ -128,7 +137,4 @@
     
    
 window.onload = displayReviewContent;
-</script>
-</body>
-
-</html>
+</script> -->

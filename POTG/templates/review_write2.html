@@ -2,41 +2,68 @@
 {% block custom_css %}
 <link rel="stylesheet" href="../static/review_write2.css">
 <link rel="stylesheet" href="../static/indexStyle.css">
-{% endblock %} {% block section %}
-    <div class="review-container"> <h2>리뷰작성</h2><br>
+<link rel="stylesheet" href="{{ url_for('static', filename='review_write2.css') }}">  
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">  
+{% endblock %}
+{% block section %}
+<form action="/reg_review" method="post" enctype="multipart/form-data">
+    <br>
+    <div class="review-container" style="position: static;"> 
+        {% if session['id'] %}
+        <h2 style="font-weight: normal;">리뷰 작성 <span style="font-size: 12pt; font-weight: normal; color: grey;">{{session['name']}} ({{session['id']}})</span></h2>
+        {% else %} 
+        <h2>리뷰작성 <h3 style="color: grey;">비회원</h3></h2>
+        {% endif %}
+        <hr>
+        <div class = "productInfo">{{name}} {{data.price}}원</div>
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="hidden" name="price" value="{{ data.price }}">
+        <div class="rating">
+            <span style="color: black;">주문한 상품에 얼마나 만족하시나요?</span>
+            <input type="radio" name="reviewStars" id="star1" value="1"><label for="star1">&#9733;</label>
+            <input type="radio" name="reviewStars" id="star2" value="2"><label for="star2">&#9733;</label>
+            <input type="radio" name="reviewStars" id="star3" value="3"><label for="star3">&#9733;</label>
+            <input type="radio" name="reviewStars" id="star4" value="4"><label for="star4">&#9733;</label>
+            <input type="radio" name="reviewStars" id="star5" value="5"><label for="star5">&#9733;</label>
+        </div>
+        <hr style="clear:both">
+
         <div class="section">
             <label for="review-title"></label>
-            <input type="text" id="review-title" placeholder="리뷰의 제목을 입력해주세요"><br>
-            <div class="rating">
-                <span>주문한 상품에 얼마나 만족하시나요?</span>
-                <input type="radio" name="stars" id="star5" value="5"><label for="star5">&#9733;</label>
-                <input type="radio" name="stars" id="star4" value="4"><label for="star4">&#9733;</label>
-                <input type="radio" name="stars" id="star3" value="3"><label for="star3">&#9733;</label>
-                <input type="radio" name="stars" id="star2" value="2"><label for="star2">&#9733;</label>
-                <input type="radio" name="stars" id="star1" value="1"><label for="star1">&#9733;</label>
-            </div>
+            <input type="text" name="title" id="review-title" placeholder="리뷰의 제목을 입력해주세요" required><br>
         </div>
-
-        <hr>
 
         <div class="section">
             <label for="review-content"></label>
-            <textarea id="review-content" placeholder="다른 벗들에게 도움이 되도록 상품에 대한 솔직한 평가를 남겨주세요." style="height: 50%;"></textarea>
+            <textarea name ="review-content" id="review-content" placeholder="다른 벗들에게 도움이 되도록 상품에 대한 솔직한 평가를 남겨주세요." required></textarea>
         </div>
 
         <hr>
 
-        <div class="section">
+        <div class="section" style="margin-bottom: 0px;">
             <label for="review-photo">사진 첨부하기</label>
-            <input type="file" id="review-photo" accept="image/*">
+            <label for = "photo"><img id ="changeableImg" style="width: 12%;" src = "{{ url_for('static', filename='images/리뷰사진등록이미지.PNG') }}" class = "imageUploadImg"></label>
+            <input class = "imageUploadBtn" type="file" name="file" id="photo" accept=".png, .jpeg .jpg" style="display: none;"
+                    onchange="previewImage(event)"><br>
         </div>
-
-        <hr>
 
         <div class="buttons">
             <button class="save-draft">임시 저장</button>
-            <button class="submit-review">작성 완료</button>
+            <button type ="submit" class="submit-review">작성 완료</button>
             <button class="cancel-review">작성 취소</button>
         </div>
     </div>
+</form>
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        const image = document.getElementById('changeableImg');
+
+        reader.onload = function () {
+            image.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 {% endblock %}

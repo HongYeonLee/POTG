@@ -76,14 +76,47 @@ class DBhandler:
         print(data,img_path)
         return True
     
-#상품 리스트 화면
-#여기부터 수정#
+    #상품 리스트 화면
+    #여기부터 수정#
     def get_items(self):
         items = self.db.child("item").get().val()
         return items #item 노드 값 가져오기
 
     def get_item_byname(self, name):
         items = self.db.child("item").get()
+        target_value=""
+
+        print("###########",name)
+
+        for res in items.each():
+            key_value = res.key()
+
+            if key_value == name:
+                target_value = res.val()
+            
+        return target_value
+    
+    #리뷰 등록
+    def reg_review(self, data, img_path, session, itemImgPath):
+        review_info ={
+        "title": data['title'],
+        "rate": data['reviewStars'],
+        "content": data['review-content'],
+        "author": session['id'],
+        "review_img": img_path, #리뷰 이미지
+        "product_img": itemImgPath,
+        "origin_price": data['price'],
+        # "discount_price": data['discount_price'],
+        }
+        self.db.child("review").child(data['name']).set(review_info)
+        return True
+
+    def get_reviews(self):
+        reviews = self.db.child("review").get().val()
+        return reviews
+    
+    def get_review_byname(self, name):
+        items = self.db.child("review").get()
         target_value=""
 
         print("###########",name)
