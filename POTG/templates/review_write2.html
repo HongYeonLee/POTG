@@ -18,13 +18,13 @@
         <div class = "productInfo">{{name}} {{data.price}}원</div>
         <input type="hidden" name="name" value="{{ name }}">
         <input type="hidden" name="price" value="{{ data.price }}">
-        <div class="rating">
+        <div class="star-rating">
             <span style="color: black;">주문한 상품에 얼마나 만족하시나요?</span>
-            <input type="radio" name="reviewStars" id="star1" value="1"><label for="star1">&#9733;</label>
-            <input type="radio" name="reviewStars" id="star2" value="2"><label for="star2">&#9733;</label>
-            <input type="radio" name="reviewStars" id="star3" value="3"><label for="star3">&#9733;</label>
-            <input type="radio" name="reviewStars" id="star4" value="4"><label for="star4">&#9733;</label>
-            <input type="radio" name="reviewStars" id="star5" value="5"><label for="star5">&#9733;</label>
+            <input type="radio" class="star" value="1">
+            <input type="radio" class="star" value="2">
+            <input type="radio" class="star" value="3">
+            <input type="radio" class="star" value="4">
+            <input type="radio" class="star" value="5">
         </div>
         <hr style="clear:both">
 
