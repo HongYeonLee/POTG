@@ -54,6 +54,13 @@ textarea {
     padding: .5em;  
     box-sizing: border-box;  
 }  
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
 
 .button-container {  
     display: flex;  
@@ -347,4 +354,148 @@ textarea {
     background-color: rgb(255, 255, 255);  
     color: rgb(0, 70, 42);  
     border: 1px solid rgb(0, 70, 42);  
+}
+textarea {
+    flex: 1;
+    max-width: 600px;
+    height: 300px;
+    /* Adjust height as needed */
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    padding: 0.5em;
+    box-sizing: border-box;
+    resize: vertical;
+    
+}
+
+.right-column {
+    flex: 1;
+    margin-left: 20px;
+}
+
+
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.upload-container {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    color: rgb(0, 90, 52);
+}*/
+
+.form-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.upload-container {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.address-container {
+    display: flex;
+    align-items: right;
+    gap: 10px;
+}
+
+.address-container input[type="text"] {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+}
+
+.address-button {
+    background-color: rgb(0, 70, 42);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.address-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 70, 42);
+    cursor: pointer;
+}
+
+.radioBtnBox{
+    float :right;
+    padding-right: 35px;
+    display: block;
+    margin: 1px;
+}
+
+.radioText{
+    position: relative;
+    top: -5px; /* 원하는 위치에 맞게 값을 조정 */
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
 }

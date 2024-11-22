@@ -58,23 +58,25 @@ nav a:hover {
     color: #00462A;
 }
 
-.review-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.review-item {
+.review-list {  
+    display: flex;  
+    justify-content: left;  
+    flex-wrap: wrap;   /* Wrap rows properly */  
+    gap: 20px;         /* Consistent spacing between rows/items */  
+    max-width: 1200px;  
+    margin: 0 auto;  
+}  
+.review-item {  
     width: 23%; 
-    text-align: left;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
+    text-align: left;  
+    background-color: #f9f9f9;  
+    padding: 20px;  
+    border-radius: 10px;  
     margin-bottom: 20px;
-    position: relative; 
-}
+    position: relative;  
+    box-sizing: border-box;  
+}  
 
 /* 이미지와 아이콘 열 */
 .review-image-container {
