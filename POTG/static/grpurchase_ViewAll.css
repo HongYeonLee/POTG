@@ -10,9 +10,10 @@
 
 /* 카테고리 섹션 */
 .category-section {
-    width: 100%;
+    width: 1200px;
     text-align: center;
     padding: 20px;
+    margin: 0 auto;
 }
 
 .category-name{

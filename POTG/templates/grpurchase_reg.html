@@ -1,0 +1,131 @@
+{% extends "index.html" %}
+{% block section %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/grpRegStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='grpRegStyle.css') }}">
+{% endblock %}
+
+<div class="registerItemBody">
+    <form action="/submit_gr_post" method="post" enctype="multipart/form-data" class="form-container">
+        <div class="left-column">
+            <div class="upload-container">
+                <div class="responsive">
+                    <div class="gallery">
+                        <a target="_blank" href="">
+                            <img id="uploadedImage" style="display: none; border-width: 1px;">
+                        </a>
+                    </div>
+                </div>
+                <label for="fileUpload" class="button-base file-upload-button">상품 사진 업로드</label>
+                <input type="file" name="fileUpload" id="fileUpload" accept=".png, .jpeg .jpg" style="display: none;"
+                    onchange="previewImage(event)">
+                <br>
+                <div style="font-size: 14px;">.png .jpeg .jpg파일만 첨부 가능</div>
+            </div>
+        </div>
+        <div class="right-column">
+            <div style="text-align: center; font-size: 36px; color: rgb(0, 90, 52); margin-bottom: 40px;">
+                상품 등록
+            </div>
+
+            <div class="scrollable-content"> <!-- Start of scrollable area -->
+                <!-- All form fields here -->
+                <div class="input-container">
+                    <div class="input-group">
+                        <label for="name">상품명</label>
+                        <input type="text" name="name" id="name" placeholder="상품을 입력해주세요." required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>판매자 아이디</label>
+                        <!-- <input type="text" name="seller" id="seller" placeholder="아이디를 입력해주세요." readonly> -->
+                    </div>
+
+                    <div class="input-group">
+                        <label for="dropdown">상품 카테고리</label>
+                        <select id="dropdown" name="category" required>
+                            <option value="" disabled selected>상품 카테고리를 선택하세요</option>
+                            <option value="화장품">화장품</option>
+                            <option value="의류">의류</option>
+                            <option value="육류 및 해산물">육류 및 해산물</option>
+                            <option value="가공식품">가공식품</option>
+                            <option value="과일 및 채소">과일 및 채소</option>
+                            <option value="냉동식품">냉동식품</option>
+                            <option value="전자제품">전자제품</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="price">가격</label>
+                        <div class="input-with-currency">
+                            <input type="text" placeholder="가격을 입력해 주세요." name="price" id="price" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                            class="inputInner" value>
+                            <span class="currency">원</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="info">판매처</label>
+                        <input type="text" placeholder="구매처 링크를 입력해주세요" name="info" id="info" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="info">구매 수량</label>
+                        <input type="number" placeholder="개수" name="info" id="info" required>
+                    </div>
+
+                    <div class="input-group address-input">
+                        <label for="address">거래 장소</label>
+                        <div class="address-container">
+                            <input type="text" name="address" id="address" placeholder="거래 장소를 입력해주세요.">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="date">마감 일자</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="description">상품 설명</label>
+                        <textarea name="details" id="description" rows="5" required></textarea>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="button-container">
+                <input type="submit" value="제출" class="button-base button-new">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="footerBox">
+    <div id="footer" class="footerBox2">
+        <span class="footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        const image = document.getElementById('uploadedImage');
+
+        reader.onload = function () {
+            image.src = reader.result;
+            image.style.display = 'block';
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function fetchAddress() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                document.getElementById('address').value = data.roadAddress || data.jibunAddress;
+            }
+        }).open();
+    }
+</script>
+{% endblock section %}
