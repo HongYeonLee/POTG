@@ -11,6 +11,8 @@
 .detail{
     display: flex;
     unicode-bidi: isolate;
+    
+    
 }
 
 /*사진 섹션*/
@@ -31,6 +33,8 @@ div.pic-section{
 div.info-section{
     flex: 2; /* 1:2 비율에서 2 비율 */
     padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 80px;
     /*
     width:65%;
     float: right;

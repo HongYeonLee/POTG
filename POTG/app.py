@@ -153,6 +153,12 @@ def reg_item_submit_post():
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
+
+# 공동구매 상세페이지
+@application.route("/grpurchaseDetail")
+def grpurchase_Detail():
+    return render_template("grpurchaseDetail.html")
+
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
 
