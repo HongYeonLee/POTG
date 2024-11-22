@@ -76,6 +76,20 @@ class DBhandler:
         print(data,img_path)
         return True
     
+    def insert_gr(self, name, data, img_path, session):
+        item_info ={
+        "id": session['id'],
+        "category": data['category'],
+        "price": data['price'],
+        "info": data['info'],
+        "address": data['address'],
+        "details": data['details'],
+        "img_path": img_path
+        }
+        self.db.child("gr_item").child(name).set(item_info)
+        print(data,img_path)
+        return True
+    
     #상품 리스트 화면
     #여기부터 수정#
     def get_items(self):
