@@ -11,10 +11,10 @@
         <section class = "section-first">
             <img src="{{ url_for('static', filename='images/inputImages/' + data.img_path) }}" alt="{{name}}" class="image">
             <div class = "content">
-                <span class = "name" style = "float: left;">{{name}}</span>
-                <span class = "name" style = "float: right;">거래 방식 : {{data.method}}</span>
+                <div class = "name">{{name}}</div>
+                <div class = "method">거래 방식 <span class = "text">{{data.method}}</span></div>
                 <!-- <p class = "discount">거래 방식 : {{data.method}}<span class = "price">{{data.price}}</span></p> -->
-                <div class="divider" style="clear: both;"></div>
+                <div class="divider"></div>
 
                 <div class = "content">
                     <div class = "info-row">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="button-container">
                     <button class="icon-button">❤️</button>
-                    <button class="icon-button" onclick="location.href='/reg_review_init/{{name}}/';">✏</button>
+                    <button class="icon-button">🔔</button>
                     <button class="action-button">장바구니 담기</button>
                     <button class="action-button buy-now">바로 구매</button>
                 </div>
