@@ -132,7 +132,7 @@ def reg_review2():
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-@application.route("/review_Vieweach.html")
+@application.route("/review_Vieweach")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
 
