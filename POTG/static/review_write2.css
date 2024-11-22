@@ -31,44 +31,34 @@ textarea {
     height: 150px;
 }
 
-.rating {
+.star-rating {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-
-.rating span {
-    margin-right: 8px;
-}
-
-.rating input[type="radio"] {
-    display: none;
-}
-
-.rating label {
+  }
+  
+  .star {
+    appearance: none;
+    padding: 1px;
+  }
+  
+  .star::after {
+    content: '☆';
+    color: hsl(60, 80%, 45%);
     font-size: 20px;
-    color: #ccc;
-    cursor: pointer;
+  }
+  
+  .star:hover::after {
+    content: '★';
+  }
+  .star:checked::after,
+  .star:has(~ .star:checked)::after {
+  content: '★';
 }
+.star:hover ~ .star::after {
+    content: '☆';
+  }
 
-.rating input[type="radio"]:checked ~ label {
-    color: #ffcc00;
-}
-
-.rating input[type="radio"]:checked + label,
-.rating input[type="radio"]:checked + label ~ label {
-    color: #ffcc00; /* 선택된 별 및 이전 별 채우기 */
-}
-
-.rating label:hover,
-.rating label:hover ~ label {
-    color: #ccc;
-}
-
-.rating label:hover,
-.rating:hover label {
-    color: #ffcc00; /* 왼쪽에서 오른쪽으로 채우기 */
-}
 
 .buttons {
     display: flex;
