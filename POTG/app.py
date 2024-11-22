@@ -165,6 +165,7 @@ def reg_item_submit():
     # return render_template("reg_item.html")
 
 
+
 @application.route("/submit_item_post", methods=["POST"])
 def reg_item_submit_post():
     image_file = request.files["fileUpload"]
@@ -173,6 +174,12 @@ def reg_item_submit_post():
     print(data['name'], data['seller'], data['address'], data['category'], data['method'], data['status'], data['phone'])
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+
+
+# 공동구매 상세페이지
+@application.route("/grpurchaseDetail")
+def grpurchase_Detail():
+    return render_template("grpurchaseDetail.html")
 
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
