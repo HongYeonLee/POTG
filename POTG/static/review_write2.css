@@ -52,7 +52,7 @@ textarea {
 }
 
 .rating input[type="radio"]:checked ~ label {
-    color: #ccc;
+    color: #ffcc00;
 }
 
 .rating input[type="radio"]:checked + label,
@@ -62,7 +62,12 @@ textarea {
 
 .rating label:hover,
 .rating label:hover ~ label {
-    color: #ffcc00;
+    color: #ccc;
+}
+
+.rating label:hover,
+.rating:hover label {
+    color: #ffcc00; /* 왼쪽에서 오른쪽으로 채우기 */
 }
 
 .buttons {
