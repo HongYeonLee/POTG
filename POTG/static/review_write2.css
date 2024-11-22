@@ -1,25 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
 .review-container {
-    width: 600px;
-    height:600px;
+    width: 800px;
+    height:auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 .section {
@@ -42,13 +28,13 @@ textarea {
 }
 
 textarea {
-    height: 100px;
+    height: 150px;
 }
 
 .rating {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin-top: 5px;
 }
 
 .rating span {
@@ -66,7 +52,12 @@ textarea {
 }
 
 .rating input[type="radio"]:checked ~ label {
-    color: #ffcc00;
+    color: #ccc;
+}
+
+.rating input[type="radio"]:checked + label,
+.rating input[type="radio"]:checked + label ~ label {
+    color: #ffcc00; /* 선택된 별 및 이전 별 채우기 */
 }
 
 .rating label:hover,
@@ -76,7 +67,7 @@ textarea {
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 button {
@@ -88,20 +79,42 @@ button {
 
 .save-draft {
     background-color: #e0e0e0;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .submit-review {
     background-color: #4caf50;
     color: white;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .cancel-review {
     background-color: #fbb1ac;
     color: white;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 hr {
     border: 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgb(21, 135, 89);
     margin: 15px 0;
+}
+
+.productInfo{
+    color: black;
+    font-size: 20px;
+    float: left;
+}
+
+.imageUploadBtn{
+    padding:0;
+    cursor: pointer;
+    width: 12%;
+}
+
+.imageUploadImg{
+    width:100%;
 }

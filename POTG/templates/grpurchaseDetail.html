@@ -2,16 +2,18 @@
 
 {% block custom_css %}
     <link rel="stylesheet" href="../static/grpurchaseDetail.css">
+    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
    
 {% endblock %}
 
 {% block section %}
-<body>
-    <main>
-         
+
+    <body>
+        
+        <section class="detail">
             <!--사진 섹션-->
             <div class="pic-section">
-                <img src="../static/images/공구_상세페이지_솥반.png" alt="상품 이미지" class="product-image">
+                <img src="../static/images/공구_상세페이지_솥반.png" alt="상품 이미지" class="product-image">
             </div>
             <!--설명 섹션-->
             <div class="info-section">
@@ -22,15 +24,44 @@
                     <p class="discounted-price"><span>10%</span> 18,000원 ~ 1,500원(개당)</p>
                 </div>
                 <div class="additional-info">
-                    <p><strong>판매처</strong><span class="value">[마켓컬리] <a href="https://www.kurly.com/goods/5082168">https://www.kurly.com</a></span></p>
-                    <p><strong>공동구매 주최자</strong><span class="value">ID : hwaYeonLee <button class="chat-btn" style="float: right;">단체 채팅방</button></span></p>
-                    <p><strong>거래 장소</strong><span class="value">아산공학관 로비</span></p>
-                    <p><strong>상품 정보</strong><span class="value">햇반 솥반 6종 / 중량 및 용량 : 200g, 210g</span></p>
-                    <p><strong>주문 가능 수량</strong><span class="value">3개</span></p>
+                    <div class="a-info-row">
+                        <span class="title">판매처</span>
+                        <span class="value">[마켓컬리] <a style="color:black;"href="https://www.kurly.com/goods/5082168">https://www.kurly.com</a></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="a-info-row">
+                        <span class="title">공동구매 주최자</span>
+                        <span class="value">ID : hwaYeonLee </span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="a-info-row">
+                        <!--이거 data['address'] 랑 연결해야할듯-->
+                        <span class="title">거래 장소</span>
+                        <span class="value">아산공학관 로비</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="a-info-row">
+                        <span class="title">상품 정보</span>
+                        <span class="value">햇반 솥반 6종 / 중량 및 용량 : 200g, 210g</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="a-info-row">
+                        <span class="title">주문 가능 수량</span>
+                        <span class="value">3개</span>
+                    </div>
+                    <div class="divider"></div>
+
+
+
                 </div>
                 <!--하단 버튼-->
                 <div class="order">
-                    <p style="float:right">총 금액 : 3,000원</p><br><br>
+                    <div class="tt">
+                        <label for="quantity" style="margin-right: 10px;font-size: 18px;">수량</label>
+                        <input id="quantity" type="number" value="0" min="0">
+                        <p style="float:right;font-size: 18px;padding-top: 8px;">총 금액 : 3,000원</p>
+                    </div>
+                    <br><br>
                     <div class="icons">
                         <img src="../static/images/icon_alert.png">
                         <img src="../static/images/icon_like.png">
@@ -40,11 +71,11 @@
                 </div>
 
             </div>
-            
+        </section>   
         
-    </main>
+    </body>
    
-</body>
+
 
 
 {% endblock section %}
