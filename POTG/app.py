@@ -60,21 +60,7 @@ def register_user():
 # 상품 조회
 @application.route("/view_product")
 def view_product():
-
-    return render_template("view_product.html")
-
-#상품 리스트 수정한 부분
-#등록순
-@application.route("/view_registration")
-def view_registration():
-    return render_template("view_registration.html")
-
-@application.route("/list")
-def view_list():
-
-
     page = request.args.get("page", 0, type = int)
-
     per_page = 10
     per_row = 5
     row_count = int(per_page/per_row)
@@ -83,18 +69,10 @@ def view_list():
     end_idx = per_page * (page + 1)
 
     data = DB.get_items()
-
-    if not data:
-        data = {}
-
-
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
-
     tot_count = len(data)
 
-    rows = []
-    items = list(data.items())
     for i in range(row_count):
         if(i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
@@ -165,7 +143,6 @@ def reg_item_submit():
     # return render_template("reg_item.html")
 
 
-
 @application.route("/submit_item_post", methods=["POST"])
 def reg_item_submit_post():
     image_file = request.files["fileUpload"]
@@ -175,12 +152,5 @@ def reg_item_submit_post():
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
-
-# 공동구매 상세페이지
-@application.route("/grpurchaseDetail")
-def grpurchase_Detail():
-    return render_template("grpurchaseDetail.html")
-
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
-
