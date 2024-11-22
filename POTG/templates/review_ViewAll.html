@@ -16,7 +16,8 @@
             <div class="review-image-container" onclick="location.href= '/review_Vieweach/{{key}}/';" style="cursor:pointer;">
                 <!-- <div class="overlay">고구마가 너무 달콤하고 맛있어요..해남 고..</div> -->
                 <p class="title">제목: {{value['title']}}</p>
-                <img src = "../static/images/{{value['review_img']}}" class ="review-image">
+                {% set image_path = value['review_img'] %}
+                <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" class="review-image">
                 <!-- <img src="../static/images/고구마_리뷰사진.jpg" alt="강아지 이미지" class="review-image"> -->
             </div>
             <div class="divider"></div>
@@ -25,7 +26,8 @@
             <!-- <p class="product">해남 밤고구마 1kg...</p> -->
             <p class="product">{{key}}</p>
             <!-- <img src="../static/images/고구마.jpg" alt="상품 이미지" class="product-image"> -->
-            <img src="../static/images/{{value['product_img']}}" alt="상품 이미지" class="product-image">
+            {% set image_path = value['product_img'] %}
+            <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" alt="상품 이미지" class="product-image">
             <div class="icon-column">
                 <div class="icon-box">🔍</div>
                 <div class="icon-box">❤️</div>
@@ -39,7 +41,8 @@
             <div class="review-image-container" onclick="location.href= '/review_Vieweach/{{key}}/';" style="cursor:pointer;">
                 <!-- <div class="overlay">고구마가 너무 달콤하고 맛있어요..해남 고..</div> -->
                 <p class="title">제목: {{value['title']}}</p>
-                <img src = "../static/images/{{value['review_img']}}" class ="review-image">
+                {% set image_path = value['review_img'] %}
+                <img src = "{{ url_for('static', filename='images/inputImages/' + image_path) }}" class ="review-image">
                 <!-- <img src="../static/images/고구마_리뷰사진.jpg" alt="강아지 이미지" class="review-image"> -->
             </div>
             <div class="divider"></div>
@@ -48,7 +51,8 @@
             <!-- <p class="product">해남 밤고구마 1kg...</p> -->
             <p class="product">{{key}}</p>
             <!-- <img src="../static/images/고구마.jpg" alt="상품 이미지" class="product-image"> -->
-            <img src="../static/images/{{value['product_img']}}" alt="상품 이미지" class="product-image">
+            {% set image_path = value['product_img'] %}
+            <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" alt="상품 이미지" class="product-image">
             <div class="icon-column">
                 <div class="icon-box">🔍</div>
                 <div class="icon-box">❤️</div>
