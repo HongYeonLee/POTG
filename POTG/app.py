@@ -132,7 +132,7 @@ def reg_review2():
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-@application.route("/review_Vieweach.html")
+@application.route("/review_Vieweach")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
 
@@ -144,7 +144,7 @@ def view_grReg():
 @application.route("/review_ViewAll")
 def view_review():
     page = request.args.get("page", 0, type=int)
-    per_page=12 # item count to display per page
+    per_page=8 # item count to display per page
     per_row=4# item count to display per row
     row_count=int(per_page/per_row)
     start_idx=per_page*page
@@ -164,7 +164,7 @@ def view_review():
         datas=data.items(),
         row1=locals()['data_0'].items(),
         row2=locals()['data_1'].items(),
-        row3=locals()['data_2'].items(),
+        
         limit=per_page,
         page=page,
         page_count=int((item_counts/per_page)+1),

@@ -186,7 +186,13 @@ nav a:hover {
 
 /* 페이지네이션 스타일 */
 .page-wrap{
-    text-align: center;
+    display: flex;                  
+    justify-content: center;       
+    text-align: center;             
+    margin: 0 auto;          
+    padding: 20px 0;                 
+    width: 100%;                    
+    box-sizing: border-box;  
 }
 
 .pagination {
