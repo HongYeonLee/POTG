@@ -13,8 +13,10 @@
     <div class="review-section">
         <div class="review-img-box">
             <!-- <img src="../static/images/고구마_리뷰사진.jpg" alt="Dog with potato" class="review-img"> -->
-            <img src= "{{ url_for('static', filename='images/' + data.review_img) }}" alt={{name}} class="review-img">
             
+            <img src="{{ url_for('static', filename='images/inputImages/' + data.review_img) }}" alt="{{ name }}" class="review-img">
+
+        
         </div>
         
         <div class="review-details">
@@ -41,7 +43,7 @@
 
             <div class="product-box">
                 <!-- <img src="../static/images/고구마.jpg" alt="Sweet potato" class="product-img"> -->
-                <img src= "{{ url_for('static', filename='images/' + data.product_img) }}" alt={{name}} class="product-img">
+                <img src= "{{ url_for('static', filename='images/inputImages/' + data.product_img) }}" alt={{name}} class="product-img">
                 <div class="product-details">
                     <!-- <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p> -->
                     <p class="product-title"{{name}}><span class="icon">🔍</span></p>
