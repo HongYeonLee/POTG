@@ -25,9 +25,13 @@
                 <p class="author">👤 <span class="author-background">{{data.author}}</span></p>
                 <span class="emoji">👍 👎</span>
                 <div class="rating">
-                    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-                    <span>(5점)</span>
+                    {% for i in range(data.rate | int) %}
+                        <span>⭐</span>
+                    {% endfor %}
+                    
+                    <span>({{ data.rate }}점)</span>
                 </div>
+                
             </div>
             
             <div class="review-content-box">
