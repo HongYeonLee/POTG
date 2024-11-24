@@ -129,7 +129,7 @@
 /*일반 상품 목록*/
 .product-table {
     width: 100%;
-    border-collapse: seperate;
+    table-layout: fixed;
     border-spacing: 15px;
     margin: 0;
 
@@ -152,7 +152,7 @@
     border-radius: 8px;
     display: block;
     margin: 0;
-    object-fit: contain
+    object-fit: cover;
 
 }
 
@@ -317,5 +317,4 @@
 }
 
 .text{
-    color: red;
-}
+    color: red;}
