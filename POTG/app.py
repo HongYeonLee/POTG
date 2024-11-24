@@ -95,7 +95,7 @@ def view_item_detail(name):
     print("###name:",name)
     data = DB.get_item_byname(str(name))
     print("####data:",data)
-    return render_template("view_detail.html", name=name, data=data)
+    return render_template("view_detail.html", name=name, data=data, session)
 
 # 리뷰 등록 화면
 @application.route("/reg_review_init/<name>/")

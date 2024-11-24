@@ -48,9 +48,13 @@
                 </div>
                 <div class="button-container">
                     <button class="icon-button">❤️</button>
-                    <button class="icon-button">🔔</button>
+                    {% if session['id'] %}
+                    <button class="icon-button" onclick="location.href='/reg_review_init/{{name}}/';">🖍</button>
+                    {% else %}
+                    <script>alert("로그인 후 리뷰를 작성할 수 있습니다")</script>
                     <button class="action-button">장바구니 담기</button>
                     <button class="action-button buy-now">바로 구매</button>
+                    {% endif %}
                 </div>
 
             </div>
