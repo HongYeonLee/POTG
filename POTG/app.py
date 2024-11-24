@@ -95,7 +95,7 @@ def view_item_detail(name):
     print("###name:",name)
     data = DB.get_item_byname(str(name))
     print("####data:",data)
-    return render_template("view_detail.html", name=name, data=data, session)
+    return render_template("view_detail.html", name=name, data=data)
 
 # 리뷰 등록 화면
 @application.route("/reg_review_init/<name>/")
@@ -107,6 +107,7 @@ def reg_review_init(name):
 @application.route("/reg_review", methods=['POST'])
 def reg_review():
     data=request.form
+    print(data['star'])
     item = DB.get_item_byname(data['name'])
     itemImgPath = item['img_path']
     image_file=request.files["file"]
