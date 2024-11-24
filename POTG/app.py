@@ -107,6 +107,7 @@ def reg_review_init(name):
 @application.route("/reg_review", methods=['POST'])
 def reg_review():
     data=request.form
+    print(data['star'])
     item = DB.get_item_byname(data['name'])
     itemImgPath = item['img_path']
     image_file=request.files["file"]

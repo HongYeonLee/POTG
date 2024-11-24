@@ -114,7 +114,7 @@ class DBhandler:
     def reg_review(self, data, img_path, session, itemImgPath):
         review_info ={
         "title": data['title'],
-        "rate": data['reviewStars'],
+        "rate": data['star'],
         "content": data['review-content'],
         "author": session['id'],
         "review_img": img_path, #리뷰 이미지
