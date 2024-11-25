@@ -141,8 +141,6 @@ def grpPurchase():
 # 공동구매 상품 등록 페이지
 @application.route("/view_grReg")
 def view_grReg():
-    if 'id' not in session:
-        return "로그인이 필요합니다",401
     return render_template("grpurchase_reg.html",user_id=session['id'])
 
 
