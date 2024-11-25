@@ -59,9 +59,19 @@
                             }
                         </script>
                         {% endif %}
+                        {% if session['id'] %}
                         <div class = "cartIconBox">
-                            <button class = "cartIcon"><img src = "{{ url_for('static', filename='images/카트.png') }}"></button>
+                            <button class = "cartIcon" onclick="location.href='/cart';">
+                                <img src = "{{ url_for('static', filename='images/카트.png') }}">
+                            </button>
                         </div>
+                        {% else %}
+                        <div class = "cartIconBox">
+                            <button class = "cartIcon" onclick="showLoginAlert()">
+                                <img src = "{{ url_for('static', filename='images/카트.png') }}">
+                            </button>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

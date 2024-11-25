@@ -208,14 +208,14 @@ def reg_item_submit():
     print(name, seller, addr, email, category, card, status, phone)
     # return render_template("reg_item.html")
 
-@application.route("/submit_item_post", methods=["POST"])
+@application.route("/cart", methods=["POST"])
 def reg_item_submit_post():
     image_file = request.files["fileUpload"]
     image_file.save("static/images/inputImages/{}".format(image_file.filename))
     data = request.form
     print(data['name'], data['seller'], data['address'], data['category'], data['method'], data['status'], data['phone'])
     DB.insert_item(data['name'], data, image_file.filename)
-    return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+    return render_template("cart.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
 # 구매&교환 기능
 @application.route("/buyExchange/<name>/")
@@ -224,6 +224,11 @@ def reg_buyExchange(name):
     DB.update_item(name, session['id'])
     DB.reg_buy(session['id'], data, name)
     return render_template("submit_item_result.html", data=data) 
+
+# 장바구니
+@application.route("/cart")
+def view_cart():
+    return render_template("cart.html")
 
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
