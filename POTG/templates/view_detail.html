@@ -97,15 +97,9 @@
             <span class="imformation-title_1">총 상품금액:<span class="price">{{data.price}}원</span></span>
         </div>
         <div class="button-container">
-            {% if session['id'] %}
             <button class="icon-button">
                 <i class="fa fa-heart" id="heart"></i>
             </button>
-            {% else %}
-            <button class="icon-button" onclick="showHeartAlert()">
-                <i class="fa fa-heart" id="heart"></i>
-            </button>
-            {% endif %}
             {% if session['id'] %}
             <button class="icon-button" onclick="location.href='/reg_review_init/{{name}}/';">🖍</button>
             {% else %}
@@ -114,13 +108,14 @@
                 function showLoginAlert() {
                     alert("로그인 후 리뷰를 작성할 수 있습니다.");
                 }
-                function showHeartAlert(){
-                    alert("로그인 후 좋아요를 누를 수 있습니다.")
-                }
             </script>
             {% endif %}
             <button class="action-button">장바구니 담기</button>
-            <button class="action-button buy-now">바로 구매</button>
+            {% if data.method == "판매" %}
+            <button class="action-button buy-now">구매 하기</button>
+            {% else %}
+            <button class="action-button buy-now">교환 하기</button>
+            {% endif %}
         </div>
 
     </div>
