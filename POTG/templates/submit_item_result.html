@@ -15,7 +15,8 @@
     '하'입니다
     {% endif %}
 </p>
-<img src="{{ img_path }}" class="input_image"/>
+{% set image_path = data['img_path'] %}
+<img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" class="input_image">
 <p>
     {{ data['phone'] }}로 연락주세요.
     주소는 {{ data['address'] }} 입니다.
