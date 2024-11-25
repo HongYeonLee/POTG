@@ -129,21 +129,38 @@ def reg_review1():
 def reg_review2():
     return render_template("review_write2.html")
 
+@application.route("/review_Vieweach")
+def view_reviewEach():
+    return render_template("review_Vieweach.html")
+
 # 공동구매 전체 조회
 @application.route("/grpurchase_ViewAll")
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
 
-# 공동구매 상품 등록
+# 공동구매 상품 등록 페이지
 @application.route("/view_grReg")
 def view_grReg():
     if 'id' not in session:
         return "로그인이 필요합니다",401
     return render_template("grpurchase_reg.html",user_id=session['id'])
 
-@application.route("/review_Vieweach")
-def view_reviewEach():
-    return render_template("review_Vieweach.html")
+
+# 공동구매 상품 업로드
+@application.route("/submit_gr_post", methods=["POST"])
+def gr_reg_item_submit_post():
+    image_file = request.files['fileUpload']
+    image_file.save("static/images/inputImages/{}".format(image_file.filename))
+    data = request.form
+    DB.insert_gr(data['name'], data, image_file.filename, session)
+    return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+
+
+# 공동구매 상세페이지
+@application.route("/grpurchaseDetail")
+def grpurchase_Detail():
+    return render_template("grpurchaseDetail.html")
+
 
 
 
@@ -207,19 +224,7 @@ def reg_item_submit_post():
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
-@application.route("/submit_gr_post", methods=["POST"])
-def gr_reg_item_submit_post():
-    image_file = request.files["fileUpload"]
-    image_file.save("static/images/inputImages/{}".format(image_file.filename))
-    data = request.form
-    DB.insert_gr(data['name'], data, image_file.filename, session)
-    return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
-
-# 공동구매 상세페이지
-@application.route("/grpurchaseDetail")
-def grpurchase_Detail():
-    return render_template("grpurchaseDetail.html")
 
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=True)
