@@ -1,0 +1,352 @@
+.all{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+button{
+    border-radius: 0;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    margin: 0;
+}
+
+.firstBox{
+    position: relative;
+    min-width: 1050px;
+    background-color: rgb(242, 245, 248);
+}
+
+.secondBox{
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 50px 0px 80px;
+    margin: 0px auto;
+}
+
+.userInfoBox1{
+    overflow: hidden;
+    width: 375px;
+    border-radius: 16px;
+}
+
+.userInfoBox2{
+    padding-bottom: 0px;
+    background-color: rgb(242, 245, 248);
+}
+
+.topInfoSection{
+    margin-bottom: 8px;
+    padding: 24px 20px 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.nameBox1{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.gradeName{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: calc(100% - 100px);
+}
+
+.userName{
+    font-weight: 500;
+    font-size: 20px;
+    overflow: hidden;
+    padding-left: 5px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.helloText{
+    min-width: 76px;
+    width: 76px;
+    height: 28px;
+    margin-top: 3px;
+}
+
+.miniInfoBox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 8px;
+    margin-top: 4px;
+}
+
+.userInfoText{
+    position: relative;
+    padding-right: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.menuBox{
+    margin: 0px;
+    padding: 20px 25px;
+    background-color: rgb(255, 255, 255);
+}
+
+.topMenuText{
+    width: 100%;
+    padding: 12px 0px 6px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(181, 181, 181);
+}
+
+.menuWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.menuLink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 100%;
+    font-weight: 500;
+    height: 54px;
+    padding: 16px 0px;
+    font-size: 16px;
+    position: relative;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.menuIcon{
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+}
+
+.menuText{
+    display: flex;
+    gap: 2px;
+}
+
+.numberText{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+}
+
+.heartBox1{
+    overflow: hidden;
+    width: 650px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+}
+
+.heartBox2{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    padding: 25px 0px 20px;
+    border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+.heartBox3{
+    display: flex;
+    align-items: flex-end;
+}
+
+.textForHeart{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 28px;
+}
+
+.heartBox4{
+    padding: 0px 20px;
+}
+
+.heartBox5{
+    position: relative;
+    padding: 8px 0px 10px;
+}
+
+.totalTextBox{
+    color: rgb(51, 51, 51);
+    padding: 8px 0px 6px;
+}
+
+.heartBox6{
+    overflow: visible;
+    width: 0px;
+}
+
+.heartBox7{
+    box-sizing: border-box;
+    direction: ltr;
+    height: auto;
+    position: relative;
+    width: 610px;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.heartBox8{
+    width: auto;
+    height: 411px;
+    max-width: 610px;
+    max-height: 411px;
+    overflow: hidden;
+    position: relative;
+}
+
+.itemBox1{
+    height: 137px;
+    left: 0px;
+    /* position: absolute; */
+    top: 0px;
+    width: 140px;
+    position: relative;
+    float: left;
+    margin: 0 5px;
+}
+
+.itemImgBox{
+    display: block;
+    position: relative;
+    width: inherit;
+    height: 117px;
+    background-color: rgb(245, 245, 245);
+}
+
+.itemBox2{
+    position: absolute;
+    width: inherit;
+    height: 117px;
+}
+
+.itemBox3{
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    inset: 0px;
+}
+
+.itemImg{
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.itemInfo{
+    width: inherit;
+    height: 177px;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    color: #e7e2e2;
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    line-height: 24px;
+    padding-top: 10px;
+}
+
+.itemInfo:hover{
+    opacity: 1;
+}
+
+.topText{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px auto;
+    width: 200px;
+}
+
+
+.page-wrap{
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.pagination a {
+    color: #00462A;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #00462A;
+    color: white;
+}
+
+.footerBox{
+    padding-top: 30px;
+    border-top: 1px solid #f7f7f7;
+    background-color: rgb(0, 70, 42);
+}
+
+.footerBox2{
+    width: 1050px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerText{
+    color:white;
+    opacity: 0.77;
+    
+}

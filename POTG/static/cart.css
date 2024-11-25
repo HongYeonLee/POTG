@@ -1,0 +1,613 @@
+:root{
+    --ldmw171: 10px;
+    --ldmw172: 12px;
+    --ldmw173: 13px;
+    --ldmw174: 14px;
+    --ldmw175: 16px;
+    --ldmw176: 18px;
+    --ldmw177: 20px;
+    --ldmw178: 24px;
+    --ldmw179: 28px;
+    --ldmw17a: 36px;
+    --ldmw17b: 64px;
+    --ldmw17c: 400;
+    --ldmw17d: 600;
+    --ldmw17e: 700;
+    --ldmw17f: 72px;
+    --ldmw17g: 44px;
+    --ldmw17h: 36px;
+    --ldmw17i: 32px;
+    --ldmw17j: 28px;
+    --ldmw17k: 26px;
+    --ldmw17l: 22px;
+    --ldmw17m: 20px;
+    --ldmw17n: 18px;
+    --ldmw17o: 16px;
+    --ldmw17p: 14px;
+    --ldmw17q: 2px;
+    --ldmw17r: 4px;
+    --ldmw17s: 6px;
+    --ldmw17t: 8px;
+    --ldmw17u: 10px;
+    --ldmw17v: 12px;
+    --ldmw17w: 16px;
+    --ldmw17x: 24px;
+    --ldmw17y: 32px;
+    --ldmw17z: 40px;
+    --ldmw1710: 48px;
+    --ldmw1711: 64px;
+    --ldmw1712: 80px;
+    --ldmw1713: 96px;
+    --ldmw1714: 160px;
+    --ldmw1715: 0px;
+    --ldmw1716: 1px;
+    --ldmw1717: 56px;
+    --ldmw1718: 20px;
+    --ldmw1719: 38px;
+    --ldmw171a: 18px;
+    --ldmw171b: 4px;
+    --ldmw171c: 6px;
+    --ldmw171d: 8px;
+    --ldmw171e: 10px;
+    --ldmw171f: 12px;
+    --ldmw171g: 16px;
+    --ldmw171h: 24px;
+    --ldmw171i: 20px;
+    --ldmw171j: 28px;
+    --ldmw171k: 0px 2px 2px 0px rgba(0, 0, 0, .03);
+    --ldmw171l: 0px 0px 4px 0px rgba(0, 0, 0, .15);
+    --ldmw171m: 2px 2px 10px 0px rgba(0, 0, 0, .1);
+    --ldmw171n: 0px 4px 10px 0px rgba(0, 0, 0, .4);
+    --ldmw171o: 0px 0px 4px 0px rgba(0, 0, 0, .3);
+    --ldmw171p: 0px 0px 30px 0px rgba(0, 0, 0, .25);
+    --ldmw171q: #000;
+    --ldmw171r: #000;
+    --ldmw171s: #fff;
+    --ldmw171t: #fff;
+    --ldmw171u: #fff;
+    --ldmw171v: rgba(0, 0, 0, .2);
+    --ldmw171w: rgba(0, 0, 0, .2);
+    --ldmw171x: rgba(0, 0, 0, .5);
+    --ldmw171y: rgba(0, 0, 0, .5);
+    --ldmw171z: rgba(0, 0, 0, .7);
+    --ldmw1720: rgba(0, 0, 0, .7);
+    --ldmw1721: hsla(0, 0%, 100%, .2);
+    --ldmw1722: hsla(0, 0%, 100%, .2);
+    --ldmw1723: hsla(0, 0%, 100%, .5);
+    --ldmw1724: hsla(0, 0%, 100%, .5);
+    --ldmw1725: hsla(0, 0%, 100%, .7);
+    --ldmw1726: hsla(0, 0%, 100%, .7);
+    --ldmw1727: #1c1c1c;
+    --ldmw1728: #222;
+    --ldmw1729: #393d41;
+    --ldmw172a: #464c52;
+    --ldmw172b: #565e67;
+    --ldmw172c: #848f9a;
+    --ldmw172d: #a7b2bc;
+    --ldmw172e: #bcc4cc;
+    --ldmw172f: #cbd1d7;
+    --ldmw172g: #dfe4eb;
+    --ldmw172h: #eceff3;
+    --ldmw172i: #f2f5f8;
+    --ldmw172j: #5f0080;
+    --ldmw172k: #672091;
+    --ldmw172l: #7e3ab0;
+    --ldmw172m: #8d4cc4;
+    --ldmw172n: #9a60ca;
+    --ldmw172o: #a775d2;
+    --ldmw172p: #b489d8;
+    --ldmw172q: #c19edf;
+    --ldmw172r: #ceb2e6;
+    --ldmw172s: #dcc7ed;
+    --ldmw172t: #e8dbf3;
+    --ldmw172u: #f5effa;
+    --ldmw172v: #f95019;
+    --ldmw172w: #fa622f;
+    --ldmw172x: #fb7346;
+    --ldmw172y: #fb835b;
+    --ldmw172z: #fc916d;
+    --ldmw1730: #fca182;
+    --ldmw1731: #fdaf95;
+    --ldmw1732: #fdbfaa;
+    --ldmw1733: #fdcdbc;
+    --ldmw1734: #fedcd1;
+    --ldmw1735: #feebe4;
+    --ldmw1736: #fff6f3;
+    --ldmw1737: #b15eff;
+    --ldmw1738: #bd76ff;
+    --ldmw1739: #c485ff;
+    --ldmw173a: #cb93ff;
+    --ldmw173b: #d19fff;
+    --ldmw173c: #d7adff;
+    --ldmw173d: #ddb9ff;
+    --ldmw173e: #e4c7ff;
+    --ldmw173f: #ead3ff;
+    --ldmw173g: #f0e1ff;
+    --ldmw173h: #f6edff;
+    --ldmw173i: #fbf7ff;
+    --ldmw173j: #d81b1c;
+    --ldmw173k: #e22d2e;
+    --ldmw173l: #e54445;
+    --ldmw173m: #e8595a;
+    --ldmw173n: #eb6c6d;
+    --ldmw173o: #ee8182;
+    --ldmw173p: #f09495;
+    --ldmw173q: #f3a9a9;
+    --ldmw173r: #f6bcbc;
+    --ldmw173s: #f9d1d1;
+    --ldmw173t: #fbe4e4;
+    --ldmw173u: #fdf2f2;
+    --ldmw173v: #118b66;
+    --ldmw173w: #029568;
+    --ldmw173x: #1ea179;
+    --ldmw173y: #37ab88;
+    --ldmw173z: #4eb595;
+    --ldmw1740: #67bfa4;
+    --ldmw1741: #7ec9b2;
+    --ldmw1742: #97d4c1;
+    --ldmw1743: #aeddcf;
+    --ldmw1744: #c7e8de;
+    --ldmw1745: #def1eb;
+    --ldmw1746: #f0f9f6;
+    --ldmw1747: #30b2cf;
+    --ldmw1748: #4dbed7;
+    --ldmw1749: #61c5db;
+    --ldmw174a: #72ccdf;
+    --ldmw174b: #82d1e3;
+    --ldmw174c: #94d8e7;
+    --ldmw174d: #a4deeb;
+    --ldmw174e: #b6e4ef;
+    --ldmw174f: #c6eaf2;
+    --ldmw174g: #d8f1f6;
+    --ldmw174h: #e8f7fa;
+    --ldmw174i: #f4fbfd;
+    --ldmw174j: #065dba;
+    --ldmw174k: #0566cd;
+    --ldmw174l: #2177d3;
+    --ldmw174m: #3a86d8;
+    --ldmw174n: #5094dc;
+    --ldmw174o: #69a3e1;
+    --ldmw174p: #80b1e6;
+    --ldmw174q: #99c0ea;
+    --ldmw174r: #afceef;
+    --ldmw174s: #c8def4;
+    --ldmw174t: #dfebf9;
+    --ldmw174u: #f0f6fc;
+    --ldmw174v: #dea702;
+    --ldmw174w: #edb200;
+    --ldmw174x: #efba1c;
+    --ldmw174y: #f1c236;
+    --ldmw174z: #f2c94c;
+    --ldmw1750: #f4d166;
+    --ldmw1751: #f6d87d;
+    --ldmw1752: #f8df96;
+    --ldmw1753: #f9e6ad;
+    --ldmw1754: #fbeec7;
+    --ldmw1755: #fdf5de;
+    --ldmw1756: #fefaf0;
+    --ldmw1757: #8f531d;
+    --ldmw1758: #9e5c1f;
+    --ldmw1759: #a96e38;
+    --ldmw175a: #b27e4e;
+    --ldmw175b: #bb8d62;
+    --ldmw175c: #c59d79;
+    --ldmw175d: #ceac8d;
+    --ldmw175e: #d7bca3;
+    --ldmw175f: #e0cbb7;
+    --ldmw175g: #eadbce;
+    --ldmw175h: #f2eae2;
+    --ldmw175i: #f9f5f2;
+    --ldmw175j: #f6df0c;
+    --ldmw175k: #fee500;
+    --ldmw175l: #fee81c;
+    --ldmw175m: #feea36;
+    --ldmw175n: #feed4c;
+    --ldmw175o: #feef66;
+    --ldmw175p: #fff27d;
+    --ldmw175q: #fff496;
+    --ldmw175r: #fff7ad;
+    --ldmw175s: #fff9c7;
+    --ldmw175t: #fffcde;
+    --ldmw175u: #fffdf0;
+    --ldmw175v: #000;
+    --ldmw175w: #000;
+    --ldmw175x: #fff;
+    --ldmw175y: #fff;
+    --ldmw175z: rgba(0, 0, 0, .2);
+    --ldmw1760: rgba(0, 0, 0, .2);
+    --ldmw1761: rgba(0, 0, 0, .5);
+    --ldmw1762: rgba(0, 0, 0, .5);
+    --ldmw1763: rgba(0, 0, 0, .7);
+    --ldmw1764: rgba(0, 0, 0, .7);
+    --ldmw1765: hsla(0, 0%, 100%, .2);
+    --ldmw1766: hsla(0, 0%, 100%, .2);
+    --ldmw1767: hsla(0, 0%, 100%, .5);
+    --ldmw1768: hsla(0, 0%, 100%, .5);
+    --ldmw1769: hsla(0, 0%, 100%, .7);
+    --ldmw176a: hsla(0, 0%, 100%, .7);
+    --ldmw176b: #672091;
+    --ldmw176c: #e8dbf3;
+    --ldmw176d: #222;
+    --ldmw176e: #eceff3;
+    --ldmw176f: #fa622f;
+    --ldmw176g: #feebe4;
+    --ldmw176h: #e22d2e;
+    --ldmw176i: #fbe4e4;
+    --ldmw176j: #029568;
+    --ldmw176k: #def1eb;
+    --ldmw176l: #222;
+    --ldmw176m: #565e67;
+    --ldmw176n: #848f9a;
+    --ldmw176o: #a7b2bc;
+    --ldmw176p: #bcc4cc;
+    --ldmw176q: #fff;
+    --ldmw176r: #fff;
+    --ldmw176s: #bcc4cc;
+    --ldmw176t: #cbd1d7;
+    --ldmw176u: #dfe4eb;
+    --ldmw176v: #eceff3;
+    --ldmw176w: #f2f5f8;
+    --ldmw176x: #fff;
+    --ldmw176y: #fff;
+    --ldmw176z: #dfe4eb;
+    --ldmw1770: #eceff3;
+    --ldmw1771: #bd76ff;
+    --ldmw1772: #8d4cc4;
+    --ldmw1773: #fee500;
+    --ldmw1774: #4dbed7;
+    --ldmw1775: #581d89;
+    --ldmw1776: #451b6c;
+}
+
+.all{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.firstBox{
+    padding-bottom: 80px;
+    background-color: #f2f5f8;
+}
+
+.secondBox{
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.topText{
+    padding: 50px 0 48px;
+    text-align: center;
+}
+
+.cartText{
+    line-height: 36px;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.box1{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: -0.5px;
+}
+
+.spanClass{
+    position: absolute;
+    top: -71px;
+}
+
+.cartItemBox1{
+    position: relative;
+    width: 565px;
+    margin-right: 20px;
+}
+
+.cartItemBox2{
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 20px 16px;
+}
+
+.itemInfoBoxForDynamic{
+    position: relative;
+}
+
+.itemNameBox1{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: flex-end;
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    right: -6px;
+}
+
+.cancleItem{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 0;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+}
+
+.itemInfoBox3{
+    padding: 4px 0px 16px 2px;
+}
+
+.linkClass{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.itemNameText{
+    position: relative;
+    z-index: 1;
+    margin-right: 32px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.itemNameText2{
+    color: #222;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    -webkit-box-orient: vertical
+}
+
+.itemInfoBox4{
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 12px;
+}
+
+.imgBox1{
+    height: 83px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.imgBox2{
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+    width: 64px;
+    height: 83px;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    max-width: 100%;
+}
+
+.imgBox3{
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.itemPriceBox1{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    min-height: 83px;
+}
+
+.itemPriceBox2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.priceText{
+    color: #222;
+    word-break: keep-all;
+    line-height: 22px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.priceBox1{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #f2f5f8;
+    color: #222;
+}
+
+.priceText4{
+    color: #222;
+    line-height: 26px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.priceText5{
+    color: var(--ldmw176p);
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    color: #222;
+    line-height: 26px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.buyInfoBox1{
+    position: relative;
+    width: 375px;
+    min-height: 545px;
+}
+.buyInfoBox2{
+    position: absolute;
+    width: 375px;
+}
+
+.addressBox1{
+    padding: 20px 20px 36px 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.priceInfoBox1{
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.priceText1{
+    margin-bottom: 20px;
+    line-height: 26px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.priceInfoBox2{
+    margin-top: 12px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    border-top: 1px solid #eceff3;
+    padding: 16px 0px 4px;
+}
+
+.priceText2{
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.priceText3{
+    line-height: 32px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.buyBtn{
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+    transition: all .1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-width: 0;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding-right: 24px;
+    padding-left: 24px;
+    height: 56px;
+    background-color: #672091;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: none;
+    border: none;
+    margin: 0;
+}
+
+.addrIconTextBox1{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.addrDetailBox1{
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+    font-size: 14px;
+    color: #333;
+    text-transform: none;
+    overflow: visible;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+}
+
+.addrIconImg{
+    width: 20px;
+    height: 20px;
+}
+
+.addrText{
+    margin-left: 4px;
+    line-height: 26px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.addrDetailBox2{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.addrTextDetail{
+    word-break: break-word;
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 16px;
+}

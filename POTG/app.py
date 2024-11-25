@@ -244,14 +244,27 @@ def reg_item_submit():
     print(name, seller, addr, email, category, card, status, phone)
     # return render_template("reg_item.html")
 
-@application.route("/submit_item_post", methods=["POST"])
+@application.route("/cart", methods=["POST"])
 def reg_item_submit_post():
     image_file = request.files["fileUpload"]
     image_file.save("static/images/inputImages/{}".format(image_file.filename))
     data = request.form
     print(data['name'], data['seller'], data['address'], data['category'], data['method'], data['status'], data['phone'])
     DB.insert_item(data['name'], data, image_file.filename)
-    return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+    return render_template("cart.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+
+# 구매&교환 기능
+@application.route("/buyExchange/<name>/")
+def reg_buyExchange(name):
+    data = DB.get_item_byname(name)
+    DB.update_item(name, session['id'])
+    DB.reg_buy(session['id'], data, name)
+    return render_template("submit_item_result.html", data=data) 
+
+# 장바구니
+@application.route("/cart")
+def view_cart():
+    return render_template("cart.html")
 
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
@@ -267,12 +280,13 @@ def like(name):
 
 @application.route('/unlike/<name>/', methods=['POST'])
 def unlike(name):
-    my_heart = DB.update_heart(session['id'],'N',name)
+    itemInfo = DB.get_item_byname(name)
+    my_heart = DB.update_heart(session['id'],'N',itemInfo, name)
     return jsonify({'msg': '안좋아요 완료!'})
 
 # 좋아요 모아보기
-@application.route("/heartPage")
-def view_heartPage():
+@application.route("/heart")
+def view_heart():
     page = request.args.get("page", 0, type = int)
     per_page = 12
     per_row = 4
@@ -293,7 +307,7 @@ def view_heartPage():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
 
     return render_template(
-        "heartPage.html",
+        "heart.html",
         datas = data.items(),
         row1 = locals()['data_0'].items(),
         row2 = locals()['data_1'].items(),

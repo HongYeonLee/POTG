@@ -167,9 +167,19 @@ class DBhandler:
         return target_value
     
     def get_heart_all(self, uid):
-        hearts = self.db.child("heart").child(uid).get().val()
-        return hearts
-    
+        Allhearts = self.db.child("heart").child(uid).get()
+        target_value = {}
+
+        if Allhearts.val() == None:
+            return target_value
+        
+        for heart in Allhearts.each():
+            data = heart.val() 
+            if data['interested'] == 'Y':
+                target_value[heart.key()] = data
+        
+        return target_value
+
     def get_heart_byname(self, uid, name):
         hearts = self.db.child("heart").child(uid).get()
         target_value=""
@@ -187,7 +197,37 @@ class DBhandler:
     def update_heart(self, user_id, isHeart, itemInfo, name):
         heart_info ={
         "interested": isHeart,
-        "img_path": itemInfo['img_path']
+        "img_path": itemInfo['img_path'],
+        "price": itemInfo['price'],
+        "method": itemInfo['method'],
+        "seller": itemInfo['seller']
         }
         self.db.child("heart").child(user_id).child(name).set(heart_info)
         return True
+    
+    # 구매 & 교환 기록 등록
+    def reg_buy(self, user_id, data, name):
+        buy_info = {
+            "seller": data['seller'],
+            "category": data['category'],
+            "method": data['method'],
+            "status": data['status'],
+            "price": data['price'],
+            "info": data['info'],
+            "address": data['address'],
+            "phone": data['phone'],
+            "details": data['details'],
+            "img_path": data['img_path']
+        }
+        self.db.child("buy&exchange").child(user_id).child(name).set(buy_info)
+        return True
+    
+    def update_item(self, name, user_id):
+        item = self.db.child("item").child(name).get()
+        if(item):
+            self.db.child("item").child(name).remove()
+            self.db.child("heart").child(user_id).child(name).remove()
+            return True
+        else:
+            print("해당 아이템이 없습니다")
+            return False
