@@ -1,0 +1,92 @@
+
+{% extends "mypage.html" %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/mypage.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
+{% endblock %}
+{% block mypage_content %}
+<div class="heartBox1">
+    <div class = "heartBox2">
+        <div class = "heartBox3">
+            <h2 class = "textForHeart">좋아요 누른 상품</h2>
+        </div>
+    </div>
+    <div class = "heartBox4">
+        <div class ="heartBox5">
+            <div class = "totalTextBox">
+                전체 <strong>{{total}}</strong>개
+            </div>
+            <div class = "heartBox6">
+                <div>
+                    <div class = "heartBox7">
+                        <div class = "heartBox8">
+                            {% for key, value in row1 %}
+                            <div class = "itemBox1">
+                                <a href ="/view_detail/{{key}}/" class = "itemImgBox">
+                                    <div class = "itemBox2">
+                                        <div class = "itemBox3">
+                                            <div class = "itemInfo">
+                                                상품명: {{key}}<br>
+                                                가격: {{value['price']}}<br>
+                                                판매자: {{value['seller']}}<br>
+                                                거래방식: {{value['method']}}<br>
+                                            </div>
+                                            <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% for key, value in row2 %}
+                            <div class = "itemBox1">
+                                <a href = "/view_detail/{{key}}/" class = "itemImgBox">
+                                    <div class = "itemBox2">
+                                        <div class = "itemBox3">
+                                            <div class = "itemInfo">
+                                                상품명: {{key}}<br>
+                                                가격: {{value['price']}}<br>
+                                                판매자: {{value['seller']}}<br>
+                                                거래방식: {{value['method']}}<br>
+                                            </div>
+                                            <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% for key, value in row3 %}
+                            <div class = "itemBox1">
+                                <a href = "/view_detail/{{key}}/" class = "itemImgBox">
+                                    <div class = "itemBox2">
+                                        <div class = "itemBox3">
+                                            <div class = "itemInfo">
+                                                상품명: {{key}}<br>
+                                                가격: {{value['price']}}<br>
+                                                판매자: {{value['seller']}}<br>
+                                                거래방식: {{value['method']}}<br>
+                                            </div>
+                                            <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "page-wrap">
+                <div class = "pagination">
+                    <!-- <a href = "#">&laquo; 이전</a> -->
+                    {% for i in range(page_count) %}
+                    <a href = "{{url_for('view_heart', page = i)}}" color = "black">{{i+1}}</a>
+                    {% endfor %}
+                    <!-- <a href = "#">다음 &raquo;</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
