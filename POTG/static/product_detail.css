@@ -169,7 +169,7 @@
 .button-container {
     display: flex;
     gap: 7px;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -237,4 +237,12 @@
 
 .data-method{
     color:red;
+}
+
+#heart {
+    color: grey;
+    font-size: 25px;
+}
+#heart.red {
+    color: red;
 }
