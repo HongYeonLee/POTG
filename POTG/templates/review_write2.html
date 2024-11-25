@@ -43,7 +43,7 @@
         <div class="section" style="margin-bottom: 0px;">
             <label for="review-photo">사진 첨부하기</label>
             <label for = "photo"><img id ="changeableImg" style="width: 12%;" src = "{{ url_for('static', filename='images/리뷰사진등록이미지.PNG') }}" class = "imageUploadImg"></label>
-            <input class = "imageUploadBtn" type="file" name="file" id="photo" accept=".png, .jpeg .jpg" style="display: none;"
+            <input class = "imageUploadBtn" type="file" name="file" id="photo" accept=".png, .jpeg, .jpg" style="display: none;"
                     onchange="previewImage(event)"><br>
         </div>
 
