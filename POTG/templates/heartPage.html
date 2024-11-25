@@ -1,0 +1,111 @@
+{% extends "index.html" %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/heartPage.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='heartPage.css') }}">
+{% endblock %}
+{% block section %}
+<div class="all">
+    <div class="firstBox">
+        <div class="secondBox">
+            <div class="userInfoBox1">
+                <div class="userInfoBox2">
+                    <div class="topInfoSection">
+                        <div class="nameBox1">
+                            <div class="gradeName">
+                                <div class="userName">
+                                    안녕하세요! {{session['name']}}님
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="menuBox">
+                        <div class="topMenuText">자주찾는 메뉴</div>
+                        <div class="menuWrap">
+                            <button class="menuLink">
+                                <img class="menuIcon">
+                                <div class="menuText">주문 내역</div>
+                            </button>
+                            <button class="menuLink">
+                                <img class="menuIcon">
+                                <div class="menuText">장바구니</div>
+                            </button>
+                            <button class="menuLink">
+                                <img class="menuIcon">
+                                <div class="menuText">좋아요
+                                    <span class="numberText"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="heartBox1">
+                <div class = "heartBox2">
+                    <div class = "heartBox3">
+                        <h2 class = "textForHeart">좋아요 누른 상품</h2>
+                    </div>
+                </div>
+                <div class = "heartBox4">
+                    <div class ="heartBox5">
+                        <div class = "totalTextBox">
+                            전체 <strong>{{total}}</strong>개
+                        </div>
+                        <div class = "heartBox6">
+                            <div>
+                                <div class = "heartBox7">
+                                    <div class = "heartBox8">
+                                        {% for key, value in row1 %}
+                                        <div class = "itemBox1">
+                                            <a href = "'/view_detail/{{key}}/';" class = "itemImgBox">
+                                                <div class = "itemBox2">
+                                                    <div class = "itemBox3">
+                                                        <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                        {% for key, value in row2 %}
+                                        <div class = "itemBox1">
+                                            <a href = "'/view_detail/{{key}}/';" class = "itemImgBox">
+                                                <div class = "itemBox2">
+                                                    <div class = "itemBox3">
+                                                        <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                        {% for key, value in row3 %}
+                                        <div class = "itemBox1">
+                                            <a href = "'/view_detail/{{key}}/';" class = "itemImgBox">
+                                                <div class = "itemBox2">
+                                                    <div class = "itemBox3">
+                                                        <img class = "itemImg" src = "../static/images/inputImages/{{value['img_path']}}">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "resizeTriggers"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footerBox">
+    <div id="footer" class="footerBox2">
+        <span class="footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
+{% endblock section %}

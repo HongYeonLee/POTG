@@ -1,3 +1,25 @@
+.all{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+button{
+    border-radius: 0;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    margin: 0;
+}
+
 .firstBox{
     position: relative;
     min-width: 1050px;
@@ -82,6 +104,7 @@
 .menuBox{
     margin: 0px;
     padding: 20px 25px;
+    background-color: rgb(255, 255, 255);
 }
 
 .topMenuText{
@@ -92,11 +115,185 @@
     color: rgb(181, 181, 181);
 }
 
+.menuWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.menuLink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 100%;
+    font-weight: 500;
+    height: 54px;
+    padding: 16px 0px;
+    font-size: 16px;
+    position: relative;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.menuIcon{
+    margin: 0px 8px 0px 0px;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+}
+
+.menuText{
+    display: flex;
+    gap: 2px;
+}
+
+.numberText{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+}
+
 .heartBox1{
     overflow: hidden;
     width: 650px;
     background-color: rgb(255, 255, 255);
     border-radius: 16px;
+}
+
+.heartBox2{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    padding: 25px 0px 20px;
+    border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+.heartBox3{
+    display: flex;
+    align-items: flex-end;
+}
+
+.textForHeart{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 28px;
+}
+
+.heartBox4{
+    padding: 0px 20px;
+}
+
+.heartBox5{
+    position: relative;
+    padding: 8px 0px 10px;
+}
+
+.totalTextBox{
+    color: rgb(51, 51, 51);
+    padding: 8px 0px 6px;
+}
+
+.heartBox6{
+    overflow: visible;
+    width: 0px;
+}
+
+.heartBox7{
+    box-sizing: border-box;
+    direction: ltr;
+    height: auto;
+    position: relative;
+    width: 610px;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.heartBox8{
+    width: auto;
+    height: 411px;
+    max-width: 610px;
+    max-height: 411px;
+    overflow: hidden;
+    position: relative;
+}
+
+.itemBox1{
+    height: 137px;
+    left: 0px;
+    /* position: absolute; */
+    top: 0px;
+    width: 140px;
+    position: relative;
+    float: left;
+    margin: 0 5px;
+}
+
+.itemImgBox{
+    display: block;
+    position: relative;
+    width: inherit;
+    height: 117px;
+    background-color: rgb(245, 245, 245);
+}
+
+.itemBox2{
+    position: absolute;
+    width: inherit;
+    height: 117px;
+}
+
+.itemBox3{
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    inset: 0px;
+}
+
+.itemImg{
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.resizeTriggers{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    animation: 1ms resizeanim;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .topText{
