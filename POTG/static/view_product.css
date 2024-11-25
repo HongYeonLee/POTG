@@ -128,10 +128,10 @@
 
 /*일반 상품 목록*/
 .product-table {
-    width: 100%;
+    width: auto;
     table-layout: fixed;
     border-spacing: 15px;
-    margin: 0;
+    margin: 0 auto;
     text-align: left;
 
 }

@@ -1,72 +1,133 @@
 {% extends "index.html" %}
 
 {% block custom_css %}
-    <link rel = "stylesheet" href = "../static/product_detail.css">
-    <link rel = "stylesheet" type="text/css" href = "../static/indexStyle.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='product_detail.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+<link rel="stylesheet" href="../static/product_detail.css">
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='product_detail.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
 {% endblock %}
 
 {% block section %}
-        <section class = "section-first">
-            <img src="{{ url_for('static', filename='images/inputImages/' + data.img_path) }}" alt="{{name}}" class="image">
-            <div class = "content">
-                <div class = "name"><span class = "data-method">({{data.method}}) </span>{{name}}</div>
-                
-                <!-- <p class = "discount">거래 방식 : {{data.method}}<span class = "price">{{data.price}}</span></p> -->
-                <div class="divider"></div>
+<script>
+    function showHeart() {
+        $.ajax({
+            type: 'GET',
+            url: '/show_heart/{{name}}/', /*app.py에서 호출*/
+            data: {},
+            success: function (response) {
+                let my_heart = response['my_heart'];
+                if (my_heart['interested'] == 'Y') {
+                    $("#heart").css("color", "red");
+                    $("#heart").attr("onclick", "unlike()");
+                }
+                else {
+                    $("#heart").css("color", "grey");
+                    $("#heart").attr("onclick", "like()");
+                }
+                //alert("showheart!")
+            }
+        });
+    }
+    function like() {
+        $.ajax({
+            type: 'POST',
+            url: '/like/{{name}}/', /*app.py에서 호출*/
+            data: {
+                interested: "Y"
+            },
+            success: function (response) {
+                alert(response['msg']);
+                window.location.reload()
+            }
+        });
+    }
+    function unlike() {
+        $.ajax({
+            type: 'POST',
+            url: '/unlike/{{name}}/', /*app.py에서 호출*/
+            data: {
+                interested: "N"
+            },
+            success: function (response) {
+                alert(response['msg']);
+                window.location.reload()
+            }
+        });
+    }
+    $(document).ready(function () {
+        showHeart();
+    });
+</script>
+<section class="section-first">
+    <img src="{{ url_for('static', filename='images/inputImages/' + data.img_path) }}" alt="{{name}}" class="image">
+    <div class="content">
+        <div class="name"><span class="data-method">({{data.method}}) </span>{{name}}</div>
 
-                <div class = "content">
-                    <div class = "info-row">
-                        <span class = "information_title">판매자</span>
-                        <span class = "information">{{data.seller}}<br> <span class = "detail">{{data.phone}}</span></span>
-                        
-                </div>
-                <div class="divider"></div>
-                <div class = "info-row">
-                    <span class = "information_title">주소</span>
-                    <span class = "information">{{data.address}}</span></span>
-                </div>
-                <div class="divider"></div>
-                <div class = "info-row">
-                    <span class = "information_title">카테고리</span>
-                    <span class = "information">{{data.category}}</span>
-                </div>
-                <div class="divider"></div>
-                <div class = "info-row">
-                    <span class = "information_title">설명</span>
-                    <span class = "information">{{data.details}}</span>
-                </div>
-                <div class="divider"></div>
-                <div class = "info-row">
-                    <span class = "information_title">기타 정보</span>
-                    <span class = "information">{{data.info}}</span>
-                </div>
-                <div class="divider"></div>
+        <!-- <p class = "discount">거래 방식 : {{data.method}}<span class = "price">{{data.price}}</span></p> -->
+        <div class="divider"></div>
 
-                <span class = "imformation-title_1">총 상품금액:<span class="price">{{data.price}}원</span></span>
-                </div>
-                <div class="button-container">
-                    <button class="icon-button">❤️</button>
-                    {% if session['id'] %}
-                    <button class="icon-button" onclick="location.href='/reg_review_init/{{name}}/';">🖍</button>
-                    {% else %}
-                    <button class="icon-button" onclick="showLoginAlert()">🖍</button>
-                    <script>
-                        function showLoginAlert() {
-                            alert("로그인 후 리뷰를 작성할 수 있습니다.");
-                        }
-                    </script>
-                    {% endif %}
-                    <button class="action-button">장바구니 담기</button>
-                    <button class="action-button buy-now">바로 구매</button>
-                </div>
+        <div class="content">
+            <div class="info-row">
+                <span class="information_title">판매자</span>
+                <span class="information">{{data.seller}}<br> <span class="detail">{{data.phone}}</span></span>
 
             </div>
-        </section>
-        <div class = "footerBox">
-            <div id = "footer" class = "footerBox2">
-                <span class = "footerText">© POTG - Project Of The Genius</span>
+            <div class="divider"></div>
+            <div class="info-row">
+                <span class="information_title">주소</span>
+                <span class="information">{{data.address}}</span></span>
             </div>
+            <div class="divider"></div>
+            <div class="info-row">
+                <span class="information_title">카테고리</span>
+                <span class="information">{{data.category}}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="info-row">
+                <span class="information_title">설명</span>
+                <span class="information">{{data.details}}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="info-row">
+                <span class="information_title">기타 정보</span>
+                <span class="information">{{data.info}}</span>
+            </div>
+            <div class="divider"></div>
+
+            <span class="imformation-title_1">총 상품금액:<span class="price">{{data.price}}원</span></span>
         </div>
+        <div class="button-container">
+            {% if session['id'] %}
+            <button class="icon-button">
+                <i class="fa fa-heart" id="heart"></i>
+            </button>
+            {% else %}
+            <button class="icon-button" onclick="showHeartAlert()">
+                <i class="fa fa-heart" id="heart"></i>
+            </button>
+            {% endif %}
+            {% if session['id'] %}
+            <button class="icon-button" onclick="location.href='/reg_review_init/{{name}}/';">🖍</button>
+            {% else %}
+            <button class="icon-button" onclick="showLoginAlert()">🖍</button>
+            <script>
+                function showLoginAlert() {
+                    alert("로그인 후 리뷰를 작성할 수 있습니다.");
+                }
+                function showHeartAlert(){
+                    alert("로그인 후 좋아요를 누를 수 있습니다.")
+                }
+            </script>
+            {% endif %}
+            <button class="action-button">장바구니 담기</button>
+            <button class="action-button buy-now">바로 구매</button>
+        </div>
+
+    </div>
+</section>
+<div class="footerBox">
+    <div id="footer" class="footerBox2">
+        <span class="footerText">© POTG - Project Of The Genius</span>
+    </div>
+</div>
 {% endblock section %}
