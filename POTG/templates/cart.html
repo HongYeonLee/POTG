@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" type="text/css" href="../static/cart.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+{% endblock %}
+{% block section %}
+
+<div class="all">
+    <div class="firstBox">
+        <div class="secondBox">
+            <h2 class="topText">
+                <p class="cartText">장바구니</p>
+            </h2>
+            <div class="box1">
+                <div class="cartItemBox1">
+                    <div class="cartItemBox2">
+                        <span class="spanClass"></span>
+                        <div class="itemInfoBox1">
+                            <div>
+                                <div class="itemInfoBoxForDynamic">
+                                    <div class="itemNameBox1">
+                                        <button class="cancleItem">
+                                            <img src="../static/images/cancle.PNG" style="width: 20px; height: 20px;">
+                                        </button>
+                                    </div>
+                                    <div class="itemInfoBox3">
+                                        <a href="" class="linkClass">
+                                            <div class="itemNameText">
+                                                <p class="itemNameText2">감자탕</p>
+                                            </div>
+                                        </a>
+                                        <div class="itemInfoBox4">
+                                            <a href="" class="linkClass" style="width: 80px; height: 83px;">
+                                                <div class="imgBox1">
+                                                    <div class="imgBox2">
+                                                        <img class="imgBox3" src="../static/images/habf.png">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="itemPriceBox1">
+                                                <div class=itemPriceBox2>
+                                                    <p class="priceText">10000원</p>
+                                                    <p class="priceText5">거래방식: 교환</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="priceBox1">
+                            <p class="priceText4">10000원</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="buyInfoBox1">
+                    <div class="buyInfoBox2">
+                        <div class="addressBox1">
+                            <div class="addrIconTextBox1">
+                                <img class="addrIconImg">
+                                <p class="addrText">배송지</p>
+                            </div>
+                            <button class="addrDetailBox1">
+                                <div class="addrDetailBox2">
+                                    <div>
+                                        <p class="addrTextDetail">경기도 안산시 단원구 고잔로 81(힐스테이트중앙) 108동 3102호</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="priceInfoBox1">
+                            <p class="priceText1">결제금액</p>
+                            <div class="priceInfoBox2">
+                                <p class="priceText2">결제예정금액</p>
+                                <p class="priceText3">10000원</p>
+                            </div>
+                        </div>
+                        <button class="buyBtn">10000원 주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock section %}
