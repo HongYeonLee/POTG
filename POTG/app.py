@@ -142,16 +142,16 @@ def grpPurchase():
     row_count=int(per_page/per_row)
     start_idx = per_page * page
     end_idx = per_page * (page + 1)
-
+    data=DB.gr_get_items()
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(data)
     for i in range(row_count):
         if(i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
-    data=DB.gr_get_items()
-    item_counts = len(data)
-    data = dict(list(data.items())[start_idx:end_idx])
-    tot_count = len(data)
+    
 
 
     return render_template(

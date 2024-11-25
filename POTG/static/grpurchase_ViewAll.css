@@ -216,3 +216,34 @@ h3{
     transition: background-color 0.3s;
 }
 
+/*페이지네이션*/
+/* 페이지네이션 스타일 */
+.page-wrap{
+    display: flex;                  
+    justify-content: center;       
+    text-align: center;             
+    margin: 0 auto;          
+    padding: 20px 0;                 
+    width: 100%;                    
+    box-sizing: border-box;  
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.pagination a {
+    color: #00462A;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #00462A;
+    color: white;
+}
