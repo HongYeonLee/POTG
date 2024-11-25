@@ -129,17 +129,23 @@ def reg_review1():
 def reg_review2():
     return render_template("review_write2.html")
 
+# 공동구매 전체 조회
 @application.route("/grpurchase_ViewAll")
 def grpPurchase():
     return render_template("grpurchase_ViewAll.html")
+
+# 공동구매 상품 등록
+@application.route("/view_grReg")
+def view_grReg():
+    if 'id' not in session:
+        return "로그인이 필요합니다",401
+    return render_template("grpurchase_reg.html",user_id=session['id'])
 
 @application.route("/review_Vieweach")
 def view_reviewEach():
     return render_template("review_Vieweach.html")
 
-@application.route("/view_grReg")
-def view_grReg():
-    return render_template("grpurchase_reg.html")
+
 
 # 리뷰 불러오기
 @application.route("/review_ViewAll")
