@@ -113,7 +113,6 @@ class DBhandler:
             
         return target_value
 
-    
     #상품 리스트 화면
     #여기부터 수정#
     def get_items(self):
@@ -166,3 +165,29 @@ class DBhandler:
                 target_value = res.val()
             
         return target_value
+    
+    def get_heart_all(self, uid):
+        hearts = self.db.child("heart").child(uid).get().val()
+        return hearts
+    
+    def get_heart_byname(self, uid, name):
+        hearts = self.db.child("heart").child(uid).get()
+        target_value=""
+        if hearts.val() == None:
+            return target_value
+
+        for res in hearts.each():
+            key_value = res.key()
+
+            if key_value == name:
+                target_value=res.val()
+
+        return target_value
+
+    def update_heart(self, user_id, isHeart, itemInfo, name):
+        heart_info ={
+        "interested": isHeart,
+        "img_path": itemInfo['img_path']
+        }
+        self.db.child("heart").child(user_id).child(name).set(heart_info)
+        return True
