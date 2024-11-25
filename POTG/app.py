@@ -180,9 +180,17 @@ def gr_reg_item_submit_post():
     DB.insert_gr(data['name'], data, image_file.filename, session)
     return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
+#동적라우팅
+@application.route("/grpurchaseDetail/<name>/")
+def gr_view_item_detail(name):
+    print("###name:",name)
+    data = DB.get_item_byname(str(name))
+    print("####data:",data)
+    return render_template("grpurchaseDetail.html", name=name, data=data)
+
 # 공동구매 상세페이지
 @application.route("/grpurchaseDetail")
-def grpurchase_Detail():
+def grpurchaseDetail():
     return render_template("grpurchaseDetail.html")
 
 # 리뷰 불러오기

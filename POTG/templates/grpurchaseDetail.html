@@ -13,41 +13,40 @@
         <section class="detail">
             <!--사진 섹션-->
             <div class="pic-section">
-                <img src="../static/images/공구_상세페이지_솥반.png" alt="상품 이미지" class="product-image">
+                <img src="../static/images/inputImages/{{data.img_path}}" alt="{{name}}" class="product-image">
             </div>
             <!--설명 섹션-->
             <div class="info-section">
                 <div class="product-info">
-                    <p style="color:#888;">마감시간 : 24시간 이내(오늘 오후 11시)</p>
-                    <h2>[햇반] 솥반 12개</h2>
-                    <p class="original-price">20,000원</p>
+                    <p style="color:#888;">마감시간 : 24시간 이내</p>
+                    <h2>{{name}}</h2>
+                    <p class="original-price">{{data.price}}</p>
                     <p class="discounted-price"><span>10%</span> 18,000원 ~ 1,500원(개당)</p>
                 </div>
                 <div class="additional-info">
                     <div class="a-info-row">
                         <span class="title">판매처</span>
-                        <span class="value">[마켓컬리] <a style="color:black;"href="https://www.kurly.com/goods/5082168">https://www.kurly.com</a></span>
-                    </div>
+                        <span class="value">{{data.info}}</span>
                     <div class="divider"></div>
                     <div class="a-info-row">
                         <span class="title">공동구매 주최자</span>
-                        <span class="value">ID : hwaYeonLee </span>
+                        <span class="value">ID : {{data.id}} </span>
                     </div>
                     <div class="divider"></div>
                     <div class="a-info-row">
-                        <!--이거 data['address'] 랑 연결해야할듯-->
+                      
                         <span class="title">거래 장소</span>
-                        <span class="value">아산공학관 로비</span>
+                        <span class="value">{{data.address}}</span>
                     </div>
                     <div class="divider"></div>
                     <div class="a-info-row">
                         <span class="title">상품 정보</span>
-                        <span class="value">햇반 솥반 6종 / 중량 및 용량 : 200g, 210g</span>
+                        <span class="value">{{data.details}}</span>
                     </div>
                     <div class="divider"></div>
                     <div class="a-info-row">
                         <span class="title">주문 가능 수량</span>
-                        <span class="value">3개</span>
+                        <span class="value">{{data.cnt}}</span>
                     </div>
                     <div class="divider"></div>
 
