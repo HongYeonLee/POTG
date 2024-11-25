@@ -132,7 +132,14 @@
     table-layout: fixed;
     border-spacing: 15px;
     margin: 0;
+    text-align: left;
 
+}
+
+.product-table td {
+    width: 20%;
+    vertical-align: top;
+    padding: 0;
 }
 
 .product-item {
