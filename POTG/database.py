@@ -76,7 +76,8 @@ class DBhandler:
         print(data,img_path)
         return True
     
-    # 공동구매 상품등록
+    # 공동구매 화면
+    # 공동구매_상품등록
     def insert_gr(self, name, data, img_path, session):
         item_info ={
         "id": session['id'],
@@ -92,6 +93,26 @@ class DBhandler:
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)
         return True
+
+    #공동구매_상품가져오기
+    def gr_get_items(self):
+        items = self.db.child("gr_item").get().val()
+        return items #gr_item노드 값 가져오기
+
+    def gr_get_item_byname(self, name):
+        items = self.db.child("gr_item").get()
+        target_value=""
+
+        print("###########",name)
+
+        for res in items.each():
+            key_value = res.key()
+
+            if key_value == name:
+                target_value = res.val()
+            
+        return target_value
+
     
     #상품 리스트 화면
     #여기부터 수정#
