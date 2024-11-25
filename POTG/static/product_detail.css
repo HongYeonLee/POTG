@@ -50,6 +50,7 @@
     font-size: 33px;
     font-weight: bold;
     display: block;
+    float:right;
    
 }
 
@@ -63,6 +64,7 @@
 .text {
     color: #6C6C6C;
     font-size: 27px;
+    float:right;
 }
 
 .divider {
