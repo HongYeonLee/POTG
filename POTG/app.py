@@ -111,7 +111,7 @@ def reg_review():
     item = DB.get_item_byname(data['name'])
     itemImgPath = item['img_path']
     image_file=request.files["file"]
-    image_file.save("static/images/inputImages{}".format(image_file.filename))
+    image_file.save("static/images/inputImages/{}".format(image_file.filename))
     DB.reg_review(data, image_file.filename, session, itemImgPath)
     return redirect(url_for('view_review'))
 
