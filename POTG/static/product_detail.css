@@ -7,7 +7,8 @@
 }
 
 .image {
-    width: 100%;
+    width: 300px;
+    height: 300px;
     max-width: 400px;
     max-height: 700px;
     margin-top: 170px;
@@ -21,7 +22,7 @@
     z-index: 2;
     margin: 0 auto;
     padding: 0 20px;
-    margin-top:100px;
+    /*margin-top:100px;*/
 }
 
 .name, .discount, .price, .original-price, .text{
@@ -30,6 +31,7 @@
 
 /*위에 큰 설명*/
 .name {
+    margin-top: 30px;
     color: #00462A;
     font-size: 35px;
     margin: 10px 0;
@@ -231,4 +233,8 @@
     color:white;
     opacity: 0.77;
     
+}
+
+.data-method{
+    color:red;
 }
