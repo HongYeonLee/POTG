@@ -76,13 +76,16 @@ class DBhandler:
         print(data,img_path)
         return True
     
+    # 공동구매 상품등록
     def insert_gr(self, name, data, img_path, session):
         item_info ={
         "id": session['id'],
         "category": data['category'],
         "price": data['price'],
         "info": data['info'],
+        "cnt":data['cnt'],
         "address": data['address'],
+        "date":data['date'],
         "details": data['details'],
         "img_path": img_path
         }
