@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session, jsonify
 from database import DBhandler
 import hashlib
 import sys
@@ -143,7 +143,6 @@ def grpPurchase():
 def view_grReg():
     return render_template("grpurchase_reg.html",user_id=session['id'])
 
-
 # 공동구매 상품 업로드
 @application.route("/submit_gr_post", methods=["POST"])
 def gr_reg_item_submit_post():
@@ -153,14 +152,10 @@ def gr_reg_item_submit_post():
     DB.insert_gr(data['name'], data, image_file.filename, session)
     return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
-
 # 공동구매 상세페이지
 @application.route("/grpurchaseDetail")
 def grpurchase_Detail():
     return render_template("grpurchaseDetail.html")
-
-
-
 
 # 리뷰 불러오기
 @application.route("/review_ViewAll")
@@ -222,6 +217,55 @@ def reg_item_submit_post():
     DB.insert_item(data['name'], data, image_file.filename)
     return render_template("submit_item_result.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
 
+# 좋아요 기능
+@application.route('/show_heart/<name>/', methods=['GET'])
+def show_heart(name):
+    my_heart = DB.get_heart_byname(session['id'], name)
+    return jsonify({'my_heart': my_heart})
+
+@application.route('/like/<name>/', methods=['POST'])
+def like(name):
+    itemInfo = DB.get_item_byname(name)
+    my_heart = DB.update_heart(session['id'], 'Y', itemInfo, name)
+    return jsonify({'msg': '좋아요 완료!'})
+
+@application.route('/unlike/<name>/', methods=['POST'])
+def unlike(name):
+    my_heart = DB.update_heart(session['id'],'N',name)
+    return jsonify({'msg': '안좋아요 완료!'})
+
+# 좋아요 모아보기
+@application.route("/heartPage")
+def view_heartPage():
+    page = request.args.get("page", 0, type = int)
+    per_page = 12
+    per_row = 4
+    row_count = int(per_page/per_row)
+
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
+
+    data = DB.get_heart_all(session['id'])
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(data)
+
+    for i in range(row_count):
+        if(i == row_count-1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        else:
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
+
+    return render_template(
+        "heartPage.html",
+        datas = data.items(),
+        row1 = locals()['data_0'].items(),
+        row2 = locals()['data_1'].items(),
+        row3 = locals()['data_2'].items(),
+        limit = per_page,
+        page = page,
+        page_count = int((item_counts/per_page)+1),
+        total = item_counts)
 
 
 if __name__ == "__main__":
