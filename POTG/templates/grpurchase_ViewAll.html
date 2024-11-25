@@ -232,7 +232,7 @@
                 const price = parseFloat(span.dataset.price); // `data-price` 속성 값 가져오기
                 const cnt = parseInt(span.dataset.cnt, 10);  // `data-cnt` 속성 값 가져오기
                 if (cnt > 0) {
-                    const perPrice = (price / cnt); 
+                    const perPrice = (price / cnt).toFixed(0);
                     span.textContent = `${perPrice}`;
                 } else {
                     span.textContent = '정보 없음'; // 개수가 0인 경우 처리

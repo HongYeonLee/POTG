@@ -14,7 +14,7 @@
         <section class="detail">
             <!--사진 섹션-->
             <div class="pic-section">
-                <img src="../static/images/inputImages/{{data.img_path}}" alt="{{name}}" class="product-image">
+                <img src="{{ url_for('static', filename='images/inputImages/' + data.img_path) }}" alt="{{name}}" class="product-image">
             </div>
             <!--설명 섹션-->
             <div class="info-section">
@@ -22,12 +22,13 @@
                     <p style="color:#888;">마감시간 : 24시간 이내</p>
                     <h2>{{name}}</h2>
                     <p class="original-price">{{data.price}}</p>
-                    <p class="discounted-price"><span>10%</span> 18,000원 ~ 1,500원(개당)</p>
+                    <span id="calculated-per-price">{{data.price}}원 ➡️ <span id="per-price"></span>원 (개당)</span>
                 </div>
                 <div class="additional-info">
                     <div class="a-info-row">
                         <span class="title">판매처</span>
                         <span class="value">{{data.info}}</span>
+                    </div>
                     <div class="divider"></div>
                     <div class="a-info-row">
                         <span class="title">공동구매 주최자</span>
@@ -74,7 +75,26 @@
         </section>   
         
     </body>
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const price = {{data.price}}; // 총 가격
+            const cnt = {{data.cnt}};    // 총 개수
+    
+            // 개당 가격 계산
+            const perPrice = Math.floor(price / cnt);
+            document.getElementById('per-price').textContent = perPrice;
+    
+            const quantityInput = document.getElementById('quantity');
+            const totalPriceElement = document.getElementById('total-price');
+    
+            // 수량 변경 시 총 금액 업데이트
+            quantityInput.addEventListener('input', function () {
+                const quantity = parseInt(quantityInput.value) || 0;
+                const totalPrice = quantity * perPrice;
+                totalPriceElement.textContent = totalPrice.toLocaleString(); // 3자리 콤마 추가
+            });
+        });
+    </script>
 
 
 

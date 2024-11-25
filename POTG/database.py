@@ -88,7 +88,8 @@ class DBhandler:
         "address": data['address'],
         "date":data['date'],
         "details": data['details'],
-        "img_path": img_path
+        "img_path": img_path,
+        "per_price":data['price']/data['cnt']
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)

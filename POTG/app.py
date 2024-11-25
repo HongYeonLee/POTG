@@ -184,7 +184,7 @@ def gr_reg_item_submit_post():
 @application.route("/grpurchaseDetail/<name>/")
 def gr_view_item_detail(name):
     print("###name:",name)
-    data = DB.get_item_byname(str(name))
+    data = DB.gr_get_item_byname(str(name))
     print("####data:",data)
     return render_template("grpurchaseDetail.html", name=name, data=data)
 
