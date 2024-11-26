@@ -82,7 +82,11 @@
                                 <p class="priceText3">{{ total_price }}원</p>
                             </div>
                         </div>
-                        <button class="buyBtn">{{ total_price }}원 주문하기</button>
+                        {% if total_price == 0 %}
+                        <button class="buyBtn" onclick="alertMsg()">{{ total_price }}원 주문하기</button>
+                        {% else %}
+                        <button class="buyBtn" onclick="location.href='/buyInCart'" >{{ total_price }}원 주문하기</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -90,4 +94,9 @@
     </div>
 </div>
 </div>
+<script>
+    function alertMsg(){
+        alert("주문할 상품이 없습니다")
+    }
+</script>
 {% endblock section %}

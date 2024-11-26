@@ -245,6 +245,29 @@ class DBhandler:
         self.db.child("buy&exchange").child(user_id).child(name).set(buy_info)
         return True
     
+    # 장바구니 상품 구매&교환 기록 등록
+    def reg_buy_all_in_cart(self, user_id):
+        cart_items = self.db.child("cart").child(user_id).get()
+        
+        if not cart_items.val():
+            print("장바구니가 비어 있습니다.")
+            return False
+
+        for item in cart_items.each():
+            item_name = item.key()  # 아이템 이름 가져오기
+            item_data = item.val()  # 아이템 데이터 가져오기
+            
+            # 구매 데이터 등록
+            self.reg_buy(user_id, item_data, item_name)
+            
+            # 장바구니에서 아이템 제거
+            self.remove_cart_item(item_name, user_id)
+
+            # 상품등록에서 아이템 제거
+            self.remove_item(item_name, user_id)
+
+        return True
+    
     # 장바구니 아이템 등록
     def reg_cart(self, user_id, data, name):
         cart_info = {
@@ -277,7 +300,19 @@ class DBhandler:
         else:
             print("해당 아이템이 없습니다")
             return False
+    
+    # 장바구니 아이템 모두 지우기
+    def remove_cart_item_All(self, user_id):
+        items = self.db.child("cart").child(user_id).get()
+        if items.val():  # 장바구니가 비어 있지 않은 경우
+            for item in items.each():
+                self.db.child("cart").child(user_id).child(item.key()).remove()
+            return True
+        else:
+            print("해당 아이템이 없습니다")
+            return False
 
+    # 상품 등록에서 아이템 지우기
     def remove_item(self, name, user_id):
         item = self.db.child("item").child(name).get()
         if(item):

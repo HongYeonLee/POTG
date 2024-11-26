@@ -259,7 +259,7 @@ def reg_buyExchange(name):
     data = DB.get_item_byname(name)
     DB.remove_item(name, session['id'])
     DB.reg_buy(session['id'], data, name)
-    return render_template("submit_item_result.html", data=data) #구매 내역 페이지로 이동, 구현 필요
+    return render_template("review_write1.html", data=data) #구매 내역 페이지로 이동, 구현 필요
 
 # 장바구니에 담기 기능
 @application.route("/cart/<name>/")
@@ -289,6 +289,13 @@ def view_cart():
         user_info=user_info,
         total_price=total_price
     )
+
+# 장바구니 상품 구매 기능
+@application.route("/buyInCart")
+def buyInCart():
+    flash("구매 완료 되었습니다!")
+    DB.reg_buy_all_in_cart(session['id'])
+    return render_template("review_write1.html")
 
 # 장바구니 삭제 기능
 @application.route("/removeCart/<name>/")
