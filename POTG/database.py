@@ -1,5 +1,6 @@
 import pyrebase
 import json
+from datetime import datetime
     
 class DBhandler:
     def __init__(self ):
@@ -79,6 +80,19 @@ class DBhandler:
     # 공동구매 화면
     # 공동구매_상품등록
     def insert_gr(self, name, data, img_path, session):
+        current_date=datetime.now().date()
+        # 입력된 날짜 (data['date'])를 날짜 객체로 변환
+        try:
+            target_date = datetime.strptime(data['date'], "%Y-%m-%d").date()
+        except ValueError:
+            print("Invalid date format. Expected 'YYYY-MM-DD'.")
+            return False
+        # D-Day 계산
+        d_day = (target_date - current_date).days
+        d_day_display = f"D-{d_day}" if d_day > 0 else "D-Day" if d_day == 0 else f"D+{-d_day}"
+        
+        #개당 개수
+
         item_info ={
         "id": session['id'],
         "category": data['category'],
@@ -89,7 +103,7 @@ class DBhandler:
         "date":data['date'],
         "details": data['details'],
         "img_path": img_path,
-        "per_price":data['price']/data['cnt']
+        "d_day":d_day_display 
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)

@@ -138,6 +138,12 @@
                         <td>
                     <!--<div class="product-item">-->
                             <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{key}}" style = "cursor: pointer;">
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for key, value in row2 %}
+                            <td>
                                 <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
                                 <div class="product-info">
                                     <p class="d-day">D-3</p>
@@ -153,11 +159,39 @@
                                         </span>
                                     </p>
                                 </div>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for key, value in row3 %}
+                            <td>
+                        <!--<div class="product-item">-->
+                                <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{key}}" style = "cursor: pointer;">
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for key, value in row3 %}
+                                <td>
+                                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                                    <div class="product-info">
+                                        <p class="d-day">{{value['d_day']}}</p>
+                                        <p class="product-name">{{key}}</p>
+                                        <p class="prog">총량 :  / {{value['cnt']}}</p>
+                                        <p class="product-price">
+                                            <!--
+                                            <p class="original-price">20,000원</p>
+                                            <span class="discount-rate">10%</span>
+                                            -->
+                                            <span class="discounted-price">
+                                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
+                                            </span>
+                                        </p>
                                     </div>
                                 </td>
                             {% endfor %}
-                </tr>
-                
+                        </tr>
+                     
             </table>   
 <!--
                 {% for key, value in row2 %}
