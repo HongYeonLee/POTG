@@ -171,7 +171,7 @@ def grpPurchase():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
-    W
+    
     return render_template(
         "grpurchase_ViewAll.html",
         datas=data.items(),
