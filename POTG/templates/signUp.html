@@ -5,12 +5,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='signupStyle.css') }}">  
 {% endblock %}
 {% block section %}
-{% with mesg = get_flashed_messages() %}
-{% if mesg !=[] %}
-    <script src="../static/signup.js"></script>
-    <script>alert("{{ mesg[0] }}");</script>
-{% endif %}
-{% endwith %}
+<!-- {% with mesg = get_flashed_messages() %}
+{% if mesg !=[] %} -->
+    <!-- <script>alert("{{ mesg[0] }}");</script> -->
+<!-- {% endif %}
+{% endwith %} -->
 <form method="post" action = "/signup_post">
 <div class = "d1">
     <div class = "signUpText">회원가입</div>
@@ -46,7 +45,7 @@
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "password" name = "pw" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                            <input id = "password" name = "pw" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "inputInner"  required value="">
                         </div>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "passwordConfirm" name = "pwConfirm" placeholder="비밀번호를 한번 더 입력해주세요" type = "password" autocomplete="off" class = "inputInner" value>
+                            <input id = "passwordConfirm" name = "pwConfirm" placeholder="비밀번호를 한번 더 입력해주세요" type = "password" autocomplete="off" class = "inputInner" required value>
                         </div>
                     </div>
                 </div>
@@ -122,13 +121,30 @@
             <div class = "infoInput">
                 <div class = "infoName">
                     <label class = "infoNameDetail">
+                        주소
+                        <span class = "starSign">*</span>
+                    </label>
+                </div>
+                <div class = "inputBox">
+                    <div class = "inputBox2">
+                        <div class = "inputBox3">
+                            <input id = "address" name = "address" placeholder="주소를 입력해주세요" type = "text" required class = "inputInner" value>
+                            <button type="button" class="address-button" onclick="fetchAddress()">주소 찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rightMargin"></div>
+            </div>
+            <div class = "infoInput">
+                <div class = "infoName">
+                    <label class = "infoNameDetail">
                         휴대폰
                     </label>
                 </div>
                 <div class = "inputBox">
                     <div class = "inputBox2">
                         <div class = "inputBox3">
-                            <input id = "mobileNumber" name = "mobileNumber" placeholder="숫자만 입력해주세요" type = "tel" required 
+                            <input id = "mobileNumber" name = "mobileNumber" placeholder="숫자만 입력해주세요" type = "tel" 
                             oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
                             class = "inputInner" value>
                         </div>
@@ -223,7 +239,7 @@
                     <div class = "termsCheckBox">
                         <div class = "termsInnerCheckBox">
                             <label class = "labelForTermsAgree" for = "RequiredTermsCondition">
-                                <input id = "RequiredTermsCondition" type = "checkbox" class = "inputForAgree">
+                                <input id = "RequiredTermsCondition" type = "checkbox" class = "inputForAgree" required>
                                 <div class = "divForCheckBox">
                                     <img id = "RequiredTermsConditionImg" src = "../static/images/체크박스1.png" style="width: 25px;">
                                 </div>
@@ -235,7 +251,7 @@
                     <div class = "termsCheckBox">
                         <div class = "termsInnerCheckBox">
                             <label class = "labelForTermsAgree" for = "RequiredTermsOfPrivacy">
-                                <input id = "RequiredTermsOfPrivacy" type = "checkbox" class = "inputForAgree">
+                                <input id = "RequiredTermsOfPrivacy" type = "checkbox" class = "inputForAgree" required>
                                 <div class = "divForCheckBox">
                                     <img id = "RequiredTermsOfPrivacyImg" src = "../static/images/체크박스1.png" style="width: 25px;">
                                 </div>
@@ -260,4 +276,7 @@
         <span class = "footerText">© POTG - Project Of The Genius</span>
     </div>
 </div>
+<script src="../static/signup.js"></script>
+<script src="{{ url_for('static', filename='signup.js') }}"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 {% endblock section %}

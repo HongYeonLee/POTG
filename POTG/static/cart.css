@@ -344,6 +344,7 @@
     background-color: transparent;
     border: none;
     margin: 0;
+    z-index: 10;
 }
 
 .itemInfoBox3{
@@ -428,6 +429,25 @@
     min-height: 100%;
     max-height: 100%;
     object-fit: cover;
+}
+
+.itemInfo{
+    width: inherit;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    line-height: 17px;
+    padding-top: 23px;
+}
+
+.itemInfo:hover{
+    opacity: 1;
 }
 
 .itemPriceBox1{

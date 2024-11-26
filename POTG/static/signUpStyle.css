@@ -515,3 +515,13 @@ label {
     
 }
 
+.address-button {  
+    background-color: rgb(0, 70, 42);  
+    color: rgb(255, 255, 255);  
+    border: 1px solid rgb(0, 70, 42);  
+    border-radius: 0px 4px 4px 0px;  
+    cursor: pointer;  
+    padding: 15px 10px;  
+    white-space: nowrap;  
+}  
+
