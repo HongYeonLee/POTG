@@ -156,6 +156,27 @@ class DBhandler:
             
         return target_value
     
+    # 거래 내역 db에 있는 값 가져오기
+    def get_history_items(self, user_id):
+        history_items = self.db.child("buy&exchange").child(user_id).get().val()
+        if not history_items:
+            return {}  # 장바구니가 비어있는 경우 빈 딕셔너리 반환
+        return history_items  # 사용자 장바구니 데이터를 반환
+    
+    def get_item_byname_in_history(self, name, user_id):
+        items = self.db.child("buy&exchange").child(user_id).get()
+        target_value=""
+
+        print("###########",name)
+
+        for res in items.each():
+            key_value = res.key()
+
+            if key_value == name:
+                target_value = res.val()
+            
+        return target_value
+
     #리뷰 등록
     def reg_review(self, data, img_path, session, itemImgPath):
         review_info ={
@@ -285,6 +306,7 @@ class DBhandler:
         self.db.child("cart").child(user_id).child(name).set(cart_info)
         return True
     
+    # 장바구니 db에 있는 값 가져오기
     def get_cart_items(self, user_id):
         cart_items = self.db.child("cart").child(user_id).get().val()
         if not cart_items:

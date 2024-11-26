@@ -6,10 +6,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">  
 {% endblock %}
 {% block section %}
-
 <section class="popular-reviews">
-    <h2>리뷰작성</h2><br>
-    <div class="review-container">
+    <h2>거래 내역</h2><br>
+    <!-- <div class="review-container">
         <div class="review-header">
             <div class="sc-m8svln-1 cyJYiM">
                 <div class="sc-m8svln-2 eCiRxv">
@@ -27,43 +26,50 @@
                 </svg>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="filter-buttons">
+    <!-- <div class="filter-buttons">
         <input type="button" value="최근 3개월" class="filter-button">
         <input type="button" value="최근 6개월" class="filter-button">
         <input type="button" value="2023" class="filter-button">
-    </div>
+    </div> -->
 
     <div class="sc-fimazj-0 gKYVxm">
-        <div class="sc-abukv2-0 kcHmyx">
+        <!-- <div class="sc-abukv2-0 kcHmyx">
             <div class="sc-abukv2-1 kSZYgn">2024. 10. 7 주문</div>
             <div class="sc-abukv2-2 kThsCL">
                 <svg width="20" height="20">
                     <path fill="#346aff" fill-rule="nonzero"></path>
                 </svg>
             </div>
-        </div>
-
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <div class="item-content">
-                    <a target="_blank" href="../static/images/고구마.jpg">
-                        <img src="../static/images/고구마.jpg" alt="Item Image">
-                    </a>
-                    <div class="description">
-                        <p>해 남 밤 고 구 마 1 k g</p>
-                        <p>1 6 9 0 0 원 / 1 개</p>
-                        <p>공 동 구 매 • 이 화 연 ( w h a y e o n 1 8 8 6 )</p>
+        </div> -->
+        {% if history_items %}
+            {% for item_name, item_data in history_items.items() %}
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <div class="item-content">
+                        <a target="_blank" href="{{ url_for('static', filename='images/inputImages/' + item_data.img_path) }}">
+                            <img src="{{ url_for('static', filename='images/inputImages/' + item_data.img_path) }}" alt="Item Image">
+                        </a>
+                        <div class="description">
+                            <p>{{item_name}}</p>
+                            <p>{{item_data.price}}</p>
+                            <p>{{item_data.method}} • {{item_data.seller}}</p>
+                        </div>
+                        <a href = "/reg_review_init/{{item_name}}/" style="text-decoration: none; cursor: pointer;">
+                        <button class="sc-1k9quwu-0 hEHzLT sc-gnmni8-8 kiiuoA">리뷰 작성하기</button>
+                        </a>
                     </div>
-                    <a href = "/review_write2" style="text-decoration: none; cursor: pointer;">
-                    <button class="sc-1k9quwu-0 hEHzLT sc-gnmni8-8 kiiuoA">리뷰 작성하기</button>
-                    </a>
                 </div>
             </div>
-        </div>
+            {% endfor %}
         <br>
-        <div class="sc-fimazj-0 gKYVxm">
+        {% else %}
+        <p style="text-align: center; font-size: 1.2em; color: #666;">
+            거래 내역이 없습니다... <a href="/view_product" style="text-decoration: underline; color: #00462a;">상품을 구매해볼까요?</a>
+        </p>
+        {% endif %}
+        <!-- <div class="sc-fimazj-0 gKYVxm">
             <div class="sc-abukv2-0 kcHmyx">
                 <div class="sc-abukv2-1 kSZYgn">2024. 10. 3 주문</div>
                 <div class="sc-abukv2-2 kThsCL">
@@ -72,9 +78,9 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="gallery-container">
+        <!-- <div class="gallery-container">
             <div class="gallery-item">
                 <div class="item-content">
                     <a target="_blank" href="../static/images/상추.jpg">
@@ -91,7 +97,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -100,4 +106,4 @@
         <span class = "footerText">© POTG - Project Of The Genius</span>
     </div>
 </div>
-{% endblock %}
+{% endblock section %}
