@@ -27,7 +27,7 @@
 
         <!-- 좌측 필터 -->
         <aside class="filter-section">
-            <a href="/view_grReg">상품 조회</a>
+            <a href="/view_grReg" class="open-gr">공동구매 등록</a>
             <h3>필터</h3>
             <hr>
             <form>
@@ -74,23 +74,19 @@
                         <label for="6">60%~</label>
                     </div>
                     <div class="filter-item">
-                
-                        <label for="6"> <img src="../static/images/icon_star.png"> 인원<br><br>
-                            <input type="number" id="6" min="0" value="0">
-                        </label>
-            
+                        <input type="checkbox" id="5">
+                        <label for="5">50%~</label>
+                        
                     </div>
-                    
+                    <div class="filter-item">
+                        <input type="checkbox" id="4">
+                        <label for="4">~50%</label>
+                        
+                    </div>
 
                 </div>
                 <hr>
-                <div class="filter-group">
-                    <h3>혜택</h3>
-                    <div class="filter-item">
-                        <input type="checkbox" id="sale">
-                        <label for="sale">할인상품</label>
-                    </div>
-                </div>
+
 
 
             </form>
@@ -119,7 +115,7 @@
                             <div class="product-info">
                                 <p class="d-day" data-date="{{ value['date'] }}"></p>
                                 <p class="product-name">{{key}}</p>
-                                <p class="prog">총량 :  / {{value['cnt']}}</p>
+                                <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
                                 <p class="product-price">
                                     <!--
                                     <p class="original-price">20,000원</p>
@@ -148,7 +144,7 @@
                                 <div class="product-info">
                                     <p class="d-day" data-date="{{ value['date'] }}"></p>
                                     <p class="product-name">{{key}}</p>
-                                    <p class="prog">총량 :  / {{value['cnt']}}</p>
+                                    <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
                                     <p class="product-price">
                                         <!--
                                         <p class="original-price">20,000원</p>
@@ -177,7 +173,7 @@
                                     <div class="product-info">
                                         <p class="d-day" data-date="{{ value['date'] }}"></p>
                                         <p class="product-name">{{key}}</p>
-                                        <p class="prog">총량 :  / {{value['cnt']}}</p>
+                                        <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
                                         <p class="product-price">
                                             <!--
                                             <p class="original-price">20,000원</p>

@@ -95,6 +95,9 @@ class DBhandler:
         #개당 개수
         per_price=int(data['price'])/int(data['cnt'])
 
+        #quantity 기본값
+        initial_quantity = int(data.get('quantity', 0)) 
+
         item_info ={
         "id": session['id'],
         "category": data['category'],
@@ -106,7 +109,8 @@ class DBhandler:
         "details": data['details'],
         "img_path": img_path,
         "d_day":d_day_display,
-        "per_price":per_price
+        "per_price":per_price,
+        "quantity": initial_quantity
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)
@@ -151,6 +155,27 @@ class DBhandler:
             
         return target_value
     
+    #공동구매 수량 등록
+    def update_quantity(self,data):
+        #현재 데이터 가져오기
+        current_item = self.db.child("gr_item").child(data['name']).get().val()
+        # 남은 수량 계산
+        new_quantity = int(data['quantity'])
+        current_quantity = int(current_item.get('quantity', 0))
+        remain_cnt = int(current_item['cnt']) - new_quantity
+        if remain_cnt < 0:
+            raise ValueError("Insufficient stock.")
+        
+        # 업데이트할 데이터 병합
+        updated_item = {
+            "cnt": remain_cnt,
+            "quantity": current_quantity+new_quantity
+        }
+        current_item.update(updated_item)
+        self.db.child("gr_item").child(data['name']).set(current_item)
+
+        return True
+
     #리뷰 등록
     def reg_review(self, data, img_path, session, itemImgPath):
         review_info ={
