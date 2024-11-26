@@ -104,12 +104,12 @@ def reg_review_init(name):
     print(data)
     return render_template("review_write2.html", name=name, id=session['id'], data=data)
 
-# 리뷰 등록 화면
-@application.route("/reg_review_init_inView/<name>/")
-def reg_review_init_inView(name):
-    data = DB.get_item_byname(str(name))
-    print(data)
-    return render_template("review_write2.html", name=name, id=session['id'], data=data)
+# # 리뷰 등록 화면
+# @application.route("/reg_review_init_inView/<name>/")
+# def reg_review_init_inView(name):
+#     data = DB.get_item_byname(str(name))
+#     print(data)
+#     return render_template("review_write2.html", name=name, id=session['id'], data=data)
 
 # 리뷰 db에 등록
 @application.route("/reg_review", methods=['POST'])
@@ -123,17 +123,17 @@ def reg_review():
     DB.reg_review(data, image_file.filename, session, itemImgPath)
     return redirect(url_for('view_review'))
 
-# 리뷰 db에 등록
-@application.route("/reg_review_inView", methods=['POST'])
-def reg_review_inView():
-    data=request.form
-    print(data['star'])
-    item = DB.get_item_byname(data['name'])
-    itemImgPath = item['img_path']
-    image_file=request.files["file"]
-    image_file.save("static/images/inputImages/{}".format(image_file.filename))
-    DB.reg_review(data, image_file.filename, session, itemImgPath)
-    return redirect(url_for('view_review'))
+# # 리뷰 db에 등록
+# @application.route("/reg_review_inView", methods=['POST'])
+# def reg_review_inView():
+#     data=request.form
+#     print(data['star'])
+#     item = DB.get_item_byname(data['name'])
+#     itemImgPath = item['img_path']
+#     image_file=request.files["file"]
+#     image_file.save("static/images/inputImages/{}".format(image_file.filename))
+#     DB.reg_review(data, image_file.filename, session, itemImgPath)
+#     return redirect(url_for('view_review'))
 
 # 상품 등록
 @application.route("/registerItem")
@@ -289,7 +289,7 @@ def reg_buyExchange(name):
 def reg_cart(name):
     data = DB.get_item_byname(name)
     DB.reg_cart(session['id'], data, name)
-    return redirect(url_for('view_history'))
+    return redirect(url_for('view_cart'))
 
 # 장바구니 모아보기 기능
 @application.route("/cart")
