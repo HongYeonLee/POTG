@@ -74,6 +74,7 @@
 .filter-section {
     width: 20%;
     padding-right: 20px;
+
 }
 h3{
     padding-top: 10px;
@@ -164,9 +165,10 @@ h3{
     height: 300px;
     align-items: flex-start;
     flex-direction: column;
+    padding: 10px;
 }
 .product-info {
-    padding: 5px ;
+    padding: 10px ;
     text-align: left;
 }
 .d-day{
@@ -176,7 +178,7 @@ h3{
 }
 
 .product-name {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: #333;
     margin: 0 0 5px;
@@ -213,16 +215,18 @@ h3{
 .add-to-cart {
     
     position: relative;
-    width: auto;
+    width: 280px;
    
     box-sizing: border-box;
     border: 1px solid rgb(145, 145, 145);
     background: rgba(196, 196, 196, 0);
-    padding: 6px 16px;
+    padding: 10px;
+    margin-left: 10px;
 
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    align-items: center;
 }
 
 /*페이지네이션*/

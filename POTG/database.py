@@ -91,7 +91,9 @@ class DBhandler:
         d_day = (target_date - current_date).days
         d_day_display = f"D-{d_day}" if d_day > 0 else "D-Day" if d_day == 0 else f"D+{-d_day}"
         
+
         #개당 개수
+        per_price=int(data['price'])/int(data['cnt'])
 
         item_info ={
         "id": session['id'],
@@ -103,7 +105,8 @@ class DBhandler:
         "date":data['date'],
         "details": data['details'],
         "img_path": img_path,
-        "d_day":d_day_display 
+        "d_day":d_day_display,
+        "per_price":per_price
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)
