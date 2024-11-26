@@ -83,3 +83,12 @@ agreeAllBtn.addEventListener("change", function() {
 // 개별 체크박스의 상태 변경 시 이미지 업데이트 및 TermsAgreeAll 상태 확인
 requiredBtn.addEventListener("change", handleCheckboxChange);
 privacyBtn.addEventListener("change", handleCheckboxChange);
+
+//주소가져오기
+function fetchAddress() {
+    new daum.Postcode({
+        oncomplete: function (data) {
+            document.getElementById('address').value = data.roadAddress || data.jibunAddress;
+        }
+    }).open();
+}

@@ -21,7 +21,8 @@ class DBhandler:
             "gender" : data['gender'],
             "birthYear" : data['birthYear'],
             "birthMonth" : data['birthMonth'],
-            "birthDay" : data['birthDay']
+            "birthDay" : data['birthDay'],
+            "address" : data['address']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
@@ -58,6 +59,13 @@ class DBhandler:
         for res in users.each():
             value = res.val()
             if value['id'] == id_ and value['pw'] == pw_:
+                return value
+    
+    def get_user_info_byId(self, id_):
+        users = self.db.child("user").get()
+        for res in users.each():
+            value = res.val()
+            if value['id'] == id_:
                 return value
             
     def insert_item(self, name, data, img_path):
@@ -237,7 +245,40 @@ class DBhandler:
         self.db.child("buy&exchange").child(user_id).child(name).set(buy_info)
         return True
     
-    def update_item(self, name, user_id):
+    # 장바구니 아이템 등록
+    def reg_cart(self, user_id, data, name):
+        cart_info = {
+            "seller": data['seller'],
+            "category": data['category'],
+            "method": data['method'],
+            "status": data['status'],
+            "price": data['price'],
+            "info": data['info'],
+            "address": data['address'],
+            "phone": data['phone'],
+            "details": data['details'],
+            "img_path": data['img_path']
+        }
+        self.db.child("cart").child(user_id).child(name).set(cart_info)
+        return True
+    
+    def get_cart_items(self, user_id):
+        cart_items = self.db.child("cart").child(user_id).get().val()
+        if not cart_items:
+            return {}  # 장바구니가 비어있는 경우 빈 딕셔너리 반환
+        return cart_items  # 사용자 장바구니 데이터를 반환
+    
+    # 장바구니 아이템 지우기
+    def remove_cart_item(self, name, user_id):
+        item = self.db.child("cart").child(user_id).child(name).get()
+        if(item):
+            self.db.child("cart").child(user_id).child(name).remove()
+            return True
+        else:
+            print("해당 아이템이 없습니다")
+            return False
+
+    def remove_item(self, name, user_id):
         item = self.db.child("item").child(name).get()
         if(item):
             self.db.child("item").child(name).remove()

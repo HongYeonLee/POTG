@@ -110,7 +110,7 @@
                 }
             </script>
             {% endif %}
-            <button class="action-button">장바구니 담기</button>
+            <button class="action-button" onclick="location.href='/cart/{{name}}/';">장바구니 담기</button>
             {% if data.method == "판매" %}
             <button class="action-button buy-now" onclick="location.href='/buyExchange/{{name}}/';">구매 하기</button>
             {% else %}

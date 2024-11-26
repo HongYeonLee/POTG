@@ -257,14 +257,44 @@ def reg_item_submit_post():
 @application.route("/buyExchange/<name>/")
 def reg_buyExchange(name):
     data = DB.get_item_byname(name)
-    DB.update_item(name, session['id'])
+    DB.remove_item(name, session['id'])
     DB.reg_buy(session['id'], data, name)
-    return render_template("submit_item_result.html", data=data) 
+    return render_template("submit_item_result.html", data=data) #구매 내역 페이지로 이동, 구현 필요
 
-# 장바구니
+# 장바구니에 담기 기능
+@application.route("/cart/<name>/")
+def reg_cart(name):
+    data = DB.get_item_byname(name)
+    DB.reg_cart(session['id'], data, name)
+    return redirect(url_for('view_cart'))
+
+# 장바구니 모아보기 기능
 @application.route("/cart")
 def view_cart():
-    return render_template("cart.html")
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
+    # DB에서 사용자 장바구니 데이터 가져오기
+    user_info = DB.get_user_info_byId(user_id)
+    cart_items = DB.get_cart_items(user_id)
+
+    # 총합계 계산
+    total_price = sum(int(item['price']) for item in cart_items.values())
+
+    return render_template(
+        "cart.html",
+        cart_items=cart_items,  # 템플릿에서 사용할 데이터
+        user_info=user_info,
+        total_price=total_price
+    )
+
+# 장바구니 삭제 기능
+@application.route("/removeCart/<name>/")
+def remove_cart(name):
+    DB.remove_cart_item(name, session['id'])
+    return redirect(url_for('view_cart'))
 
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
