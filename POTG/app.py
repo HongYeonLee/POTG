@@ -100,7 +100,8 @@ def view_item_detail(name):
 # 리뷰 등록 화면
 @application.route("/reg_review_init/<name>/")
 def reg_review_init(name):
-    data = DB.get_item_byname(str(name))
+    data = DB.get_item_byname_in_history(str(name), session['id'])
+    print(data)
     return render_template("review_write2.html", name=name, id=session['id'], data=data)
 
 # 리뷰 db에 등록
@@ -108,7 +109,7 @@ def reg_review_init(name):
 def reg_review():
     data=request.form
     print(data['star'])
-    item = DB.get_item_byname(data['name'])
+    item = DB.get_item_byname_in_history(data['name'], session['id'])
     itemImgPath = item['img_path']
     image_file=request.files["file"]
     image_file.save("static/images/inputImages/{}".format(image_file.filename))
@@ -120,9 +121,9 @@ def reg_review():
 def reg_item():
     return render_template("registerItem.html")
 
-@application.route("/review_write1")
-def reg_review1():
-    return render_template("review_write1.html")
+# @application.route("/review_write1")
+# def reg_review1():
+#     return render_template("review_write1.html")
 
 # 리뷰 작성2
 @application.route("/review_write2")
@@ -151,9 +152,7 @@ def grpPurchase():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
-    
-
-
+    W
     return render_template(
         "grpurchase_ViewAll.html",
         datas=data.items(),
@@ -256,17 +255,22 @@ def reg_item_submit_post():
 # 구매&교환 기능
 @application.route("/buyExchange/<name>/")
 def reg_buyExchange(name):
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
     data = DB.get_item_byname(name)
     DB.remove_item(name, session['id'])
     DB.reg_buy(session['id'], data, name)
-    return render_template("review_write1.html", data=data) #구매 내역 페이지로 이동, 구현 필요
+    flash("상품이 거래 완료되었습니다")
+    return redirect(url_for('view_history'))
 
 # 장바구니에 담기 기능
 @application.route("/cart/<name>/")
 def reg_cart(name):
     data = DB.get_item_byname(name)
     DB.reg_cart(session['id'], data, name)
-    return redirect(url_for('view_cart'))
+    return redirect(url_for('view_history'))
 
 # 장바구니 모아보기 기능
 @application.route("/cart")
@@ -302,6 +306,24 @@ def buyInCart():
 def remove_cart(name):
     DB.remove_cart_item(name, session['id'])
     return redirect(url_for('view_cart'))
+
+# 구매내역 모아보기 기능
+@application.route("/history")
+def view_history():
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
+    # DB에서 사용자 장바구니 데이터 가져오기
+    user_info = DB.get_user_info_byId(user_id)
+    history_items = DB.get_history_items(user_id)
+
+    return render_template(
+        "review_write1.html",
+        history_items=history_items,  # 템플릿에서 사용할 데이터
+        user_info=user_info
+    )
 
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
