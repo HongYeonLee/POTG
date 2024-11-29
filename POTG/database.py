@@ -239,6 +239,7 @@ class DBhandler:
             
         return target_value
     
+    # 좋아요 누르기
     def get_heart_all(self, uid):
         Allhearts = self.db.child("heart").child(uid).get()
         target_value = {}
@@ -278,6 +279,16 @@ class DBhandler:
         self.db.child("heart").child(user_id).child(name).set(heart_info)
         return True
     
+    # 좋아요 누른 상품 지우기
+    def remove_heart_item(self, name, user_id):
+        item = self.db.child("heart").child(user_id).child(name).get()
+        if(item):
+            self.db.child("heart").child(user_id).child(name).remove()
+            return True
+        else:
+            print("해당 아이템이 없습니다")
+            return False
+    
     # 구매 & 교환 기록 등록
     def reg_buy(self, user_id, data, name):
         buy_info = {
@@ -315,6 +326,9 @@ class DBhandler:
 
             # 상품등록에서 아이템 제거
             self.remove_item(item_name, user_id)
+
+            # 좋아요에서 아이템 제거
+            self.remove_heart_item(item_name, user_id)
 
         return True
     

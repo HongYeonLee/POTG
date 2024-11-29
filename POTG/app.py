@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from database import DBhandler
 import hashlib
 import sys
+import random
 
 application = Flask(__name__)
 application.config["SECRET_KEY"] = "helloosp"
@@ -61,34 +62,48 @@ def register_user():
 # 상품 조회
 @application.route("/view_product")
 def view_product():
-    page = request.args.get("page", 0, type = int)
+    page = request.args.get("page", 0, type=int)
     per_page = 10
     per_row = 5
-    row_count = int(per_page/per_row)
+    row_count = int(per_page / per_row)
 
-    start_idx = per_page * page
-    end_idx = per_page * (page + 1)
-
+    # 상품 데이터 가져오기
     data = DB.get_items()
     item_counts = len(data)
-    data = dict(list(data.items())[start_idx:end_idx])
-    tot_count = len(data)
 
+    # 랜덤으로 5개 상품 선택
+    popular_items = random.sample(list(data.items()), 5) if item_counts >= 5 else list(data.items())
+
+    # 페이징 처리
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
+    paged_data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(paged_data)
+
+    # 행 별로 나누기
+    rows = []
     for i in range(row_count):
-        if(i == row_count-1) and (tot_count % per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        start = i * per_row
+        end = (i + 1) * per_row
+        if i == row_count - 1 and tot_count % per_row != 0:
+            rows.append(dict(list(paged_data.items())[start:]))
         else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
+            rows.append(dict(list(paged_data.items())[start:end]))
 
+    page_counts = (item_counts + per_page - 1) // per_page  # 페이지 수 계산
+
+    # 템플릿 렌더링
     return render_template(
         "view_product.html",
-        datas = data.items(),
-        row1 = locals()['data_0'].items(),
-        row2 = locals()['data_1'].items(),
-        limit = per_page,
-        page = page,
-        page_count = int((item_counts/per_page)+1),
-        total = item_counts)
+        datas=paged_data.items(),
+        row1=rows[0].items() if len(rows) > 0 else [],
+        row2=rows[1].items() if len(rows) > 1 else [],
+        limit=per_page,
+        page=page,
+        page_count=page_counts,
+        total=item_counts,
+        popular_items=popular_items  # 인기 상품 추가
+    )
 
 #동적라우팅
 @application.route("/view_detail/<name>/")
@@ -249,6 +264,13 @@ def view_review():
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
+
+    page_counts = int((item_counts / per_page)+1)
+
+    if(item_counts%per_page==0):
+        page_counts -= 1
+
+
     for i in range(row_count):#last row
         if (i == row_count -1) and (tot_count%per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
@@ -263,7 +285,7 @@ def view_review():
         
         limit=per_page,
         page=page,
-        page_count=int((item_counts/per_page)+1),
+        page_count=page_counts,
         total=item_counts)
 
 #동적라우팅
