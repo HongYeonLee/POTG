@@ -82,7 +82,7 @@ def view_product():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
 
     page_counts = int((item_counts / per_page)+1)
-    if(item_counts == per_page):
+    if(item_counts % per_page ==0):
         page_counts -= 1
 
 
@@ -257,7 +257,8 @@ def view_review():
     tot_count = len(data)
 
     page_counts = int((item_counts / per_page)+1)
-    if(item_counts == per_page):
+
+    if(item_counts%per_page==0):
         page_counts -= 1
 
 
