@@ -48,8 +48,8 @@
 }
 
 .popular-image {
-    width: 100%;
-    height: 100%;
+    width: 270px;
+    height: 270px;
     border-radius: 8px;
     object-fit: cover;
 }
