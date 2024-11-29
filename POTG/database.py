@@ -99,7 +99,12 @@ class DBhandler:
         d_day = (target_date - current_date).days
         d_day_display = f"D-{d_day}" if d_day > 0 else "D-Day" if d_day == 0 else f"D+{-d_day}"
         
+
         #개당 개수
+        per_price=int(data['price'])/int(data['cnt'])
+
+        #quantity 기본값
+        initial_quantity = int(data.get('quantity', 0)) 
 
         item_info ={
         "id": session['id'],
@@ -111,7 +116,9 @@ class DBhandler:
         "date":data['date'],
         "details": data['details'],
         "img_path": img_path,
-        "d_day":d_day_display 
+        "d_day":d_day_display,
+        "per_price":per_price,
+        "quantity": initial_quantity
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)
@@ -176,6 +183,26 @@ class DBhandler:
                 target_value = res.val()
             
         return target_value
+    #공동구매 수량 등록
+    def update_quantity(self,data):
+        #현재 데이터 가져오기
+        current_item = self.db.child("gr_item").child(data['name']).get().val()
+        # 남은 수량 계산
+        new_quantity = int(data['quantity'])
+        current_quantity = int(current_item.get('quantity', 0))
+        remain_cnt = int(current_item['cnt']) - new_quantity
+        if remain_cnt < 0:
+            raise ValueError("Insufficient stock.")
+        
+        # 업데이트할 데이터 병합
+        updated_item = {
+            "cnt": remain_cnt,
+            "quantity": current_quantity+new_quantity
+        }
+        current_item.update(updated_item)
+        self.db.child("gr_item").child(data['name']).set(current_item)
+
+        return True
 
     #리뷰 등록
     def reg_review(self, data, img_path, session, itemImgPath):

@@ -171,7 +171,7 @@ def grpPurchase():
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
-    W
+    
     return render_template(
         "grpurchase_ViewAll.html",
         datas=data.items(),
@@ -210,6 +210,20 @@ def gr_view_item_detail(name):
 @application.route("/grpurchaseDetail")
 def grpurchaseDetail():
     return render_template("grpurchaseDetail.html")
+
+
+# 공동구매 수량 db에 등록
+@application.route("/gr_quantity", methods=['POST'])
+def gr_quantity():
+    data = {
+            'name': request.form['name'],
+            'quantity': int(request.form['quantity']),
+            'cnt': int(request.form['cnt'])  # 주문 가능 수량이 필요하면 추가
+        }
+    # 데이터 업데이트
+    DB.update_quantity(data)
+    updated_item = DB.db.child("gr_item").child(data['name']).get().val()
+    return render_template("grpurchase_ViewAll.html", data=updated_item) 
 
 # 리뷰 불러오기
 @application.route("/review_ViewAll")
