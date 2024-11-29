@@ -35,43 +35,24 @@
                     <img src = "{{ url_for('static', filename='images/ProjectOfTheGenius로고.PNG') }}" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px">
                 </div>
                 <div class = "top4">
-                    <div class = "searchBox">
+                    <!-- <div class = "searchBox">
                         <input id = "search_input" placeholder= "검색어를 입력해주세요" required class = "searchBoxInner" value>
                         <button id = "search_button" aria-label="search_button" class = "searchBoxBtn">
                             <i class="fas fa-thin fa-magnifying-glass" style="color: #00462a;"></i>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class = "top5">
                     <div class = "userConvenienceIcon">
                         <div class = "location"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
-                        {% if session['id'] %}
                         <button class = "wishlistIcon" aria-label="찜하기" type = "button" onclick="location.href='/heart';">
                             <img src = "{{ url_for('static', filename='images/찜.png') }}">
                         </button>
-                        {% else %}
-                        <button class = "wishlistIcon" aria-label="찜하기" type = "button" onclick="showLoginAlert()">
-                            <img src = "{{ url_for('static', filename='images/찜.png') }}">
-                        </button>
-                        <script>
-                            function showLoginAlert() {
-                                alert("로그인 후 이용하실 수 있습니다.");
-                            }
-                        </script>
-                        {% endif %}
-                        {% if session['id'] %}
                         <div class = "cartIconBox">
                             <button class = "cartIcon" onclick="location.href='/cart';">
                                 <img src = "{{ url_for('static', filename='images/카트.png') }}">
                             </button>
                         </div>
-                        {% else %}
-                        <div class = "cartIconBox">
-                            <button class = "cartIcon" onclick="showLoginAlert()">
-                                <img src = "{{ url_for('static', filename='images/카트.png') }}">
-                            </button>
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
