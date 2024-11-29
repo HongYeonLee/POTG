@@ -78,6 +78,11 @@ nav a:hover {
     box-sizing: border-box;  
 }  
 
+.total-count {
+    margin-top: 30px;
+    margin-left: 110px;
+}
+
 /* 이미지와 아이콘 열 */
 .review-image-container {
     position: relative;

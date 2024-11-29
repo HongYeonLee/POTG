@@ -8,7 +8,7 @@
 {% block section %}
 <section class="popular-reviews">
 {% if total > 0 %}
-    <p style="float:left">총 {{total}}개</p>
+    <p style="float:left" class = "total-count">총 {{total}}개</p>
     <h2> 리뷰 조회 </h2>
     <div class="review-list">
         {% for key, value in row1 %}
@@ -49,7 +49,11 @@
             <!-- <img src="../static/images/고구마.jpg" alt="상품 이미지" class="product-image"> -->
             {% set image_path = value['product_img'] %}
             <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" alt="상품 이미지" class="product-image">
-            
+            <div class="icon-column">
+                <div class="icon-box">🔍</div>
+                <div class="icon-box">❤️</div>
+                <div class="icon-box">🛒</div>
+            </div>
         </div>
         {% endfor %}
 
