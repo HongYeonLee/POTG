@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">  
 {% endblock %}
 {% block section %}
-<form action="/reg_review_inView" method="post" enctype="multipart/form-data">
+<form action="/reg_review" method="post" enctype="multipart/form-data">
     <br>
     <div class="review-container" style="position: static;"> 
         {% if session['id'] %}
