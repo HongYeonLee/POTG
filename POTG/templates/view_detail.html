@@ -100,16 +100,6 @@
             <button class="icon-button">
                 <i class="fa fa-heart" id="heart"></i>
             </button>
-            <!-- {% if session['id'] %}
-            <button class="icon-button" onclick="location.href='/reg_review_init_inView/{{name}}/';">🖍</button>
-            {% else %}
-            <button class="icon-button" onclick="showLoginAlert()">🖍</button>
-            <script>
-                function showLoginAlert() {
-                    alert("로그인 후 리뷰를 작성할 수 있습니다.");
-                }
-            </script>
-            {% endif %} -->
             <button class="action-button" onclick="location.href='/cart/{{name}}/';">장바구니 담기</button>
             {% if data.method == "판매" %}
             <button class="action-button buy-now" onclick="location.href='/buyExchange/{{name}}/';">구매 하기</button>

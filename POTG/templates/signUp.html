@@ -5,11 +5,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='signupStyle.css') }}">  
 {% endblock %}
 {% block section %}
-<!-- {% with mesg = get_flashed_messages() %}
-{% if mesg !=[] %} -->
-    <!-- <script>alert("{{ mesg[0] }}");</script> -->
-<!-- {% endif %}
-{% endwith %} -->
+{% with mesg = get_flashed_messages() %}
+{% if mesg !=[] %}
+    <script>alert("{{ mesg[0] }}");</script> -->
+{% endif %}
+{% endwith %}
 <form method="post" action = "/signup_post">
 <div class = "d1">
     <div class = "signUpText">회원가입</div>
@@ -228,7 +228,6 @@
                 <div class = termsRightBox>
                     <div class = "termsCheckBox">
                         <label class = "labelFroAgreeAll" for = "TermsAgreeAll">
-                            <!-- js작성 필요 -->
                             <input id = "TermsAgreeAll" type = "checkbox" class = "inputForAgree">
                             <div class = "divForCheckBox">
                                 <img id = "TermsAgreeAllImg" src = "../static/images/체크박스1.png" style="width: 25px;">

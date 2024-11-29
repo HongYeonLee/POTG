@@ -17,44 +17,50 @@
                 <div class="cartItemBox1">
                     <div class="cartItemBox2">
                         <span class="spanClass"></span>
-                        {% for item_name, item_data in cart_items.items() %}
-                        <div class="itemInfoBox1">
-                            <div>
-                                <div class="itemInfoBoxForDynamic">
-                                    <div class="itemNameBox1">
-                                        <button class="cancleItem" onclick="location.href='/removeCart/{{item_name}}/';">
-                                            <img src="../static/images/cancle.PNG" style="width: 20px; height: 20px; cursor: pointer;" onclick="location.href='/removeCart/{{item_name}}/';">
-                                        </button>
-                                    </div>
-                                    <div class="itemInfoBox3">
-                                        <!-- <a href="" class="linkClass"> -->
-                                            <div class="itemNameText">
-                                                <p class="itemNameText2">{{ item_name }}</p>
-                                            </div>
-                                        </a>
-                                        <div class="itemInfoBox4">
-                                            <a href="/view_detail/{{ item_name }}" class="linkClass" style="width: 80px; height: 83px;">
-                                                <div class="imgBox1">
-                                                    <div class="imgBox2">
-                                                        <img class="imgBox3" src="{{ url_for('static', filename='images/inputImages/' + item_data.img_path) }}">
-                                                        <div class = "itemInfo">
-                                                            상세 정보<br>보러가기
-                                                        </div>
-                                                    </div>
+                        {% if cart_items %}
+                            {% for item_name, item_data in cart_items.items() %}
+                            <div class="itemInfoBox1">
+                                <div>
+                                    <div class="itemInfoBoxForDynamic">
+                                        <div class="itemNameBox1">
+                                            <button class="cancleItem" onclick="location.href='/removeCart/{{item_name}}/';">
+                                                <img src="../static/images/cancle.PNG" style="width: 20px; height: 20px; cursor: pointer;" onclick="location.href='/removeCart/{{item_name}}/';">
+                                            </button>
+                                        </div>
+                                        <div class="itemInfoBox3">
+                                            <!-- <a href="" class="linkClass"> -->
+                                                <div class="itemNameText">
+                                                    <p class="itemNameText2">{{ item_name }}</p>
                                                 </div>
                                             </a>
-                                            <div class="itemPriceBox1">
-                                                <div class=itemPriceBox2>
-                                                    <p class="priceText">{{ item_data.price }}원</p>
-                                                    <p class="priceText5">거래방식: {{ item_data.method }}</p>
+                                            <div class="itemInfoBox4">
+                                                <a href="/view_detail/{{ item_name }}" class="linkClass" style="width: 80px; height: 83px;">
+                                                    <div class="imgBox1">
+                                                        <div class="imgBox2">
+                                                            <img class="imgBox3" src="{{ url_for('static', filename='images/inputImages/' + item_data.img_path) }}">
+                                                            <div class = "itemInfo">
+                                                                상세 정보<br>보러가기
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="itemPriceBox1">
+                                                    <div class=itemPriceBox2>
+                                                        <p class="priceText">{{ item_data.price }}원</p>
+                                                        <p class="priceText5">거래방식: {{ item_data.method }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <p style="text-align: center; font-size: 1.2em; color: #666; margin: 50px;">
+                                장바구니가 비어있습니다... <a href="/view_product" style="text-decoration: underline; color: #00462a;">상품을 구매해볼까요?</a>
+                            </p>
+                        {% endif %}
                         <div class="priceBox1">
                             <p class="priceText4">{{ total_price }}원</p>
                         </div>

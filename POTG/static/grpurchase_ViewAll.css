@@ -124,11 +124,6 @@ h3{
     background-color: #3b6b45; /* 호버 시 조금 더 밝은 녹색 */
 }
 
-.magam{
-    opacity: 1;
-    z-index: 10;
-}
-
 /*2. 상품 헤더 
 .product-sort{
     margin-bottom: 20px;
@@ -175,12 +170,10 @@ h3{
 */
 
 
-/*3.상품
-.product-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-.product-list {
+/* .product-container{
+    position: relative;
+} */
+/* .product-list {
     
     gap: 20px;
     width: 80%;
@@ -194,6 +187,9 @@ h3{
     float: left;
 }
 */
+.product-image-container{
+    position: relative;
+}
 .product-image {
     position: relative;
     display: block;
@@ -203,6 +199,16 @@ h3{
     flex-direction: column;
     padding: 10px;
 }
+.product-image-overlay{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    opacity: 1;
+    z-index: 10;
+    top: 45px;
+    left:55px;
+}
+
 .product-info {
     padding: 10px ;
     text-align: left;
