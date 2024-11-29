@@ -74,11 +74,17 @@ def view_product():
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
 
+
     for i in range(row_count):
         if(i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
+
+    page_counts = int((item_counts / per_page)+1)
+    if(item_counts == per_page):
+        page_counts -= 1
+
 
     return render_template(
         "view_product.html",
@@ -87,8 +93,9 @@ def view_product():
         row2 = locals()['data_1'].items(),
         limit = per_page,
         page = page,
-        page_count = int((item_counts/per_page)+1),
+        page_count = page_counts,
         total = item_counts)
+
 
 #동적라우팅
 @application.route("/view_detail/<name>/")
