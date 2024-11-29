@@ -69,17 +69,25 @@
     display: flex;
     padding: 20px;
     align-items: center;
+    width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+    align-items: normal;
+
 }
 /*1.필터*/
 .filter-section {
     width: 20%;
     padding-right: 20px;
+    margin-top: 20px;
    
 
 }
 h3{
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: left;
+
 }
 .filter-group {
     margin-bottom: 20px;
@@ -109,6 +117,7 @@ h3{
     font-size: 20px; 
     margin-bottom: 20px;
     transition: background-color 0.3s ease; /* 호버 효과 전환 */
+    
 }
 
 .open-gr:hover {
@@ -130,6 +139,7 @@ h3{
 .total-count {
     color: #A2A1A1;
     padding: 20px;
+    text-align: left;
     
 }
 /*
