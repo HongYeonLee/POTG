@@ -263,27 +263,15 @@ def review_detail(name):
     print("####data:",data)
     return render_template("review_Vieweach.html", name=name, data=data)
 
-@application.route("/submit_item")
-def reg_item_submit():
-    name = request.args.get("name")
-    seller = request.args.get("seller")
-    addr = request.args.get("addr")
-    email = request.args.get("email")
-    category = request.args.get("category")
-    card = request.args.get("card")
-    status = request.args.get("status")
-    phone = request.args.get("phone")
-    print(name, seller, addr, email, category, card, status, phone)
-    # return render_template("reg_item.html")
-
-@application.route("/cart", methods=["POST"])
+# 상품등록
+@application.route("/submit_item", methods=["POST"])
 def reg_item_submit_post():
     image_file = request.files["fileUpload"]
     image_file.save("static/images/inputImages/{}".format(image_file.filename))
     data = request.form
     print(data['name'], data['seller'], data['address'], data['category'], data['method'], data['status'], data['phone'])
     DB.insert_item(data['name'], data, image_file.filename)
-    return render_template("cart.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+    return redirect(url_for('view_product'))
 
 # 구매&교환 기능
 @application.route("/buyExchange/<name>/")
