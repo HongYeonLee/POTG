@@ -25,7 +25,7 @@
             <div class="user-info">
                 <!-- <p class="author">👤 <span class="author-background">ilovedog</span></p> -->
                 <p class="author">👤 <span class="author-background">{{data.author}}</span></p>
-                <span class="emoji">👍 👎</span>
+                
                 <div class="rating">
                     {% for i in range(data.rate | int) %}
                         <span>⭐</span>
@@ -46,13 +46,12 @@
                 <img src= "{{ url_for('static', filename='images/inputImages/' + data.product_img) }}" alt={{name}} class="product-img">
                 <div class="product-details">
                     <!-- <p class="product-title">해남 밤고구마 1kg <span class="icon">🔍</span></p> -->
-                    <p class="product-title"{{name}}><span class="icon">🔍</span></p>
+                    <p class="product-title"{{name}}></p>
                     <!-- <p><s class="original-price">20900원</s> <span class="discount-price">16900원</span></p> -->
                     <p><s class="original-price">{{data.original_price}}</s> 
 
                     <div class="product-icons">
-                        <span class="icon">❤️</span>
-                        <span class="icon">🛒</span>
+                        
                     </div>
                     <button>공동구매 열기</button>
                 </div>

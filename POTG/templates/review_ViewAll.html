@@ -9,7 +9,7 @@
 <section class="popular-reviews">
 {% if total > 0 %}
     <p style="float:left">총 {{total}}개</p>
-    <h2>이번 주 인기 리뷰</h2>
+    <h2> 리뷰 조회 </h2>
     <div class="review-list">
         {% for key, value in row1 %}
         <div class="review-item">
@@ -28,11 +28,7 @@
             <!-- <img src="../static/images/고구마.jpg" alt="상품 이미지" class="product-image"> -->
             {% set image_path = value['product_img'] %}
             <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" alt="상품 이미지" class="product-image">
-            <div class="icon-column">
-                <div class="icon-box">🔍</div>
-                <div class="icon-box">❤️</div>
-                <div class="icon-box">🛒</div>
-            </div>
+            
         </div>
         {% endfor %}
 
@@ -64,11 +60,11 @@
         <!--페이지네이션-->
         <div class = "page-wrap">
             <div class = "pagination">
-                <a href = "#">&laquo; 이전</a>
+                <a href = "{{url_for('view_review', page = 0)}}">&laquo; 처음</a>
                 {% for i in range(page_count) %}
                 <a href = "{{url_for('view_review', page = i)}}" color = "black">{{i+1}}</a>
                 {% endfor %}
-                <a href = "#">다음 &raquo;</a>
+                <a href = "{{url_for('view_review', page = page_count-1)}}" > 끝 &raquo;</a>
             </div>
         </div>
 {% endif %}

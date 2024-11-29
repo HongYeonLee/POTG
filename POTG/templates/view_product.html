@@ -117,13 +117,14 @@
     <!--페이지네이션-->
     <div class = "page-wrap">
         <div class = "pagination">
-            <a href = "#">&laquo; 이전</a>
+            <a href = "{{url_for('view_product', page = 0)}}">&laquo; 처음</a>
             {% for i in range(page_count) %}
             <a href = "{{url_for('view_product', page = i)}}" color = "black">{{i+1}}</a>
             {% endfor %}
-            <a href = "#">다음 &raquo;</a>
+            <a href = "{{url_for('view_product', page = page_count-1)}}">끝 &raquo;</a>
         </div>
     </div>
+
 </section>
 
 {% else %}
@@ -147,108 +148,5 @@
 </section>
 {% endif %}
 
-<!-- <section class = "scroll-section">
-    <div class = "product-header">
-        <p class = "total-count">총 117건</p>
-        <div class = "sort-options">
-            <span class = "sort-button active">추천순</span>
-            <span class = "sort-button">
-                <a href = "/list" style = "text-decoration: none; color: inherit">등록순</a>
-            </span>
-            <span class = "sort-button">인기순</span>
-        </div>
-    </div>
-
-    <table class = "product-table">
-        <tr>
-            <td class = "product-item">
-                <img src = "../static/images/zero.jpg" alt = "제로요구르트" class = "product-image">
-                <p class = "product-name">[매일바이오] 제로 요구르트 24팩</p>
-                <p class = "price">24,000원</p>
-                <span class = "discount">42% <span class = "discount-price">13,900원</span> </span> 
-                <p class = "rating">★ 평균 별점 4.9  💬 7,479</p>
-            </td>
-
-            <td class = "product-item">
-                <img src = "../static/images/salad.jpg" alt = "샐러드" class = "product-image">
-                <p class = "product-name">친환경 무농약 유러피안 샐러드</p>
-                <p class = "price">30,000원</p>
-                <span class = "discount">50% <span class = "discount-price">14,900원</span></span>
-                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
-            </td>
-        
-            <td class = "product-item">
-                <img src = "../static/images/salmon.jpg" alt = "연어" class = "product-image">
-                <p class = "product-name">노르웨이 연어 연어회 200g</p>
-                <p class = "price">23,200원</p>
-                <span class = "discount">57% <span class = "discount-price">9,900원</span></span>
-                <p class = "rating">★ 평균 별점 4.9  💬 8,263</p>
-            </td>
-
-            <td class = "product-item">
-                <img src = "../static/images/salt.jpg" alt = "소금빵" class = "product-image">
-                <p class = "product-name">[안성 배꽃길] 소금빵</p>
-                <p class = "price-not">990원</p>
-                <p class = "rating">★ 평균 별점 4.9  💬 9,999+</p>
-            </td>
-        
-            <td class = "product-item">
-                <img src = "../static/images/health.jpg" alt = "닭가슴살" class = "product-image">
-                <p class = "product-name">[한끼통살] 닭가슴살 60종 택1</p>
-                <p class = "price-not">2,500원</p>
-                <p class = "rating">★ 평균 별점 4.9  💬 9,999+</p>
-            </td>
-        </tr>
-
-        <tr>
-            <td class = "product-item">
-                <img src = "../static/images/strawberry.jpg" alt = "딸기" class = "product-image">
-                <p class = "product-name">[반반 딸기청] 수제 과일청 500g</p>
-                <p class = "price">40,000원</p>
-                <span class = "discount">60% <span class = "discount-price">16,000원</span></span>
-                <p class = "rating">★ 평균 별점 4.9  💬 8,522</p>
-            </td>
-        
-            <td class = "product-item">
-                <a style="cursor: pointer;" href = "product_detail.html"><img src = "../static/images/habf.png" alt = "아몬드" class = "product-image"></a>
-                <p class = "product-name">[HBAF] 구운아몬드 1kg</p>
-                
-                <p class = "price">42,000원</p>
-                <span class = "discount">62% <span class = "discount-price">25,900원</span></span>
-                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
-            </td> 
-
-            <td class = "product-item">
-                <img src = "../static/images/lukt.png" alt = "그릭요거트" class = "product-image">
-                <p class = "product-name">[룩트] 그릭요거트 100g x 6개입</p>
-                <p class = "price-not">23,400원</p>
-                <p class = "rating">★ 평균 별점 4.9  💬 2,470</p>
-            </td>
-        
-            <td class = "product-item">
-                <img src = "../static/images/potato.jpg" alt = "만두" class = "product-image">
-                <p class = "product-name">감자만두 고기1.4kg + 김치1.4kg</p>
-                <p class = "price">32,880원 </p>
-                <span class = "discount">09% <span class = "discount-price">29,880원</span></span>
-                <p class = "rating">★ 평균 별점 4.8  💬 9,999+</p>
-            </td>
-
-            <td class = "product-item">
-                <img src = "../static/images/fruit.png" alt = "동결건조" class = "product-image">
-                <p class = "product-name">동결건조 과일칩 13g 택1</p>
-                <p class = "price-not">4,000원</p>
-                <p class = "rating">★ 평균 별점 4.8  💬 5,299</p>
-            </td>
-        </tr>
-    </table>
-    
-
-    <div class = "pagination">
-        <a href = "#">&laquo; 이전</a>
-        <a href = "#">1</a>
-        <a href = "#">2</a>
-        <a href = "#">3</a>
-        <a href = "#">다음 &raquo;</a>
-    </div> -->
 </section>
 {% endblock section %}

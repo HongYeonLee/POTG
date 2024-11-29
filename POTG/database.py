@@ -105,6 +105,7 @@ class DBhandler:
 
         #quantity 기본값
         initial_quantity = int(data.get('quantity', 0)) 
+        
 
         item_info ={
         "id": session['id'],
@@ -118,7 +119,8 @@ class DBhandler:
         "img_path": img_path,
         "d_day":d_day_display,
         "per_price":per_price,
-        "quantity": initial_quantity
+        "quantity": initial_quantity,
+        "updated_cnt": data['cnt']
         }
         self.db.child("gr_item").child(name).set(item_info)
         print(data,img_path)
@@ -196,7 +198,7 @@ class DBhandler:
         
         # 업데이트할 데이터 병합
         updated_item = {
-            "cnt": remain_cnt,
+            "updated_cnt": remain_cnt,
             "quantity": current_quantity+new_quantity
         }
         current_item.update(updated_item)

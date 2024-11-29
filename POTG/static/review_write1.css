@@ -1,12 +1,13 @@
 .popular-reviews {
     text-align: left;
-    padding: 60px 250px;
+    /* padding: 60px 250px; */
     background-color: #ffffff;
     color: #333;
-    /* height: 100vh; */ /* 제거 */
-    margin-bottom: 100px; /* 여백 추가 */
+    /* height: 100vh; */
+    margin-bottom: 100px;
+    margin: 30px auto 100px auto;
+    width: 1000px;
 }
-
 .ktMLQz {
     width: 100%;
     margin-right: 10px;
@@ -172,6 +173,7 @@
 }
 
 .description {
+    width: 200px;
     font-size: 20px;
     color: #333;
     line-height: 2;

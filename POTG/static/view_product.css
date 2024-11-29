@@ -133,9 +133,9 @@
     width: inherit;
     table-layout: fixed;
     border-spacing: 15px;
-    margin: 0 auto;
+    margin: 0;
     text-align: left;
-
+    align-items: left;
 }
 
 .product-table td {
