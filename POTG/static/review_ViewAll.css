@@ -51,6 +51,8 @@ nav a:hover {
     padding: 60px 40px;
     background-color: #ffffff;
     position: relative;
+    width: 1500px;
+    margin: 0 auto;
 }
 
 .popular-reviews h2 {
@@ -63,6 +65,7 @@ nav a:hover {
 .total-count {
     position: auto;
     text-align: left;
+    margin: 0 110px 20px;
 }
 
 
