@@ -221,7 +221,8 @@ def gr_reg_item_submit_post():
     image_file.save("static/images/inputImages/{}".format(image_file.filename))
     data = request.form
     DB.insert_gr(data['name'], data, image_file.filename, session)
-    return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+    #return render_template("grpurchase_ViewAll.html", data=data, img_path="static/images/inputImages/{}".format(image_file.filename))
+    return redirect(url_for('grpPurchase'))
 
 #동적라우팅
 @application.route("/grpurchaseDetail/<name>/")

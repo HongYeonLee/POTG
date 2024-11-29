@@ -124,6 +124,11 @@ h3{
     background-color: #3b6b45; /* 호버 시 조금 더 밝은 녹색 */
 }
 
+.magam{
+    opacity: 1;
+    z-index: 10;
+}
+
 /*2. 상품 헤더 
 .product-sort{
     margin-bottom: 20px;
@@ -142,6 +147,9 @@ h3{
     text-align: left;
     
 }
+
+/*마감 사진*/
+
 /*
 .sort-options{
     margin-block-start: 1em;
