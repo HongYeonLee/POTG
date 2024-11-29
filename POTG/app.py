@@ -27,6 +27,7 @@ def login_user():
         session['id']=id_
         user_info = DB.get_user_info(id_, pw_hash)
         session['name'] = user_info['name']
+        session['address'] = user_info['address']
         return redirect(url_for('hello'))
     else:
         flash("Wrong ID or PW!")
@@ -138,6 +139,10 @@ def reg_review():
 # 상품 등록
 @application.route("/registerItem")
 def reg_item():
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
     return render_template("registerItem.html")
 
 # @application.route("/review_write1")
@@ -156,6 +161,11 @@ def view_reviewEach():
 # 공동구매 전체 조회
 @application.route("/grpurchase_ViewAll")
 def grpPurchase():
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
     page = request.args.get("page", 0, type = int)
     per_page=9
     per_row=3
@@ -223,7 +233,7 @@ def gr_quantity():
     # 데이터 업데이트
     DB.update_quantity(data)
     updated_item = DB.db.child("gr_item").child(data['name']).get().val()
-    return render_template("grpurchase_ViewAll.html", data=updated_item) 
+    return redirect(url_for('grpPurchase'))
 
 # 리뷰 불러오기
 @application.route("/review_ViewAll")
@@ -349,6 +359,11 @@ def view_history():
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
 def show_heart(name):
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
     my_heart = DB.get_heart_byname(session['id'], name)
     return jsonify({'my_heart': my_heart})
 
@@ -367,6 +382,11 @@ def unlike(name):
 # 좋아요 모아보기
 @application.route("/heart")
 def view_heart():
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
     page = request.args.get("page", 0, type = int)
     per_page = 12
     per_row = 4
