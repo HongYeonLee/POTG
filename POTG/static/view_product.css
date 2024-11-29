@@ -148,7 +148,7 @@
     padding: 3px; /*컨텐츠와 테두리 사이 공간*/
     border-radius: 5px;
     background-color: #f2f2f280;
-    height: auto;
+    height: 100%;
     max-width: 200px;
     overflow: hidden; 
 }
