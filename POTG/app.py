@@ -313,6 +313,11 @@ def reg_buyExchange(name):
 # 장바구니에 담기 기능
 @application.route("/cart/<name>/")
 def reg_cart(name):
+    user_id = session.get('id')  # 현재 로그인한 사용자 ID
+    if not user_id:
+        flash("로그인이 필요합니다.")
+        return redirect(url_for('view_logIn'))
+    
     data = DB.get_item_byname(name)
     DB.reg_cart(session['id'], data, name)
     return redirect(url_for('view_cart'))
@@ -373,24 +378,19 @@ def view_history():
 # 좋아요 기능
 @application.route('/show_heart/<name>/', methods=['GET'])
 def show_heart(name):
-    user_id = session.get('id')  # 현재 로그인한 사용자 ID
-    if not user_id:
-        flash("로그인이 필요합니다.")
-        return redirect(url_for('view_logIn'))
-    
     my_heart = DB.get_heart_byname(session['id'], name)
     return jsonify({'my_heart': my_heart})
 
 @application.route('/like/<name>/', methods=['POST'])
-def like(name):
+def like(name):    
     itemInfo = DB.get_item_byname(name)
-    my_heart = DB.update_heart(session['id'], 'Y', itemInfo, name)
+    DB.update_heart(session['id'], 'Y', itemInfo, name)
     return jsonify({'msg': '좋아요 완료!'})
 
 @application.route('/unlike/<name>/', methods=['POST'])
 def unlike(name):
     itemInfo = DB.get_item_byname(name)
-    my_heart = DB.update_heart(session['id'],'N',itemInfo, name)
+    DB.update_heart(session['id'],'N',itemInfo, name)
     return jsonify({'msg': '안좋아요 완료!'})
 
 # 좋아요 모아보기
