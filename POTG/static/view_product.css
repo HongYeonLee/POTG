@@ -77,10 +77,12 @@
 }
 
 .scroll-section {
-    display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    width: 1510px;
+    margin: 0 auto;
 }
 
 .product-header {
@@ -128,7 +130,7 @@
 
 /*일반 상품 목록*/
 .product-table {
-    width: auto;
+    width: inherit;
     table-layout: fixed;
     border-spacing: 15px;
     margin: 0 auto;
@@ -137,9 +139,11 @@
 }
 
 .product-table td {
-    width: 20%;
+    /* width: 20%; */
     vertical-align: top;
     padding: 0;
+    float:left;
+    margin: 0px 10px;
 }
 
 .product-item {
