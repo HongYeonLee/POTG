@@ -17,15 +17,13 @@
     <table class="popular-table">
         <tr>
             {% for key, value in popular_items %}
-            <td class="popular-item">
+            <td class="popular-item" onclick = "location.href = '/view_detail/{{key}}/';" style = "cursor: pointer;">
                 <div class="overlay">
                     <br>
                     <p class="popular-name">{{ key }}</p>
-                    <p class="price">{{ value['price'] }}원</p>
                     <span class="discount">{{ value['method'] }}
-                        <span class="discount-price">{{ value['discount_price'] }}원</span>
+                        <span class="discount-price">{{ value['price'] }}원</span>
                     </span>
-                    <p class="rating">★ 평균 별점 {{ value['rating'] }}</p>
                 </div>
                 <img src="../static/images/inputImages/{{ value['img_path'] }}" alt="{{ key }}" class="popular-image">
             </td>
