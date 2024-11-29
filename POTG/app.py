@@ -83,7 +83,7 @@ def view_product():
 
     page_counts = int((item_counts / per_page)+1)
     if(item_counts % per_page ==0):
-        page_counts -= 1
+        page_counts -= 1 
 
 
     return render_template(
