@@ -49,11 +49,7 @@
             <!-- <img src="../static/images/고구마.jpg" alt="상품 이미지" class="product-image"> -->
             {% set image_path = value['product_img'] %}
             <img src="{{ url_for('static', filename='images/inputImages/' + image_path) }}" alt="상품 이미지" class="product-image">
-            <div class="icon-column">
-                <div class="icon-box">🔍</div>
-                <div class="icon-box">❤️</div>
-                <div class="icon-box">🛒</div>
-            </div>
+      
         </div>
         {% endfor %}
 
