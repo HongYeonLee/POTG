@@ -83,10 +83,10 @@
                     {% if value['cnt']==value['quantity'] %}
                     <div class = "product-image-container">
                         <img class="product-image-overlay" src="../static/images/마감.png">
-                        <img class="product-image" src="{{ url_for('static', filename='images/inputImages/' + value['img_path']) }}" alt="{{ key }}">
+                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}">
                     </div>
                     {% else %}
-                    <img class="product-image" src="{{ url_for('static', filename='images/inputImages/' + value['img_path']) }}" onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style = "cursor: pointer;">
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style = "cursor: pointer;">
                     {% endif %}
                     </td>
                 {% endfor %}
@@ -97,7 +97,7 @@
                             {% if value['cnt']==value['quantity'] %}
                                 <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
                             {% else %}
-                                <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                                <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
                             {% endif %}
                             <div class="product-info">
                                 <p class="d-day" data-date="{{ value['date'] }}"></p>
@@ -130,7 +130,7 @@
                                 {% if value['cnt']==value['quantity'] %}
                                     <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
                                 {% else %}
-                                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
                                 {% endif %}
                                 <div class="product-info">
                                     <p class="d-day" data-date="{{ value['date'] }}"></p>
@@ -163,7 +163,7 @@
                                     {% if value['cnt']==value['quantity'] %}
                                         <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
                                     {% else %}
-                                        <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
+                                        <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
                                     {% endif %}
                                     <div class="product-info">
                                         <p class="d-day" data-date="{{ value['date'] }}"></p>
