@@ -69,6 +69,9 @@
     display: flex;
     padding: 20px;
     align-items: center;
+    width: 1200px;
+    text-align: center;
+    margin: 0 auto;
 }
 /*1.필터*/
 .filter-section {
@@ -80,6 +83,7 @@
 h3{
     padding-top: 10px;
     padding-bottom: 10px;
+
 }
 .filter-group {
     margin-bottom: 20px;
@@ -130,6 +134,7 @@ h3{
 .total-count {
     color: #A2A1A1;
     padding: 20px;
+    text-align: left;
     
 }
 /*
