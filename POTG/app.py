@@ -255,6 +255,12 @@ def view_review():
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
+
+    page_counts = int((item_counts / per_page)+1)
+    if(item_counts == per_page):
+        page_counts -= 1
+
+
     for i in range(row_count):#last row
         if (i == row_count -1) and (tot_count%per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
@@ -269,7 +275,7 @@ def view_review():
         
         limit=per_page,
         page=page,
-        page_count=int((item_counts/per_page)+1),
+        page_count=page_counts,
         total=item_counts)
 
 #동적라우팅
