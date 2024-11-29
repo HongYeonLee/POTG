@@ -223,7 +223,7 @@ def gr_quantity():
     # 데이터 업데이트
     DB.update_quantity(data)
     updated_item = DB.db.child("gr_item").child(data['name']).get().val()
-    return render_template("grpurchase_ViewAll.html", data=updated_item) 
+    return redirect(url_for('grpPurchase'))
 
 # 리뷰 불러오기
 @application.route("/review_ViewAll")
