@@ -30,7 +30,7 @@ def login_user():
         session['address'] = user_info['address']
         return redirect(url_for('hello'))
     else:
-        flash("Wrong ID or PW!")
+        flash("아이디나 비밀번호가 잘못되었습니다")
         return render_template("login.html")
 
 # 로그아웃
@@ -55,8 +55,8 @@ def register_user():
     if DB.insert_user(data, pw_hash, pwConfirm_hash): #아이디 중복체크
         return render_template("login.html")
     else:
-        flash("user id already exist!")
-        return render_template("signup.html")
+        flash("동일한 아이디가 존재합니다")
+        return redirect(url_for('view_signUp'))
 
 # 상품 조회
 @application.route("/view_product")
