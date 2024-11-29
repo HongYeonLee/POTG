@@ -112,7 +112,7 @@ class DBhandler:
         "category": data['category'],
         "price": data['price'],
         "info": data['info'],
-        "cnt":data['cnt'],
+        "cnt":int(data['cnt']),
         "address": data['address'],
         "date":data['date'],
         "details": data['details'],

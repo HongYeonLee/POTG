@@ -36,10 +36,12 @@
                         <label for="name">상품명</label>
                         <input type="text" name="name" id="name" placeholder="상품을 입력해주세요." required>
                     </div>
+                    
 
                     <div class="input-group">
                         <label>판매자 아이디</label>
-                        <input type="text" name="seller" id="seller" value="{{ user_id }}" readonly>
+                        {{session['id']}}
+                        <!--<input type="text" name="seller" id="seller" value="{{ user_id }}" readonly>-->
                     </div>
 
                     <div class="input-group">
