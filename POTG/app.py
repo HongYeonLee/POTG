@@ -55,6 +55,20 @@ def register_user():
     pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
     pwConfirm_hash = hashlib.sha256(pwConfirm.encode('utf-8')).hexdigest()
 
+    # 이메일 조합
+    email_id = data.get("emailId")
+    email_domain = data.get("emailDomain")
+    custom_domain = data.get("customDomain")
+
+    if email_domain == "custom" and custom_domain:  # '직접 입력' 처리
+        email = f"{email_id}@{custom_domain}"
+    else:
+        email = f"{email_id}@{email_domain}"
+    
+    # 데이터에 이메일 추가
+    data = data.to_dict()  # ImmutableMultiDict를 dict로 변환
+    data["email"] = email  # 병합된 이메일 추가
+
     if DB.insert_user(data, pw_hash, pwConfirm_hash): #아이디 중복체크
         return render_template("login.html")
     else:

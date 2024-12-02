@@ -17,7 +17,7 @@ class DBhandler:
             "pw": pw,
             "pwConfirm": pwConfirm,
             "name" : data['name'],
-            "emailId" : data['emailId'],
+            "email" : data['email'],
             "mobileNumber" : data['mobileNumber'],
             "gender" : data['gender'],
             "birthYear" : data['birthYear'],
