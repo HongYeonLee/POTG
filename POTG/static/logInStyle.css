@@ -141,7 +141,7 @@ form {
     opacity: 1;
 }
 
-#find-id-form {
+#find-id-form, #find-password-form {
     position: absolute;
     top: -50px;
     left: 0;
@@ -179,13 +179,13 @@ form {
     margin-bottom: 15px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .findIdButton, .findIdCancelButton {
     width: 100%;
     height: 54px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     border: none;
     border-radius: 4px;
@@ -208,7 +208,6 @@ form {
 .findIdCancelButton:hover {
     background-color: rgb(240, 240, 240);
 }
-
 
 .footerBox{
     padding-top: 30px;

@@ -28,9 +28,9 @@
                 </div>
             </div>
             <div class="findIdAndPasswordBox">
-                <a href="javascript:void(0)" class="findIdAndPasswordForA" onclick="showFindForm()">아이디 찾기</a>
+                <a href="javascript:void(0)" class="findIdAndPasswordForA" onclick="showFindIDForm()">아이디 찾기</a>
                 <span class="findIdAndPassWordLine"></span>
-                <a class="findIdAndPasswordForA">비밀번호 찾기</a>
+                <a href="javascript:void(0)" class="findIdAndPasswordForA" onclick="showFindPWForm()">비밀번호 찾기</a>
             </div>
             <div class="logInAndSignUpBox">
                 <button class="logInBtn" type="submit">로그인</button>
@@ -48,23 +48,22 @@
             <label for="find-phone" class="findIdLabel">전화번호</label>
             <input id="find-phone" name="phone" type="text" placeholder="전화번호를 입력해주세요" class="findIdInput" required>
             <button type="submit" class="findIdButton">아이디 찾기</button>
-            <button type="button" class="findIdCancelButton" onclick="hideFindForm()">취소</button>
+            <button type="button" class="findIdCancelButton" onclick="hideFindIDForm()">취소</button>
+        </form>
+
+        <!-- 비밀번호 찾기 폼 -->
+        <form id="find-password-form" class="findIdForm" style="display: none;" method="post" action="/find_password">
+            <h3 class="findIdTitle">비밀번호 찾기</h3>
+            <label for="find-id" class="findIdLabel">아이디</label>
+            <input id="find-id" name="id" type="text" placeholder="아이디를 입력해주세요" class="findIdInput" required>
+            <label for="find-phone" class="findIdLabel">전화번호</label>
+            <input id="find-phone" name="phone" type="text" placeholder="전화번호를 입력해주세요" class="findIdInput" required>
+            <button type="submit" class="findIdButton">비밀번호 찾기</button>
+            <button type="button" class="findIdCancelButton" onclick="hideFindPWForm()">취소</button>
         </form>
     </div>
 </div>
-
-
-<!-- 비밀번호 찾기 폼 -->
-<!-- <div id="find-password-form" class="findForm" style="display: none;">
-    <h3>비밀번호 찾기</h3>
-    <form method="post" action="/find_password">
-        <label for="find-id">아이디</label>
-        <input id="find-id" name="id" type="text" required>
-        <label for="find-phone-password">전화번호</label>
-        <input id="find-phone-password" name="phone" type="text" required>
-        <button type="submit">비밀번호 찾기</button>
-    </form>
-</div> -->
+</div>
 
 <div class="footerBox">
     <div id="footer" class="footerBox2">
@@ -73,13 +72,23 @@
 </div>
 
 <script>
-    function showFindForm() {
+    function showFindIDForm() {
         const findForm = document.getElementById("find-id-form");
         findForm.style.display = "block";
     }
 
-    function hideFindForm() {
+    function showFindPWForm() {
+        const findForm = document.getElementById("find-password-form");
+        findForm.style.display = "block";
+    }
+
+    function hideFindIDForm() {
         const findForm = document.getElementById("find-id-form");
+        findForm.style.display = "none";
+    }
+
+    function hideFindPWForm() {
+        const findForm = document.getElementById("find-password-form");
         findForm.style.display = "none";
     }
 </script>

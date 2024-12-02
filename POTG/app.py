@@ -41,6 +41,7 @@ def logout_user():
     session.clear()
     return redirect(url_for('hello'))
 
+# 아이디 찾기
 @application.route("/find_id", methods=["POST"])
 def find_id():
     name = request.form.get("name")
@@ -50,6 +51,19 @@ def find_id():
         flash(f"아이디는 {user['id']}입니다.")
     else:
         flash("일치하는 아이디가 없습니다.")
+    return redirect(url_for("view_logIn"))
+
+@application.route("/find_password", methods=["POST"])
+def find_password():
+    user_id = request.form.get("id")
+    phone = request.form.get("phone")
+    user = DB.find_user_by_id_and_phone(user_id, phone)  # 함수 호출
+    
+    if user:
+        flash(f"비밀번호는 {user['pw']}입니다.")  # 실제 서비스에서는 비밀번호 재설정 링크 제공 권장
+    else:
+        flash("일치하는 정보가 없습니다.")
+    
     return redirect(url_for("view_logIn"))
 
 # 회원가입 페이지
