@@ -198,15 +198,31 @@ label {
     margin-right: 5px;
 }
 
-.emailBack{
-    width: 143px;
-    height: 100%;
-    position: relative;
+.emailBack {
+    width: 160px; /* 드롭다운과 직접 입력 필드의 동일한 너비 */
+    height: 46px;
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
     justify-content: space-between;
+    position: relative; /* 동일한 위치에서 정렬 */
+}
+
+.emailDropdown, .customEmail {
+    width: 100%; /* 동일한 너비 */
+    height: 46px;
+    padding: 0 10px;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.customEmail {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute; /* 드롭다운과 동일한 위치 */
+    top: 0;
+    left: 0;
 }
 
 .btnTextEmpty{
