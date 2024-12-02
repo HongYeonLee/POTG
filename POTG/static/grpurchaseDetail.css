@@ -104,6 +104,17 @@ div.info-section{
 }
 
 /*하단버튼*/
+.tt{
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+}
+#total-price{
+    font-size: 18px;
+    text-align: right;    /* 텍스트를 오른쪽 정렬 */
+    min-width: 150px;     /* 최소 너비를 설정해 위치 고정 */
+    margin: 0;  
+}
 .chat-btn {
     background-color: rgb(0, 70, 42);
     color: white;
@@ -127,7 +138,7 @@ input{
     text-align: center; 
     margin-right: 10px; 
     font-size: 18px;
-     padding: 5px;
+    padding: 5px;
 }
 .add-to-cart{
     background-color: rgb(0, 70, 42);
