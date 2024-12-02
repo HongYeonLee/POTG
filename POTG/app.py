@@ -41,6 +41,17 @@ def logout_user():
     session.clear()
     return redirect(url_for('hello'))
 
+@application.route("/find_id", methods=["POST"])
+def find_id():
+    name = request.form.get("name")
+    phone = request.form.get("phone")
+    user = DB.find_user_by_name_and_phone(name, phone)  # DB 메서드 가정
+    if user:
+        flash(f"아이디는 {user['id']}입니다.")
+    else:
+        flash("일치하는 아이디가 없습니다.")
+    return redirect(url_for("view_logIn"))
+
 # 회원가입 페이지
 @application.route("/signup")
 def view_signUp():

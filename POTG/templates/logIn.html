@@ -6,47 +6,81 @@
 {% block section %}
 {% with mesg = get_flashed_messages() %}
 {% if mesg !=[] %}
-    <script>alert("{{ mesg[0] }}")</script>
+<script>alert("{{ mesg[0] }}")</script>
 {% endif %}
 {% endwith %}
-<div class = "contentBox">
-    <div class = "logInText">로그인</div>
-    <div class = "contentBox2">
-        <form action = "/login_confirm" method="post">
-            <div class = "idAndPasswordBox">
-                <div class = "idAndPassWordBox2">
-                    <div class = "idAndPassWordBox3">
-                        <input name = "id" placeholder="아이디를 입력해주세요" type = "text" class = "idAndPassWordInput" value>
+<div class="contentBox">
+    <div class="logInText">로그인</div>
+    <div class="contentBox2" style="position: relative;">
+        <!-- 로그인 폼 -->
+        <form id="login-form" action="/login_confirm" method="post">
+            <div class="idAndPasswordBox">
+                <div class="idAndPassWordBox2">
+                    <div class="idAndPassWordBox3">
+                        <input name="id" placeholder="아이디를 입력해주세요" type="text" class="idAndPassWordInput">
                     </div>
                 </div>
-                <div class = "idAndPassWordBox2">
-                    <div class = "idAndPassWordBox3">
-                        <input name = "pw" placeholder="비밀번호를 입력해주세요" type = "password" autocomplete="off" class = "idAndPassWordInput" value>
+                <div class="idAndPassWordBox2">
+                    <div class="idAndPassWordBox3">
+                        <input name="pw" placeholder="비밀번호를 입력해주세요" type="password" autocomplete="off"
+                            class="idAndPassWordInput">
                     </div>
                 </div>
             </div>
-            <div class = "findIdAndPasswordBox">
-                <a class = "findIdAndPasswordForA">아이디 찾기</a>
-                <span class = "findIdAndPassWordLine"></span>
-                <a class = "findIdAndPasswordForA">비밀번호 찾기</a>
+            <div class="findIdAndPasswordBox">
+                <a href="javascript:void(0)" class="findIdAndPasswordForA" onclick="showFindForm()">아이디 찾기</a>
+                <span class="findIdAndPassWordLine"></span>
+                <a class="findIdAndPasswordForA">비밀번호 찾기</a>
             </div>
-            <div class = "logInAndSignUpBox">
-                <!-- js연결 필요 -->
-                <button class = "logInBtn" type = "submit" height = "54" radius = "3">
-                    <span class = "logInAndSignUpBtnText">로그인</span>
-                </button>
-                <a href = "/signup">
-                    <button class = "signUpBtn" type = "button" height = "54" radius = "3">
-                        <span class = "logInAndSignUpBtnText">회원가입</span>
-                    </button>
+            <div class="logInAndSignUpBox">
+                <button class="logInBtn" type="submit">로그인</button>
+                <a href="/signup">
+                    <button class="signUpBtn" type="button">회원가입</button>
                 </a>
             </div>
         </form>
+
+        <!-- 아이디 찾기 폼 -->
+        <form id="find-id-form" class="findIdForm" style="display: none;" method="post" action="/find_id">
+            <h3 class="findIdTitle">아이디 찾기</h3>
+            <label for="find-name" class="findIdLabel">이름</label>
+            <input id="find-name" name="name" type="text" placeholder="이름을 입력해주세요" class="findIdInput" required>
+            <label for="find-phone" class="findIdLabel">전화번호</label>
+            <input id="find-phone" name="phone" type="text" placeholder="전화번호를 입력해주세요" class="findIdInput" required>
+            <button type="submit" class="findIdButton">아이디 찾기</button>
+            <button type="button" class="findIdCancelButton" onclick="hideFindForm()">취소</button>
+        </form>
     </div>
 </div>
-<div class = "footerBox">
-    <div id = "footer" class = "footerBox2">
-        <span class = "footerText">© POTG - Project Of The Genius</span>
+
+
+<!-- 비밀번호 찾기 폼 -->
+<!-- <div id="find-password-form" class="findForm" style="display: none;">
+    <h3>비밀번호 찾기</h3>
+    <form method="post" action="/find_password">
+        <label for="find-id">아이디</label>
+        <input id="find-id" name="id" type="text" required>
+        <label for="find-phone-password">전화번호</label>
+        <input id="find-phone-password" name="phone" type="text" required>
+        <button type="submit">비밀번호 찾기</button>
+    </form>
+</div> -->
+
+<div class="footerBox">
+    <div id="footer" class="footerBox2">
+        <span class="footerText">© POTG - Project Of The Genius</span>
     </div>
 </div>
+
+<script>
+    function showFindForm() {
+        const findForm = document.getElementById("find-id-form");
+        findForm.style.display = "block";
+    }
+
+    function hideFindForm() {
+        const findForm = document.getElementById("find-id-form");
+        findForm.style.display = "none";
+    }
+</script>
 {% endblock section %}

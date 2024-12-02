@@ -70,7 +70,20 @@ class DBhandler:
             value = res.val()
             if value['id'] == id_:
                 return value
-    
+            
+    # 이름과 전화번호로 사용자 검색
+    def find_user_by_name_and_phone(self, name, phone):
+        users = self.db.child("user").get()  # 모든 사용자 데이터를 가져옴
+        if not users.val():  # 데이터가 없는 경우
+            return None
+        
+        for res in users.each():
+            value = res.val()  # 각 사용자 정보
+            if value.get("name") == name and value.get("mobileNumber") == phone:
+                return value  # 일치하는 사용자 정보 반환
+        
+        return None  # 일치하는 사용자가 없는 경우
+
     # 상품 등록
     def insert_item(self, name, data, img_path):
         item_info ={

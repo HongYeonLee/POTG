@@ -27,6 +27,7 @@ a {
     width: 340px;
     margin: 0px auto;
     letter-spacing: -0.6px;
+    position: relative;
 }
 
 form {
@@ -139,6 +140,75 @@ form {
     color: rgb(161, 161, 161);
     opacity: 1;
 }
+
+#find-id-form {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%; /* 로그인 폼과 동일한 너비 */
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    display: none; /* 기본적으로 숨김 */
+    z-index: 10; /* 로그인 폼 위에 표시 */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.findIdTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0, 70, 42);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.findIdLabel {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: rgb(51, 51, 51);
+}
+
+.findIdInput {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.findIdButton, .findIdCancelButton {
+    width: 100%;
+    height: 54px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.findIdButton {
+    background-color: rgb(0, 70, 42);
+    color: white;
+}
+
+.findIdCancelButton {
+    background-color: white;
+    color: rgb(0, 70, 42);
+    border: 1px solid rgb(0, 70, 42);
+}
+
+.findIdCancelButton:hover {
+    background-color: rgb(240, 240, 240);
+}
+
 
 .footerBox{
     padding-top: 30px;
