@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: flex-start;
     max-width: 1200px;;
-    margin: 0 auto 200px auto;
+    margin: 50px auto 200px auto;
 }
 
 .image {
@@ -11,18 +11,17 @@
     height: 300px;
     max-width: 400px;
     max-height: 700px;
-    margin-top: 170px;
     transform: scale(1.2);
     position: relative;
     z-index: 1;
+    margin: 170px 0px 100px 130px;
 }
 
 .content{
     max-width: 1000px;
     z-index: 2;
-    margin: 0 auto;
+    margin: 0px auto 0px 75px;
     padding: 0 20px;
-    /*margin-top:100px;*/
 }
 
 .name, .discount, .price, .original-price, .text{
