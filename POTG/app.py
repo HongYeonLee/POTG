@@ -174,6 +174,7 @@ def grpPurchase():
         return redirect(url_for('view_logIn'))
     
     category = request.args.get("category", None)  # 선택한 카테고리
+    progress_filter = request.args.getlist("progress_filter") # 진행률 필터링
     page = request.args.get("page", 0, type=int)
     per_page = 9
     per_row = 3
@@ -183,9 +184,27 @@ def grpPurchase():
     
     # 데이터 가져오기
     data = DB.gr_get_items()
+
+    # 카테고리 필터 적용
     if category:
-        # 카테고리 필터 적용
         data = {k: v for k, v in data.items() if v['category'] == category}
+
+    # 진행률 필터
+    if progress_filter:
+        filtered_data = {}
+        for key, item in data.items():
+            progress = (item['quantity'] / item['cnt']) * 100 if item['cnt'] > 0 else 0
+            for filter_value in progress_filter:
+                if filter_value == "0-50":
+                    if progress <= 50:
+                        filtered_data[key] = item
+                else:
+                    try:
+                        if progress >= int(filter_value):
+                            filtered_data[key] = item
+                    except ValueError:
+                        pass  # 예상치 못한 값은 무시
+        data = filtered_data
     
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
@@ -245,12 +264,13 @@ def grpurchaseDetail():
 def gr_quantity():
     data = {
             'name': request.form['name'],
-            'quantity': int(request.form['quantity']),
+            # 'quantity': int(request.form['quantity']),
             'cnt': int(request.form['cnt'])  # 주문 가능 수량이 필요하면 추가
         }
+    inputCnt = request.form['quantity']
     # 데이터 업데이트
-    DB.update_quantity(data)
-    updated_item = DB.db.child("gr_item").child(data['name']).get().val()
+    DB.update_quantity(data, inputCnt)
+    # updated_item = DB.db.child("gr_item").child(data['name']).get().val()
     return redirect(url_for('grpPurchase'))
 
 # 리뷰 불러오기
