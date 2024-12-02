@@ -50,12 +50,22 @@ nav a:hover {
     text-align: center;
     padding: 60px 40px;
     background-color: #ffffff;
+    position: relative;
+    width: 1500px;
+    margin: 0 auto;
 }
 
 .popular-reviews h2 {
     margin-bottom: 30px;
     font-size: 28px;
     color: #00462A;
+    text-align: center;
+}
+
+.total-count {
+    position: auto;
+    text-align: left;
+    margin: 0 110px 20px;
 }
 
 
@@ -77,11 +87,6 @@ nav a:hover {
     position: relative;  
     box-sizing: border-box;  
 }  
-
-.total-count {
-    margin-top: 30px;
-    margin-left: 110px;
-}
 
 /* 이미지와 아이콘 열 */
 .review-image-container {
