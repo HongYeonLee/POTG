@@ -54,12 +54,12 @@
     background-color: transparent;
 }
 
-.category-item:hover{
+.category-item:hover:not(.category-title) {
     background-color: rgb(0, 70, 42);
     color: white;
 }
 
-.category-item.active {
+.category-item.active:not(.category-title) {
     background-color: rgb(0, 70, 42);
     color: white;
 }
