@@ -40,7 +40,7 @@
                     <div class="input-group">
                         <label>판매자 아이디</label>
                         {{session['id']}}
-                        <!-- <input type="text" name="seller" id="seller" placeholder="아이디를 입력해주세요." required> -->
+                        <input type="hidden" name="seller" id="seller" value="{{session['id']}}">
                     </div>
 
                     <div class="input-group">
@@ -95,7 +95,7 @@
                     <div class="input-group address-input">
                         <label for="address">주소</label>
                         <div class="address-container">
-                            <input type="text" name="address" id="address" placeholder="주소를 입력해주세요.">
+                            <input type="text" name="address" id="address" placeholder="주소를 입력해주세요." required>
                             <button type="button" class="address-button" onclick="fetchAddress()">주소 찾기</button>
                         </div>
                     </div>
