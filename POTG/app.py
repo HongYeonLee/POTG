@@ -12,7 +12,10 @@ DB = DBhandler()
 # 홈
 @application.route("/")
 def hello():
-    return render_template("home.html")
+    data = DB.get_items()
+    item_counts = len(data)
+    popular_items = random.sample(list(data.items()), 5) if item_counts >= 4 else list(data.items())
+    return render_template("home.html", popular_items=popular_items)
 
 # 로그인 화면
 @application.route("/login")
