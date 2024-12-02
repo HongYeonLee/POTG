@@ -188,24 +188,18 @@ class DBhandler:
         return target_value
     
     #공동구매 수량 등록
-    def update_quantity(self,data):
+    def update_quantity(self, data, inputCnt):
         #현재 데이터 가져오기
         current_item = self.db.child("gr_item").child(data['name']).get().val()
         # 남은 수량 계산
-        new_quantity = int(data['quantity'])
-        current_quantity = int(current_item.get('quantity', 0))
-        remain_cnt = int(current_item['cnt']) - new_quantity
-        if remain_cnt < 0:
-            raise ValueError("Insufficient stock.")
-        
-        # 업데이트할 데이터 병합
+        updated_quantity = int(current_item['quantity']) + int(inputCnt) #누적 개수
+        remain_cnt = int(current_item['cnt']) - updated_quantity #남은 개수
         updated_item = {
-            "updated_cnt": remain_cnt,
-            "quantity": current_quantity+new_quantity
+            "updated_cnt" : remain_cnt,
+            "quantity": updated_quantity
         }
         current_item.update(updated_item)
         self.db.child("gr_item").child(data['name']).set(current_item)
-
         return True
 
     #리뷰 등록
