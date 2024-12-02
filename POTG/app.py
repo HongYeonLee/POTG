@@ -173,33 +173,43 @@ def grpPurchase():
         flash("로그인이 필요합니다.")
         return redirect(url_for('view_logIn'))
     
-    page = request.args.get("page", 0, type = int)
-    per_page=9
-    per_row=3
-    row_count=int(per_page/per_row)
+    category = request.args.get("category", None)  # 선택한 카테고리
+    page = request.args.get("page", 0, type=int)
+    per_page = 9
+    per_row = 3
+    row_count = int(per_page / per_row)
     start_idx = per_page * page
     end_idx = per_page * (page + 1)
-    data=DB.gr_get_items()
+    
+    # 데이터 가져오기
+    data = DB.gr_get_items()
+    if category:
+        # 카테고리 필터 적용
+        data = {k: v for k, v in data.items() if v['category'] == category}
+    
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
+    
     for i in range(row_count):
-        if(i == row_count-1) and (tot_count % per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        if (i == row_count - 1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i * per_row:])
         else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i * per_row:(i + 1) * per_row]) 
     
     return render_template(
         "grpurchase_ViewAll.html",
         datas=data.items(),
-        row1 = locals()['data_0'].items(),
-        row2 = locals()['data_1'].items(),
-        row3 = locals()['data_2'].items(),
-        limit = per_page,
-        page = page,
-        page_count = int((item_counts/per_page)+1),
-        total = item_counts
+        row1=locals()['data_0'].items(),
+        row2=locals()['data_1'].items(),
+        row3=locals()['data_2'].items(),
+        limit=per_page,
+        page=page,
+        page_count=int((item_counts / per_page) + 1),
+        total=item_counts,
+        current_category=category  # 선택된 카테고리 전달
     )
+
 
 # 공동구매 상품 등록 페이지
 @application.route("/view_grReg")
