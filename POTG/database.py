@@ -25,12 +25,6 @@ class DBhandler:
             "birthDay" : data['birthDay'],
             "address" : data['address']
         }
-        if self.user_duplicate_check(str(data['id'])):
-            self.db.child("user").push(user_info)
-            print(data)
-            return True
-        else:
-            return False
     
     # 아이디 중복 체크
     def user_duplicate_check(self, id_string):
@@ -46,6 +40,19 @@ class DBhandler:
                     return False
             return True
 
+    # 이메일 중복 체크
+    def email_duplicate_check(self, email_string):
+        users = self.db.child("user").get()
+
+        if str(users.val()) == "None":
+            return True
+        else:
+            for res in users.each():
+                value = res.val()
+                if value['email'] == email_string:
+                    return False 
+            return True
+        
     # 이미 해당 유저가 존재하는지 체크
     def find_user(self, id_, pw_):
         users = self.db.child("user").get()

@@ -53,6 +53,7 @@ def find_id():
         flash("일치하는 아이디가 없습니다.")
     return redirect(url_for("view_logIn"))
 
+# 비밀번호 찾기
 @application.route("/find_password", methods=["POST"])
 def find_password():
     user_id = request.form.get("id")
@@ -91,13 +92,21 @@ def register_user():
         email = f"{email_id}@{email_domain}"
     
     # 데이터에 이메일 추가
-    data = data.to_dict()  # ImmutableMultiDict를 dict로 변환
-    data["email"] = email  # 병합된 이메일 추가
+    data = data.to_dict()
+    data["email"] = email 
 
-    if DB.insert_user(data, pw_hash, pwConfirm_hash): #아이디 중복체크
+    if not DB.user_duplicate_check(data['id']):
+        flash("동일한 아이디가 존재합니다.")
+        return redirect(url_for('view_signUp'))
+
+    if not DB.email_duplicate_check(email):
+        flash("동일한 이메일이 존재합니다.")
+        return redirect(url_for('view_signUp'))
+    
+    if DB.insert_user(data, pw_hash, pwConfirm_hash):
         return render_template("login.html")
     else:
-        flash("동일한 아이디가 존재합니다")
+        flash("회원가입 중 문제가 발생했습니다. 다시 시도해주세요.")
         return redirect(url_for('view_signUp'))
 
 # 상품 조회
