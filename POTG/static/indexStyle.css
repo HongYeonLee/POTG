@@ -101,6 +101,7 @@ li a:hover {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
+    justify-content: center;
     height: 63px;
 }
 
