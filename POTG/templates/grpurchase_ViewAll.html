@@ -1,255 +1,209 @@
 {% extends "index.html" %}
-
 {% block custom_css %}
-    <link rel="stylesheet" href="../static/grpurchase_ViewAll.css">
-    <link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
-   
+<link rel="stylesheet" href="../static/grpurchase_ViewAll.css">
+<link rel="stylesheet" type="text/css" href="../static/indexStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='grpurchase_ViewAll.css') }}">  
 {% endblock %}
-
 {% block section %}
-
-
-    <!-- 카테고리 -->
-    <section class="category-section"> 
-        <h2 class="category-name">카테고리</h2>
+<!-- 카테고리 -->
+<section class="category-section">
+    <form method="get" action="/grpurchase_ViewAll">
+        <button type="submit" name="category" value="" class="category-item" style="margin: 0 auto;"><h2 class="category-name">카테고리</h2></button>
         <div class="category-container">
-            <div class="category-item">화장품</div>
-            <div class="category-item">의류</div>
-            <div class="category-item">육류 및 해산물</div>
-            <div class="category-item">가공식품</div>
-            <div class="category-item">과일 및 채소</div>
-            <div class="category-item">냉동식품</div>
-            <div class="category-item">전자제품</div>
-            <div class="category-item">기타</div>
+            <button type="submit" name="category" value="화장품" class="category-item">화장품</button>
+            <button type="submit" name="category" value="의류" class="category-item">의류</button>
+            <button type="submit" name="category" value="육류 및 해산물" class="category-item">육류 및 해산물</button>
+            <button type="submit" name="category" value="가공식품" class="category-item">가공식품</button>
+            <button type="submit" name="category" value="과일 및 채소" class="category-item">과일 및 채소</button>
+            <button type="submit" name="category" value="냉동식품" class="category-item">냉동식품</button>
+            <button type="submit" name="category" value="전자제품" class="category-item">전자제품</button>
+            <button type="submit" name="category" value="기타" class="category-item">기타</button>
         </div>
-    </section>
-    <section class="content-container">
+    </form>
+</section>
 
-        <!-- 좌측 필터 -->
-        <aside class="filter-section">
-            <a href="/view_grReg" class="open-gr">공동구매 등록</a>
-            <h3>필터</h3>
-            <hr>
-            <form>
-                <div class="filter-group">
-                    <h3>진행사항</h3>
-                    <div class="filter-item">
-                        <input type="checkbox" id="9">
-                        <label for="9">90%~</label>
-                    </div>
-                    <div class="filter-item">
-                        <input type="checkbox" id="8">
-                        <label for="8">80%~</label>
-                    </div>
-                    <div class="filter-item">
-                        <input type="checkbox" id="7">
-                        <label for="7">70%~</label>
-                    </div>
-                    <div class="filter-item">
-                        <input type="checkbox" id="6">
-                        <label for="6">60%~</label>
-                    </div>
-                    <div class="filter-item">
-                        <input type="checkbox" id="5">
-                        <label for="5">50%~</label>
-                        
-                    </div>
-                    <div class="filter-item">
-                        <input type="checkbox" id="4">
-                        <label for="4">~50%</label>
-                        
-                    </div>
-
+<section class="content-container">
+    <!-- 좌측 필터 -->
+    <aside class="filter-section">
+        <a href="/view_grReg" class="open-gr">공동구매 등록</a>
+        <h3>필터</h3>
+        <hr>
+        <form>
+            <div class="filter-group">
+                <h3>진행사항</h3>
+                <div class="filter-item">
+                    <input type="checkbox" id="9">
+                    <label for="9">90%~</label>
                 </div>
-                <hr>
-
-
-
-            </form>
-        </aside>
-        <!--상품 리스트 추가-->
-        {% if total > 0 %}
-        <div class="product-list">
-            <div class="product-sort">
-                <div class = "product-header">
-                    <p class = "total-count">총 {{total}}건</p>
+                <div class="filter-item">
+                    <input type="checkbox" id="8">
+                    <label for="8">80%~</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="7">
+                    <label for="7">70%~</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="6">
+                    <label for="6">60%~</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="5">
+                    <label for="5">50%~</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="4">
+                    <label for="4">~50%</label>
                 </div>
             </div>
-            <table class="product-container">
-                <tr>
+            <hr>
+        </form>
+    </aside>
+    <!--상품 리스트 추가-->
+    {% if total > 0 %}
+    <div class="product-list">
+        <div class="product-sort">
+            <div class="product-header">
+                <p class="total-count">총 {{total}}건</p>
+            </div>
+        </div>
+        <table class="product-container">
+            <tr>
                 {% for key, value in row1 %}
-                    <td>
-                <!--<div class="product-item">-->
+                <td>
+                    <!--<div class="product-item">-->
                     {% if value['cnt']==value['quantity'] %}
-                    <div class = "product-image-container">
+                    <div class="product-image-container">
                         <img class="product-image-overlay" src="../static/images/마감.png">
-                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}">
+                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                            alt="{{ key }}">
                     </div>
                     {% else %}
-                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style = "cursor: pointer;">
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                        onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style="cursor: pointer;">
                     {% endif %}
-                    </td>
+                </td>
                 {% endfor %}
-                </tr>
-                <tr>
-                    {% for key, value in row1 %}
-                        <td>
-                            {% if value['cnt']==value['quantity'] %}
-                                <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
-                            {% else %}
-                                <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
-                            {% endif %}
-                            <div class="product-info">
-                                <p class="d-day" data-date="{{ value['date'] }}"></p>
-                                <p class="product-name">{{key}}</p>
-                                <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
-                                <p class="product-price">
-                                    <!--
+            </tr>
+            <tr>
+                {% for key, value in row1 %}
+                <td>
+                    {% if value['cnt']==value['quantity'] %}
+                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
+                    {% else %}
+                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);"
+                        class="add-to-cart">참여하기</button>
+                    {% endif %}
+                    <div class="product-info">
+                        <p class="d-day" data-date="{{ value['date'] }}"></p>
+                        <p class="product-name">{{key}}</p>
+                        <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
+                        <p class="product-price">
+                            <!--
                                     <p class="original-price">20,000원</p>
                                     <span class="discount-rate">10%</span>
                                     -->
-                                    <span class="discounted-price">
-                                        {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
-                                    </span>
-                                </p>
-                            </div>
-                        </td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for key, value in row2 %}
-                        <td>
+                            <span class="discounted-price">
+                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price"
+                                    data-price="{{value['price']}}" data-cnt="{{value['cnt']}}"> </span>원 (개당)
+                            </span>
+                        </p>
+                    </div>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for key, value in row2 %}
+                <td>
                     <!--<div class="product-item">-->
-                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}" style = "cursor: pointer;">
-                        </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for key, value in row2 %}
-                            <td>
-                                {% if value['cnt']==value['quantity'] %}
-                                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
-                                {% else %}
-                                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
-                                {% endif %}
-                                <div class="product-info">
-                                    <p class="d-day" data-date="{{ value['date'] }}"></p>
-                                    <p class="product-name">{{key}}</p>
-                                    <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
-                                    <p class="product-price">
-                                        <!--
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}"
+                        style="cursor: pointer;">
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for key, value in row2 %}
+                <td>
+                    {% if value['cnt']==value['quantity'] %}
+                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
+                    {% else %}
+                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);"
+                        class="add-to-cart">참여하기</button>
+                    {% endif %}
+                    <div class="product-info">
+                        <p class="d-day" data-date="{{ value['date'] }}"></p>
+                        <p class="product-name">{{key}}</p>
+                        <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
+                        <p class="product-price">
+                            <!--
                                         <p class="original-price">20,000원</p>
                                         <span class="discount-rate">10%</span>
                                         -->
-                                        <span class="discounted-price">
-                                            {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
-                                        </span>
-                                    </p>
-                                </div>
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for key, value in row3 %}
-                            <td>
-                        <!--<div class="product-item">-->
-                            <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}" style = "cursor: pointer;">
-                            </td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for key, value in row3 %}
-                                <td>
-                                    {% if value['cnt']==value['quantity'] %}
-                                        <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
-                                    {% else %}
-                                        <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);" class="add-to-cart">참여하기</button>
-                                    {% endif %}
-                                    <div class="product-info">
-                                        <p class="d-day" data-date="{{ value['date'] }}"></p>
-                                        <p class="product-name">{{key}}</p>
-                                        <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
-                                        <p class="product-price">
-                                            <!--
+                            <span class="discounted-price">
+                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price"
+                                    data-price="{{value['price']}}" data-cnt="{{value['cnt']}}"> </span>원 (개당)
+                            </span>
+                        </p>
+                    </div>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for key, value in row3 %}
+                <td>
+                    <!--<div class="product-item">-->
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}"
+                        style="cursor: pointer;">
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for key, value in row3 %}
+                <td>
+                    {% if value['cnt']==value['quantity'] %}
+                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">마감</button>
+                    {% else %}
+                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(0, 70, 42);"
+                        class="add-to-cart">참여하기</button>
+                    {% endif %}
+                    <div class="product-info">
+                        <p class="d-day" data-date="{{ value['date'] }}"></p>
+                        <p class="product-name">{{key}}</p>
+                        <p class="prog"> 구매확정 : {{value['quantity']}} / {{value['cnt']}}</p>
+                        <p class="product-price">
+                            <!--
                                             <p class="original-price">20,000원</p>
                                             <span class="discount-rate">10%</span>
                                             -->
-                                            <span class="discounted-price">
-                                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
-                                            </span>
-                                        </p>
-                                    </div>
-                                </td>
-                            {% endfor %}
-                        </tr>
-                     
-            </table>   
-<!--
-                {% for key, value in row2 %}
-                <div class="product-item">
-                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{key}}" style = "cursor: pointer;">
-                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
-                    <div class="product-info">
-                        <p class="d-day">D-3</p>
-                        <p class="product-name">{{key}}</p>
-                        <p class="prog">총량 :  / {{value['cnt']}}</p>
-                        <p class="product-price">
-                            
-                            <p class="original-price">20,000원</p>
-                            <span class="discount-rate">10%</span>
-                            
                             <span class="discounted-price">
-                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
+                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price"
+                                    data-price="{{value['price']}}" data-cnt="{{value['cnt']}}"> </span>원 (개당)
                             </span>
                         </p>
                     </div>
-                </div>
+                </td>
                 {% endfor %}
-
-                {% for key, value in row3 %}
-                <div class="product-item">
-                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{key}}" style = "cursor: pointer;">
-                    <button onClick="location.href='/grpurchaseDetail/{{key}}';" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
-                    <div class="product-info">
-                        <p class="d-day">D-3</p>
-                        <p class="product-name">{{key}}</p>
-                        <p class="prog">총량 :  / {{value['cnt']}}</p>
-                        <p class="product-price">
-                            
-                            <p class="original-price">20,000원</p>
-                            <span class="discount-rate">10%</span>
-                            
-                            <span class="discounted-price">
-                                {{value['price']}}원 ➡️ <span style="color:black;" class="per_price" data-price="{{value['price']}}" data-cnt="{{value['cnt']}}">  </span>원 (개당)
-                            </span>
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
-            </table>
-
-
-        </div>
-    -->
+            </tr>
+        </table>
+    </section>
         <!--페이지네이션-->
-    <div class = "page-wrap">
-        <div class = "pagination">
-            <a href = "#">&laquo; 이전</a>
-            {% for i in range(page_count) %}
-            <a href = "{{url_for('grpPurchase', page = i)}}" color = "black">{{i+1}}</a>
-            {% endfor %}
-            <a href = "#">다음 &raquo;</a>
+        <div class="page-wrap">
+            <div class="pagination">
+                <a href="#">&laquo; 이전</a>
+                {% for i in range(page_count) %}
+                <a href="{{url_for('grpPurchase', page = i)}}" color="black">{{i+1}}</a>
+                {% endfor %}
+                <a href="#">다음 &raquo;</a>
+            </div>
         </div>
-    </div>
-
         {%else%}
         <div class="product-list">
             <div class="product-sort">
-                <div class = "product-header">
-                    <p class = "total-count">총 0건</p>
+                <div class="product-header">
+                    <p class="total-count">총 0건</p>
                 </div>
             </div>
-        </div>  
+        </div>
         {% endif %}
         <script>
             // 모든 상품의 가격 정보를 업데이트
@@ -263,7 +217,7 @@
                     span.textContent = '정보 없음'; // 개수가 0인 경우 처리
                 }
             });
-            
+
             // D-Day 계산 함수
             function calculateDDay(targetDateStr) {
                 const currentDate = new Date(); // 현재 날짜
@@ -290,72 +244,5 @@
                     element.textContent = "날짜 정보 없음"; // 날짜 데이터가 없는 경우 처리
                 }
             });
-
-
         </script>
-
-        <!--
-        <main class="product-list">
-            <div class="product-sort">
-                <div class = "product-header">
-                    <p class = "total-count">총 34건</p>
-                   
-                </div>
-            </div>
-        
-            <div class="product-container">
-                <div class="product-item">
-                    <img class="product-image" src="../static/images/공구_햇반솥반.png" alt="햇반솥반">
-                    <button onClick="location.href='/grpurchaseDetail'" style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
-                    <div class="product-info">
-                        <p class="d-day">D-3</p>
-                        <p class="product-name">[햇반] 솥반 12개</p>
-                        <p class="prog">구매확정 / 총량 : 9개 / 12개</p>
-                        <p class="product-price">
-                            <p class="original-price">20,000원</p>
-                            <span class="discount-rate">10%</span>
-                            <span class="discounted-price">18,000원 ~ / 1,500원(개당)</span>
-                        </p>
-                        
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <img class="product-image" src="../static/images/공구_사과.png" alt="Product 2">
-                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
-                    <div class="product-info">
-                        <p class="d-day">D-2</p>
-                        <p class="product-name">강원도 고랭지 사과 15개</p>
-                        <p class="prog">구매확정 / 총량 : 11개 / 15개</p>
-                        <p class="product-price">
-                            <p class="original-price">18,000원</p>
-                            <span class="discount-rate">10%</span>
-                            <span class="discounted-price">16,200원 ~ / 3,240원(개당)</span>
-                        </p>
-                        
-                    </div>
-                </div>
-                <div class="product-item">
-                    <img class="product-image" src="../static/images/공구_갈비.png" alt="Product 3">
-                    <button style="color: rgb(145, 145, 145);" class="add-to-cart">참여하기</button>
-                    <div class="product-info">
-                        <p class="d-day" style="color: rgb(206, 24, 24);">D-Day 03:04:16</p>
-                        <p class="product-name">[능원가든]양념 LA 갈비 9팩</p>
-                        <p class="prog">구매확정 / 총량 : 8팩 / 9팩</p>
-                        <p class="product-price">
-                            <p class="original-price">45,000원</p>
-                            <span class="discount-rate"></span>
-                            <span class="discounted-price">45,000원 ~ / 5,000원(개당)</span>
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
-        </main>
-    
-    </div>
-    
--->
-
-         
 {% endblock section %}
