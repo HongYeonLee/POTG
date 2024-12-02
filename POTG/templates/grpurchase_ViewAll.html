@@ -10,14 +10,15 @@
     <form method="get" action="/grpurchase_ViewAll">
         <button type="submit" name="category" value="" class="category-item" style="margin: 0 auto;"><h2 class="category-name">카테고리</h2></button>
         <div class="category-container">
-            <button type="submit" name="category" value="화장품" class="category-item">화장품</button>
-            <button type="submit" name="category" value="의류" class="category-item">의류</button>
-            <button type="submit" name="category" value="육류 및 해산물" class="category-item">육류 및 해산물</button>
-            <button type="submit" name="category" value="가공식품" class="category-item">가공식품</button>
-            <button type="submit" name="category" value="과일 및 채소" class="category-item">과일 및 채소</button>
-            <button type="submit" name="category" value="냉동식품" class="category-item">냉동식품</button>
-            <button type="submit" name="category" value="전자제품" class="category-item">전자제품</button>
-            <button type="submit" name="category" value="기타" class="category-item">기타</button>
+            {% for category in ["화장품", "의류", "육류 및 해산물", "가공식품", "과일 및 채소", "냉동식품", "전자제품", "기타"] %}
+                <button 
+                    type="submit" 
+                    name="category" 
+                    value="{{ category }}" 
+                    class="category-item {% if current_category == category %}active{% endif %}">
+                    {{ category }}
+                </button>
+            {% endfor %}
         </div>
     </form>
 </section>
@@ -28,36 +29,36 @@
         <a href="/view_grReg" class="open-gr">공동구매 등록</a>
         <h3>필터</h3>
         <hr>
-        <form>
+        <form method="get" action="/grpurchase_ViewAll">
             <div class="filter-group">
                 <h3>진행사항</h3>
                 <div class="filter-item">
-                    <input type="checkbox" id="9">
+                    <input type="checkbox" id="9" name="progress_filter" value="90">
                     <label for="9">90%~</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="8">
+                    <input type="checkbox" id="8" name="progress_filter" value="80">
                     <label for="8">80%~</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="7">
+                    <input type="checkbox" id="7" name="progress_filter" value="70">
                     <label for="7">70%~</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="6">
+                    <input type="checkbox" id="6" name="progress_filter" value="60">
                     <label for="6">60%~</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="5">
+                    <input type="checkbox" id="5" name="progress_filter" value="50">
                     <label for="5">50%~</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="4">
+                    <input type="checkbox" id="4" name="progress_filter" value="0-50">
                     <label for="4">~50%</label>
                 </div>
             </div>
-            <hr>
-        </form>
+            <button type="submit" class = "open-gr" style="font-size: 14px; float: left; border: none;">필터 적용</button>
+        </form>        
     </aside>
     <!--상품 리스트 추가-->
     {% if total > 0 %}
