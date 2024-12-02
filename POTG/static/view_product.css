@@ -88,7 +88,7 @@
 .product-header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 97%;
     padding: 10px 20px; 
 }
 
@@ -101,6 +101,16 @@
 .sort-options {
     display: flex;
     gap: 15px;
+}
+select{
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    height: 45px;
+    border: 1px solid rgb(0, 70, 42);
+    border-radius: 4px;
+    padding: .5em;
+    box-sizing: border-box;
 }
 
 .sort-button {

@@ -19,6 +19,7 @@ def hello():
 def view_logIn():
     return render_template("login.html")
 
+# 로그인 버튼 클릭
 @application.route("/login_confirm", methods=['POST'])
 def login_user():
     id_=request.form['id']
@@ -40,11 +41,12 @@ def logout_user():
     session.clear()
     return redirect(url_for('hello'))
 
-# 회원가입
+# 회원가입 페이지
 @application.route("/signup")
 def view_signUp():
     return render_template("signup.html")
 
+# 회원가입 버튼 클릭
 @application.route("/signup_post", methods=["POST"])
 def register_user():
     data=request.form
@@ -63,23 +65,35 @@ def register_user():
 @application.route("/view_product")
 def view_product():
     page = request.args.get("page", 0, type=int)
+    category = request.args.get("category", "all") #화면에서 셀렉트박스 선택한 카테고리 값 받아오기
     per_page = 10
     per_row = 5
     row_count = int(per_page / per_row)
+        
+    # 페이징 처리
+    start_idx = per_page * page
+    end_idx = per_page * (page + 1)
 
     # 상품 데이터 가져오기
     data = DB.get_items()
     item_counts = len(data)
-
     # 랜덤으로 5개 상품 선택
     popular_items = random.sample(list(data.items()), 5) if item_counts >= 5 else list(data.items())
-
-    # 페이징 처리
-    start_idx = per_page * page
-    end_idx = per_page * (page + 1)
+    # 카테고리별로 db에서 데이터 받아오기
+    if category!="all":
+        data = DB.get_items_bycategory(category)
+        item_counts = len(data)
+    
+    data = dict(sorted(data.items(), key = lambda x: x[0], reverse = False)) #상품 정렬
     paged_data = dict(list(data.items())[start_idx:end_idx])
-    tot_count = len(paged_data)
 
+    # 데이터 개수가 limit보다 크지 않은 경우 처리
+    if item_counts<=per_page:
+        data = dict(list(data.items())[:item_counts])
+    else:
+        data = dict(list(data.items())[start_idx:end_idx])
+
+    tot_count = len(paged_data)
     # 행 별로 나누기
     rows = []
     for i in range(row_count):
@@ -102,7 +116,8 @@ def view_product():
         page=page,
         page_count=page_counts,
         total=item_counts,
-        popular_items=popular_items  # 인기 상품 추가
+        popular_items=popular_items,  # 인기 상품 추가
+        category=category
     )
 
 #동적라우팅
@@ -120,13 +135,6 @@ def reg_review_init(name):
     print(data)
     return render_template("review_write2.html", name=name, id=session['id'], data=data)
 
-# # 리뷰 등록 화면
-# @application.route("/reg_review_init_inView/<name>/")
-# def reg_review_init_inView(name):
-#     data = DB.get_item_byname(str(name))
-#     print(data)
-#     return render_template("review_write2.html", name=name, id=session['id'], data=data)
-
 # 리뷰 db에 등록
 @application.route("/reg_review", methods=['POST'])
 def reg_review():
@@ -139,18 +147,6 @@ def reg_review():
     DB.reg_review(data, image_file.filename, session, itemImgPath)
     return redirect(url_for('view_review'))
 
-# # 리뷰 db에 등록
-# @application.route("/reg_review_inView", methods=['POST'])
-# def reg_review_inView():
-#     data=request.form
-#     print(data['star'])
-#     item = DB.get_item_byname(data['name'])
-#     itemImgPath = item['img_path']
-#     image_file=request.files["file"]
-#     image_file.save("static/images/inputImages/{}".format(image_file.filename))
-#     DB.reg_review(data, image_file.filename, session, itemImgPath)
-#     return redirect(url_for('view_review'))
-
 # 상품 등록
 @application.route("/registerItem")
 def reg_item():
@@ -159,10 +155,6 @@ def reg_item():
         flash("로그인이 필요합니다.")
         return redirect(url_for('view_logIn'))
     return render_template("registerItem.html")
-
-# @application.route("/review_write1")
-# def reg_review1():
-#     return render_template("review_write1.html")
 
 # 리뷰 작성2
 @application.route("/review_write2")
@@ -181,33 +173,62 @@ def grpPurchase():
         flash("로그인이 필요합니다.")
         return redirect(url_for('view_logIn'))
     
-    page = request.args.get("page", 0, type = int)
-    per_page=9
-    per_row=3
-    row_count=int(per_page/per_row)
+    category = request.args.get("category", None)  # 선택한 카테고리
+    progress_filter = request.args.getlist("progress_filter") # 진행률 필터링
+    page = request.args.get("page", 0, type=int)
+    per_page = 9
+    per_row = 3
+    row_count = int(per_page / per_row)
     start_idx = per_page * page
     end_idx = per_page * (page + 1)
-    data=DB.gr_get_items()
+    
+    # 데이터 가져오기
+    data = DB.gr_get_items()
+
+    # 카테고리 필터 적용
+    if category:
+        data = {k: v for k, v in data.items() if v['category'] == category}
+
+    # 진행률 필터
+    if progress_filter:
+        filtered_data = {}
+        for key, item in data.items():
+            progress = (item['quantity'] / item['cnt']) * 100 if item['cnt'] > 0 else 0
+            for filter_value in progress_filter:
+                if filter_value == "0-50":
+                    if progress <= 50:
+                        filtered_data[key] = item
+                else:
+                    try:
+                        if progress >= int(filter_value):
+                            filtered_data[key] = item
+                    except ValueError:
+                        pass  # 예상치 못한 값은 무시
+        data = filtered_data
+    
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
+    
     for i in range(row_count):
-        if(i == row_count-1) and (tot_count % per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        if (i == row_count - 1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i * per_row:])
         else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row]) 
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i * per_row:(i + 1) * per_row]) 
     
     return render_template(
         "grpurchase_ViewAll.html",
         datas=data.items(),
-        row1 = locals()['data_0'].items(),
-        row2 = locals()['data_1'].items(),
-        row3 = locals()['data_2'].items(),
-        limit = per_page,
-        page = page,
-        page_count = int((item_counts/per_page)+1),
-        total = item_counts
+        row1=locals()['data_0'].items(),
+        row2=locals()['data_1'].items(),
+        row3=locals()['data_2'].items(),
+        limit=per_page,
+        page=page,
+        page_count=int((item_counts / per_page) + 1),
+        total=item_counts,
+        current_category=category  # 선택된 카테고리 전달
     )
+
 
 # 공동구매 상품 등록 페이지
 @application.route("/view_grReg")
@@ -243,12 +264,13 @@ def grpurchaseDetail():
 def gr_quantity():
     data = {
             'name': request.form['name'],
-            'quantity': int(request.form['quantity']),
+            # 'quantity': int(request.form['quantity']),
             'cnt': int(request.form['cnt'])  # 주문 가능 수량이 필요하면 추가
         }
+    inputCnt = request.form['quantity']
     # 데이터 업데이트
-    DB.update_quantity(data)
-    updated_item = DB.db.child("gr_item").child(data['name']).get().val()
+    DB.update_quantity(data, inputCnt)
+    # updated_item = DB.db.child("gr_item").child(data['name']).get().val()
     return redirect(url_for('grpPurchase'))
 
 # 리뷰 불러오기
@@ -314,7 +336,6 @@ def reg_buyExchange(name):
         flash("로그인이 필요합니다.")
         return redirect(url_for('view_logIn'))
     data = DB.get_item_byname(name)
-    DB.remove_item(name, session['id'])
     DB.reg_buy(session['id'], data, name)
     flash("상품이 거래 완료되었습니다")
     return redirect(url_for('view_history'))
@@ -377,7 +398,7 @@ def view_history():
     # DB에서 사용자 장바구니 데이터 가져오기
     user_info = DB.get_user_info_byId(user_id)
     history_items = DB.get_history_items(user_id)
-
+    print(history_items)
     return render_template(
         "review_write1.html",
         history_items=history_items,  # 템플릿에서 사용할 데이터
