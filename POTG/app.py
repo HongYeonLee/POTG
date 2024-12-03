@@ -33,6 +33,7 @@ def login_user():
         user_info = DB.get_user_info(id_, pw_hash)
         session['name'] = user_info['name']
         session['address'] = user_info['address']
+        session['email'] = user_info['email']
         return redirect(url_for('hello'))
     else:
         flash("아이디나 비밀번호가 잘못되었습니다")
