@@ -44,7 +44,7 @@
                 </div>
                 <div class = "top5">
                     <div class = "userConvenienceIcon">
-                        <div class = "location"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
+                        <div class = "location" onclick="showAddress()"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
                         <button class = "wishlistIcon" aria-label="찜하기" type = "button" onclick="location.href='/heart';">
                             <img src = "{{ url_for('static', filename='images/찜.png') }}">
                         </button>
@@ -91,4 +91,9 @@
         {% endblock section %}
     </section>
 </body>
+<script>
+    function showAddress(){
+        alert("{{session['name']}}님의 주소는 {{ session['address'] }} 입니다");
+    }
+</script>
 </html>
