@@ -201,15 +201,16 @@
         </table>
     </section>
         <!--페이지네이션-->
-        <div class="page-wrap">
-            <div class="pagination">
-                <a href="#">&laquo; 이전</a>
+        <div class = "page-wrap">
+            <div class = "pagination">
+                <a href = "{{url_for('grpPurchase', page = 0)}}">&laquo; 처음</a>
                 {% for i in range(page_count) %}
-                <a href="{{url_for('grpPurchase', page = i)}}" color="black">{{i+1}}</a>
+                <a href = "{{url_for('grpPurchase', page = i)}}" color = "black">{{i+1}}</a>
                 {% endfor %}
-                <a href="#">다음 &raquo;</a>
+                <a href = "{{url_for('grpPurchase', page = page_count-1)}}" > 끝 &raquo;</a>
             </div>
         </div>
+        grpPurchase
         {%else%}
         <div class="product-list">
             <div class="product-sort">
