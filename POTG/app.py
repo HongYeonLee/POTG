@@ -431,7 +431,7 @@ def view_cart():
 def buyInCart():
     flash("구매 완료 되었습니다!")
     DB.reg_buy_all_in_cart(session['id'])
-    return render_template("review_write1.html")
+    return redirect(url_for('view_history'))
 
 # 장바구니 삭제 기능
 @application.route("/removeCart/<name>/")
