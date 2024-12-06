@@ -450,11 +450,16 @@ def view_history():
     # DB에서 사용자 장바구니 데이터 가져오기
     user_info = DB.get_user_info_byId(user_id)
     history_items = DB.get_history_items(user_id)
-    print(history_items)
+
+    reviewed_status = {}
+    for item_name in history_items.keys():
+        reviewed_status[item_name] = bool(DB.get_review_byname(item_name))
+    
     return render_template(
         "review_write1.html",
         history_items=history_items,  # 템플릿에서 사용할 데이터
-        user_info=user_info
+        user_info=user_info,
+        reviewed_status=reviewed_status
     )
 
 # 좋아요 기능

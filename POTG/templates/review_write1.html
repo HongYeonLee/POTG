@@ -61,9 +61,15 @@
                             <p>{{item_data.price}}</p>
                             <p>{{item_data.method}} • {{item_data.seller}}</p>
                         </div>
-                        <a href = "/reg_review_init/{{item_name}}/" style="text-decoration: none; cursor: pointer;">
-                        <button class="sc-1k9quwu-0 hEHzLT sc-gnmni8-8 kiiuoA">리뷰 작성하기</button>
+                        {% if reviewed_status[item_name] %}
+                        <a href = "#" style="text-decoration: none; cursor: none;">
+                            <button class="sc-1k9quwu-0 hEHzLT sc-gnmni8-8 kiiuoA" style="background-color: rgb(228, 228, 228);">리뷰 작성 완료</button>
                         </a>
+                        {% else %}
+                        <a href = "/reg_review_init/{{item_name}}/" style="text-decoration: none; cursor: pointer;">
+                            <button class="sc-1k9quwu-0 hEHzLT sc-gnmni8-8 kiiuoA">리뷰 작성하기</button>
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
