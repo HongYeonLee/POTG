@@ -17,7 +17,7 @@ class DBhandler:
             "pw": pw,
             "pwConfirm": pwConfirm,
             "name" : data['name'],
-            "emailId" : data['emailId'],
+            "email" : data['email'],
             "mobileNumber" : data['mobileNumber'],
             "gender" : data['gender'],
             "birthYear" : data['birthYear'],
@@ -25,12 +25,9 @@ class DBhandler:
             "birthDay" : data['birthDay'],
             "address" : data['address']
         }
-        if self.user_duplicate_check(str(data['id'])):
-            self.db.child("user").push(user_info)
-            print(data)
-            return True
-        else:
-            return False
+        self.db.child("user").push(user_info)
+        print(data)
+        return True
     
     # 아이디 중복 체크
     def user_duplicate_check(self, id_string):
@@ -46,6 +43,19 @@ class DBhandler:
                     return False
             return True
 
+    # 이메일 중복 체크
+    def email_duplicate_check(self, email_string):
+        users = self.db.child("user").get()
+
+        if str(users.val()) == "None":
+            return True
+        else:
+            for res in users.each():
+                value = res.val()
+                if value['email'] == email_string:
+                    return False 
+            return True
+        
     # 이미 해당 유저가 존재하는지 체크
     def find_user(self, id_, pw_):
         users = self.db.child("user").get()
@@ -70,7 +80,33 @@ class DBhandler:
             value = res.val()
             if value['id'] == id_:
                 return value
+            
+    # 이름과 전화번호로 유저 찾기
+    def find_user_by_name_and_phone(self, name, phone):
+        users = self.db.child("user").get()  # 모든 사용자 데이터를 가져옴
+        if not users.val():  # 데이터가 없는 경우
+            return None
+        
+        for res in users.each():
+            value = res.val()  # 각 사용자 정보
+            if value.get("name") == name and value.get("mobileNumber") == phone:
+                return value  # 일치하는 사용자 정보 반환
+        
+        return None  # 일치하는 사용자가 없는 경우
     
+    # 아이디와 전화번호로 유저 찾기
+    def find_user_by_id_and_phone(self, user_id, phone):
+        users = self.db.child("user").get()  # 모든 사용자 데이터를 가져옴
+        if not users.val():  # 데이터가 없는 경우
+            return None
+        
+        for res in users.each():
+            value = res.val()  # 각 사용자 정보
+            if value.get("id") == user_id and value.get("mobileNumber") == phone:
+                return value  # 일치하는 사용자 정보 반환
+        
+        return None  # 일치하는 사용자가 없는 경우
+
     # 상품 등록
     def insert_item(self, name, data, img_path):
         item_info ={

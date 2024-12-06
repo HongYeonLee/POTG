@@ -72,7 +72,6 @@
             <tr>
                 {% for key, value in row1 %}
                 <td>
-                    <!--<div class="product-item">-->
                     {% if value['cnt']==value['quantity'] %}
                     <div class="product-image-container">
                         <img class="product-image-overlay" src="../static/images/마감.png">
@@ -116,9 +115,16 @@
             <tr>
                 {% for key, value in row2 %}
                 <td>
-                    <!--<div class="product-item">-->
-                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}"
-                        style="cursor: pointer;">
+                    {% if value['cnt']==value['quantity'] %}
+                    <div class="product-image-container">
+                        <img class="product-image-overlay" src="../static/images/마감.png">
+                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                            alt="{{ key }}">
+                    </div>
+                    {% else %}
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                        onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style="cursor: pointer;">
+                    {% endif %}
                 </td>
                 {% endfor %}
             </tr>
@@ -152,9 +158,16 @@
             <tr>
                 {% for key, value in row3 %}
                 <td>
-                    <!--<div class="product-item">-->
-                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}" alt="{{ key }}"
-                        style="cursor: pointer;">
+                    {% if value['cnt']==value['quantity'] %}
+                    <div class="product-image-container">
+                        <img class="product-image-overlay" src="../static/images/마감.png">
+                        <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                            alt="{{ key }}">
+                    </div>
+                    {% else %}
+                    <img class="product-image" src="../static/images/inputImages/{{value['img_path']}}"
+                        onClick="location.href='/grpurchaseDetail/{{key}}';" alt="{{ key }}" style="cursor: pointer;">
+                    {% endif %}
                 </td>
                 {% endfor %}
             </tr>
@@ -188,13 +201,13 @@
         </table>
     </section>
         <!--페이지네이션-->
-        <div class="page-wrap">
-            <div class="pagination">
-                <a href="#">&laquo; 이전</a>
+        <div class = "page-wrap">
+            <div class = "pagination">
+                <a href = "{{url_for('grpPurchase', page = 0)}}">&laquo; 처음</a>
                 {% for i in range(page_count) %}
-                <a href="{{url_for('grpPurchase', page = i)}}" color="black">{{i+1}}</a>
+                <a href = "{{url_for('grpPurchase', page = i)}}" color = "black">{{i+1}}</a>
                 {% endfor %}
-                <a href="#">다음 &raquo;</a>
+                <a href = "{{url_for('grpPurchase', page = page_count-1)}}" > 끝 &raquo;</a>
             </div>
         </div>
         {%else%}
@@ -226,14 +239,14 @@
                 const diffTime = targetDate - currentDate; // 밀리초 단위 차이
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // 일 단위 차이 계산
 
-                if (diffDays > 0) {
-                    return `D-${diffDays}`; // 목표 날짜까지 남은 일수
-                } else if (diffDays === 0) {
-                    return "D-Day"; // 오늘이 목표 날짜
-                } else {
-                    return `D+${Math.abs(diffDays)}`; // 목표 날짜를 지난 경우
-                }
-            }
+        if (diffDays > 0) {
+            return `D-${diffDays}`; // 목표 날짜까지 남은 일수
+        } else if (diffDays === 0) {
+            return "D-Day"; // 오늘이 목표 날짜
+        } else {
+            return `D+${Math.abs(diffDays)}`; // 목표 날짜를 지난 경우
+        }
+    }
 
             // 모든 d-day 요소에 디데이 값 업데이트
             document.querySelectorAll(".d-day").forEach(element => {

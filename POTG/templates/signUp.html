@@ -96,22 +96,17 @@
                             <input id ="email" type = "hidden" name = "email" value>
                             <input id = "emailId" name = "emailId" placeholder="예: potg" type = "text" required class = "inputEmail" value>
                             <div class = "emialAt">@</div>
-                            <div class = "emailBack">
-                                <button type = "button" class = "btnTextEmpty">선택하기</button>
-                                <button type = "button" class = "btnSelect">
-                                    <img style="width: 10px;margin-right: 10px;" src = "../static/images/이메일드롭다운버튼.png" alt = "arrowDown">
-                                </button>
-                                <!--이부분은 display:none 되어있음-->
-                                <div class = "emailAdrSelect">
-                                    <button type = "button" class = "dropdown__item">naver.com</button>
-                                    <button type = "button" class = "dropdown__item">gmail.com</button>
-                                    <button type = "button" class = "dropdown__item">hanmail.net</button>
-                                    <button type = "button" class = "dropdown__item">kakao.com</button>
-                                    <button type = "button" class = "dropdown__item">daum.net</button>
-                                    <button type = "button" class = "dropdown__item">hotmail.com</button>
-                                    <button type = "button" class = "dropdown__item">yahoo.co.kr</button>
-                                    <button type = "button" class = "dropdown__item">직접입력</button>
-                                </div>
+                            <div class="emailBack">
+                                <select id="emailDomain" name="emailDomain" class="emailDropdown" onchange="toggleCustomDomain()">
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="hanmail.net">ewhain.net</option>
+                                    <option value="kakao.com">ewha.ac.kr</option>
+                                    <option value="daum.net">kakao.com</option>
+                                    <option value="hotmail.com">daum.net</option>
+                                    <option value="custom">직접 입력</option>
+                                </select>
+                                <input id="customDomain" name="customDomain" placeholder="직접 입력" type="text" class="customEmail">
                             </div>
                         </div>
                     </div>

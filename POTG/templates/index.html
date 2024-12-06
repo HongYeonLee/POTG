@@ -32,7 +32,7 @@
             <div class = "top2">
                 <div class = "top3">
                     <a href="/"><img src = "{{ url_for('static', filename='images/POTG로고.png') }}" alt = "POTG로고" class = "logo" width="110px"></a>
-                    <img src = "{{ url_for('static', filename='images/ProjectOfTheGenius로고.PNG') }}" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px">
+                    <a href="/"><img src = "{{ url_for('static', filename='images/ProjectOfTheGenius로고.PNG') }}" alt = "ProjectOfTheGenius로고" class = "logoFullname" width="40px"></a>
                 </div>
                 <div class = "top4">
                     <!-- <div class = "searchBox">
@@ -44,7 +44,7 @@
                 </div>
                 <div class = "top5">
                     <div class = "userConvenienceIcon">
-                        <div class = "location"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
+                        <div class = "location" onclick="showAddress()"><i class="fas fa-solid fa-location-dot" style="color: #00462a;"></i></div>
                         <button class = "wishlistIcon" aria-label="찜하기" type = "button" onclick="location.href='/heart';">
                             <img src = "{{ url_for('static', filename='images/찜.png') }}">
                         </button>
@@ -91,4 +91,9 @@
         {% endblock section %}
     </section>
 </body>
+<script>
+    function showAddress(){
+        alert("{{session['name']}}님의 주소는 {{ session['address'] }} 입니다");
+    }
+</script>
 </html>
