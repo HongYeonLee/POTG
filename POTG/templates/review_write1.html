@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">  
 {% endblock %}
 {% block section %}
+{% with mesg = get_flashed_messages() %}
+{% if mesg !=[] %}
+<script>alert("{{ mesg[0] }}")</script>
+{% endif %}
+{% endwith %}
 <section class="popular-reviews">
     <h2>거래 내역</h2><br>
     <!-- <div class="review-container">

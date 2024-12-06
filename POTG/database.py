@@ -25,6 +25,9 @@ class DBhandler:
             "birthDay" : data['birthDay'],
             "address" : data['address']
         }
+        self.db.child("user").push(user_info)
+        print(data)
+        return True
     
     # 아이디 중복 체크
     def user_duplicate_check(self, id_string):

@@ -429,9 +429,9 @@ def view_cart():
 # 장바구니 상품 구매 기능
 @application.route("/buyInCart")
 def buyInCart():
-    flash("구매 완료 되었습니다!")
+    flash("거래 완료 되었습니다!")
     DB.reg_buy_all_in_cart(session['id'])
-    return render_template("review_write1.html")
+    return redirect(url_for('view_history'))
 
 # 장바구니 삭제 기능
 @application.route("/removeCart/<name>/")
