@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../static/review_write2.css">
 <link rel="stylesheet" href="../static/indexStyle.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='review_write2.css') }}">  
-<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">  ㅐ
+<link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}"> 
 {% endblock %}
 {% block section %}
 <form action="/reg_review" method="post" enctype="multipart/form-data">
@@ -42,14 +42,34 @@
 
         <div class="section" style="margin-bottom: 0px;">
             <label for="review-photo">사진 첨부하기</label>
-            <label for = "photo"><img id ="changeableImg" style="width: 12%;" src = "{{ url_for('static', filename='images/리뷰사진등록이미지.PNG') }}" class = "imageUploadImg"></label>
-            <input class = "imageUploadBtn" type="file" name="file" id="photo" accept=".png, .jpeg, .jpg" style="display: none;"
-                    onchange="previewImage(event)"><br>
+            <label for="photo">
+                <img id="changeableImg" style="width: 12%;" 
+                     src="{{ url_for('static', filename='images/리뷰사진등록이미지.PNG') }}" 
+                     class="imageUploadImg">
+            </label>
+            <input class="imageUploadBtn" 
+                   type="file" 
+                   name="file" 
+                   id="photo" 
+                   accept=".png, .jpeg, .jpg" 
+                   style="display: none;" 
+                   onchange="previewImage(event)" 
+                   required>
+            <br>
         </div>
-
+        
+        <script>
+            function checkImage() {
+                const photoInput = document.getElementById("photo");
+                if (!photoInput.value) {
+                    alert("이미지를 첨부해주세요!");
+            }
+        }
+        </script>
+        
         <div class="buttons">
             <button class="save-draft">임시 저장</button>
-            <button type ="submit" class="submit-review">작성 완료</button>
+            <button type ="submit" onclick="checkImage()" class="submit-review">작성 완료</button>
             <button class="cancel-review">작성 취소</button>
         </div>
     </div>
