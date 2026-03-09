@@ -1,9 +1,12 @@
+<br /><br />
 <div align="center">
 
 <!-- logo -->
 <img width="940" height="260" alt="로고" src="https://github.com/user-attachments/assets/e958f6fa-6e1f-4ee8-95fd-25312ce674e7" />
 
 </div> 
+<br />
+<br />
 
 ## 📝 소개
 2024-2학기 이화여자대학교 컴퓨터공학과 오픈SW플랫폼 수업을 수강하며 작업한 공동구매 웹사이트 프로젝트 POTG입니다.
